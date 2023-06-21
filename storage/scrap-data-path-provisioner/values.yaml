@@ -1,0 +1,8 @@
+storageClass:
+  name: scrap-data
+  provisionerName: csi.wagner.gg/scrap-data
+
+nodePathMap:
+- node: spirit
+  paths:
+  - /srv/nvme/scrap-data
