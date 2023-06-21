@@ -7,3 +7,4 @@ helmCharts:
   releaseName: scrap-data-path-provisioner
   repo: https://charts.containeroo.ch
   valuesFile: values.yaml
+  namespace: storage
