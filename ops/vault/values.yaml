@@ -1,4 +1,0 @@
-server:
-  dataStorage:
-    size: 1Mi
-    storageClass: container-data
