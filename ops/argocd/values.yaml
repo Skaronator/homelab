@@ -1,9 +1,6 @@
 configs:
   cm:
     kustomize.buildOptions: --enable-helm
-  repositories:
-    main:
-      url: https://github.com/Skaronator/k8s-homelab.git
 
 server:
   ingress:
