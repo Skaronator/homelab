@@ -18,6 +18,8 @@ spec:
         repoURL: https://github.com/Skaronator/k8s-homelab.git
         targetRevision: main
         path: '{{path}}'
+        kustomize:
+          namespace: '{{path[0]}}'
       destination:
         name: in-cluster
         namespace: '{{path[0]}}'	
