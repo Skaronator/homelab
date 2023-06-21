@@ -1,3 +1,6 @@
+configmap:
+  name: scrap-data-path-provisioner
+
 storageClass:
   name: scrap-data
   provisionerName: csi.wagner.gg/scrap-data
