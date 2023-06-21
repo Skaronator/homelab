@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1	
+kind: ApplicationSet	
+metadata:	
+  name: apps	
+spec:	
+  generators:	
+  - git:	
+      repoURL: https://github.com/Skaronator/k8s-homelab.git	
+      revision: main	
+      directories:	
+      - path: "**/*"	
+  template:	
+    metadata:	
+      name: '{{path[1]}}'
+    spec:	
+      project: default	
+      source:	
+        repoURL: https://github.com/Skaronator/k8s-homelab.git	
+        targetRevision: main	
+        path: '{{path}}'	
+      destination:	
+        server: https://kubernetes.default.svc	
+        namespace: '{{path[0]}}'	
+      syncPolicy:	
+        automated:	
+          selfHeal: true	
+          prune: true	
+        syncOptions:	
+        - CreateNamespace=true
+        - ServerSideApply=true
