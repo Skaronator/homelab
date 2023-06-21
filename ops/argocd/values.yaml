@@ -7,7 +7,7 @@ server:
     enabled: true
     ingressClassName: nginx-private
     annotations:
-      # cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/cluster-issuer: letsencrypt
       external-dns.alpha.kubernetes.io/target: 192.168.0.5
       nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     hosts:
