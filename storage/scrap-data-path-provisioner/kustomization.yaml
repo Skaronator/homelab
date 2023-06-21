@@ -4,6 +4,6 @@ kind: Kustomization
 helmCharts:
 - name: argo-cd
   version: 0.0.24
-  releaseName: argocd
+  releaseName: scrap-data-path-provisioner
   repo: https://charts.containeroo.ch
   valuesFile: values.yaml
