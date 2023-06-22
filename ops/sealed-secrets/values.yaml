@@ -1,0 +1,4 @@
+ingress:
+  enabled: true
+  ingressClassName: nginx-private-new
+  hostname: sealed-secrets.wagner.gg
