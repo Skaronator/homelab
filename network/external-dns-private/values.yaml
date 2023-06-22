@@ -5,7 +5,7 @@ image:
 policy: "sync"
 
 extraArgs: 
-- "--ingress-class=nginx-private-new"
+- "--ingress-class=nginx-private"
 
 provider: "adguardhome"
 registry: "noop"

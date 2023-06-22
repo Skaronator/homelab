@@ -5,7 +5,7 @@ image:
 policy: "sync"
 
 extraArgs: 
-- "--ingress-class=nginx-public-new"
+- "--ingress-class=nginx-public"
 
 provider: "cloudflare"
 registry: "txt"
