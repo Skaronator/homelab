@@ -1,0 +1,4 @@
+installCRDs: true
+
+startupapicheck:
+  enabled: false
