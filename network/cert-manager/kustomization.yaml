@@ -4,7 +4,7 @@ kind: Kustomization
 helmCharts:
 - repo: https://charts.jetstack.io
   name: cert-manager
-  version: v1.12.0
+  version: v1.12.2
   includeCRDs: true
   releaseName: cert-manager
   valuesFile: values.yaml
