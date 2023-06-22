@@ -1,0 +1,26 @@
+image:
+  tag: "27-amd64"
+  repository: "ghcr.io/skaronator/external-dns"
+        
+policy: "sync"
+
+extraArgs: 
+- "--ingress-class=nginx-private-new"
+
+provider: "adguardhome"
+registry: "noop"
+interval: "15s"
+
+env:
+- name: EXTERNAL_DNS_ADGUARDHOME_SERVER
+  value: http://192.168.0.2
+- name: EXTERNAL_DNS_ADGUARDHOME_USERNAME
+  valueFrom:
+    secretKeyRef:
+      name: external-dns-adguard-home
+      key: username
+- name: EXTERNAL_DNS_ADGUARDHOME_PASSWORD
+  valueFrom:
+    secretKeyRef:
+      name: external-dns-adguard-home
+      key: password
