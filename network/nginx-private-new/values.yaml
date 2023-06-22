@@ -1,6 +1,4 @@
-terminationGracePeriodSeconds: 15
-updateStrategy:
-  type: "Recreate"
+terminationGracePeriodSeconds: 30
 
 config:
   enable-brotli: "true"
@@ -10,17 +8,7 @@ config:
 admissionWebhooks:
   enabled: false
 
-service:
-  type: ClusterIP
-
 # electionID:"ingress-${each.key}-controller-leader"
 ingressClassResource:
   name: nginx-private-new
   controllerValue: k8s.io/ingress-nginx-private-new
-
-metrics:
-  enabled: true
-  service:
-    annotations:
-      "prometheus.io/scrape": "true"
-      "prometheus.io/port": "10254"
