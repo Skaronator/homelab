@@ -6,6 +6,7 @@ namespace: ops
 resources:
 - base/namespace.yaml
 - base/applicationset.yaml
+- base/project.yaml
 
 helmCharts:
 - name: argo-cd
