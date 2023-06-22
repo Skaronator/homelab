@@ -9,6 +9,8 @@ spec:
       revision: main
       directories:
       - path: "**/*"
+      - path: "_charts"
+        exclude: true
   template:
     metadata:
       name: '{{path[1]}}'
