@@ -8,7 +8,7 @@ server:
     ingressClassName: nginx-private
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
-      external-dns.alpha.kubernetes.io/target: 192.168.0.5
+      # external-dns.alpha.kubernetes.io/target: 192.168.0.5
       nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     hosts:
     - argocd.wagner.gg
