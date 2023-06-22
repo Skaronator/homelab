@@ -9,9 +9,6 @@ controller:
   admissionWebhooks:
     enabled: false
 
-  service:
-    type: ClusterIP
-
   ingressClassResource:
-    name: nginx-public-new
-    controllerValue: k8s.io/ingress-nginx-public-new
+    name: nginx-private
+    controllerValue: k8s.io/ingress-nginx-private
