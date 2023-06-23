@@ -58,3 +58,13 @@ homepage:
   icon: ""
   weight: 50
   widgetType: ""
+
+configMaps:
+# - name: ""
+#   mountPath: ""
+#   subPath: ""
+#   content: ""
+
+envs: {}
+
+secretEnvs: {}

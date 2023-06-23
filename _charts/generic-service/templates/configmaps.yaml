@@ -1,0 +1,8 @@
+{{- range .Values.configMaps }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+name: {{ include "generic-service.name" $. }}-{{ .name }}
+data:
+  {{ .subPath | quote }}: {{ .content }} 
+{{- end }}
