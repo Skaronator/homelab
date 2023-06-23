@@ -46,10 +46,14 @@ spec:
                 name: {{- include "generic-service.name" . -}}
                 key: {{ $key }}
         {{- end }}
+          {{- if .Values.ports -}}
           ports:
-          - name: http
-            containerPort: {{ .Values.service.port }}
-            protocol: TCP
+          {{- range .Values.ports }}
+          - name: {{ .name }}
+            containerPort: {{ .containerPort }}
+            protocol: {{ .protocol | default "TCP" }}
+          {{- end }}
+          {{- end -}}
           livenessProbe:
             httpGet:
               path: /

@@ -1,3 +1,4 @@
+{{- if .Values.ports -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -7,9 +8,12 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+    {{- range .Values.ports }}
+    - name: {{ .name }}
+      port: {{ .containerPort }}
+      targetPort: {{ .containerPort }}
+      protocol: {{ .protocol | default "TCP" }}
+    {{- end }}
   selector:
-    {{- include "generic-service.selectorLabels" . | nindent 4 }}
+    {{- include "generic-service.selectorLabels" . | nindent 4 }}          
+{{- end -}}
