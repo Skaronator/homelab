@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: ""
   pullPolicy: IfNotPresent
-  tag: "2"
+  tag: ""
 
 serviceAccount:
   annotations: {}
