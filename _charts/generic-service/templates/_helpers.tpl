@@ -20,4 +20,24 @@ app.kubernetes.io/version: {{ .Values.image.tag | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
+{{- define "generic-service.podHealthCheck" -}}
+{{- with .Values.health }}
+{{- if has .type (list "HTTP" "HTTPS") }}
+httpGet:
+  path: {{ .path }}
+  port: {{ .port }}
+  scheme: {{ .scheme }}
+{{- end }}
+{{- if has .type (list "TCP") }}
+tcpSocket:
+{{- /* Workaround since we cannot use the port name for tcpSockets health checks */}}
+{{- range $ports := $.Values.ports  }}
+{{- if eq $ports.name $.Values.health.port }}
+  port: {{ $ports.containerPort }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+
 

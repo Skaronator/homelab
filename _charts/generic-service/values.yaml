@@ -25,18 +25,21 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-ports: 
+health:
+  enabled: true
+  port: main
+  type: HTTP
+  path: /
+
+ports: []
 # - name: ""
 #   containerPort: 0
 #   protocol: TCP
 
-service:
-  type: ClusterIP
-  port: 80
-
 ingress:
   private: false
   public: false
+  port: main
   annotations: {}
   host: ""
 
@@ -64,12 +67,20 @@ homepage:
   weight: 50
   widgetType: ""
 
-configMaps:
+envs: {}
+
+secretEnvs: {}
+
+configMaps: []
 # - name: ""
 #   mountPath: ""
 #   subPath: ""
 #   content: ""
 
-envs: {}
+hostPaths: []
+# - name: ""
+#   hostPath: ""
+#   containerPath: ""
+#   readOnly: false
+#   type: "DirectoryOrCreate"
 
-secretEnvs: {}

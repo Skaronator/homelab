@@ -1,4 +1,4 @@
-{{- if and (.Values.ports .Values.ingress.private) -}}
+{{- if and .Values.ports .Values.ingress.private -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -31,5 +31,5 @@ spec:
               service:
                 name: {{- include "generic-service.name" . -}}
                 port:
-                  number: {{ .Values.service.port }}
+                  number: {{ .Values.ingress.port }}
 {{- end }}
