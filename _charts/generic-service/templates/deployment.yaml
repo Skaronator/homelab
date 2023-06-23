@@ -32,6 +32,20 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args: {{ .Values.args }}
           command: {{ .Values.command }}
+          envs:
+          - name: TZ
+            value: Europe/Berlin
+        {{- range $key, $value := .Values.envs }}
+          - name: {{ $key }}
+            value: {{ $value }}
+        {{- end }}
+        {{- range $key, $value := .Values.secretEnvs }}
+          - name: {{ $key }}
+            valueFrom:
+              secretKeyRef:
+                name: {{- include "generic-service.name" . -}}
+                key: {{ $key }}
+        {{- end }}
           ports:
           - name: http
             containerPort: {{ .Values.service.port }}
@@ -50,7 +64,22 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if .Values.configMaps -}}
+          volumeMount:
+            {{- range .Values.configMaps }}
+            - name: config
+              mountPath: {{ .mountPath | quote }}
+              subPath: {{ .subPath | quote }}
+            {{- end }}
+          {{- end -}}
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if .Values.configMaps -}}
+      volumes:
+      - name: config
+        configMap:
+          name: {{ include "generic-service.name" . }}
+      {{- end -}}
