@@ -1,0 +1,31 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+  name: cert-manager-cloudflare
+spec:
+  encryptedData:
+    apitoken: AgAcla7Dt/PxVvBdwPXMfQU7SW6npSBAMvvtS0QJnz5GO5TwO4kjHfK7ezwfjyPVk8I26obVRPkQ/CjaAL136HS1DQ5C5dXsO1f02adzRyO/oiLBWX+xg91Syscz2+MLOsVoKiTD4PVSfwpnkkk2Q6l+a/+Nz8hgmZE7wLejHT/CJzYBi8P8MNP26ZpKZc4k6//5V12qSq89Uu4gs6Jcd8abxOs43sZJLArtElkwC+ObJr+iPOM5ZG7VX4LaWxWlQ7Z5VJZQOUBweeIGR3uO7K03GgkkcdzGTIemUsOtlD5LvuSQ8I1explZZOZVsLc/SsUSn+eX6ML16yomhUofBfHEBRXcUlp5ZIPSkVWR3WmFDD3t/dms/fCzCCT4OqzC5yKIsns/TUtiebXwd+oQrYbVS0Gir76GQocgGxoSrrfToEDvATxGgFF7YyTcChzuvsfhsvPQ+/KQJrD9n4vNaViVyTJPaL2zNBNG0MhunUhFjtN2LFDk6+PhYRK36/Ur0AOdPsNu2I7eOTd8fNL+lU2MmN9OTGbuaTwyPbBezkN+2QbCV6c3EVWZRjJskncny9qaQuMeQTzVSatRjqj+tt6TG5lj0CBuwavfNVmslywk7DDvKwkSMr0MZ7kOFvUmVi07tsaM0NS0uZ99mHU4pNuddB1leDNdeWmHe72JkeLnROqpfwj+J+VtdFDX7CNec4Er4ifQTV32w/xuvOWuIBt/e9kSkCaStSdlzrTYkCBIKZcouG90VboR
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    email: letsencrypt@skaronator.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    preferredChain: ""
+    privateKeySecretRef:
+      name: letsencrypt-acme-key
+    solvers:
+    - dns01:
+        cloudflare:
+          apiTokenSecretRef:
+            key: apitoken
+            name: cert-manager-cloudflare
