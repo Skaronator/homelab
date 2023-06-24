@@ -1,0 +1,11 @@
+configmap:
+  name: container-data-path-provisioner
+
+storageClass:
+  name: container-data
+  provisionerName: csi.wagner.gg/container-data
+
+nodePathMap:
+- node: spirit
+  paths:
+  - /srv/nvme/container-data
