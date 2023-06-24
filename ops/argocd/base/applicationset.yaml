@@ -9,7 +9,7 @@ spec:
       revision: main
       directories:
       - path: "**/*"
-      - path: "_charts/**"
+      - path: ".*/**"
         exclude: true
   template:
     metadata:
