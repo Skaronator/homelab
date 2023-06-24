@@ -5,7 +5,8 @@ metadata:
   labels:
     {{- include "generic-service.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicas }}
+  revisionHistoryLimit: 3
   strategy:
     type: {{ .Values.strategyType }}
   selector:
@@ -65,7 +66,7 @@ spec:
       {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
-        {{- if or .Values.configMaps .Values.hostPaths }}
+        {{- if or .Values.configMaps .Values.hostPaths .Values.pvcPaths }}
         volumeMounts:
         {{- range .Values.configMaps }}
         - name: config
@@ -77,8 +78,12 @@ spec:
           mountPath: {{ .containerPath | quote }}
           readOnly: {{ .readOnly | default false }}
         {{- end }}
+        {{- range .Values.pvcPaths }}
+        - name: {{ .name }}
+          mountPath: {{ .path | quote }}
+        {{- end }}
         {{- end -}}
-      {{- if or .Values.configMaps .Values.hostPaths }}
+      {{- if or .Values.configMaps .Values.hostPaths .Values.pvcPaths }}
       volumes:
       {{- if .Values.configMaps }}
       - name: config
@@ -90,6 +95,11 @@ spec:
         hostPath:
           path: {{ .hostPath | quote }}
           type: {{ .type | default "DirectoryOrCreate" }}
+      {{- end }}
+      {{- range .Values.pvcPaths }}
+      - name: {{ .name }}
+        persistentVolumeClaim:
+          claimName: {{ include "generic-service.name" $ }}-{{ .name }}
       {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}

@@ -14,6 +14,11 @@ hostPaths:
   hostPath: /srv/nvme/scrap-data/monero
   containerPath: /root/.bitmonero
 
+# pvcPaths:
+# - name: data
+#   class: scrap-data
+#   path: /root/.bitmonero
+
 ports: 
 - name: main
   containerPort: 18089
