@@ -1,7 +1,0 @@
-ingress:
-  enabled: true
-  ingressClassName: nginx-private
-  hostname: sealed-secrets.wagner.gg
-  tls: true
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
