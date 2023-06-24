@@ -32,11 +32,14 @@ spec:
           allowPrivilegeEscalation: false
           runAsUser: 0
         command:
-        - sh
+        - /bin/sh
+        args:
         - -c
-        {{- range .Values.hostPaths }}
-        - chmod -R 777 {{ .containerPath | quote }}
-        {{- end }}
+        - |
+          set -ex;
+          {{- range .Values.hostPaths }}
+          chmod -R 777 {{ .containerPath | quote }};
+          {{- end }}
         volumeMounts:
         {{- range .Values.hostPaths }}
         - name: {{ .name }}
@@ -77,7 +80,7 @@ spec:
       {{- if and .Values.ports .Values.health.enabled }}
         startupProbe:
           {{- include "generic-service.podHealthCheck" . | indent 10 }}
-          failureThreshold: 0
+          failureThreshold: 12
         livenessProbe:
           {{- include "generic-service.podHealthCheck" . | indent 10 }}
         readinessProbe:

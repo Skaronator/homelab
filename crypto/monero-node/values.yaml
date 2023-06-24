@@ -9,7 +9,7 @@ args:
 - "--no-igd"
 - "--no-zmq"
 
-replicas: 0
+replicas: 1
 
 hostPaths:
 - name: data
