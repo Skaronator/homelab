@@ -1,0 +1,17 @@
+configs:
+  cm:
+    kustomize.buildOptions: --enable-helm
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx-private
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    hosts:
+    - argocd.wagner.gg
+    tls:
+    - secretName: argocd.wagner.gg
+      hosts:
+      - argocd.wagner.gg
