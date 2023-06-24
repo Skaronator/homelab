@@ -9,15 +9,12 @@ args:
 - "--no-igd"
 - "--no-zmq"
 
+replicas: 0
+
 hostPaths:
 - name: data
   hostPath: /srv/nvme/scrap-data/monero
-  containerPath: /root/.bitmonero
-
-# pvcPaths:
-# - name: data
-#   class: scrap-data
-#   path: /root/.bitmonero
+  containerPath: /home/monero/.bitmonero
 
 ports: 
 - name: main
@@ -28,6 +25,3 @@ ports:
 health:
   host: monero.wagner.gg
   path: "/get_info"
-  
-securityContext:
-  runAsUser: 0

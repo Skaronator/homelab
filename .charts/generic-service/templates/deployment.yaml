@@ -6,7 +6,7 @@ metadata:
     {{- include "generic-service.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 2
   strategy:
     type: {{ .Values.strategyType }}
   selector:
@@ -24,6 +24,25 @@ spec:
       serviceAccountName: {{ include "generic-service.name" . }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.hostPaths }}
+      initContainers:
+      - name: prepare-storage
+        image: busybox:1.36.1
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0
+        command:
+        - sh
+        - -c
+        {{- range .Values.hostPaths }}
+        - chmod -R 777 {{ .containerPath | quote }}
+        {{- end }}
+        volumeMounts:
+        {{- range .Values.hostPaths }}
+        - name: {{ .name }}
+          mountPath: {{ .containerPath | quote }}
+        {{- end }}
+      {{- end }}
       containers:
       - name: {{ include "generic-service.name" . }}
         securityContext: {{- toYaml .Values.securityContext | nindent 10 }}
