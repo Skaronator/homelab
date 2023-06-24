@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "generic-service.name" . }}
+  labels:
+    {{- include "generic-service.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: {{ .Values.strategyType }}
+  selector:
+    matchLabels:
+      {{- include "generic-service.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "generic-service.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "generic-service.name" . }}
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+      securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+      - name: {{ include "generic-service.name" . }}
+        securityContext: {{- toYaml .Values.securityContext | nindent 10 }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        args: {{ toYaml .Values.args | nindent 8 }}
+        {{- with .Values.command }}
+        command: {{ toYaml . | nindent 8 }}
+        {{- end }}
+        env:
+        - name: TZ
+          value: Europe/Berlin
+      {{- range $key, $value := .Values.envs }}
+        - name: {{ $key }}
+          value: {{ $value }}
+      {{- end }}
+      {{- range $key, $value := .Values.secretEnvs }}
+        - name: {{ $key }}
+          valueFrom:
+            secretKeyRef:
+              name: {{- include "generic-service.name" . -}}
+              key: {{ $key }}
+      {{- end }}
+      {{- if .Values.ports }}
+        ports:
+        {{- range .Values.ports }}
+        - name: {{ .name }}
+          containerPort: {{ .containerPort }}
+          protocol: {{ .protocol | default "TCP" }}
+        {{- end }}
+      {{- end }}
+      {{- if and .Values.ports .Values.health.enabled }}
+        startupProbe:
+          {{- include "generic-service.podHealthCheck" . | indent 10 }}
+          failureThreshold: 0
+        livenessProbe:
+          {{- include "generic-service.podHealthCheck" . | indent 10 }}
+        readinessProbe:
+          {{- include "generic-service.podHealthCheck" . | indent 10 }}
+      {{- end }}
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+        {{- if or .Values.configMaps .Values.hostPaths }}
+        volumeMounts:
+        {{- range .Values.configMaps }}
+        - name: config
+          mountPath: {{ .mountPath | quote }}
+          subPath: {{ .subPath | quote }}
+        {{- end }}
+        {{- range .Values.hostPaths }}
+        - name: {{ .name }}
+          mountPath: {{ .containerPath | quote }}
+          readOnly: {{ .readOnly | default false }}
+        {{- end }}
+        {{- end -}}
+      {{- if or .Values.configMaps .Values.hostPaths }}
+      volumes:
+      {{- if .Values.configMaps }}
+      - name: config
+        configMap:
+          name: {{ include "generic-service.name" . }}
+      {{- end }}
+      {{- range .Values.hostPaths }}
+      - name: {{ .name }}
+        hostPath:
+          path: {{ .hostPath | quote }}
+          type: {{ .type | default "DirectoryOrCreate" }}
+      {{- end }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

@@ -1,0 +1,35 @@
+{{- if and .Values.ports .Values.ingress.host -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{- include "generic-service.name" . -}}
+  labels:
+    {{- include "generic-service.labels" . | nindent 4 }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    gethomepage.dev/enabled: {{ empty .Values.homepage.name | toString }}
+    gethomepage.dev/name: {{ .Values.homepage.name }}
+    gethomepage.dev/description: {{ .Values.homepage.description }}
+    gethomepage.dev/group: {{ .Values.homepage.group }}
+    gethomepage.dev/icon: {{ .Values.homepage.icon }}
+    gethomepage.dev/weight: {{ .Values.homepage.weight }}
+    gethomepage.dev/widget.type: {{ .Values.homepage.widgetType }}
+  {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  ingressClassName: nginx-private
+  tls:
+    - hosts: {{ .Values.ingress.host }}
+      secretName: {{ .Values.ingress.host }}
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: {{- include "generic-service.name" . -}}
+                port:
+                  number: {{ .Values.ingress.port }}
+{{- end }}

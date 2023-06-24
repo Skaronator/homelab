@@ -1,0 +1,12 @@
+{{- if .Values.configMaps -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "generic-service.name" . }}
+  labels:
+    {{- include "generic-service.labels" . | nindent 4 }}
+data:
+{{- range .Values.configMaps }}
+  {{ .subPath | quote }}: {{ .content }} 
+{{- end }}
+{{- end }}

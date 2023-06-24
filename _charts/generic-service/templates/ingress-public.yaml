@@ -1,0 +1,29 @@
+{{- if and .Values.ports .Values.ingress.public -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{- include "generic-service.name" . -}}-public
+  labels:
+    {{- include "generic-service.labels" . | nindent 4 }}
+  annotations:
+    external-dns.alpha.kubernetes.io/target: vps.wagner.gg
+    cert-manager.io/cluster-issuer: letsencrypt
+  {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  ingressClassName: nginx-public
+  tls:
+    - hosts: {{ .Values.ingress.host }}
+      secretName: {{ .Values.ingress.host }}
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: {{- include "generic-service.name" . -}}
+                port:
+                  number: {{ .Values.ingress.port }}
+{{- end }}
