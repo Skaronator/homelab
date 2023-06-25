@@ -51,7 +51,9 @@ spec:
         securityContext: {{- toYaml .Values.securityContext | nindent 10 }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        args: {{ toYaml .Values.args | nindent 8 }}
+        {{- with .Values.args }}
+        args: {{ toYaml . | nindent 8 }}
+        {{- end }}
         {{- with .Values.command }}
         command: {{ toYaml . | nindent 8 }}
         {{- end }}
@@ -59,15 +61,15 @@ spec:
         - name: TZ
           value: Europe/Berlin
       {{- range $key, $value := .Values.envs }}
-        - name: {{ $key }}
-          value: {{ $value }}
+        - name: {{ $key | quote }}
+          value: {{ $value | quote}}
       {{- end }}
       {{- range $key, $value := .Values.secretEnvs }}
-        - name: {{ $key }}
+        - name: {{ $key | quote }}
           valueFrom:
             secretKeyRef:
-              name: {{- include "generic-service.name" . -}}
-              key: {{ $key }}
+              name: {{ include "generic-service.name" $ }}
+              key: {{ $key | quote }}
       {{- end }}
       {{- if .Values.ports }}
         ports:

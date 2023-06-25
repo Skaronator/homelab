@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{- include "generic-service.name" . -}}-public
+  name: {{ include "generic-service.name" . }}-public
   labels:
     {{- include "generic-service.labels" . | nindent 4 }}
   annotations:
@@ -14,16 +14,18 @@ metadata:
 spec:
   ingressClassName: nginx-public
   tls:
-    - hosts: {{ .Values.ingress.host }}
-      secretName: {{ .Values.ingress.host }}
+  - hosts:
+    - {{ .Values.ingress.host }}
+    secretName: {{ .Values.ingress.host }}
   rules:
-    - host: {{ .Values.ingress.host }}
-      http:
-        paths:
-          - path: /
-            backend:
-              service:
-                name: {{- include "generic-service.name" . -}}
-                port:
-                  number: {{ .Values.ingress.port }}
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: {{ include "generic-service.name" . }}
+            port:
+              name: {{ .Values.ingress.port }}
 {{- end }}

@@ -2,34 +2,50 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{- include "generic-service.name" . -}}
+  name: {{ include "generic-service.name" . }}
   labels:
     {{- include "generic-service.labels" . | nindent 4 }}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-    gethomepage.dev/enabled: {{ empty .Values.homepage.name | toString }}
-    gethomepage.dev/name: {{ .Values.homepage.name }}
-    gethomepage.dev/description: {{ .Values.homepage.description }}
-    gethomepage.dev/group: {{ .Values.homepage.group }}
-    gethomepage.dev/icon: {{ .Values.homepage.icon }}
-    gethomepage.dev/weight: {{ .Values.homepage.weight }}
-    gethomepage.dev/widget.type: {{ .Values.homepage.widgetType }}
+    {{- with .Values.homepage }}
+    {{- if .name }}
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: {{ .name | quote }}
+    {{- end }}
+    {{- if .description }}
+    gethomepage.dev/description: {{ .description | quote }}
+    {{- end }}
+    {{- if .group }}
+    gethomepage.dev/group: {{ .group | quote }}
+    {{- end }}
+    {{- if .icon }}
+    gethomepage.dev/icon: {{ .icon | quote }}
+    {{- end }}
+    {{- if .weight }}
+    gethomepage.dev/weight: {{ .weight | quote }}
+    {{- end }}
+    {{- if .widgetType }}
+    gethomepage.dev/widget.type: {{ .widgetType | quote }}
+    {{- end }}
+    {{ end }}
   {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
   ingressClassName: nginx-private
   tls:
-    - hosts: {{ .Values.ingress.host }}
-      secretName: {{ .Values.ingress.host }}
+  - hosts: 
+    - {{ .Values.ingress.host }}
+    secretName: {{ .Values.ingress.host }}
   rules:
-    - host: {{ .Values.ingress.host }}
-      http:
-        paths:
-          - path: /
-            backend:
-              service:
-                name: {{- include "generic-service.name" . -}}
-                port:
-                  number: {{ .Values.ingress.port }}
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: {{ include "generic-service.name" . }}
+            port:
+              name: {{ .Values.ingress.port }}
 {{- end }}
