@@ -88,7 +88,7 @@ spec:
       {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
-        {{- if or .Values.configMaps .Values.hostPaths .Values.pvcPaths }}
+        {{- if or .Values.configMaps .Values.hostPaths }}
         volumeMounts:
         {{- range .Values.configMaps }}
         - name: config
@@ -100,12 +100,8 @@ spec:
           mountPath: {{ .containerPath | quote }}
           readOnly: {{ .readOnly | default false }}
         {{- end }}
-        {{- range .Values.pvcPaths }}
-        - name: {{ .name }}
-          mountPath: {{ .path | quote }}
-        {{- end }}
         {{- end -}}
-      {{- if or .Values.configMaps .Values.hostPaths .Values.pvcPaths }}
+      {{- if or .Values.configMaps .Values.hostPaths }}
       volumes:
       {{- if .Values.configMaps }}
       - name: config
@@ -117,11 +113,6 @@ spec:
         hostPath:
           path: {{ .hostPath | quote }}
           type: {{ .type | default "DirectoryOrCreate" }}
-      {{- end }}
-      {{- range .Values.pvcPaths }}
-      - name: {{ .name }}
-        persistentVolumeClaim:
-          claimName: {{ include "generic-service.name" $ }}-{{ .name }}
       {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}

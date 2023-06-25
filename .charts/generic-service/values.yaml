@@ -82,8 +82,3 @@ hostPaths: []
 #   containerPath: ""
 #   readOnly: false
 #   type: "DirectoryOrCreate"
-
-pvcPaths: []
-# - name: ""
-#   class: ""
-#   path: ""
