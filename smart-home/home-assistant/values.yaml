@@ -23,10 +23,11 @@ homepage:
   weight: 50
 
 securityContext:
-  add:
-  - NET_ADMIN
-  - NET_RAW
-  - NET_BROADCAST
+  capabilities:
+    add:
+    - NET_ADMIN
+    - NET_RAW
+    - NET_BROADCAST
 
 hostNetwork: true
 
