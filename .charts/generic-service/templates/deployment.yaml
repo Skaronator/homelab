@@ -14,9 +14,14 @@ spec:
       {{- include "generic-service.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      {{- if or .Values.database.enabled .Values.podAnnotations }}
       annotations:
+      {{- if .Values.database.enabled }}
+        checksum/database: {{ toJson .Values.database | sha256sum }}
+      {{- end}}
+      {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
+      {{- end}}
       {{- end }}
       labels:
         {{- include "generic-service.selectorLabels" . | nindent 8 }}
@@ -28,8 +33,9 @@ spec:
       {{- if .Values.hostNetwork }}
       dnsPolicy: ClusterFirstWithHostNet
       {{- end }}
-      {{- if .Values.hostPaths }}
+    {{- if or .Values.hostPaths .Values.database.enabled }}
       initContainers:
+      {{- if .Values.hostPaths }}
       - name: prepare-storage
         image: "{{ .Values.helper.image.repository }}:{{ .Values.helper.image.tag }}"
         securityContext:
@@ -50,6 +56,22 @@ spec:
         {{- range .Values.hostPaths }}
         - name: {{ .name }}
           mountPath: {{ .containerPath | quote }}
+        {{- end }}
+        {{- end }}
+      {{- if .Values.database.enabled }}
+      - name: wait-for-db
+        image: "{{ .Values.helper.image.repository }}:{{ .Values.helper.image.tag }}"
+        command:
+        - /bin/sh
+        args:
+        - -c
+        - |
+          echo -e "Checking for the availability of MySQL Server deployment";
+          while ! nc -z {{ include "database.name" . }} 3306; do
+            sleep 1;
+            printf "-";
+          done;
+          echo -e "  >> MySQL DB Server has started";
         {{- end }}
       {{- end }}
       containers:
