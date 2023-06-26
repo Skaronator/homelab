@@ -6,6 +6,7 @@ metadata:
   labels:
     {{- include "generic-service.labels" . | nindent 4 }}
 spec:
+  type: ClusterIP
   ports:
   {{- range .Values.ports }}
   - name: {{ .name }}

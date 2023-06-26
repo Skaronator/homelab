@@ -120,6 +120,9 @@ spec:
         - name: {{ .name }}
           containerPort: {{ .containerPort }}
           protocol: {{ .protocol | default "TCP" }}
+          {{- if .hostPort }}
+          hostPort: {{ .hostPort }}
+          {{- end }}
         {{- end }}
       {{- end }}
       {{- if and .Values.ports .Values.health.enabled }}
