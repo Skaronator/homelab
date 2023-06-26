@@ -89,7 +89,7 @@ database:
   enabled: false
   image:
     repository: mariadb
-    tag: "11.0.2"
+    tag: "11.0.2@sha256:228396b810760b959bc99fd03d2a5fec0b056ceaef9e525a12e9b3c4b883a3af"
   hostPath: ""
   rootPassword: ""
   userPassword: ""
@@ -98,9 +98,9 @@ database:
     schedule: "0 4 * * *"
     image:
       repository: fradelg/mysql-cron-backup
-      tag: "1.13.0"
+      tag: "1.13.0@sha256:540708e7ce2395b383ff4bb60c6b8fe55ef0e0e7eb6811298904b1cb798b1f97"
 
 helper:
   image:
     repository: busybox
-    tag: "1.36.1"
+    tag: "1.36.1@sha256:6e494387c901caf429c1bf77bd92fb82b33a68c0e19f6d1aa6a3ac8d27a7049d"
