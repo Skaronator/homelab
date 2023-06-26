@@ -29,7 +29,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 httpGet:
   path: {{ .path }}
   port: {{ .port }}
-  scheme: {{ .scheme }}
+  scheme: {{ .type }}
 {{- end }}
 {{- if eq .type "TCP" }}
 tcpSocket:
