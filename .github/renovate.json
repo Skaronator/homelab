@@ -4,5 +4,11 @@
     "config:base",
     "docker:pinDigests"
   ],
-  "timezone": "Europe/Berlin"
+  "timezone": "Europe/Berlin",
+  "argocd": {
+    "fileMatch": ["\\.ya?ml$"]
+  },
+  "kubernetes": {
+    "fileMatch": ["\\.ya?ml$"]
+  }
 }
