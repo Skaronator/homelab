@@ -31,7 +31,7 @@ spec:
       {{- if .Values.hostPaths }}
       initContainers:
       - name: prepare-storage
-        image: busybox:1.36.1
+        image: "{{ .Values.helper.image.repository }}:{{ .Values.helper.image.tag }}"
         securityContext:
           allowPrivilegeEscalation: false
           runAsUser: 0
