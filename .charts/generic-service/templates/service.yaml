@@ -7,12 +7,12 @@ metadata:
     {{- include "generic-service.labels" . | nindent 4 }}
 spec:
   ports:
-    {{- range .Values.ports }}
-    - name: {{ .name }}
-      port: {{ .containerPort }}
-      targetPort: {{ .containerPort }}
-      protocol: {{ .protocol | default "TCP" }}
-    {{- end }}
+  {{- range .Values.ports }}
+  - name: {{ .name }}
+    port: {{ .containerPort }}
+    targetPort: {{ .containerPort }}
+    protocol: {{ .protocol | default "TCP" }}
+  {{- end }}
   selector:
     {{- include "generic-service.selectorLabels" . | nindent 4 }}          
 {{- end -}}

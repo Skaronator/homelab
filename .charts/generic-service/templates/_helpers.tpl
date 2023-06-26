@@ -6,7 +6,7 @@
 {{- define "extractLatest" -}}
 {{- $split := splitList ":" . -}}
 {{- $split := splitList "@" (index $split 0) -}}
-{{- index $split 0 -}}
+{{- index $split 0 | trunc 63 | quote -}}
 {{- end -}}
 
 
@@ -18,7 +18,7 @@ app.kubernetes.io/instance: {{ printf "%s-%s" .Chart.Name .Release.Name }}
 
 {{- define "generic-service.labels" -}}
 {{ include "generic-service.selectorLabels" . }}
-app.kubernetes.io/version: {{ include "extractLatest" .Values.image.tag | trunc 63 | quote }}
+app.kubernetes.io/version: {{ include "extractLatest" .Values.image.tag }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
@@ -43,5 +43,3 @@ tcpSocket:
 {{- end }}
 {{- end }}
 {{- end }}
-
-

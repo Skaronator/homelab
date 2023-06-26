@@ -24,6 +24,10 @@ spec:
       serviceAccountName: {{ include "generic-service.name" . }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      hostNetwork: {{ .Values.hostNetwork }}
+      {{- if .Values.hostNetwork }}
+      dnsPolicy: ClusterFirstWithHostNet
+      {{- end }}
       {{- if .Values.hostPaths }}
       initContainers:
       - name: prepare-storage
@@ -60,18 +64,33 @@ spec:
         command: {{ toYaml . | nindent 8 }}
         {{- end }}
         env:
+      {{- if .Values.database.enabled }}
+        - name: DB_HOST
+          value: {{ include "database.name" . }}
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_USERNAME
+          value: {{ include "database.username" . }}
+        - name: DB_DATABASE
+          value: {{ include "database.database" . }}
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "database.name" . }}
+              key: userPassword
+      {{- end }}
         - name: TZ
           value: Europe/Berlin
-      {{- range $key, $value := .Values.envs }}
-        - name: {{ $key | quote }}
-          value: {{ $value | quote}}
-      {{- end }}
       {{- range $key, $value := .Values.secretEnvs }}
         - name: {{ $key | quote }}
           valueFrom:
             secretKeyRef:
               name: {{ include "generic-service.name" $ }}
               key: {{ $key | quote }}
+      {{- end }}
+      {{- range $key, $value := .Values.envs }}
+        - name: {{ $key | quote }}
+          value: {{ $value | quote}}
       {{- end }}
       {{- if .Values.ports }}
         ports:

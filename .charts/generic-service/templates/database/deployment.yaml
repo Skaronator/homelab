@@ -1,0 +1,78 @@
+{{- if .Values.database.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "database.name" . }}
+  labels:
+    {{- include "database.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "database.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "database.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "database.name" . }}
+      terminationGracePeriodSeconds: 120
+      containers:
+      - name: {{ include "database.name" . }}
+        image: "{{ .Values.database.image.repository }}:{{ .Values.database.image.tag }}"
+        args:
+        - --character-set-server
+        - utf8mb4
+        - --collation-server
+        - utf8mb4_unicode_ci
+        env:
+        - name: TZ
+          value: Europe/Berlin
+        - name: MARIADB_AUTO_UPGRADE
+          value: "1"
+        - name: MARIADB_DATABASE
+          value: {{ include "database.database" . }}
+        - name: MARIADB_USER
+          value: {{ include "database.username" . }}
+        - name: MARIADB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "database.name" $ }}
+              key: rootPassword
+        - name: MARIADB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "database.name" $ }}
+              key: userPassword
+        ports:
+        - name: db
+          containerPort: 3306
+          protocol: TCP
+        startupProbe:
+          tcpSocket:
+            port: 3306
+          failureThreshold: 12
+        livenessProbe:
+          tcpSocket:
+            port: 3306
+        readinessProbe:
+          tcpSocket:
+            port: 3306
+        resources:
+          {{- toYaml .Values.database.resources | nindent 10 }}
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: data
+        hostPath:
+          path: {{ .Values.database.hostPath | required "database.hostPath is required!" | quote }}
+          type: DirectoryOrCreate
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

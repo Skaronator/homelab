@@ -58,6 +58,8 @@ terminationGracePeriodSeconds: 30
 args: []
 command: []
 
+hostNetwork: false
+
 homepage:
   name: ""
   description: ""
@@ -82,3 +84,18 @@ hostPaths: []
 #   containerPath: ""
 #   readOnly: false
 #   type: "DirectoryOrCreate"
+
+database:
+  enabled: false
+  image:
+    repository: mariadb
+    tag: "10.11.4"
+  hostPath: ""
+  rootPassword: ""
+  userPassword: ""
+  resources: {}
+  backup:
+    schedule: "0 4 * * *"
+    image:
+      repository: fradelg/mysql-cron-backup
+      tag: "1.13.0"
