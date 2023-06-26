@@ -1,8 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
-    "docker:pinDigests"
+    "config:base"
   ],
-  "timezone": "Europe/Berlin"
+  "timezone": "Europe/Berlin",
+  "argocd": {
+    "fileMatch": ["\\.ya?ml$"]
+  },
+  "helm-values": {
+    "pinDigests": true
+  }
 }

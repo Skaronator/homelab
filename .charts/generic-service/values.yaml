@@ -99,3 +99,8 @@ database:
     image:
       repository: fradelg/mysql-cron-backup
       tag: "1.13.0"
+
+helper:
+  image:
+    repository: busybox
+    tag: "1.36.1"
