@@ -12,9 +12,9 @@ ports:
   containerPort: 1883
 
 health:
-  type: tcp
+  type: TCP
 
-configMap:
+configMaps:
 - name: config
   mountPath: /mosquitto/config
   subPath: mosquitto.conf

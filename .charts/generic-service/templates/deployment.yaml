@@ -95,8 +95,8 @@ spec:
         {{- if or .Values.configMaps .Values.hostPaths }}
         volumeMounts:
         {{- range .Values.configMaps }}
-        - name: config
-          mountPath: {{ .mountPath | quote }}
+        - name: config-{{ .name }}
+          mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
           subPath: {{ .subPath | quote }}
         {{- end }}
         {{- range .Values.hostPaths }}
@@ -107,10 +107,10 @@ spec:
         {{- end -}}
       {{- if or .Values.configMaps .Values.hostPaths }}
       volumes:
-      {{- if .Values.configMaps }}
-      - name: config
+      {{- range .Values.configMaps }}
+      - name: config-{{ .name }}
         configMap:
-          name: {{ include "generic-service.name" . }}
+          name: {{ include "generic-service.name" $ }}
       {{- end }}
       {{- range .Values.hostPaths }}
       - name: {{ .name }}

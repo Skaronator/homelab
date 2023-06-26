@@ -7,6 +7,6 @@ metadata:
     {{- include "generic-service.labels" . | nindent 4 }}
 data:
 {{- range .Values.configMaps }}
-  {{ .subPath | quote }}: {{ .content }} 
+  {{ .subPath | quote }}: {{ toYaml .content | nindent 4 }} 
 {{- end }}
 {{- end }}
