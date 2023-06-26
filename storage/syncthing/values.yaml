@@ -9,17 +9,14 @@ ports:
   containerPort: 22000
   hostPort: 22000
   protocol: TCP
-  type: LoadBalancer
 - name: udp-transfer
   containerPort: 22000
   hostPort: 22000
   protocol: UDP
-  type: LoadBalancer
 - name: discovery
   containerPort: 21027
   hostPort: 21027
   protocol: UDP
-  type: LoadBalancer
 
 ingress:
   host: syncthing.wagner.gg
