@@ -1,0 +1,47 @@
+image:
+  repository: "syncthing/syncthing"
+  tag: "1.23"
+
+ports:
+- name: main
+  containerPort: 8384
+- name: tcp-transfer
+  containerPort: 22000
+  hostPort: 22000
+  protocol: TCP
+  type: LoadBalancer
+- name: udp-transfer
+  containerPort: 22000
+  hostPort: 22000
+  protocol: UDP
+  type: LoadBalancer
+- name: discovery
+  containerPort: 21027
+  hostPort: 21027
+  protocol: UDP
+  type: LoadBalancer
+
+ingress:
+  host: syncthing.wagner.gg
+
+envs:
+  PUID: "100"
+  PGID: "101"
+
+homepage:
+  name: Syncthing
+  group: Cloud
+  description: Syncing files
+  icon: syncthing.svg
+  weight: 40
+
+hostPaths:
+- name: config
+  hostPath: /srv/nvme/container-data/syncthing
+  containerPath: /var/syncthing
+- name: data
+  hostPath: /srv/nvme/niklas/Sync
+  containerPath: /data/sync
+- name: pictures
+  hostPath: /srv/nvme/pictures
+  containerPath: /data/pictures
