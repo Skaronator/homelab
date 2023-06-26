@@ -27,7 +27,7 @@ metadata:
     {{- if .widgetType }}
     gethomepage.dev/widget.type: {{ .widgetType | quote }}
     {{- end }}
-    {{ end }}
+    {{- end }}
   {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}

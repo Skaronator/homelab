@@ -38,7 +38,9 @@ spec:
         - |
           set -ex;
           {{- range .Values.hostPaths }}
+          {{- if not (has .type (list "CharDevice")) }}
           chmod -R 777 {{ .containerPath | quote }};
+          {{- end }}
           {{- end }}
         volumeMounts:
         {{- range .Values.hostPaths }}
