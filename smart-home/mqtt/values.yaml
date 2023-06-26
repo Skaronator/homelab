@@ -1,0 +1,34 @@
+image:
+  repository: "eclipse-mosquitto"
+  tag: "2.0.15"
+
+hostPaths:
+- name: data
+  hostPath: /srv/nvme/container-data/home-assistant/mosquitto
+  containerPath: /mosquitto/data
+
+ports: 
+- name: main
+  containerPort: 1883
+
+health:
+  type: tcp
+
+configMap:
+- name: config
+  mountPath: /mosquitto/config
+  subPath: mosquitto.conf
+  content: |
+    persistence true
+    allow_anonymous false
+    listener 1883
+    password_file /mosquitto/config/password_file
+    persistence_location /mosquitto/data/
+- name: passwordfile
+  mountPath: /mosquitto/config
+  subPath: password_file
+  content: |
+    zigbee2mqtt:$6$Al9bvJRXXxJxPWR+$Cl5B6yuLr8T+Ttekc6ce0+9Ozro3/ca2AB7hLwDE4J0mCAw75Ml+WHLxaJI2hlx7knUlnrd4IBnSBjAuSwy1Qg==
+    home-assistant:$7$101$hZ2/LtSEcITKpTmb$epGrB58KAAx5xjOtFpYqNm8tbdmgGcBrriTvAQqylMpYNzvop/f5Na7URI+5LJ/IXJSyJTqQjCR2rmzKBiKMEw==
+    esphome:$6$43D9OiukpfWOQUrr$XO/Tztslx4gS0+V+eJN5RhrRDPFBblNsyNvqgDFfWTBxUE1yGSuXqGashCWGFAOU835zUg/50DM0kAfd0ecHog==
+    niklas:$6$jOosmt1zxa93xCBv$WtgjQv/2VFaB60oC9rxWt5YJu5i/GELOfN3Xs/VpP36oLNl9g324DQt/Yll9uY+PJcv2QoKTuxqwTCAre5vgUA==
