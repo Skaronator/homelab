@@ -89,7 +89,7 @@ database:
   enabled: false
   image:
     repository: mariadb
-    tag: "10.11.4"
+    tag: "11.0.2"
   hostPath: ""
   rootPassword: ""
   userPassword: ""
