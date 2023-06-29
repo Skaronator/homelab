@@ -1,7 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    ":automergeDigest",
+    ":automergePatch",
+    ":automergeMinor"
   ],
   "timezone": "Europe/Berlin",
   "argocd": {
