@@ -12,5 +12,6 @@
   },
   "helm-values": {
     "pinDigests": true
-  }
+  },
+  "platformAutomerge": true
 }
