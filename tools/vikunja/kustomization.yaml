@@ -8,8 +8,8 @@ helmCharts:
 - name: generic-service
   releaseName: vikunja-api
   valuesFile: api.values.yaml
-  namespace: tools-v2
+  namespace: tools
 - name: generic-service
   releaseName: vikunja-ui
   valuesFile: ui.values.yaml
-  namespace: tools-v2
+  namespace: tools
