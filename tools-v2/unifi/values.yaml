@@ -18,6 +18,9 @@ ports:
   hostPort: 3478
   protocol: UDP
 
+health:
+  type: HTTPS
+
 ingress:
   host: unifi.wagner.gg
   annotations:
