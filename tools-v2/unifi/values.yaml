@@ -1,6 +1,6 @@
 image:
   repository: "jacobalberty/unifi"
-  tag: "v7.4"
+  tag: "v7.4@sha256:9c774022b0d2d98885b166ce95287b8133f5402aca579e0788bcbb4d433ceb26"
 
 hostPaths:
 - name: data
