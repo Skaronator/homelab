@@ -1,9 +1,3 @@
-# Default values for generic-service.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-replicas: 1
-
 image:
   repository: ""
   pullPolicy: IfNotPresent
@@ -25,22 +19,28 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-health:
-  enabled: true
-  port: main
-  type: HTTP
-  path: /
+hostNetwork: false
 
 ports: []
 # - name: ""
 #   containerPort: 0
 #   protocol: TCP
 
+health:
+  enabled: true
+  port: main
+  type: HTTP
+  path: /
+
 ingress:
   host: ""
   public: false
   port: main
   annotations: {}
+
+
+replicas: 1
+strategyType: Recreate
 
 resources: {}
   # limits:
@@ -52,21 +52,10 @@ resources: {}
 
 nodeSelector: {}
 
-strategyType: Recreate
 terminationGracePeriodSeconds: 30
 
-args: []
 command: []
-
-hostNetwork: false
-
-homepage:
-  name: ""
-  description: ""
-  group: ""
-  icon: ""
-  weight: 50
-  widgetType: ""
+args: []
 
 envs: {}
 
@@ -104,3 +93,11 @@ helper:
   image:
     repository: busybox
     tag: "1.36.1@sha256:2376a0c12759aa1214ba83e771ff252c7b1663216b192fbe5e0fb364e952f85c"
+
+homepage:
+  name: ""
+  description: ""
+  group: ""
+  icon: ""
+  weight: 50
+  widgetType: ""
