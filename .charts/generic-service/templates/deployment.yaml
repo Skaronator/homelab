@@ -69,7 +69,7 @@ spec:
           echo -e "Checking for the availability of MySQL Server deployment";
           while ! nc -z {{ include "database.name" . }} 3306; do
             sleep 1;
-            printf "-";
+            echo "...";
           done;
           echo -e "  >> MySQL DB Server has started";
         {{- end }}
@@ -87,15 +87,15 @@ spec:
         {{- end }}
         env:
       {{- if .Values.database.enabled }}
-        - name: DB_HOST
+        - name: TEMPLATE_DB_HOST
           value: {{ include "database.name" . }}
-        - name: DB_PORT
+        - name: TEMPLATE_DB_PORT
           value: "3306"
-        - name: DB_USERNAME
+        - name: TEMPLATE_DB_USERNAME
           value: {{ include "database.username" . }}
-        - name: DB_DATABASE
+        - name: TEMPLATE_DB_DATABASE
           value: {{ include "database.database" . }}
-        - name: DB_PASSWORD
+        - name: TEMPLATE_DB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: {{ include "database.name" . }}
