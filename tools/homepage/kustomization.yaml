@@ -7,4 +7,4 @@ helmCharts:
   version: 1.2.0
   releaseName: homepage
   valuesFile: values.yaml
-  namespace: tools-v2
+  namespace: tools

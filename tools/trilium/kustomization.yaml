@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
 - name: generic-service
-  releaseName: archisteamfarm
+  releaseName: trilium
   valuesFile: values.yaml
-  namespace: tools-v2
+  namespace: tools

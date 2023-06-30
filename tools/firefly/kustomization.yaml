@@ -8,8 +8,8 @@ helmCharts:
 - name: generic-service
   releaseName: firefly
   valuesFile: values.yaml
-  namespace: tools-v2
+  namespace: tools
 - name: generic-cronjob
   releaseName: firefly-cronjob
   valuesFile: cronjob.values.yaml
-  namespace: tools-v2
+  namespace: tools
