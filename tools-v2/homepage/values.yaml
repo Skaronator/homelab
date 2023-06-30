@@ -1,0 +1,98 @@
+image:
+  repository: ghcr.io/benphelps/homepage
+  tag: v0.6.21
+
+config:
+  bookmarks: {}
+  kubernetes:
+    mode: cluster
+  services:
+  - Network:
+    - FritzBox:
+        description: Router
+        href: http://192.168.0.1
+        icon: avmfritzbox.svg
+        weight: 1
+    - AdGuard Home:
+        description: DNS Server
+        href: http://192.168.0.2
+        icon: adguard-home.svg
+        weight: 2
+  - Server:
+    - IPMI:
+        description: Server Management
+        href: https://192.168.0.4/
+        icon: asrockrackipmi.png
+        weight: 1
+    - Portainer:
+        description: Container Management
+        href: https://192.168.0.2:9443
+        icon: portainer.svg
+        weight: 30
+  - Media:
+    - Plex:
+        app: plex
+        description: Media Center
+        href: https://app.plex.tv/desktop
+        icon: plex.svg
+        namespace: media
+        weight: 1
+  - Download:
+    - JDownloader:
+        app: jdownloader
+        description: HTTP Downloader
+        href: https://my.jdownloader.org
+        icon: jdownloader2.png
+        namespace: download
+        weight: 1
+  settings:
+    color: neutral
+    hideVersion: true
+    iconStyle: theme
+    layout:
+    - Cloud:
+        icon: mdi-cloud
+    - Smart Home:
+        icon: mdi-home-outline
+    - Server:
+        icon: mdi-server
+    - Network:
+        icon: mdi-lan
+    - Media:
+        icon: mdi-filmstrip-box
+    - Download:
+        icon: mdi-download-outline
+    - Download v2:
+        icon: mdi-download-multiple
+    target: _self
+    theme: dark
+    title: Homelab
+  widgets:
+  - resources:
+      backend: resources
+      cpu: true
+      expanded: true
+      memory: true
+  - search:
+      provider: google
+      target: _blank
+
+ingress:
+  main:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    enabled: true
+    hosts:
+    - host: home.wagner.gg
+      paths:
+      - path: /
+    ingressClassName: nginx-private
+    tls:
+    - hosts:
+      - home.wagner.gg
+      secretName: home.wagner.gg
+
+enableRbac: true
+
+serviceAccount:
+  create: true
