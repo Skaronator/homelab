@@ -1,20 +1,29 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
-    ":automergeDigest",
-    ":automergePatch",
-    ":automergeMinor"
+    "config:base"
   ],
   "timezone": "Europe/Berlin",
-  "argocd": {
-    "fileMatch": ["\\.ya?ml$"]
-  },
   "helm-values": {
     "fileMatch": [
       "(^|/|\\w+\\.)values\\.ya?ml$"
     ],
     "pinDigests": true
   },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["digest", "pin"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "minimumReleaseAge": "1 day"
+    }
+  ],
   "platformAutomerge": true
 }
