@@ -72,6 +72,7 @@ spec:
             echo "...";
           done;
           echo -e "  >> MySQL DB Server has started";
+          sleep 5;
         {{- end }}
       {{- end }}
       containers:
