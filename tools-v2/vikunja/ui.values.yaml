@@ -1,0 +1,23 @@
+image:
+  repository: vikunja/frontend
+  tag: "0.20.5"
+
+ports:
+- containerPort: 80
+  name: main
+
+ingress:
+  host: vikunja.wagner.gg
+  public: true
+
+strategyType: RollingUpdate
+
+envs:
+  VIKUNJA_API_URL: https://vikunja-api.wagner.gg/api/v1
+
+homepage:
+  description: Todos
+  group: Cloud
+  icon: vikunja.png
+  name: Vikunja
+  weight: 30
