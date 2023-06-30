@@ -11,6 +11,9 @@
     "fileMatch": ["\\.ya?ml$"]
   },
   "helm-values": {
+    "fileMatch": [
+      "(^|/|\\w+\\.)values\\.ya?ml$"
+    ],
     "pinDigests": true
   },
   "platformAutomerge": true
