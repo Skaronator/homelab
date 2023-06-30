@@ -1,6 +1,6 @@
 image:
   repository: vikunja/api
-  tag: "0.20.4"
+  tag: "0.20.4@sha256:0f8e00f99120ac677de0764b054e4402f7046077004ff5e26f9146adfaf8b0af"
 
 ports:
 - containerPort: 3456
