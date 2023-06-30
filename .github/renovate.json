@@ -12,7 +12,7 @@
   },
   "packageRules": [
     {
-      "matchUpdateTypes": ["digest", "pin"],
+      "matchUpdateTypes": ["digest", "pin", "pinDigest"],
       "automerge": true,
       "automergeType": "branch"
     },
