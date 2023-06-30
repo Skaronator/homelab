@@ -5,7 +5,7 @@ helmGlobals:
   chartHome: ../../.charts
 
 helmCharts:
-- name: generic-service
+- name: generic-cronjob
   releaseName: trakt-backup
   valuesFile: values.yaml
   namespace: media
