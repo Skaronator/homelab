@@ -5,12 +5,11 @@ metadata:
   labels:
     {{- include "generic-cronjob.labels" . | nindent 4 }}
 spec:
+  schedule: {{ .Values.schedule | quote }}
+  timeZone: Europe/Berlin
   concurrencyPolicy: {{ .Values.concurrencyPolicy }}
   failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
   successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
-  schedule: {{ .Values.schedule | quote }}
-  timezone: Europe/Berlin
-  startingDeadlineSeconds: 60
   jobTemplate:
     metadata:
       {{- with .Values.podAnnotations }}
