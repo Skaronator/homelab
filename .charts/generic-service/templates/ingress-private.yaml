@@ -7,6 +7,10 @@ metadata:
     {{- include "generic-service.labels" . | nindent 4 }}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    {{- if .Values.ingress.basicAuth }}
+    nginx.ingress.kubernetes.io/auth-type: "basic"
+    nginx.ingress.kubernetes.io/auth-secret: {{ include "generic-service.name" . }}-basic-auth
+    {{- end }}
     {{- with .Values.homepage }}
     {{- if .name }}
     gethomepage.dev/enabled: "true"
