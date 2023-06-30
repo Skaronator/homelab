@@ -1,0 +1,95 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "generic-cronjob.name" . }}
+  labels:
+    {{- include "generic-cronjob.labels" . | nindent 4 }}
+spec:
+  concurrencyPolicy: {{ .Values.concurrencyPolicy }}
+  failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
+  successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
+  schedule: {{ .Values.schedule | quote }}
+  timezone: Europe/Berlin
+  startingDeadlineSeconds: 60
+  jobTemplate:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end}}
+      labels:
+        {{- include "generic-cronjob.selectorLabels" . | nindent 8 }}
+    spec:
+      backoffLimit: 10
+      parallelism: {{ .Values.parallelism }}
+      template:
+        metadata:
+          {{- with .Values.podAnnotations }}
+          annotations:
+            {{- toYaml . | nindent 12 }}
+          {{- end}}
+          labels:
+            {{- include "generic-cronjob.selectorLabels" . | nindent 12 }}
+        spec:
+          serviceAccountName: {{ include "generic-cronjob.name" . }}
+          terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+          securityContext: {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          restartPolicy: OnFailure 
+          containers:
+          - name: {{ include "generic-cronjob.name" . }}
+            securityContext: {{- toYaml .Values.securityContext | nindent 14 }}
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            imagePullPolicy: {{ .Values.image.pullPolicy }}
+            {{- with .Values.args }}
+            args: {{ toYaml . | nindent 12 }}
+            {{- end }}
+            {{- with .Values.command }}
+            command: {{ toYaml . | nindent 12 }}
+            {{- end }}
+            env:
+            - name: TZ
+              value: Europe/Berlin
+          {{- range $key, $value := .Values.secretEnvs }}
+            - name: {{ $key | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "generic-cronjob.name" $ }}
+                  key: {{ $key | quote }}
+          {{- end }}
+          {{- range $key, $value := .Values.envs }}
+            - name: {{ $key | quote }}
+              value: {{ $value | quote}}
+          {{- end }}
+            resources:
+              {{- toYaml .Values.resources | nindent 14 }}
+            {{- if or .Values.configMaps .Values.hostPaths }}
+            volumeMounts:
+            {{- range .Values.configMaps }}
+            - name: config
+              mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
+              subPath: {{ .subPath | quote }}
+            {{- end }}
+            {{- range .Values.hostPaths }}
+            - name: {{ .name }}
+              mountPath: {{ .containerPath | quote }}
+              readOnly: {{ .readOnly | default false }}
+            {{- end }}
+            {{- end -}}
+          {{- if or .Values.configMaps .Values.hostPaths }}
+          volumes:
+          {{- if .Values.configMaps }}
+          - name: config
+            configMap:
+              name: {{ include "generic-cronjob.name" . }}
+          {{- end }}
+          {{- range .Values.hostPaths }}
+          - name: {{ .name }}
+            hostPath:
+              path: {{ .hostPath | quote }}
+              type: {{ .type | default "DirectoryOrCreate" }}
+          {{- end }}
+          {{- end }}
+          {{- with .Values.nodeSelector }}
+          nodeSelector:
+            {{- toYaml . | nindent 8 }}
+          {{- end }}

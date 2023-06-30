@@ -9,3 +9,7 @@ helmCharts:
   releaseName: firefly
   valuesFile: values.yaml
   namespace: tools-v2
+- name: generic-cronjob
+  releaseName: firefly-cronjob
+  valuesFile: cronjob.values.yaml
+  namespace: tools-v2

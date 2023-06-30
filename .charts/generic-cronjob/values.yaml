@@ -1,0 +1,66 @@
+image:
+  repository: ""
+  pullPolicy: IfNotPresent
+  tag: ""
+
+serviceAccount:
+  annotations: {}
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+health:
+  enabled: true
+  port: main
+  type: HTTP
+  path: /
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+terminationGracePeriodSeconds: 30
+
+args: []
+command: []
+
+envs: {}
+
+secretEnvs: {}
+
+configMaps: []
+# - name: ""
+#   mountPath: ""
+#   subPath: ""
+#   content: ""
+
+hostPaths: []
+# - name: ""
+#   hostPath: ""
+#   containerPath: ""
+#   readOnly: false
+#   type: "DirectoryOrCreate"
+
+
+concurrencyPolicy: Forbid
+parallelism: 1
+schedule: ""
+suspend: false
+successfulJobsHistoryLimit: 1
+failedJobsHistoryLimit: 2
