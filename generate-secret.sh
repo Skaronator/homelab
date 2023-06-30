@@ -10,6 +10,10 @@ password=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 64)
 echo ""
 echo "New password: $password"
 echo ""
+else
+echo ""
+echo "Using provided password: $password"
+echo ""
 fi
 
 export SEALED_SECRETS_CONTROLLER_NAMESPACE="ops"
