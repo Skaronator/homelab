@@ -1,6 +1,6 @@
 image:
   repository: "curlimages/curl"
-  tag: "8.1.2"
+  tag: "8.1.2@sha256:fcf8b68aa7af25898d21b47096ceb05678665ae182052283bd0d7128149db55f"
 
 schedule: "*/15 * * * *"
 
