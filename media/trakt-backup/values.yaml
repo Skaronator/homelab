@@ -5,6 +5,8 @@ image:
 schedule: "0 3 * * *"
 
 args:
+- -v
+- --silent
 - --remote-header-name
 - --remote-name
 - --output-dir
