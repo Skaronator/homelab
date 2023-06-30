@@ -1,0 +1,18 @@
+image:
+  repository: "curlimages/curl"
+  tag: "8.1.2"
+
+schedule: "0 3 * * *"
+
+args:
+- --remote-header-name
+- --remote-name
+- --output-dir
+- /data
+- https://darekkay.com/service/trakt/trakt.php?username=Skaronator
+
+
+hostPaths:
+- name: data
+  hostPath: /srv/hdd/backup/Trakt
+  containerPath: /data
