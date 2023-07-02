@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/alexta69/metube"
-  tag: "2023-06-27"
+  tag: "2023-06-27@sha256:07bcbe2b6cddff0e2f3854a7e3c567e679c3e2bd281f9202611bb38f5cfc50fb"
 
 ports: 
 - name: main

@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/analogj/scrutiny"
-  tag: "v0.7.1-omnibus"
+  tag: "v0.7.1-omnibus@sha256:eb799224be7fbe23a17446ba3095da11db5f3a9b29bfb76bdc6c1b1f05abbf99"
 
 securityContext:
   privileged: true
