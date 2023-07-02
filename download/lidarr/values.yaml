@@ -1,6 +1,6 @@
 image:
-  repository: "ghcr.io/linuxserver/lidarr"
-  tag: "1.2.6"
+  repository: "ghcr.io/hotio/lidarr"
+  tag: "release-1.2.6.3313"
 
 ports: 
 - name: main
