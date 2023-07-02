@@ -1,5 +1,5 @@
 image:
-  repository: "lscr.io/linuxserver/lidarr"
+  repository: "ghcr.io/linuxserver/lidarr"
   tag: "1.2.6"
 
 ports: 
