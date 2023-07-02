@@ -1,0 +1,26 @@
+image:
+  repository: "lscr.io/linuxserver/prowlarr"
+  tag: "1.6.3"
+
+ports: 
+- name: main
+  containerPort: 9696
+
+ingress:
+  host: prowlarr.wagner.gg
+
+envs:
+  PUID: 100
+  PGID: 101
+
+hostPaths:
+- name: config
+  hostPath: /srv/nvme/container-data/prowlarr
+  containerPath: /config
+
+homepage:
+  name: Prowlarr
+  group: Download
+  description: Index Manager
+  icon: prowlarr.svg
+  weight: 10
