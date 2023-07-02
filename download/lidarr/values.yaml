@@ -1,0 +1,32 @@
+image:
+  repository: "lscr.io/linuxserver/lidarr"
+  tag: "1.2.6"
+
+ports: 
+- name: main
+  containerPort: 8686
+
+ingress:
+  host: lidarr.wagner.gg
+
+envs:
+  PUID: 100
+  PGID: 101
+
+hostPaths:
+- name: config
+  hostPath: /srv/nvme/container-data/lidarr
+  containerPath: /config
+- name: downloads-torrent
+  hostPath: /srv/downloads/Torrent
+  containerPath: /downloads/torrent
+- name: music
+  hostPath: /srv/nvme/music
+  containerPath: /music
+
+homepage:
+  name: Lidarr
+  group: Download
+  description: Music Manager
+  icon: lidarr.svg
+  weight: 11
