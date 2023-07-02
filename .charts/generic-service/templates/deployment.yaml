@@ -14,11 +14,17 @@ spec:
       {{- include "generic-service.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- if or .Values.database.enabled .Values.podAnnotations }}
+      {{- if or .Values.database.enabled .Values.podAnnotations .Values.configMaps .Values.secretEnvs }}
       annotations:
       {{- if .Values.database.enabled }}
         checksum/database: {{ toJson .Values.database | sha256sum }}
-      {{- end}}
+      {{- end }}
+      {{- if .Values.configMaps }}
+        checksum/configmap: {{ toJson .Values.configMaps | sha256sum }}
+      {{- end }}
+      {{- if .Values.secretEnvs }}
+        checksum/secrets: {{ toJson .Values.secretEnvs | sha256sum }}
+      {{- end }}
       {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end}}
