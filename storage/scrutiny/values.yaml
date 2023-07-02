@@ -1,0 +1,52 @@
+image:
+  repository: "ghcr.io/analogj/scrutiny"
+  tag: "v0.7.1-omnibus"
+
+securityContext:
+  privileged: true
+  capabilities:
+    add:
+    - SYS_RAWIO
+    - SYS_ADMIN
+
+ports:
+- name: main
+  containerPort: 8080
+
+ingress:
+  host: scrutiny.wagner.gg
+
+health:
+  path: /api/health
+
+envs:
+  DEBUG: "true"
+  MAIL_HOST: smtp.migadu.com
+  MAIL_PORT: 587
+  SCRUTINY_NOTIFY_URLS: smtp://$(MAIL_USERNAME):$(MAIL_PASSWORD)@$(MAIL_HOST):$(MAIL_PORT)/?fromAddress=$(MAIL_FROM)&toAddresses=$(MAIL_TO)
+
+secretEnvs:
+  MAIL_FROM: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
+  MAIL_TO: AgA0os+JPi7L5M4P1D9Rww56SBCteqp6COxFGmTePMeUu/rMPXUf3LcgGdM9Y75xTY+EUrZqk170ht917wp+ig7gjmwKl4zPYd/F0MNPKPiemlKI2H386MvNcjbfFtwMdP+bH9YofGcDLr6AYhkjGVFXn0y/oS3G687pGj6p37KXkr2HcP56C2iYFN3MwxxeniaDB/WvwCxgj1XgSfV9YrfCzkoT+3voRDJJn12oENkLrSBl4X07y5fZxwOQDSA1yeZi1MDocaU7NlzsnjZOSTXw2Hi+FxvnV4tLRgrO4Da8e7ERasQPQsw0VuznxbkU0BxE9s/37gu+CdRQuzVYJsDoqQ864d4uRJg0sUULryLxNawWFPLMs+BeLfXclPntpUu23RYAgp2cXqR81Ay0U+OHPha8YyRX4A6fQopLipN/WxLr90YDIOR6+TDxydxK0nQdjbrutMC8qGqhjzsqnBurPZhdsV1eBPim36xiVL6Svyd2uABoTWxjX5i9Apjxgx2NUn1cI4z76ufbQyhOZrPPNe17vDMGO0y6gSuodv/vPb4pGQ55Hy1zYbg3zVrfs7OVaDLQLcs5wQiOSoD8ALJXgv17ryk9BIKtZbHmjivLCWEyCf//JltZBzUe7zPJ7aiI+HRzZGCImOtzK9Qt+Y7R9Zd07iV/pW8fC9ZqbgeeVIU01tVwCYBlnGwNhkADYMgpjEkZnj5FPPD7t02/dZmS
+  MAIL_USERNAME: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
+  MAIL_PASSWORD: AgB4p6uDvw9TSdFemAKZymTg5gR/R+52NWmzUyx6orqgpODnLNWqicKnrE6cQk+VB49Y6eSlKfSloE6fBtyg/SHPgMbkpcrpOLYFjzT9enaVdY5jO2MimXl7O1TK+XKagN0OcmVDtz9VZnZDCylAUoSiqqG34yhxuUsty+myaGgn33pivZsGSM9CdGYWM8pkrBr+fmrj/0gaGAnu1X5BgqQia5xZ/9h9pc9DLWpt7R3Xiw/aA7qPJf88+bUKCXhrBBLNb7KoxYlFZuWOw6mk65rc19+zibQMWGeV9a9iNSyGSUKj2PGMY51MmIIjCGzVKis49voqxS2JY+zv0GeQRHx217Csrz7cJ6FqJkcgYc2ump5U8C77D8ZZlQZJaDw64ICrQSJWqZq/h3k1W9pv5oBvX0OrQaJymeXh5XNaj5g+xR80p9bpg8H4isqWkNLKjc1OzVZN6ENB32mR66tFS7GbfI8MxR9lqBZc2GpqfXCp1HPjYNwjy1hrNFaKV1zgWUcPxFOOolhvVmwb2bdEpyQkspSnKOWDU9XOiMrHQ4ELj5p1QzxoSABscqsxbbJQsu/K6/zukj7UFJ6h+6KeEEU/tCJXSWF6WkN+FoiapPTx/OecwYHydbcD1ncx05w0YyNy+DABVUVQ4SQ7y8RpfinTLQcuYW/ccBfSQYg0CFqSy5MEGwZ4L0vJRjmcP0jGyy9aEQC0kkmj06ZG7dQK3tLqFZFwqAYI2N/RhlWqUQPDiRNQZPre6DC8pokSRHZOLuxf/ZkWdE4cBCU4QswqWdISkRM=
+
+hostPaths:
+- name: data
+  hostPath: /srv/nvme/container-data/scrutiny/config
+  containerPath: /opt/scrutiny/config
+- name: influxdb
+  hostPath: /srv/nvme/container-data/scrutiny/influxdb
+  containerPath: /opt/scrutiny/influxdb
+- name: udev
+  hostPath: /run/udev
+  containerPath: /run/udev
+  type: ""
+  readOnly: true
+
+homepage:
+  name: Scrutiny
+  group: Server
+  description: HDD and SSD Health Dashboard
+  icon: scrutiny.svg
+  weight: 10
