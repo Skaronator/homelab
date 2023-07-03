@@ -1,6 +1,6 @@
 image:
   repository: "ckulka/baikal"
-  tag: "0.9.3-nginx"
+  tag: "0.9.3-nginx@sha256:4f4c7a4c3e3523e9d4c836389d06e43eded3f589411020306307ca73cbd9e915"
 
 hostPaths:
 - name: config
