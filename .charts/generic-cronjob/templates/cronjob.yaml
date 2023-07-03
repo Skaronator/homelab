@@ -53,7 +53,7 @@ spec:
             - name: {{ $kk | quote }}
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "generic-service.name" $ }}
+                  name: {{ include "generic-cronjob.name" $ }}
                   key: {{ $kk | quote }}
           {{- end }}
           {{- end }}
