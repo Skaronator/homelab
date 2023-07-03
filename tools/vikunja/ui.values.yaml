@@ -13,7 +13,7 @@ ingress:
 strategyType: RollingUpdate
 
 envs:
-  VIKUNJA_API_URL: https://vikunja-api.wagner.gg/api/v1
+- VIKUNJA_API_URL: https://vikunja-api.wagner.gg/api/v1
 
 homepage:
   description: Todos

@@ -40,9 +40,9 @@ terminationGracePeriodSeconds: 30
 args: []
 command: []
 
-envs: {}
+envs: []
 
-secretEnvs: {}
+secretEnvs: []
 
 configMaps: []
 # - name: ""

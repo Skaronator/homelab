@@ -10,8 +10,8 @@ ingress:
   host: lidarr.wagner.gg
 
 envs:
-  PUID: 100
-  PGID: 101
+- PUID: 100
+- PGID: 101
 
 hostPaths:
 - name: config

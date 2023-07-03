@@ -10,10 +10,10 @@ ingress:
   host: metube.wagner.gg
 
 envs:
-  UID: 100
-  GID: 101
-  OUTPUT_TEMPLATE: "%(uploader)s/%(title)s [%(id)s].%(ext)s"
-  YTDL_OPTIONS: |
+- UID: 100
+- GID: 101
+- OUTPUT_TEMPLATE: "%(uploader)s/%(title)s [%(id)s].%(ext)s"
+- YTDL_OPTIONS: |
     {
       "writedescription":true,
       "writeinfojson":true,
