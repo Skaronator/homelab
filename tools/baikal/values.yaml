@@ -17,6 +17,8 @@ ports:
 
 ingress:
   host: baikal.wagner.gg
+  public: true
+  publicPath: /dav.php
 
 envs:
 - SMTP_HOST: smtp.migadu.com

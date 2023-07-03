@@ -26,7 +26,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /
+        path: {{ .Values.ingress.publicPath }}
         backend:
           service:
             name: {{ include "generic-service.name" . }}
