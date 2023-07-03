@@ -32,7 +32,7 @@ securityContext:
 hostNetwork: true
 
 envs:
-  RECORDER_DB_URL: "mysql://$(TEMPLATE_DB_USERNAME):$(TEMPLATE_DB_PASSWORD)@$(TEMPLATE_DB_HOST):$(TEMPLATE_DB_PORT)/$(TEMPLATE_DB_DATABASE)?charset=utf8mb4"
+- RECORDER_DB_URL: "mysql://$(TEMPLATE_DB_USERNAME):$(TEMPLATE_DB_PASSWORD)@$(TEMPLATE_DB_HOST):$(TEMPLATE_DB_PORT)/$(TEMPLATE_DB_DATABASE)?charset=utf8mb4"
 
 database:
   enabled: true

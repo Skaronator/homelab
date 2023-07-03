@@ -23,4 +23,4 @@ homepage:
 
 envs:
   # fix since kubernetes would otherwise define this variable to something different (service discovery via env variables)
-  TRILIUM_PORT: 8080
+- TRILIUM_PORT: 8080

@@ -29,11 +29,11 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
   
 envs:
-  UNIFI_HTTP_PORT: "8080"
-  UNIFI_HTTPS_PORT: "8443"
-  PORTAL_HTTP_PORT: "7080"
-  PORTAL_HTTPS_PORT: "7443"
-  UNIFI_STDOUT: "true"
+- UNIFI_HTTP_PORT: "8080"
+- UNIFI_HTTPS_PORT: "8443"
+- PORTAL_HTTP_PORT: "7080"
+- PORTAL_HTTPS_PORT: "7443"
+- UNIFI_STDOUT: "true"
 
 homepage:
   name: UniFi Controller

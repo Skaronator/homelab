@@ -31,8 +31,8 @@ health:
   type: HTTPS
 
 envs:
-  CHANGE_CONFIG_DIR_OWNERSHIP: "true"
-  ADVERTISE_IP: "http://192.168.0.5:32400/"
+- CHANGE_CONFIG_DIR_OWNERSHIP: "true"
+- ADVERTISE_IP: "http://192.168.0.5:32400/"
 
 hostPaths:
 - name: data

@@ -22,8 +22,8 @@ ingress:
   host: syncthing.wagner.gg
 
 envs:
-  PUID: "100"
-  PGID: "101"
+- PUID: "100"
+- PGID: "101"
 
 homepage:
   name: Syncthing

@@ -48,16 +48,20 @@ spec:
             env:
             - name: TZ
               value: Europe/Berlin
-          {{- range $key, $value := .Values.secretEnvs }}
-            - name: {{ $key | quote }}
+          {{- range $k, $v := .Values.secretEnvs }}
+          {{- range $kk, $vv := $v }}
+            - name: {{ $kk | quote }}
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "generic-cronjob.name" $ }}
-                  key: {{ $key | quote }}
+                  name: {{ include "generic-service.name" $ }}
+                  key: {{ $kk | quote }}
           {{- end }}
-          {{- range $key, $value := .Values.envs }}
-            - name: {{ $key | quote }}
-              value: {{ $value | quote}}
+          {{- end }}
+          {{- range $k, $v := .Values.envs }}
+          {{- range $kk, $vv := $v }}
+            - name: {{ $kk | quote }}
+              value: {{ $vv | quote }}
+          {{- end }}
           {{- end }}
             resources:
               {{- toYaml .Values.resources | nindent 14 }}
