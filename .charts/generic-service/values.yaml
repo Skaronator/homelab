@@ -34,7 +34,9 @@ health:
 
 ingress:
   host: ""
+  path: /
   public: false
+  publicPath: /
   port: main
   annotations: {}
 
