@@ -1,0 +1,38 @@
+image:
+  repository: "ckulka/baikal"
+  tag: "0.9.3-nginx"
+
+hostPaths:
+- name: config
+  hostPath: /srv/nvme/container-data/baikal/config
+  containerPath: /var/www/baikal/config
+- name: data
+  hostPath: /srv/nvme/container-data/baikal/data
+  containerPath: /var/www/baikal/Specific
+
+ports: 
+- name: main
+  containerPort: 80
+
+ingress:
+  host: baikal.wagner.gg
+
+envs:
+  SMTP_HOST: smtp.migadu.com
+  SMTP_PORT: 587
+  MSMTPRC: |
+    defaults
+    auth           on
+    tls            on
+    tls_trust_file /etc/ssl/certs/ca-certificates.crt
+    account        default
+    host           $(SMTP_HOST)
+    port           $(SMTP_PORT)
+    from           $(SMTP_FROM)
+    user           $(SMTP_USERNAME)
+    password       $(SMTP_PASSWORD)
+
+secretEnvs:
+  SMTP_FROM: AgCblZkXBaEedT+nXiZvScKZ7adkbARwOfLr9HGsKE9gvBMZeO2N3df1hRqH0RYiUC9M55g2kZqjAzgD5mo/Eq5Gn6JwoIhbjsXLLioGhGqiq22+HuaHNamlRt+pD88oV2OvWiWK4OkyfsoyDwTsrMuDjBAoniQIe9rXnuykRX4R4nf437SnTnX7ifJc56OEPJLuAqNbAII8mBJRssi0ZUalZ3W6/a875Uj0RcDY/bH+kGg166VqOdP3dpm7JMJQu7z49J28RyMv955pyLLeD0tP6PaLjntM3CwRvJxeQC+c+MjqFUuqogNpYEJrPsqz1dv3phw/v99EvzKKks/2JzW3mp1t3Spn02q3bD3nvu2vzEvOHvnyucsp3jm8q/H/y0D2aN0HhxlDKlqnbuEDlOaQVSx++Wy6F6WtAMoWZCjqHi7/b8TkCD8ZgaoN0ouEFJqr+6Pfizs4O42bnMmQFg2Tye2UpFbADzp77fZSYW/qE2ONJSdPb64j0Hw9+qZaT92+D+YyrsPyP+Nju9NFlYBt9pzHmqiPOFi5y3/+5JK1QXIC0UAbV/lMLbS0sHzTo/eDQ5nGHVdR/HG4Uo3skivXL33719CI2SILahoYQks8nYMbe3GeO2mPMJOOvsqLA9kANbJkivImUXZHLQCtJfp0EmMzYhFGpEoKlCcGs+89P3FNtqYkMF1AV6MDfQGxZ3IUDEf2ofZAL8wrXocfBhFL
+  SMTP_USERNAME: AgCblZkXBaEedT+nXiZvScKZ7adkbARwOfLr9HGsKE9gvBMZeO2N3df1hRqH0RYiUC9M55g2kZqjAzgD5mo/Eq5Gn6JwoIhbjsXLLioGhGqiq22+HuaHNamlRt+pD88oV2OvWiWK4OkyfsoyDwTsrMuDjBAoniQIe9rXnuykRX4R4nf437SnTnX7ifJc56OEPJLuAqNbAII8mBJRssi0ZUalZ3W6/a875Uj0RcDY/bH+kGg166VqOdP3dpm7JMJQu7z49J28RyMv955pyLLeD0tP6PaLjntM3CwRvJxeQC+c+MjqFUuqogNpYEJrPsqz1dv3phw/v99EvzKKks/2JzW3mp1t3Spn02q3bD3nvu2vzEvOHvnyucsp3jm8q/H/y0D2aN0HhxlDKlqnbuEDlOaQVSx++Wy6F6WtAMoWZCjqHi7/b8TkCD8ZgaoN0ouEFJqr+6Pfizs4O42bnMmQFg2Tye2UpFbADzp77fZSYW/qE2ONJSdPb64j0Hw9+qZaT92+D+YyrsPyP+Nju9NFlYBt9pzHmqiPOFi5y3/+5JK1QXIC0UAbV/lMLbS0sHzTo/eDQ5nGHVdR/HG4Uo3skivXL33719CI2SILahoYQks8nYMbe3GeO2mPMJOOvsqLA9kANbJkivImUXZHLQCtJfp0EmMzYhFGpEoKlCcGs+89P3FNtqYkMF1AV6MDfQGxZ3IUDEf2ofZAL8wrXocfBhFL
+  SMTP_PASSWORD: AgAker3emljtysiAVSGkBORUudr+rJVQ8bPmCztD+1NRqr4MAKll7tvrY42h/yldBi8ayuWWl52C7c8LCInB/agVpQgttfXPaqzngBfE9POCUNeYFkZiNnXIeAL5AedWrAdi/WMw2lnecd45azjNiWlfs9xkCkAauSVAtrO1+3QVKYykyG+DLQiEGn5qJh8SAAMoQrJZ52d90lZwJmRagWQwDRnoOOGdI91onmoTJvIVS1NBTTOTZ4O+g+Bpaqo83d+pNaVQwZDA2ZkAIzxTOTiim+V+3Xl9Wnz5yXy2RPJZj97fzf9slblBuBaEy8+xYLuK5XPaTGso4/eEKIQWTeeK6F63egU0EA1dmrVG8pytkgm7oGcw1oK2j/qiee0N8g6riKAFp2D9p0s5D+9QC7gkzb2Kzgl4hsFB+BO0NFFjU21mnkACss6irEpNqtcExy+nvMme48vMN1hybAZgFogUrnOOuSeF4p763psVX7pIC5KbJ2xiUfnotA7zj7LwHKo4CTtQCfiL7JYHVmiuMHb+df7Dp4gfxRDRqukeRw0zvWBF0Sdxocm9cRh4ao3a+z7YknZyuHAVbGkTg4e82vwCxZoYsJ5/6Ay4xjNaGkIePxz/3AIykAExTWsgoO9j3Zgfx9nD+P30IPBV1E/zZjpt4D4ackliHerjy3gUPnAGyPvP4ZCu2apBh41gZTC+qJHG/AYAwaqxsSzjNzN+Lc1nE19TWeJ6G9UKUPh2wUY=
