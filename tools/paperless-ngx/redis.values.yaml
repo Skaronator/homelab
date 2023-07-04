@@ -1,0 +1,10 @@
+image:
+  repository: "redis"
+  tag: "7.0.11"
+
+ports:
+- name: main
+  containerPort: 6379
+
+health:
+  type: TCP
