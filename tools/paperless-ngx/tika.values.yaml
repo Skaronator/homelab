@@ -1,0 +1,7 @@
+image:
+  repository: "ghcr.io/paperless-ngx/tika"
+  tag: "2.7.0-minimal"
+
+ports:
+- name: main
+  containerPort: 9998
