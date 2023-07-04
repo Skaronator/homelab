@@ -40,7 +40,6 @@ ingress:
   port: main
   annotations: {}
 
-
 replicas: 1
 strategyType: Recreate
 
@@ -65,6 +64,7 @@ secretEnvs: []
 
 configMaps: []
 # - name: ""
+#   defaultMode: 0644
 #   mountPath: ""
 #   subPath: ""
 #   content: ""
