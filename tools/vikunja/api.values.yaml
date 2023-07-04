@@ -9,7 +9,7 @@ ports:
 health:
   path: /health
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 32m
+    nginx.ingress.kubernetes.io/proxy-body-size: 64m
 
 ingress:
   host: vikunja-api.wagner.gg
@@ -19,7 +19,7 @@ envs:
 - VIKUNJA_SERVICE_FRONTENDURL: https://vikunja.wagner.gg/
 - VIKUNJA_SERVICE_TIMEZONE: Europe/Berlin
 - VIKUNJA_SERVICE_ENABLEREGISTRATION: false
-- VIKUNJA_FILES_MAXSIZE: 32MB
+- VIKUNJA_FILES_MAXSIZE: 64MB
 - VIKUNJA_DATABASE_TYPE: mysql
 - VIKUNJA_DATABASE_HOST: $(TEMPLATE_DB_HOST)
 - VIKUNJA_DATABASE_PORT: $(TEMPLATE_DB_PORT)
