@@ -19,10 +19,10 @@ health:
 
 homepage:
   name: Firefly III
-  group: Cloud
+  group: Organization
   description: Personal Finance Manager
   icon: firefly
-  weight: 10
+  weight: 1
 
 envs:
 - APP_ENV: local
