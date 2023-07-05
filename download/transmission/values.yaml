@@ -28,7 +28,7 @@ securityContext:
 
 homepage:
   name: Transmission
-  group: Download
+  group: Downloader
   description: Torrent Downloader
   icon: transmission.svg
   weight: 2

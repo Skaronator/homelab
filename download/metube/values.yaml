@@ -34,7 +34,7 @@ hostPaths:
 
 homepage:
   name: MeTube
-  group: Download
+  group: Downloader
   description: YouTube Downloader
   icon: metube.svg
   weight: 45
