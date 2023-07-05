@@ -52,6 +52,8 @@ config:
     layout:
     - Cloud:
         icon: mdi-cloud
+    - Organization:
+        icon: file-document-multiple-outline
     - Smart Home:
         icon: mdi-home-outline
     - Server:
@@ -62,8 +64,6 @@ config:
         icon: mdi-filmstrip-box
     - Download:
         icon: mdi-download-outline
-    - Download v2:
-        icon: mdi-download-multiple
     target: _self
     theme: dark
     title: Homelab

@@ -67,7 +67,7 @@ configMaps:
 
 homepage:
   name: Paperless
-  group: Cloud
+  group: Organization
   description: Document Management
   icon: paperless-ngx.svg
-  weight: 5
+  weight: 10
