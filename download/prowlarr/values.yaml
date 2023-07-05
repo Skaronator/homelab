@@ -20,7 +20,7 @@ hostPaths:
 
 homepage:
   name: Prowlarr
-  group: Download
+  group: Indexer
   description: Index Manager
   icon: prowlarr.svg
   weight: 10

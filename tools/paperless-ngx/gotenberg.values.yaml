@@ -1,6 +1,6 @@
 image:
   repository: "gotenberg/gotenberg"
-  tag: "7.8.3"
+  tag: "7.8.3@sha256:78477be56f7f20d0819880c3815b56a73228b9700afcdb9958abc858f96d8280"
 
 ports:
 - name: main

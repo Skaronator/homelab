@@ -53,7 +53,7 @@ config:
     - Cloud:
         icon: mdi-cloud
     - Organization:
-        icon: file-document-multiple-outline
+        icon: mdi-file-document-multiple-outline
     - Smart Home:
         icon: mdi-home-outline
     - Server:
@@ -62,6 +62,8 @@ config:
         icon: mdi-lan
     - Media:
         icon: mdi-filmstrip-box
+    - Indexer:
+        icon: mdi-download-multiple
     - Download:
         icon: mdi-download-outline
     target: _self
