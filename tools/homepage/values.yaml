@@ -37,7 +37,7 @@ config:
         icon: plex.svg
         namespace: media
         weight: 1
-  - Download:
+  - Downloader:
     - JDownloader:
         app: jdownloader
         description: HTTP Downloader
@@ -64,7 +64,7 @@ config:
         icon: mdi-filmstrip-box
     - Indexer:
         icon: mdi-download-multiple
-    - Download:
+    - Downloader:
         icon: mdi-download-outline
     target: _self
     theme: dark
