@@ -23,7 +23,7 @@ config:
         description: Server Management
         href: https://192.168.0.4/
         icon: asrockrackipmi.png
-        weight: 1
+        weight: 5
     - Portainer:
         description: Container Management
         href: https://192.168.0.2:9443

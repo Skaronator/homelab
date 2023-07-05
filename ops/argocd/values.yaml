@@ -9,6 +9,12 @@ server:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
       nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/group: Server
+      gethomepage.dev/name: ArgoCD
+      gethomepage.dev/description: Kubernetes Deployments
+      gethomepage.dev/icon: argocd.svg
+      gethomepage.dev/weight: "1"
     hosts:
     - argocd.wagner.gg
     tls:
