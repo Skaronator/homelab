@@ -4,6 +4,7 @@
     "config:base"
   ],
   "timezone": "Europe/Berlin",
+  "schedule": ["before 4am"],
   "helm-values": {
     "fileMatch": [
       "(^|/|\\w+\\.)values\\.ya?ml$"
@@ -11,6 +12,10 @@
     "pinDigests": true
   },
   "packageRules": [
+    {
+      "matchPackageNames": ["ghcr.io/home-assistant/home-assistant"],
+      "versioning": "regex:^(?<major>\\d+\\.\\d+)\\.(?<minor>\\d+)$"
+    },
     {
       "matchUpdateTypes": ["digest", "pin", "pinDigest"],
       "automerge": true,
