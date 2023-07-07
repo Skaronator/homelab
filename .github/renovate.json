@@ -13,10 +13,6 @@
   },
   "packageRules": [
     {
-      "matchPackageNames": ["ghcr.io/home-assistant/home-assistant"],
-      "versioning": "regex:^(?<major>\\d+\\.\\d+)\\.(?<minor>\\d+)$"
-    },
-    {
       "matchUpdateTypes": ["digest", "pin", "pinDigest"],
       "automerge": true,
       "automergeType": "branch"
@@ -27,6 +23,14 @@
     },
     {
       "matchUpdateTypes": ["major"],
+      "minimumReleaseAge": "1 day"
+    },
+    {
+      "matchPackageNames": [
+        "ghcr.io/home-assistant/home-assistant",
+        "ghcr.io/esphome/esphome"
+      ],
+      "matchUpdateTypes": ["major","minor"],
       "minimumReleaseAge": "1 day"
     }
   ],
