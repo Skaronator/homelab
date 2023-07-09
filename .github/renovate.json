@@ -4,7 +4,7 @@
     "config:base"
   ],
   "timezone": "Europe/Berlin",
-  "schedule": ["before 4am"],
+  "schedule": ["after 3am", "before 6am"],
   "helm-values": {
     "fileMatch": [
       "(^|/|\\w+\\.)values\\.ya?ml$"
@@ -13,7 +13,13 @@
   },
   "packageRules": [
     {
-      "matchUpdateTypes": ["digest", "pin", "pinDigest"],
+      "matchUpdateTypes": ["pinDigest"],
+      "automerge": true,
+      "automergeType": "branch",
+      "schedule": ["at any time"]
+    },
+    {
+      "matchUpdateTypes": ["digest", "pin"],
       "automerge": true,
       "automergeType": "branch"
     },
