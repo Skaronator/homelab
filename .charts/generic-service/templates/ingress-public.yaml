@@ -8,6 +8,10 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/target: vps.wagner.gg
     cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # rate limiting
+    nginx.ingress.kubernetes.io/limit-connections: "10"
+    nginx.ingress.kubernetes.io/limit-rps: "15"
     {{- if .Values.ingress.basicAuth }}
     nginx.ingress.kubernetes.io/auth-type: "basic"
     nginx.ingress.kubernetes.io/auth-secret: {{ include "generic-service.name" . }}-basic-auth
