@@ -41,11 +41,11 @@
     },
     {
       "matchPackageNames": ["plexinc/pms-docker"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)\\-\\(?<revision>\\w+)$"
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)\\-(?<revision>\\w+)$"
     },
     {
       "matchPackagePrefixes": ["ghcr.io/hotio"],
-      "versioning": "regex:^release\\-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+).(?<build>\\d+)"
+      "versioning": "regex:^release\\-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)"
     }
   ],
   "platformAutomerge": true
