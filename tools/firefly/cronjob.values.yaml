@@ -1,6 +1,6 @@
 image:
-  repository: "curlimages/curl"
-  tag: "8.2.0@sha256:daf3f46a2639c1613b25e85c9ee4193af8a1d538f92483d67f9a3d7f21721827"
+  repository: "ghcr.io/curl/curl-container/curl-multi"
+  tag: "8.2.0"
 
 schedule: "*/15 * * * *"
 
