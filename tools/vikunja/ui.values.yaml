@@ -1,5 +1,5 @@
 image:
-  repository: vikunja/frontend
+  repository: "vikunja/frontend"
   tag: "0.21.0@sha256:fdd4582979beee4a6bef2d4d8e3744809b82ab2e198d708a829d7189a0ad9882"
 
 ports:
