@@ -5,7 +5,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/Skaronator/k8s-homelab.git
+      repoURL: https://github.com/Skaronator/homelab.git
       revision: main
       directories:
       - path: "**/*"
@@ -17,7 +17,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/Skaronator/k8s-homelab.git
+        repoURL: https://github.com/Skaronator/homelab.git
         targetRevision: main
         path: '{{path}}'
         kustomize:
