@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/curl/curl-container/curl-multi"
-  tag: "8.2.0"
+  tag: "8.2.0@sha256:5e976241ac5f92e29cd4ffcfad68bd09354fc7c5555b6ba757a0d8c9e8c986ce"
 
 schedule: "*/15 * * * *"
 
