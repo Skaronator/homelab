@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/crazy-max/samba"
-  tag: "4.18.3"
+  tag: "4.18.3@sha256:ca84b61d209b1bcf86e27e35481d2bb1fe4be5518cea78b5db08aaa47eea6b11"
 
 ports:
 - name: main
