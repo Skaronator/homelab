@@ -5,6 +5,7 @@ image:
 ports:
 - name: main
   containerPort: 445
+  hostPort: 445
 
 health:
   type: TCP
