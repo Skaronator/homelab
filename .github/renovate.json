@@ -11,6 +11,9 @@
     ],
     "pinDigests": true
   },
+  "kubernetes": {
+    "fileMatch": ["\\.ya?ml$"]
+  },
   "packageRules": [
     {
       "matchUpdateTypes": ["pinDigest"],
