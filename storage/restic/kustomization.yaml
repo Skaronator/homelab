@@ -9,3 +9,11 @@ helmCharts:
   releaseName: restic-container-data
   valuesFile: container-data.values.yaml
   namespace: storage
+- name: generic-cronjob
+  releaseName: restic-pictures
+  valuesFile: pictures.values.yaml
+  namespace: storage
+- name: generic-cronjob
+  releaseName: restic-music
+  valuesFile: music.values.yaml
+  namespace: storage
