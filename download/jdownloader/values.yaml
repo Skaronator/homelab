@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/tuxpeople/jdownloader-headless"
-  tag: "weekly@sha256:55c19691b1aaa9a5e6d8260e6089e02a728dd7eeeed0b5226af1b0e749cdac8b"
+  tag: "weekly@sha256:574c7855ed3a4375a957a918514f69a74af1b9f78be921907d20755899ba0b96"
 
 hostPaths:
 - name: data
