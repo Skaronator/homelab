@@ -1,0 +1,51 @@
+image:
+  repository: "ghcr.io/skaronator/gallery-dl"
+  tag: "1.25.8"
+
+schedule: "0 3 * * *"
+
+securityContext:
+  runAsUser: 100
+  runAsGroup: 101
+
+command:
+- /bin/sh
+
+args:
+- -c
+- >
+  gallery-dl --config-yaml /config/config.yaml
+  --username $CP_USERNAME --password $CP_PASSWORD
+  https://coomer.party/favorites
+
+configMaps:
+- name: config
+  mountPath: /config
+  subPath: config.yaml
+  content:
+    extractor:
+      base-directory: /downloads
+      retries: 30
+      coomerparty:
+        image-filter: "extension not in ('jpg','jpeg','png','txt')"
+        directory:
+        - "{username}"
+        - "{service}"
+        metadata: true
+        filename: "{date:%Y-%m-%d} - {title[:150]|empty|content[:150]} - {num:>02}.{extension}"
+    downloader:
+      retries: 30
+      rate: 25M
+      filesize-min: 30M
+    output: {}
+    postprocessor: {}
+
+hostPaths:
+- name: downloads
+  hostPath: /srv/hdd/pp/Person
+  containerPath: /downloads
+  type: Directory
+
+secretEnvs:
+- CP_USERNAME: AgAebfes/uiL630SJlt2FstBKb3izWiKGbU0iRxHQpplZZt1CF6mAwcFErNtr+SJqxQ63p+UEkIzL79OdNIrnm+1jcX+1VcoS46hQMaT3UxL9EWnYvdP1wKCAQLqHe0tswlP1UJGtOW8m3TwVypwxh6BryKkXGB6dxDsoR7slrzyh60zSCpGCtlyVZg3Gw2XPUdVupq95dYn4wkn2aFHl1h/PkUFaB9WHSN9i5bsrqq6IZ4H/M6jU8kkFk/hvxSOiVQn30V24lTcKk1y/g/BRnOQvUC/XXP5wntPPYtql3q6CzCrZY9QBnx3ppt3Nxt2hAC3L4AlaPD+SJKVbG46uEgJ3vV91dSjB+p7/+oLon969ulc10aBYQsbdYVS8jnB3zH4+Mc25ifaheScA7gWaJZu9CvkoQCJnHXPAiZB2QWjff9d7Qw4axxLa1JxHSIk7XLbD0B3IknBYhg0at40uLJyfJzta5CHZYKs4K0UGF5is5qUTZoZR8EnkoUXwfFZNKqZzH1S2xxAemujpcgIENODnSRhQWyZci54pYmvKsQqWb4pXShe0EKX2ZvE71O5iwvWhjYrTysyrUS3Pvl4eYdWuQ86FIGTT+lpck0lI0XulhQiBXDrjlqMNW01TcYfqrBXP8lw7LrXYL+6PJeIPxW01jgsiUK3Vwk451IPHey5iGl0XY/zrPJvRu55UgUP9x5YnlPTO0Yq6w==
+- CP_PASSWORD: AgBEFwwybN0HwWr1a7/5c+yG4kKsGn+FuW0ygBTf42cO0JLBhx0FlPbQLBwPCY+xV1hkAqRMdiIW7YH2YVIiQlHT2gKNTBz2PWuRrmjm8MGJpg520Y8btF5WT62OVu+qQrXozYa/iF2iHKj4cnEixxDVdIHXnGruDOlyMXgTbVvVzlVk6Rxxjbh+XFOKuoQ9eCzIo3CPugv3nHSUd2lUtakulrpGnKQBGgpQYfVeBj+zEKKefH2bAxhAgnHRrVpgaINVe35ICtC8hHvKKu+TSfEW6VrRFRFlKZqdZcpsTIeLuomJpy/ogY3WnOqGBWkxbkIoB4bm+JmgIsxgcuyCOswdXVwOCkwIIPJelCFo2til00Vn+MoCP+rVx+j5O1Zl6fn9+JCqnMxiARYNf4eJsM9OMuGiEdqNW2EdTa7PD63nokoPczK/vDCSLN6wzAmHXRwh55wKrn7ZfG8VI4ULRdPL0BVFvjRlr8YYTwf2NtFZ/asfYFeTurXaZBYHrZ+0W5Ym6eEhlEgx2HlAKoPLuYNzwHsWM3QxAG5gtyR4GOMrueFrYiJuZshge93X/ZbzzzedVx8cpw3wvO1TEmWJFXSXpbQ7cOgWV9FCpGQG2BqVydLETQbkWYp3dkbFiWxEIzk3IimGOchlpdFDE3EivGcLuckroWoHdFdsJlKuql2zIspDPxjHwgH7V+zDwWvwwVsgd2KW55qGCMj+Ph/uJFvxtHvVYi6u
