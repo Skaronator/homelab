@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/benphelps/homepage"
-  tag: "v0.6.25@sha256:d6a98723a056b26dbac5b01ce36f187a00ffbf5f4fb87dc6ba9e05ae796e8e66"
+  tag: "v0.6.26@sha256:0150b2e98419baeba98dd5d9e1bd98c8df7d50d774c6dc1d16dc9935668f8fa3"
 
 config:
   bookmarks: {}
