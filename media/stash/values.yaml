@@ -37,4 +37,3 @@ hostPaths:
 - name: data
   hostPath: /srv/hdd/pp
   containerPath: /data
-  readOnly: true
