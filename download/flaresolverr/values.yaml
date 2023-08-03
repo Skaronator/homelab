@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/flaresolverr/flaresolverr"
-  tag: "v3.3.0@sha256:43adedb94e4e8be63cd7ea5cc5ec65a3ec395338c4772a03048afc1313fc9e00"
+  tag: "v3.2.2@sha256:5d01f4933ed20507e740386cbbbc77cbc3e9eefdaba1565df55f7e546222d43a"
 
 ports: 
 - name: main
