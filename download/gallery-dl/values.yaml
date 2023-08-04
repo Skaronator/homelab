@@ -2,7 +2,7 @@ image:
   repository: "ghcr.io/skaronator/gallery-dl"
   tag: "1.25.8@sha256:89b217bcb88ea4dfc429f4532c6717e2d1c64cacaa86903d57b3782c2503c673"
 
-schedule: "30 * * * *"
+schedule: "0 2 * * *"
 
 securityContext:
   runAsUser: 100
