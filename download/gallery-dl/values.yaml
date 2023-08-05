@@ -14,7 +14,7 @@ command:
 args:
 - -c
 - >
-  gallery-dl --config-yaml /config/config.yaml
+  gallery-dl --config-yaml /config/config.yaml --verbose
   --username $CP_USERNAME --password $CP_PASSWORD
   https://coomer.party/favorites
 
