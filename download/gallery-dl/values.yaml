@@ -27,7 +27,7 @@ configMaps:
       base-directory: /downloads
       retries: 30
       coomerparty:
-        image-filter: "extension not in ('jpg','jpeg','png','txt')"
+        image-filter: "extension not in ('jpg','jpeg','png','txt','gif')"
         directory:
         - "{username}"
         - "{service}"
