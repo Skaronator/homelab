@@ -36,7 +36,7 @@ configMaps:
     downloader:
       retries: 30
       rate: 25M
-      filesize-min: 50M
+      filesize-min: 100M
     output: {}
     postprocessor: {}
 
