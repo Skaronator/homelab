@@ -11,26 +11,27 @@
     ],
     "pinDigests": true
   },
-  "kubernetes": {
-    "fileMatch": ["\\.ya?ml$"]
-  },
   "packageRules": [
     {
+      "matchDatasources": ["docker", "helm"],
       "matchUpdateTypes": ["pinDigest"],
       "automerge": true,
       "automergeType": "branch",
       "schedule": ["at any time"]
     },
     {
+      "matchDatasources": ["docker", "helm"],
       "matchUpdateTypes": ["digest", "pin"],
       "automerge": true,
       "automergeType": "branch"
     },
     {
+      "matchDatasources": ["docker", "helm"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     },
     {
+      "matchDatasources": ["docker", "helm"],
       "matchUpdateTypes": ["major"],
       "minimumReleaseAge": "1 day"
     },
