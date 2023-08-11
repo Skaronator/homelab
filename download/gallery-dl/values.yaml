@@ -29,8 +29,8 @@ configMaps:
       coomerparty:
         image-filter: "extension not in ('jpg','jpeg','png','txt','gif')"
         directory:
-        - "{username}"
-        - "{service}"
+          "username in ('baddslayer','BadDSlayer')": ["BadDragonSlayer", "{service}"]
+          "": ["{username}", "{service}"]
         metadata: true
         filename: "{date:%Y-%m-%d} - {title[:150]|empty|content[:150]|empty|id} - {num:>02}.{extension}"
     downloader:
