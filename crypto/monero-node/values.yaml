@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/sethforprivacy/simple-monerod"
-  tag: "v0.18.2.2@sha256:8c69c26b8d9fb2b0bb8d4b59b02857510b5d1bb326d8371d41e7ebf8fb93c05c"
+  tag: "v0.18.2.2@sha256:a88dc88901bbc4859729beba5f4f1928fbe0005596f1ad449037e34016bdec45"
 
 args:
 - "--db-sync-mode=safe"
