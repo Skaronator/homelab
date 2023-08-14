@@ -1,0 +1,55 @@
+image:
+  repository: "restic/restic"
+  tag: "0.16.0@sha256:5777caeaf211e18537cf8d24cff3de7b12309d6e27c51e39eb757c5da2d52c58"
+
+schedule: "0 2 * * *"
+
+command:
+- /bin/sh
+
+args:
+- -c
+- >
+  restic snapshots
+  &&
+  restic backup
+  /mnt/niklas
+  --verbose
+  --cleanup-cache
+  --limit-upload=4250
+  --host=kubernetes-cronjob-niklas
+  &&
+  restic stats --mode raw-data latest
+  &&
+  restic unlock --remove-all
+  &&
+  restic diff $(restic snapshots --json | jq -r '.[-2:][].id')
+
+envs:
+# TODO: Rename bucket to niklas
+- RESTIC_REPOSITORY: "$(SCALEWAY_REPOSITORY_PATH)-niklas-private"
+# only for nvme backup sources
+- RESTIC_READ_CONCURRENCY: "50"
+- RESTIC_PASSWORD_FILE: "/config/password"
+- RESTIC_CACHE_DIR: "/mnt/cache"
+- RESTIC_PACK_SIZE: "128"
+- RESTIC_PROGRESS_FPS: "0.01666"
+- RESTIC_COMPRESSION: "max"
+
+secretEnvs:
+- SCALEWAY_REPOSITORY_PATH: AgDku/qh+NQivV/sCUqBUeCRBlU3fFjiUCgcZjjB1AC1CZ3Hb9evaPMq95vKlVQYKRCMe1fmRZXqOFsvlZ8lDJxKmgiuRhQ86kHfquaeV03OYSdb1sYt2JHL3oQHcUGmzF1Ingof7K9oPfDLtojQMHlAh+DRPMGWuQdK9ibvTVx1Vz4ZKgaWslEMjSLtw4y5MEEU+5BSlAEps9sM1o6YIhR+VzWbYItbzxZkCsdscpvt5TJMqFGfmS0vDcfpL5HsDt+8tSVQmQQbTDsMmkp+O9/S6rOBmVhVHNGkEoeoTBJOm1cfo1G3niN3mjrJu0pDQIYSunBfje/jUBO9+PVD2aXuqOoRHHr4EepAQQDOT44VQ/nHxaAuQ1uU9t25fJfonwR5hqvNEYdEUSwVwxWl3uLJFu3tGYNqLH1lptxBq7Kjeo+sbLrmcsCux5pOYwZfitp8quGhdI5EyAuJJQL5fdNmrAs9Msj18V48HHJfc+R4pyfxyIm53DfZC2QKJ8TBL/UR84j2FkUoT4r+CKyUImjFkl8eC7RFqOXZ830O5UDeCy+NMA3xgysaWLSvwDz8VgrrYYj0sJVBFieNi4x341TXDiNy30E9r4I4INTWu41M761UuPmX8zvH2k8cn+bUglnkf+SmENuAFlAXeB+smQaOxjY7MS3XpwduBX3m7SwL7thOYRwmufuqTnXYh/r5hKjG9k3gN/iYNcHLskSJavPvsRxo+ifLkD6QBmx8r3dAKGfHt4Gk1b8wfBvwxePHlPc=
+- AWS_ACCESS_KEY_ID: AgB4PDQ4eRbhwnNhk0i6mHSeXfMdAvb/26Hd3ymRLSfefaf/rAIYcFHwHm+RXwTqWRsjV7Eojh3Yi8/TTOlNtv6LGnU1HvKfpQEIDkMmsO/9F0QFxQD5VnUcpenpKW1ZGcjHwe/dka2ONjRbJ1bl3PoIkAUbmk2A11OC2cfCKZ/EXoCUXXY41ZzVy/N1EZdSkpN0YS8ozDAlI85kwC11GjbMaCjrs5H3Nj9nJ1OYkHnGF91h7AXTVT+TVjByZlJyV1CPJCWTCbQ4RxvoJ6kfWbTxrofDIkeak64VvIu3Ltb1iC5vqvSKhGkPIF05sF1TM5wbGtfKmjcNluHS7MXniMUv8UoAxza6ehJc3XcE8tEU/gQFvSPRfln6POekv1jkmVXH+zioAT0BpH5h7V8qmuPqlvjEYmuIqwv/I9q9HOJJZkgzWKg6V5I14uDJZnrH0GQ0+LK9TSJ5XZl83kXLTvOnlk/XhUZ48Cnaa2wbpAARiGRLRciA6nga8rYF0KJSw7Vq2o4bHWjKSU5Oy0aqInI8Q2pdEVV3Bs107Fk7knembzATNauh7QZoBkA5IyJza2ng1jGPu0H4ZWN00UXEsTzEmwat/GifJe71nLsKjai2XQ+5ddyBgFHM0yEC69v5fTg8nvK9Fcnr0tp2I8ajc/o3uX1rJYRv/uqOG4s5ONSJXth/C9QbOH1eoDPCIZqoKAjKkrJL/RAndC+v5fcUcqoI8pLJ+w==
+- AWS_SECRET_ACCESS_KEY: AgCjG3ol4RFmRG2e9RyiXa2pH/curjiRjRHRUpndz8rSQvNaCt9aY2SrEHdFkwdjNZ0iSYkHZBQlj1Rvy4Du1pjgyXZboVgeBDzh5HB41vkrP2RaDmm7/7kM8UfRbHP/TXhFlcFnAPpefaDbD8ogBW7KJD6XKXSTY17YozWQVQNtoGSZlPm6WnoBIiVgX6E4IBVscLQsLN9F9rKYQwSN5y7aXSGZcyTLfFIRAHTrgWITHlWqsYRBUXsg7kA8Z5//mcD+/0kqbfNnc7JVGWhhMxF1LL03tJtUG67h1quDzdxK7I1YPazDpNbWl7CF4e4cQbvB2XiqtmLUSpfgWjq3N/Kon8Gs+oPbzlHpj4IdsFo96aoNOV0R0Ztt9s35DD8p35nKJjC3xyAsi+cq9xekAoyAxTMM/JHeIniJlxNhFeqWu94suHxXvNuanv36Jokwdyb5L+FNwtNHVVCbJxKIqeDPrZiwExq96nKvizXMZd1UJn8GHLy3tXwcHQH0gO0FfcAUigJr3jUH6IgABFh2GDV2QjwEiPlft0/8/LWWONg/OW3+MPDlucUUfXvFlB+mfNhnjkaP2Zen6EqfikLW+KyWzf+xemG+bmpv3tLJI6xSD/Gnm7IrxerGNrzPATgw4IZyvYalDJ6xx/Z4yXbBubkTe0KTDG5Ncxz0hg5iEuoqgpz9969GUStTUzBYd5wDzBvXHQJYGVGD5oD+RK4r8JtoLqVek6+ws5WaKW4XHD3sJzqoLXo=
+
+hostPaths:
+- name: config
+  hostPath: /srv/nvme/container-data/restic
+  containerPath: /config
+- name: cache
+  hostPath: /srv/nvme/scrap-data/restic-cache
+  containerPath: /mnt/cache
+- name: data
+  hostPath: /srv/nvme/niklas
+  containerPath: /mnt/niklas
+  type: Directory
+  readOnly: true
