@@ -17,7 +17,7 @@ args:
   --verbose
   --cleanup-cache
   --limit-upload=4250
-  --host=kubernetes-cronjob-niklas
+  --host=kubernetes-cronjob
   &&
   restic stats --mode raw-data latest
   &&

@@ -17,7 +17,7 @@ args:
   --verbose
   --cleanup-cache
   --limit-upload=4250
-  --host=kubernetes-cronjob-container-data
+  --host=kubernetes-cronjob
   --exclude=*.log
   --iexclude=esphome/.esphome
   --iexclude=Plex\ Media\ Server/Cache/PhotoTranscoder
