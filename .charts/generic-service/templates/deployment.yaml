@@ -55,7 +55,7 @@ spec:
           set -ex;
           {{- range .Values.hostPaths }}
           {{- if not (has .type (list "CharDevice")) }}
-          chmod -R 777 {{ .containerPath | quote }};
+          chmod 777 {{ .containerPath | quote }};
           {{- end }}
           {{- end }}
         volumeMounts:
@@ -77,7 +77,7 @@ spec:
             sleep 1;
             echo "...";
           done;
-          echo -e "  >> MySQL DB Server has started";
+          echo -e " >> MySQL DB Server has started";
           sleep 5;
         {{- end }}
       {{- end }}
