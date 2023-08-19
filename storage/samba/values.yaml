@@ -10,6 +10,9 @@ ports:
 health:
   type: TCP
 
+podLabels:
+  zfs-encryption: "true"
+
 envs:
 - SAMBA_SERVER_STRING: "Spirit Samba"
 
