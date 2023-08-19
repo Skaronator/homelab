@@ -9,6 +9,9 @@ ports:
 ingress:
   host: stash.wagner.gg
 
+podLabels:
+  zfs-encryption: "true"
+
 homepage:
   name: Stash
   group: Media

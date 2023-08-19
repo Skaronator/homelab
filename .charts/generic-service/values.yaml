@@ -6,6 +6,7 @@ image:
 serviceAccount:
   annotations: {}
 
+podLabels: {}
 podAnnotations: {}
 
 podSecurityContext: {}
