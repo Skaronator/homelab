@@ -81,7 +81,7 @@ database:
   enabled: false
   image:
     repository: mariadb
-    tag: "11.0.3@sha256:6eed3299537afeeeac2690f58db15951e2add4eae253e49b86c07bc218e27147"
+    tag: "11.0.3@sha256:3fde6add72f24360c7d367c33157ca8f456b1f99d7c6973b8e169b7c9f3b90a8"
   hostPath: ""
   rootPassword: ""
   userPassword: ""
