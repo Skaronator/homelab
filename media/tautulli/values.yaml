@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/tautulli/tautulli"
-  tag: "v2.13.0@sha256:5278511e26b4a9b3ddd8ff87a502737e366daf342b303947d1d9898d24aef496"
+  tag: "v2.13.1@sha256:de9c17eabb40f3f950c5dc12cf8137e92391cd3d2a23f4bbcd0dfdccec2db394"
 
 ports:
 - name: main
