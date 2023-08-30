@@ -20,6 +20,10 @@ spec:
     spec:
       serviceAccountName: {{ include "database.name" . }}
       terminationGracePeriodSeconds: 120
+      dnsConfig:
+        options:
+        - name: ndots
+          value: "1"
       containers:
       - name: {{ include "database.name" . }}
         image: "{{ .Values.database.image.repository }}:{{ .Values.database.image.tag }}"
