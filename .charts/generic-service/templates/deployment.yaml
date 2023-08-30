@@ -42,6 +42,10 @@ spec:
       {{- if .Values.hostNetwork }}
       dnsPolicy: ClusterFirstWithHostNet
       {{- end }}
+      dnsConfig:
+        options:
+        - name: ndots
+          value: "1"
     {{- if or .Values.hostPaths .Values.database.enabled }}
       initContainers:
       {{- if .Values.hostPaths }}
