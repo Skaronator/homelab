@@ -33,7 +33,11 @@ spec:
           serviceAccountName: {{ include "generic-cronjob.name" . }}
           terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
           securityContext: {{- toYaml .Values.podSecurityContext | nindent 12 }}
-          restartPolicy: OnFailure 
+          restartPolicy: OnFailure
+          dnsConfig:
+            options:
+            - name: ndots
+              value: "1"
           containers:
           - name: {{ include "generic-cronjob.name" . }}
             securityContext: {{- toYaml .Values.securityContext | nindent 14 }}
