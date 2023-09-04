@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/dani-garcia/vaultwarden"
-  tag: "1.29.1@sha256:89ffbe952338f42265dbff0033d0fa8a88458a52674a05f5ed918875e403dccd"
+  tag: "1.29.2@sha256:11202c9d457a8c2606a084e5c891b89c9b117014b25ef4b3b8cdf5bb3613e672"
 
 hostPaths:
 - name: data
