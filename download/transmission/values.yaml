@@ -1,6 +1,6 @@
 image:
   repository: "haugene/transmission-openvpn"
-  tag: "5.1.0@sha256:84039b45c8fc18cb81910b5dcfddebb197bf84021d953b365b951d27e0a0539f"
+  tag: "5.2.0@sha256:1092f879761da07bf24f208aa7a16cb2da5735c293e633f762d4ed0c51bc2658"
 
 hostPaths:
 - name: data
