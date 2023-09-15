@@ -1,6 +1,6 @@
 image:
   repository: "fireflyiii/core"
-  tag: "version-6.0.23@sha256:9c15771c543fc5d456f63eaf0cabc8746ff0dd85844622947c4fe67f3f392f8f"
+  tag: "version-6.0.24@sha256:f234660292a9795b3f08d20db04c0bccfb5dac67ebac73e801c17327c22934f0"
 
 hostPaths:
 - name: data
