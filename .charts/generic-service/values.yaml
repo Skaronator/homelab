@@ -90,7 +90,7 @@ database:
     schedule: "0 4 * * *"
     image:
       repository: fradelg/mysql-cron-backup
-      tag: "latest@sha256:8e97d1bbc6b2e7ae226721721603bed55a5eec3758ff169bf5e3882bfcf4116c"
+      tag: "latest@sha256:eb8370db4f13598f44a1174ec63e8c2b1da451f28019f0c9dc5c39c84e0fcb00"
 
 helper:
   image:
