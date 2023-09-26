@@ -1,0 +1,22 @@
+image:
+  repository: "ghcr.io/actualbudget/actual-server"
+  tag: "23.9.0"
+
+hostPaths:
+- name: data
+  hostPath: /srv/nvme/container-data/actualbudget
+  containerPath: /data
+
+ports: 
+- name: main
+  containerPort: 5006
+
+ingress:
+  host: actualbudget.wagner.gg
+
+homepage:
+  name: Actual Budget
+  group: Organization
+  description: Personal Finance Manager
+  icon: actual
+  weight: 5
