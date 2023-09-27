@@ -1,6 +1,6 @@
 image:
   repository: "plexinc/pms-docker"
-  tag: "1.32.6.7468-07e0d4a7e@sha256:2d9354166e53a316a42e751c68623a7b97a1eecb8f7eb2b644515d1fda899cfe"
+  tag: "1.32.6.7557-1cf77d501@sha256:c0a9bf98e65a3b012a013ff0fe38d6158b8b3921f0d694ccbff928161dc445ea"
 
 ports:
 - name: main
