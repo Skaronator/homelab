@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/paperless-ngx/tika"
-  tag: "2.9.0-minimal@sha256:6d75c2fe27719f0961b0100c994b0ae81b09374dfc7c142f0fd404987ef5dd59"
+  tag: "2.9.0-minimal@sha256:b6154c8778cf6fd8ca46ba96f25846241ffdb12d033b578f8cd85893734eb155"
 
 ports:
 - name: main
