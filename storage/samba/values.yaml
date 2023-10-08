@@ -36,6 +36,8 @@ configMaps:
     - "map hidden = no"
     - "map system = no"
     - "map readonly = no"
+    # Allow moving files with a long filename
+    - "max path = 8192"
     auth:
     - user: niklas
       password: ${PASSWORD_NIKLAS}
