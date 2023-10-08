@@ -11,7 +11,7 @@ spec:
     role: controller+worker
     noTaints: true
   k0s:
-    version: 1.27.5+k0s.0
+    version: 1.28.2+k0s.0
     config:
       spec:
         api:
@@ -24,3 +24,6 @@ spec:
           serviceCIDR: 10.96.0.0/12
         telemetry:
           enabled: false
+        featureGates:
+        - name: SidecarContainers
+          enabled: true
