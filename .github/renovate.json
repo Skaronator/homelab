@@ -4,7 +4,7 @@
     "config:base"
   ],
   "timezone": "Europe/Berlin",
-  "schedule": ["after 3am", "before 6am"],
+  "automergeSchedule": ["after 3am", "before 6am"],
   "helm-values": {
     "fileMatch": [
       "(^|/|\\w+\\.)values\\.ya?ml$"
@@ -16,8 +16,7 @@
       "matchDatasources": ["docker", "helm"],
       "matchUpdateTypes": ["pinDigest"],
       "automerge": true,
-      "automergeType": "branch",
-      "schedule": ["at any time"]
+      "automergeType": "branch"
     },
     {
       "matchDatasources": ["docker", "helm"],
@@ -40,8 +39,15 @@
         "ghcr.io/home-assistant/home-assistant",
         "ghcr.io/esphome/esphome"
       ],
-      "matchUpdateTypes": ["major","minor"],
       "minimumReleaseAge": "1 day"
+    },
+    {
+      "matchPackageNames": [
+        "ghcr.io/home-assistant/home-assistant",
+        "ghcr.io/esphome/esphome"
+      ],
+      "matchUpdateTypes": ["minor"],
+      "minimumReleaseAge": null
     },
     {
       "matchPackageNames": ["plexinc/pms-docker"],
@@ -55,6 +61,5 @@
       "matchPackagePrefixes": ["ghcr.io/hotio"],
       "versioning": "regex:^release\\-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$"
     }
-  ],
-  "platformAutomerge": true
+  ]
 }
