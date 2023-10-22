@@ -1,6 +1,6 @@
 image:
   repository: "kylemanna/bitcoind"
-  tag: "latest@sha256:92b0c492564eef5acaeb8d34eff4d55ea3ccfe5dd660a5188db7707a6156513a"
+  tag: "latest@sha256:1492fa0306cb7eb5de8d50ba60367cff8d29b00b516e45e93e05f8b54fa2970e"
 
 command:
 - "bitcoind"
