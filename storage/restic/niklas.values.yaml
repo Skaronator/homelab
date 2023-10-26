@@ -28,7 +28,7 @@ args:
 
 envs:
 # TODO: Rename bucket to niklas
-- RESTIC_REPOSITORY: "$(SCALEWAY_REPOSITORY_PATH)-niklas-private"
+- RESTIC_REPOSITORY: "$(SCALEWAY_REPOSITORY_PATH)-niklas"
 # only for nvme backup sources
 - RESTIC_READ_CONCURRENCY: "50"
 - RESTIC_PASSWORD_FILE: "/config/password"
