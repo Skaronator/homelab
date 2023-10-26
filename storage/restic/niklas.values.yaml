@@ -27,7 +27,6 @@ args:
   restic diff $(restic snapshots --json | jq -r '.[-2:][].id')
 
 envs:
-# TODO: Rename bucket to niklas
 - RESTIC_REPOSITORY: "$(SCALEWAY_REPOSITORY_PATH)-niklas"
 # only for nvme backup sources
 - RESTIC_READ_CONCURRENCY: "50"
