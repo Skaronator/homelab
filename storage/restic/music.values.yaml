@@ -10,7 +10,10 @@ command:
 
 args:
 - -c
-- sleep 365d
+- >
+  restic check --read-data
+  &&
+  sleep 365d
 # - >
 #   restic snapshots
 #   &&

@@ -11,20 +11,24 @@ command:
 args:
 - -c
 - >
-  restic snapshots
+  restic check --read-data
   &&
-  restic backup
-  /mnt/bb
-  --verbose
-  --cleanup-cache
-  --limit-upload=4250
-  --host=kubernetes-cronjob
-  &&
-  restic stats --mode raw-data latest
-  &&
-  restic unlock --remove-all
-  &&
-  restic diff $(restic snapshots --json | jq -r '.[-2:][].id')
+  sleep 365d
+# - >
+#   restic snapshots
+#   &&
+#   restic backup
+#   /mnt/bb
+#   --verbose
+#   --cleanup-cache
+#   --limit-upload=4250
+#   --host=kubernetes-cronjob
+#   &&
+#   restic stats --mode raw-data latest
+#   &&
+#   restic unlock --remove-all
+#   &&
+#   restic diff $(restic snapshots --json | jq -r '.[-2:][].id')
 
 envs:
 - RESTIC_REPOSITORY: "$(SCALEWAY_REPOSITORY_PATH)-$(RESTIC_REPOSITORY_NAME)"
@@ -33,6 +37,7 @@ envs:
 - RESTIC_PACK_SIZE: "64"
 - RESTIC_PROGRESS_FPS: "0.01666"
 - RESTIC_COMPRESSION: "max"
+- RESTIC_FEATURES: "repair-packs-v1"
 
 secretEnvs:
 - SCALEWAY_REPOSITORY_PATH: AgDku/qh+NQivV/sCUqBUeCRBlU3fFjiUCgcZjjB1AC1CZ3Hb9evaPMq95vKlVQYKRCMe1fmRZXqOFsvlZ8lDJxKmgiuRhQ86kHfquaeV03OYSdb1sYt2JHL3oQHcUGmzF1Ingof7K9oPfDLtojQMHlAh+DRPMGWuQdK9ibvTVx1Vz4ZKgaWslEMjSLtw4y5MEEU+5BSlAEps9sM1o6YIhR+VzWbYItbzxZkCsdscpvt5TJMqFGfmS0vDcfpL5HsDt+8tSVQmQQbTDsMmkp+O9/S6rOBmVhVHNGkEoeoTBJOm1cfo1G3niN3mjrJu0pDQIYSunBfje/jUBO9+PVD2aXuqOoRHHr4EepAQQDOT44VQ/nHxaAuQ1uU9t25fJfonwR5hqvNEYdEUSwVwxWl3uLJFu3tGYNqLH1lptxBq7Kjeo+sbLrmcsCux5pOYwZfitp8quGhdI5EyAuJJQL5fdNmrAs9Msj18V48HHJfc+R4pyfxyIm53DfZC2QKJ8TBL/UR84j2FkUoT4r+CKyUImjFkl8eC7RFqOXZ830O5UDeCy+NMA3xgysaWLSvwDz8VgrrYYj0sJVBFieNi4x341TXDiNy30E9r4I4INTWu41M761UuPmX8zvH2k8cn+bUglnkf+SmENuAFlAXeB+smQaOxjY7MS3XpwduBX3m7SwL7thOYRwmufuqTnXYh/r5hKjG9k3gN/iYNcHLskSJavPvsRxo+ifLkD6QBmx8r3dAKGfHt4Gk1b8wfBvwxePHlPc=
