@@ -11,7 +11,7 @@ command:
 args:
 - -c
 - >
-  restic check --read-data --limit-download=150000 || true && sleep 365d
+  restic prune --repack-small --limit-upload=4250 || true && sleep 365d
   &&
   sleep 365d
 # - >
