@@ -11,9 +11,9 @@ command:
 args:
 - -c
 - >
-  restic snapshots
+  restic check --read-data
   &&
-  restic repair packs
+  sleep 365d
 # - >
 #   restic snapshots
 #   &&
