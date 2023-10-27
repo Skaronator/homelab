@@ -10,10 +10,7 @@ command:
 
 args:
 - -c
-- >
-  restic snapshots
-  &&
-  restic repair packs
+- sleep 365d
 # - >
 #   restic snapshots
 #   &&
