@@ -1,7 +1,0 @@
-apiVersion: "cilium.io/v2alpha1"
-kind: CiliumLoadBalancerIPPool
-metadata:
-  name: "main-pool"
-spec:
-  cidrs:
-  - cidr: "192.168.0.240/28" # 240 - 255
