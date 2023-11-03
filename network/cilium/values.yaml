@@ -1,3 +1,0 @@
-operator:
-  # we only have one node
-  replicas: 1

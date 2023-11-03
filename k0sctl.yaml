@@ -20,11 +20,8 @@ spec:
           sans:
           - 192.168.0.5
         network:
-          # podCIDR: 10.244.0.0/16
-          # serviceCIDR: 10.96.0.0/12
-          provider: custom
-          kubeProxy:
-            disabled: true
+          podCIDR: 10.244.0.0/16
+          serviceCIDR: 10.96.0.0/12
         telemetry:
           enabled: false
         featureGates:
