@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/actualbudget/actual-server"
-  tag: "23.10.0@sha256:43f321864f98e7b9759507853e0e64908bb844305bbe72a3ffc893c42b962495"
+  tag: "23.11.0@sha256:d8218f842ae19290366425654c899ae28d621abf9d76052308a3f8217244a9b6"
 
 hostPaths:
 - name: data
