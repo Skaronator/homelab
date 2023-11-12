@@ -1,0 +1,22 @@
+image:
+  repository: "nocodb/nocodb"
+  tag: "0.202.5"
+
+hostPaths:
+- name: data
+  hostPath: /srv/nvme/container-data/nocodb
+  containerPath: /usr/app/data
+
+ports: 
+- name: main
+  containerPort: 8080
+
+ingress:
+  host: nocodb.wagner.gg
+
+homepage:
+  name: NocoDB
+  group: Cloud
+  description: Spreadsheet for everything
+  icon: nocodb.svg
+  weight: 60
