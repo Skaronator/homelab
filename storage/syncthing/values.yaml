@@ -1,6 +1,6 @@
 image:
   repository: "syncthing/syncthing"
-  tag: "1.26.1@sha256:55dabbec4484b1a8371c94b1e93a8bcfef135b5d5d0da9fd0ea63ca246330ee1"
+  tag: "1.26.1@sha256:bb168b3c84de0302f13702ba71eaa01b8be5af9b5a18859bbe59b1929cb6fc6b"
 
 ports:
 - name: main
