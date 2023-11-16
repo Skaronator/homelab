@@ -34,7 +34,7 @@ spec:
           serviceAccountName: {{ include "generic-cronjob.name" . }}
           terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
           securityContext: {{- toYaml .Values.podSecurityContext | nindent 12 }}
-          restartPolicy: OnFailure
+          restartPolicy: {{ .Values.restartPolicy }}
           dnsConfig:
             options:
             - name: ndots

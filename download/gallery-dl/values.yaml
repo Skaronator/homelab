@@ -8,6 +8,8 @@ securityContext:
   runAsUser: 100
   runAsGroup: 101
 
+restartPolicy: Never
+
 command:
 - /bin/sh
 
