@@ -65,3 +65,4 @@ suspend: false
 successfulJobsHistoryLimit: 1
 failedJobsHistoryLimit: 2
 restartPolicy: OnFailure
+backoffLimit: 1

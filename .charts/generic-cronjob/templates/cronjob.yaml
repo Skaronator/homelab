@@ -20,7 +20,7 @@ spec:
       labels:
         {{- include "generic-cronjob.selectorLabels" . | nindent 8 }}
     spec:
-      backoffLimit: 10
+      backoffLimit: {{ .Values.backoffLimit }}
       parallelism: {{ .Values.parallelism }}
       template:
         metadata:
