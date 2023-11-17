@@ -1,6 +1,6 @@
 image:
   repository: "nocodb/nocodb"
-  tag: "0.202.6@sha256:fcb55ce3df87869b14cafb6d3b58a85af0ba5bf637df9937f39e283ca6c2be85"
+  tag: "0.202.7@sha256:5f9dbb9fe87a4883fbc27fcefddf399492001c923082ee68f7651ef139937562"
 
 hostPaths:
 - name: data
