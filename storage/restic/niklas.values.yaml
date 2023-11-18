@@ -18,6 +18,7 @@ args:
   --cleanup-cache
   --limit-upload=4250
   --host=kubernetes-cronjob
+  --iexclude=.syncthing.*.tmp
   &&
   restic stats --mode raw-data latest
   &&
