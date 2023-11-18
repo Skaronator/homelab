@@ -18,7 +18,7 @@ args:
 - >
   gallery-dl --config-yaml /config/config.yaml
   --username $CP_USERNAME --password $CP_PASSWORD $CP_HOST
-  --verbose --write-log /logs/logs.txt
+  --verbose --write-log /logs/$(date +%F_%T).txt
 
 configMaps:
 - name: config
