@@ -1,6 +1,6 @@
 image:
   repository: "eclipse-mosquitto"
-  tag: "2.0.18@sha256:906863ed93e927fb59808cdd0491222746aebd9c8631d0f4a02e8518a343b63c"
+  tag: "2.0.18@sha256:8a82e5e28ba8e3296b609f32644ffec676499e6ded43ff8fbc70b09223f38472"
 
 hostPaths:
 - name: data
