@@ -95,7 +95,7 @@ database:
 helper:
   image:
     repository: busybox
-    tag: "1.36.1@sha256:3fbc632167424a6d997e74f52b878d7cc478225cffac6bc977eedfe51c7f4e79"
+    tag: "1.36.1@sha256:54b4a37498fee40d68ac06b4e6fb59e09d52252c2fac483d6f23302ad3854a87"
 
 homepage:
   name: ""
