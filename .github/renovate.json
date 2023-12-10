@@ -13,6 +13,11 @@
   },
   "packageRules": [
     {
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["digest", "pin", "minor", "patch"],
+      "automerge": true
+    },
+    {
       "matchDatasources": ["docker", "helm"],
       "matchUpdateTypes": ["pinDigest"],
       "automerge": true,
