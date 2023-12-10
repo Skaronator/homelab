@@ -15,7 +15,8 @@
     {
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["digest", "pin", "minor", "patch"],
-      "automerge": true
+      "automerge": true,
+      "pinDigests": true
     },
     {
       "matchDatasources": ["docker", "helm"],
