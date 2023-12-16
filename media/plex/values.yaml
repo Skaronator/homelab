@@ -42,7 +42,7 @@ hostPaths:
   hostPath: /srv/nvme/container-data/plex
   containerPath: /config
 - name: transcode
-  hostPath: /srv/nvme/scrap-data/plex-transcode
+  hostPath: /srv/nvme/scrap-data/plex-transcode-cache
   containerPath: /transcode
 - name: multimedia
   hostPath: /srv/hdd/multimedia
