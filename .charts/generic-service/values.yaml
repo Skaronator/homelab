@@ -81,7 +81,7 @@ database:
   enabled: false
   image:
     repository: mariadb
-    tag: "11.2.2@sha256:c006c05608604cf21c9f5b13af3ba7d6ccb3df5bc042c3fe294e0b6d34689b55"
+    tag: "11.2.2@sha256:b59e06803fce1570f40be5b425a3cec4b431a741ec724da5ce15b2395e9c3e58"
   hostPath: ""
   rootPassword: ""
   userPassword: ""
@@ -95,7 +95,7 @@ database:
 helper:
   image:
     repository: busybox
-    tag: "1.36.1@sha256:1ceb872bcc68a8fcd34c97952658b58086affdcb604c90c1dee2735bde5edc2f"
+    tag: "1.36.1@sha256:5c63a9b46e7139d2d5841462859edcbbf57f238af891b6096578e5894cfe5ae2"
 
 homepage:
   name: ""
