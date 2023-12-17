@@ -1,6 +1,6 @@
 FROM debian:12.2
 
-COPY --from=alpine/helm:3.13.2 /usr/bin/helm /usr/bin/helm
+COPY --from=alpine/helm:3.13.3 /usr/bin/helm /usr/bin/helm
 COPY --from=bitnami/kubectl:1.28.4 /opt/bitnami/kubectl/bin/kubectl /usr/bin/kubectl
 COPY --from=ghcr.io/yannh/kubeconform:v0.6.4 /kubeconform /usr/bin/kubeconform
 
