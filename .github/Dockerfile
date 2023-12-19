@@ -1,4 +1,4 @@
-FROM debian:12.2
+FROM debian:12.4
 
 COPY --from=alpine/helm:3.13.3 /usr/bin/helm /usr/bin/helm
 COPY --from=bitnami/kubectl:1.28.4 /opt/bitnami/kubectl/bin/kubectl /usr/bin/kubectl
