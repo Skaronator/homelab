@@ -11,7 +11,7 @@ securityContext:
 restartPolicy: Never
 
 command:
-- /bin/sh
+- /bin/bash
 
 args:
 - -c
