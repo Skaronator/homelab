@@ -13,9 +13,13 @@ restartPolicy: Never
 command:
 - /bin/sh
 
+# envsubst will be included in the next container release, workaround for now
 args:
 - -c
-- gallery-dl --config-yaml /config/config.yaml $HOST --verbose
+- >
+  apt-get update && apt-get install gettext-base && \
+  envsubst < /config/config.yaml > /tmp/config.yaml && \
+  gallery-dl --config-yaml /tmp/config.yaml $HOST --verbose
 
 configMaps:
 - name: config
