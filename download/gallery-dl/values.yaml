@@ -11,12 +11,12 @@ securityContext:
 restartPolicy: Never
 
 command:
-- /bin/bash
+- /bin/sh
 
 args:
 - -c
 - >
-  envsubst < /config/config.yaml > /tmp/config.yaml && \
+  envsubst < /config/config.yaml > /tmp/config.yaml &&
   gallery-dl --config-yaml /tmp/config.yaml $HOST --verbose
 
 configMaps:
