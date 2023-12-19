@@ -15,10 +15,9 @@ command:
 
 args:
 - -c
-- sleep 365d
-# - >
-#   envsubst < /config/config.yaml > /tmp/config.yaml && \
-#   gallery-dl --config-yaml /tmp/config.yaml $HOST --verbose
+- >
+  envsubst < /config/config.yaml > /tmp/config.yaml && \
+  gallery-dl --config-yaml /tmp/config.yaml $HOST --verbose
 
 configMaps:
 - name: config
