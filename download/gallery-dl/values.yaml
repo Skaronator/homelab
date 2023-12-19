@@ -30,19 +30,10 @@ configMaps:
       archive: /downloads/.gallery-dl.db
       retries: 30
       coomerparty:
-        username: "$USERNAME"
-        password: "$PASSWORD"
+        username: $USERNAME
+        password: $PASSWORD
+        directory: $DIRECTORY
         image-filter: "extension not in ('jpg','jpeg','png','txt','gif')"
-        directory:
-          "username in ('mariekaleida')": ["MarieKaleida", "{service}"]
-          "username in ('tweetney')": ["Tweetney", "{service}"]
-          "username in ('siswet')": ["siswet19", "{service}"]
-          "username in ('juneliu')": ["JuneLiu", "{service}"]
-          "username in ('missprincesskay')": ["MissPrincessKay", "{service}"]
-          "username in ('tentaclebimbo')": ["TentacleBimbo", "{service}"]
-          "username in ('sissystephaniex', 'stephsis')": ["Sissystephaniex", "{service}"]
-          "username in ('baddslayer','BadDSlayer')": ["BadDragonSlayer", "{service}"]
-          "": ["{username}", "{service}"]
         metadata: true
         filename: "{date:%Y-%m-%d} - {title[b:150]|empty|content[b:150]|empty|id} - {num:>02}.{extension}"
     downloader:
@@ -62,3 +53,4 @@ secretEnvs:
 - HOST: AgC1m5Dw4soWDAXyDjGor3AtMht8VSfxVv+lB/m3mgoyx80BGibUstaBO3H8/YclJxbHUlHv6Wxw7+ZQDhuEs+cwkCiKcVCJhHrcicj8bf2RZaUiRmc1FRELFkVtamrxqPl5KpeOUTmL3yKcDsx3m4p9spR26o5L+YcGHKD8O1Mim++uORPLfXWlYz5hDEsX1XDdMKbImGLE1yB17NSvhPAomhAOjOg07PF94DGa60XAsVivZilITIXA4Sxg0D++ubVg5Z/rbC6fFurts2MA4xMriI3z1Uv74QwKOIvYtq9gfYit71EL/QLEwx1XjMS+lEqF6VbWj+WT8OWPTSec1cLUeIBF1HWURHB5cvwNc5jkfr1ZzIbuWPPPwCwWIc9x8/H0sGtAx243rVa8D0NpTlpqo8p1DHGi3WVS3eTxaMRHlYCFc5tITJ2aoy6WlsM4R3679t0a/nIUTeBpwc9xz7InFMZ36Q6vm/vEeQ7t1tqnumxgBvewXXRL/YPseaal1dftbmF8IkHpJbHMKDVek8SLOeKBbj+n6VBsKwRmPF7JvNJw3OMS8N6L/i+3frf5OC9ajtfN3s83bM8wWeIIa8MZTjP3sw690ZvwqlQRFBuxOQq0AO0h1v67ZWo/QxLsaOtyQGntaDFH+UH0u/exrJL7iooNDaJ8xi12YvCBfqL3y6QwhSCiF/+ZyV+A5Eh2q9xAP7jgyClxHGY/zx0hwMr54DyIoM7FUNgOeC0=
 - USERNAME: AgAebfes/uiL630SJlt2FstBKb3izWiKGbU0iRxHQpplZZt1CF6mAwcFErNtr+SJqxQ63p+UEkIzL79OdNIrnm+1jcX+1VcoS46hQMaT3UxL9EWnYvdP1wKCAQLqHe0tswlP1UJGtOW8m3TwVypwxh6BryKkXGB6dxDsoR7slrzyh60zSCpGCtlyVZg3Gw2XPUdVupq95dYn4wkn2aFHl1h/PkUFaB9WHSN9i5bsrqq6IZ4H/M6jU8kkFk/hvxSOiVQn30V24lTcKk1y/g/BRnOQvUC/XXP5wntPPYtql3q6CzCrZY9QBnx3ppt3Nxt2hAC3L4AlaPD+SJKVbG46uEgJ3vV91dSjB+p7/+oLon969ulc10aBYQsbdYVS8jnB3zH4+Mc25ifaheScA7gWaJZu9CvkoQCJnHXPAiZB2QWjff9d7Qw4axxLa1JxHSIk7XLbD0B3IknBYhg0at40uLJyfJzta5CHZYKs4K0UGF5is5qUTZoZR8EnkoUXwfFZNKqZzH1S2xxAemujpcgIENODnSRhQWyZci54pYmvKsQqWb4pXShe0EKX2ZvE71O5iwvWhjYrTysyrUS3Pvl4eYdWuQ86FIGTT+lpck0lI0XulhQiBXDrjlqMNW01TcYfqrBXP8lw7LrXYL+6PJeIPxW01jgsiUK3Vwk451IPHey5iGl0XY/zrPJvRu55UgUP9x5YnlPTO0Yq6w==
 - PASSWORD: AgBEFwwybN0HwWr1a7/5c+yG4kKsGn+FuW0ygBTf42cO0JLBhx0FlPbQLBwPCY+xV1hkAqRMdiIW7YH2YVIiQlHT2gKNTBz2PWuRrmjm8MGJpg520Y8btF5WT62OVu+qQrXozYa/iF2iHKj4cnEixxDVdIHXnGruDOlyMXgTbVvVzlVk6Rxxjbh+XFOKuoQ9eCzIo3CPugv3nHSUd2lUtakulrpGnKQBGgpQYfVeBj+zEKKefH2bAxhAgnHRrVpgaINVe35ICtC8hHvKKu+TSfEW6VrRFRFlKZqdZcpsTIeLuomJpy/ogY3WnOqGBWkxbkIoB4bm+JmgIsxgcuyCOswdXVwOCkwIIPJelCFo2til00Vn+MoCP+rVx+j5O1Zl6fn9+JCqnMxiARYNf4eJsM9OMuGiEdqNW2EdTa7PD63nokoPczK/vDCSLN6wzAmHXRwh55wKrn7ZfG8VI4ULRdPL0BVFvjRlr8YYTwf2NtFZ/asfYFeTurXaZBYHrZ+0W5Ym6eEhlEgx2HlAKoPLuYNzwHsWM3QxAG5gtyR4GOMrueFrYiJuZshge93X/ZbzzzedVx8cpw3wvO1TEmWJFXSXpbQ7cOgWV9FCpGQG2BqVydLETQbkWYp3dkbFiWxEIzk3IimGOchlpdFDE3EivGcLuckroWoHdFdsJlKuql2zIspDPxjHwgH7V+zDwWvwwVsgd2KW55qGCMj+Ph/uJFvxtHvVYi6u
+- DIRECTORY: AgBWk4BLFj4TV69nnRCOcrtBnYpk3ZgqGh4zPdvjr2Sd958+E6ZQd/2XNbRyJ09JoXvu8W2l2GDVLSvAh4CtOD2cNgXX05D95uOty4aFLOaJs5CFCP0x1CsP3GL15Vcla7h7YNNQDS8YV2hDklJwoVM0ayem5b34VwOCSDzae+9Imh/K95vgdG8qOcJnjx0pVhKkfzaMu1a6oGMiOXWq8yWsEIGnuW2DQg7VkeerRX5ExDt+uHMYf4E801ea7gd4dGS6FJQSymX4PFoNI77/0OW3sxDeK8obm7n+W6xFLo/KT7S2Rf9GxT79+KzuEWz3s883KZytJen9B2QsabSWjjMENwFwqD5tf2fjr1AzxHxEoSvo+xRV+J0D7vHfjHJ0dTEqxCMZOD6S+XQk3Mg1ZUOSZeU7kidvVZzcZ9ljuIUe/6lXbNUB0BNtG9DCXKc2Kf0tXme8Tdxz48k+t5jzipMA6MjQEVhyJ+YUWuC7py+MwdvejYki5Lp5p1rBLynsNyujD05RiuenxEIijohTxFpfvSgWXZ+jimfyvOosyN+waFViTmYvQ1TzKbKIDZsotvljQlx7ialqW95uK4NzpEr6tmaMMoXHJvsMwj3D1AIaujpK9tkeq2mRwYOyFqfK9a2H4MfI76UUv3p0Xzwjah0y1XvTxGKacdKfK6R6H3/xREccjFjCi7YzLx6D6wTHTwvIV8FFUPCl57+hJ+iiR+ePgrNwoXogurKWd1XgRSY5Jua/S/SqV0er4gKtgauvK/k6AYFdTCacEWgyEgjXOThGIEMED6q49X02RYLvFk6VWX+zKTjpa2X7EW6oMEusBcYTsJL70k3vLdlt0yW17NatmLDMtmVzksqxPlYyNz1fIOErUrlbWA/TSAKOqrADLFG0+bs8mL6SWrXXSJ93EHOG16uU3nae0+HNbgAlZdXAjt+v3DYYfymawUGOtcOtSwiHvXS97VesIPwXpv0BJtkwa5pCDEDTUFNmt77pGhM16Ycju22zRv3iXEgWrjvJNACpWb0wrTIhSIA5+pjVrUT4TSJf/ZoYE1P0ZpdP+8jIrV/f7MkVAXdBVe2V4ufA2ijNGFV1OzAvFLAiCWYqne8UozV3mH1GyPutjO7KAIRCYqiLmKy+HNzAN4v+Do9A5W4rp5BYTMvYpQG2IKQj3i1KPgSiVqlmk+JsbPJl0RonPeoir929rTR89cItnDikUvDaKS4FzFD7eQWXGNawjraykjRwhxneYhY2y9GuN0FDOwC1FlObRdsEqoN1uszBPvglhnjOkTlRYKOIsrCaf69kIpNk6QeDGn5HyMBbVUaOu9im2gxHjoiTQbMBHocmR9VtBvhDWnueCyNAEObXNOKOKRyUqNgNijq12gqjK0XQP3R8TM5Z8OKFoQ==
