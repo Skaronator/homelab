@@ -3,49 +3,9 @@ on:
   push:
 
 jobs:
-  build-image:
-    runs-on: ubuntu-22.04
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-
-    - name: Login to image repository
-      if: github.event_name != 'pull_request'
-      uses: docker/login-action@v3.0.0
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Extract Docker metadata
-      id: meta
-      uses: docker/metadata-action@v5.4.0
-      with:
-        images: ghcr.io/${{ github.repository }}
-        tags: |
-          type=sha
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3.0.0
-
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v5.1.0
-      with:
-        context: .github
-        push: ${{ github.event_name != 'pull_request' }}
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
-
-    outputs:
-      tag: ${{ steps.meta.outputs.tags }}
-
   verify-yaml:
     runs-on: ubuntu-22.04
-    needs: build-image
-    container: docker://${{ needs.build-image.outputs.tag }}
-    defaults:
-      run:
-        shell: bash
+    container: docker://ghcr.io/skaronator/devops-toolbox:v19
     steps:
     - name: Checkout repository
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -58,11 +18,11 @@ jobs:
       run: |
         for dir in *; do
             # exclude files and dirs that start with a . (dot)
-            if [[ -d "$dir" && ! "$dir" =~ /\\.[^.]/ ]]; then
+            if [ -d "$dir" ] && ! echo "$dir" | grep -q '/\.[^.]/'; then
                 echo "Processing directory: $dir"
-                for chart in $dir/*; do
+                for chart in "$dir"/*; do
                     echo "Processing chart: $chart"
-                    kubectl kustomize $chart --enable-helm | kubeconform -ignore-missing-schemas -strict -summary
+                    kubectl kustomize "$chart" --enable-helm | kubeconform -ignore-missing-schemas -schema-location default -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json' -strict -summary
                 done
             fi
         done
