@@ -39,6 +39,31 @@ spec:
             options:
             - name: ndots
               value: "1"
+        {{- if .Values.envsubst.files }}
+          initContainers:
+          - name: envsubst
+            image: "{{ .Values.envsubst.image.repository }}:{{ .Values.envsubst.image.tag }}"
+            command:
+            - /bin/sh
+            args:
+            - -c
+            - |
+              {{- range .Values.envsubst.files }}
+              envsubst < "{{ .src }}" > "{{ .dest }}"
+              {{- end }}
+            env:
+            {{- include "generic-cronjob.envs" . | nindent 12 }}
+            volumeMounts:
+            - name: envsubst
+              mountPath: /envsubst
+            {{- if .Values.configMaps }}
+            {{- range .Values.configMaps }}
+            - name: cm-{{ .name }}
+              mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
+              subPath: {{ .subPath | quote }}
+            {{- end }}
+            {{- end }}
+        {{- end }}
           containers:
           - name: {{ include "generic-cronjob.name" . }}
             securityContext: {{- toYaml .Values.securityContext | nindent 14 }}
@@ -51,27 +76,15 @@ spec:
             command: {{ toYaml . | nindent 12 }}
             {{- end }}
             env:
-            - name: TZ
-              value: Europe/Berlin
-          {{- range $k, $v := .Values.secretEnvs }}
-          {{- range $kk, $vv := $v }}
-            - name: {{ $kk | quote }}
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "generic-cronjob.name" $ }}
-                  key: {{ $kk | quote }}
-          {{- end }}
-          {{- end }}
-          {{- range $k, $v := .Values.envs }}
-          {{- range $kk, $vv := $v }}
-            - name: {{ $kk | quote }}
-              value: {{ $vv | quote }}
-          {{- end }}
-          {{- end }}
+            {{- include "generic-cronjob.envs" . | nindent 12 }}
             resources:
               {{- toYaml .Values.resources | nindent 14 }}
-            {{- if or .Values.configMaps .Values.hostPaths }}
+            {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files }}
             volumeMounts:
+            {{- if .Values.envsubst.files }}
+            - name: envsubst
+              mountPath: /envsubst
+            {{- end }}
             {{- range .Values.configMaps }}
             - name: config
               mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
@@ -83,8 +96,12 @@ spec:
               readOnly: {{ .readOnly | default false }}
             {{- end }}
             {{- end -}}
-          {{- if or .Values.configMaps .Values.hostPaths }}
+          {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files }}
           volumes:
+          {{- if .Values.envsubst.files }}
+          - name: envsubst
+            emptyDir: {}
+          {{- end }}
           {{- if .Values.configMaps }}
           - name: config
             configMap:
