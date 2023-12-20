@@ -43,3 +43,39 @@ tcpSocket:
 {{- end }}
 {{- end }}
 {{- end }}
+
+{{- define "generic-service.envs" -}}
+env:
+{{- if .Values.database.enabled }}
+- name: TEMPLATE_DB_HOST
+  value: {{ include "database.name" . }}
+- name: TEMPLATE_DB_PORT
+  value: "3306"
+- name: TEMPLATE_DB_USERNAME
+  value: {{ include "database.username" . }}
+- name: TEMPLATE_DB_DATABASE
+  value: {{ include "database.database" . }}
+- name: TEMPLATE_DB_PASSWORD
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "database.name" . }}
+      key: userPassword
+{{- end }}
+- name: TZ
+  value: Europe/Berlin
+{{- range $k, $v := .Values.secretEnvs }}
+{{- range $kk, $vv := $v }}
+- name: {{ $kk | quote }}
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "generic-service.name" $ }}
+      key: {{ $kk | quote }}
+{{- end }}
+{{- end }}
+{{- range $k, $v := .Values.envs }}
+{{- range $kk, $vv := $v }}
+- name: {{ $kk | quote }}
+  value: {{ $vv | quote }}
+{{- end }}
+{{- end }}
+{{- end }}
