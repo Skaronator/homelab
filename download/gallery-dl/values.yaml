@@ -1,0 +1,58 @@
+image:
+  repository: "ghcr.io/skaronator/gallery-dl"
+  tag: "envsubst@sha256:e50ea9159ba316874ae2a5e159e8c98181889f2622ee7d9d1329e4b88ddbcc96"
+
+schedule: "0 2 * * *"
+
+securityContext:
+  runAsUser: 100
+  runAsGroup: 101
+
+restartPolicy: Never
+
+command:
+- /bin/sh
+
+args:
+- -c
+- gallery-dl --config-yaml /envsubst/config.yaml $HOST --verbose
+
+envsubst:
+  files:
+  - src: /config/config.yaml
+    dest: /envsubst/config.yaml
+
+configMaps:
+- name: config
+  mountPath: /config
+  subPath: config.yaml
+  content:
+    extractor:
+      base-directory: /downloads
+      archive: /downloads/.gallery-dl.db
+      retries: 30
+      coomerparty:
+        username: $USERNAME
+        password: $PASSWORD
+        directory: $DIRECTORY
+        image-filter: "extension not in ('jpg','jpeg','png','txt','gif')"
+        metadata: true
+        filename: "{date:%Y-%m-%d} - {title[b:150]|empty|content[b:150]|empty|id} - {num:>02}.{extension}"
+    downloader:
+      retries: 30
+      rate: 25M
+      filesize-min: 100M
+    output: {}
+    postprocessor: {}
+
+hostPaths:
+- name: downloads
+  hostPath: /srv/hdd/pp/Person
+  containerPath: /downloads
+  type: Directory
+
+secretEnvs:
+- HOST: AgC1m5Dw4soWDAXyDjGor3AtMht8VSfxVv+lB/m3mgoyx80BGibUstaBO3H8/YclJxbHUlHv6Wxw7+ZQDhuEs+cwkCiKcVCJhHrcicj8bf2RZaUiRmc1FRELFkVtamrxqPl5KpeOUTmL3yKcDsx3m4p9spR26o5L+YcGHKD8O1Mim++uORPLfXWlYz5hDEsX1XDdMKbImGLE1yB17NSvhPAomhAOjOg07PF94DGa60XAsVivZilITIXA4Sxg0D++ubVg5Z/rbC6fFurts2MA4xMriI3z1Uv74QwKOIvYtq9gfYit71EL/QLEwx1XjMS+lEqF6VbWj+WT8OWPTSec1cLUeIBF1HWURHB5cvwNc5jkfr1ZzIbuWPPPwCwWIc9x8/H0sGtAx243rVa8D0NpTlpqo8p1DHGi3WVS3eTxaMRHlYCFc5tITJ2aoy6WlsM4R3679t0a/nIUTeBpwc9xz7InFMZ36Q6vm/vEeQ7t1tqnumxgBvewXXRL/YPseaal1dftbmF8IkHpJbHMKDVek8SLOeKBbj+n6VBsKwRmPF7JvNJw3OMS8N6L/i+3frf5OC9ajtfN3s83bM8wWeIIa8MZTjP3sw690ZvwqlQRFBuxOQq0AO0h1v67ZWo/QxLsaOtyQGntaDFH+UH0u/exrJL7iooNDaJ8xi12YvCBfqL3y6QwhSCiF/+ZyV+A5Eh2q9xAP7jgyClxHGY/zx0hwMr54DyIoM7FUNgOeC0=
+- USERNAME: AgAebfes/uiL630SJlt2FstBKb3izWiKGbU0iRxHQpplZZt1CF6mAwcFErNtr+SJqxQ63p+UEkIzL79OdNIrnm+1jcX+1VcoS46hQMaT3UxL9EWnYvdP1wKCAQLqHe0tswlP1UJGtOW8m3TwVypwxh6BryKkXGB6dxDsoR7slrzyh60zSCpGCtlyVZg3Gw2XPUdVupq95dYn4wkn2aFHl1h/PkUFaB9WHSN9i5bsrqq6IZ4H/M6jU8kkFk/hvxSOiVQn30V24lTcKk1y/g/BRnOQvUC/XXP5wntPPYtql3q6CzCrZY9QBnx3ppt3Nxt2hAC3L4AlaPD+SJKVbG46uEgJ3vV91dSjB+p7/+oLon969ulc10aBYQsbdYVS8jnB3zH4+Mc25ifaheScA7gWaJZu9CvkoQCJnHXPAiZB2QWjff9d7Qw4axxLa1JxHSIk7XLbD0B3IknBYhg0at40uLJyfJzta5CHZYKs4K0UGF5is5qUTZoZR8EnkoUXwfFZNKqZzH1S2xxAemujpcgIENODnSRhQWyZci54pYmvKsQqWb4pXShe0EKX2ZvE71O5iwvWhjYrTysyrUS3Pvl4eYdWuQ86FIGTT+lpck0lI0XulhQiBXDrjlqMNW01TcYfqrBXP8lw7LrXYL+6PJeIPxW01jgsiUK3Vwk451IPHey5iGl0XY/zrPJvRu55UgUP9x5YnlPTO0Yq6w==
+- PASSWORD: AgBEFwwybN0HwWr1a7/5c+yG4kKsGn+FuW0ygBTf42cO0JLBhx0FlPbQLBwPCY+xV1hkAqRMdiIW7YH2YVIiQlHT2gKNTBz2PWuRrmjm8MGJpg520Y8btF5WT62OVu+qQrXozYa/iF2iHKj4cnEixxDVdIHXnGruDOlyMXgTbVvVzlVk6Rxxjbh+XFOKuoQ9eCzIo3CPugv3nHSUd2lUtakulrpGnKQBGgpQYfVeBj+zEKKefH2bAxhAgnHRrVpgaINVe35ICtC8hHvKKu+TSfEW6VrRFRFlKZqdZcpsTIeLuomJpy/ogY3WnOqGBWkxbkIoB4bm+JmgIsxgcuyCOswdXVwOCkwIIPJelCFo2til00Vn+MoCP+rVx+j5O1Zl6fn9+JCqnMxiARYNf4eJsM9OMuGiEdqNW2EdTa7PD63nokoPczK/vDCSLN6wzAmHXRwh55wKrn7ZfG8VI4ULRdPL0BVFvjRlr8YYTwf2NtFZ/asfYFeTurXaZBYHrZ+0W5Ym6eEhlEgx2HlAKoPLuYNzwHsWM3QxAG5gtyR4GOMrueFrYiJuZshge93X/ZbzzzedVx8cpw3wvO1TEmWJFXSXpbQ7cOgWV9FCpGQG2BqVydLETQbkWYp3dkbFiWxEIzk3IimGOchlpdFDE3EivGcLuckroWoHdFdsJlKuql2zIspDPxjHwgH7V+zDwWvwwVsgd2KW55qGCMj+Ph/uJFvxtHvVYi6u
+- DIRECTORY: AgAQqY3m9ii3y/SQohz6x7CpZhAyh89ZDuKl+IwwUwQbJg8yre0XqWjGpXxR+bdM1sB9+xzdesEAnMPrdSr/TBRRY/2A/kWjQUIu7NHWOLizDpTxEAQnmgRm8W5fyCEFwQ5GEuCUmIGiMVp5RnlgQuT7t4LbNOBD8aoqNaXM+vH+cSJQO3SZ4kPRF/iIOUQWnO8u/x74zJGzl3JfCXo9+ku2IiosMI9Nedd0ljF8e83Tk2bPZd0l3o6asc0f1FAWQzb13IDFrdUB5V0cSmkQeWjtbgzZf1PgOGwNYCE1CWxL5G2qoQK46nh3f2Dp1PK8jXPSgDuSwO129NfSbfIB/kUr1ajMErI2W2pJZk8iucLD8kJz++h6/HRqTueRb6Mi4V3Qd0bqxo09uLztuRszNDfZ1E98CvtsY+DcukX/C29IwOtvxCk7eriq9m0N+ql+V9kscEm0BGUIVU4mlYCi0TcpKin8lTROPQYiSXHDazZEG9YVFFDd0T/aaU9Xc7r6zbOqIxmwe1BXXH4HhClBkYFmc0WCsyXixIEV8wRbqC8ExCIR8FclNix8O+D+KYXK5h4+R6cHlunDZNqTF9BZ5D18KxRL86KCM8vh2dinq3QMvbHrYyVuuDPeQqFQVDi/loOZ7CdoGF1kuIGp3c+arwI+2BvpWUk6pklaXvN7/1yCxpAhFJ5uExXDfKyyW5lvRp6nE5AGt1N1CmkcuASansHKygpNvJCCpp2WJUHSKQKjae+CQ7BCiMwUVbQKnmNZ/Ymt6pbytzTzzms+LWs/h5S1+I1NYNCGsEVYTZQfvO8OREqA0TvNxBCo1Mj7RHyfe/ChP8whdqt0FVsLACfF3lIUSBgptnbOFoyZHzdBW8YvUp7Sox/gwRVxDMOb/slmWxyZJX6Y5bYQcmizJUkIe/zajmfqcqcrNjP364u2XJL1Bg+lRI9vUOzoLLRituy444hjnwM6heL0SKxsQemvD8NzNWtRv9O0gYDL3Dtp9mob2nAIrJhMIB+QFqw3p2eD6N/z94TqHNbZ4lXMZ7KuBs2HkptD5Fmlu7pXWll1c/OuA4aWAG5r/TL8YAi/fT4Q54e6ZMaxNXRJKUV3KdAkySUWvojyYexAHsZ0bMquWmC2UV/1cQasNp2UxMVWZx7dcgdCdpR7cY4w0Acc3AgfNkTx17Oa5JGKhD3u/6BxFG+FurLhWc2EHFuz+hkfmm7Q86QI6MgWbJFhX9Ju+EF0EqSalwvap1J0D3whi8rTSojq73p7NBLuSYjB8OyFzYGQZCLOGwbIZk4hmUza4ZvgEeYNM0eLT8N9pufil8iefurkLJKP3xxUMjcNiB5DJkV4VvuhzIu5G0EqaUC6PJowq0Pc+ggEXORAdcQE5YChxd8h2xy/bnYZHY9zbIXAKHL8L++fea9DgBgjHODeO3YmFJm8jPLEjfhLtvEgQyWD9Jp0LPotsgh3h8JnjAZMdjjnuUhst7f6uq7J9fwGek8f5jzdhT0=
