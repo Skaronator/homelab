@@ -77,6 +77,14 @@ hostPaths: []
 #   readOnly: false
 #   type: "DirectoryOrCreate"
 
+envsubst:
+  image:
+    repository: cmd.cat/envsubst
+    tag: "latest"
+  files: []
+  # - src:
+  #   dest:
+
 database:
   enabled: false
   image:
