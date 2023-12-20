@@ -45,7 +45,6 @@ tcpSocket:
 {{- end }}
 
 {{- define "generic-service.envs" -}}
-env:
 {{- if .Values.database.enabled }}
 - name: TEMPLATE_DB_HOST
   value: {{ include "database.name" . }}

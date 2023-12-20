@@ -98,6 +98,7 @@ spec:
           {{- range .Values.envsubst.files }}
           envsubst < "{{ .src }}" > "{{ .dest }}"
           {{- end }}
+        env:
         {{- include "generic-service.envs" . | nindent 8 }}
         volumeMounts:
         - name: envsubst
@@ -122,6 +123,7 @@ spec:
         {{- with .Values.args }}
         args: {{ toYaml . | nindent 8 }}
         {{- end }}
+        env:
         {{- include "generic-service.envs" . | nindent 8 }}
       {{- if .Values.ports }}
         ports:
