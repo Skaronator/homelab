@@ -56,12 +56,10 @@ spec:
             volumeMounts:
             - name: envsubst
               mountPath: /envsubst
-            {{- if .Values.configMaps }}
             {{- range .Values.configMaps }}
             - name: cm-{{ .name }}
               mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
               subPath: {{ .subPath | quote }}
-            {{- end }}
             {{- end }}
         {{- end }}
           containers:
@@ -85,10 +83,12 @@ spec:
             - name: envsubst
               mountPath: /envsubst
             {{- end }}
+            {{- if .Values.configMaps }}
             {{- range .Values.configMaps }}
-            - name: config
+            - name: cm-{{ .name }}
               mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
               subPath: {{ .subPath | quote }}
+            {{- end }}
             {{- end }}
             {{- range .Values.hostPaths }}
             - name: {{ .name }}
@@ -102,10 +102,11 @@ spec:
           - name: envsubst
             emptyDir: {}
           {{- end }}
-          {{- if .Values.configMaps }}
-          - name: config
+          {{- range .Values.configMaps }}
+          - name: cm-{{ .name }}
             configMap:
-              name: {{ include "generic-cronjob.name" . }}
+              name: {{ include "generic-cronjob.name" $ }}
+              defaultMode: {{ .defaultMode | default 0644 }}
           {{- end }}
           {{- range .Values.hostPaths }}
           - name: {{ .name }}

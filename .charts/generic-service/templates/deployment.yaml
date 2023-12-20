@@ -103,12 +103,10 @@ spec:
         volumeMounts:
         - name: envsubst
           mountPath: /envsubst
-        {{- if .Values.configMaps }}
         {{- range .Values.configMaps }}
         - name: cm-{{ .name }}
           mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
           subPath: {{ .subPath | quote }}
-        {{- end }}
         {{- end }}
       {{- end }}
       {{- end }}
