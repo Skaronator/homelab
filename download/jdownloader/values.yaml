@@ -25,6 +25,8 @@ envs:
 securityContext:
   runAsUser: 100
   runAsGroup: 101
+
+podSecurityContext:
   fsGroup: 101
 
 secretEnvs:
