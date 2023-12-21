@@ -3,7 +3,7 @@ on:
   push:
 
 jobs:
-  verify-yaml:
+  verify-charts:
     runs-on: ubuntu-22.04
     container: docker://ghcr.io/skaronator/devops-toolbox:v19
     steps:
