@@ -49,7 +49,7 @@ tcpSocket:
 - name: TEMPLATE_DB_HOST
   value: {{ include "database.name" . }}
 - name: TEMPLATE_DB_PORT
-  value: "3306"
+  value: {{ include "database.port" . | quote }}
 - name: TEMPLATE_DB_USERNAME
   value: {{ include "database.username" . }}
 - name: TEMPLATE_DB_DATABASE

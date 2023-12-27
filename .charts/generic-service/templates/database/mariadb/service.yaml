@@ -8,8 +8,8 @@ metadata:
 spec:
   ports:
   - name: db
-    port: 3306
-    targetPort: 3306
+    port: {{ include "database.port" .}}
+    targetPort: {{ include "database.port" .}}
     protocol: TCP
   selector:
     {{- include "database.selectorLabels" . | nindent 4 }}          

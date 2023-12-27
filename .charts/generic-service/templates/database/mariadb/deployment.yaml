@@ -53,18 +53,18 @@ spec:
               key: userPassword
         ports:
         - name: db
-          containerPort: 3306
+          containerPort: {{ include "database.port" .}}
           protocol: TCP
         startupProbe:
           tcpSocket:
-            port: 3306
+            port: {{ include "database.port" .}}
           failureThreshold: 12
         livenessProbe:
           tcpSocket:
-            port: 3306
+            port: {{ include "database.port" .}}
         readinessProbe:
           tcpSocket:
-            port: 3306
+            port: {{ include "database.port" .}}
         resources:
           {{- toYaml .Values.database.resources | nindent 10 }}
         volumeMounts:
