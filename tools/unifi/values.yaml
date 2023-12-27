@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/jacobalberty/unifi-docker"
-  tag: "v7.5.176@sha256:d1c9a0f7af6f2ef7b080b604a1d6d9909238930bf6dd95bc60c5ef95a5003f7e"
+  tag: "v8.0.24@sha256:23d3114328fcb21fd7a0ae37a38d7b65b4e21adc653b58aeadc1e3aecc4b30d6"
 
 hostPaths:
 - name: data
