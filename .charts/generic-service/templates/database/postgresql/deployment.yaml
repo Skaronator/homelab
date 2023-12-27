@@ -1,0 +1,70 @@
+{{- if and .Values.database.enabled (eq .Values.database.type "postgresql") -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "database.name" . }}
+  labels:
+    {{- include "database.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "database.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "database.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "database.name" . }}
+      terminationGracePeriodSeconds: 120
+      dnsConfig:
+        options:
+        - name: ndots
+          value: "1"
+      containers:
+      - name: {{ include "database.name" . }}
+        image: "{{ .Values.database.postgresql.image.repository }}:{{ .Values.database.postgresql.image.tag }}"
+        env:
+        - name: TZ
+          value: Europe/Berlin
+        - name: POSTGRES_DB
+          value: {{ include "database.database" . }}
+        - name: POSTGRES_USER
+          value: {{ include "database.username" . }}
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "database.name" . }}
+              key: rootPassword
+        ports:
+        - name: db
+          containerPort: {{ include "database.port" .}}
+          protocol: TCP
+        startupProbe:
+          tcpSocket:
+            port: {{ include "database.port" .}}
+          failureThreshold: 12
+        livenessProbe:
+          tcpSocket:
+            port: {{ include "database.port" .}}
+        readinessProbe:
+          tcpSocket:
+            port: {{ include "database.port" .}}
+        resources:
+          {{- toYaml .Values.database.resources | nindent 10 }}
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: data
+        hostPath:
+          path: {{ .Values.database.hostPath | required "database.hostPath is required!" | quote }}
+          type: DirectoryOrCreate
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

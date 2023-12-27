@@ -1,0 +1,70 @@
+{{- if and .Values.database.enabled (eq .Values.database.type "postgresql") }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "database.name" . }}-backup
+  labels:
+    {{- include "database.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.database.postgresql.backup.schedule | quote }}
+  timeZone: Europe/Berlin
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 2
+  jobTemplate:
+    metadata:
+      name: {{ include "database.name" . }}-backup
+      labels:
+        {{- include "database.labels" . | nindent 8 }}
+    spec:
+      completions: 1
+      parallelism: 1
+      template:
+        metadata:
+          name: {{ include "database.name" . }}-backup
+          labels:
+            {{- include "database.labels" . | nindent 12 }}
+        spec:
+          restartPolicy: OnFailure
+          automountServiceAccountToken: true
+          terminationGracePeriodSeconds: 30
+          containers:
+          - name: {{ include "database.name" . }}
+            image: "{{ .Values.database.postgresql.backup.image.repository }}:{{ .Values.database.postgresql.backup.image.tag }}"
+            imagePullPolicy: IfNotPresent
+            command:
+            - /backup.sh
+            env:
+            - name: TZ
+              value: Europe/Berlin
+            - name: BACKUP_KEEP_DAYS
+              value: "7"
+            - name: BACKUP_KEEP_WEEKS
+              value: "2"
+            - name: BACKUP_KEEP_MONTHS
+              value: "2"
+            - name: POSTGRES_EXTRA_OPTS
+              value: "-Z9"
+            - name: POSTGRES_HOST
+              value: {{ include "database.name" . }}
+            - name: POSTGRES_PORT
+              value: {{ include "database.port" . }}
+            - name: POSTGRES_DB
+              value: {{ include "database.database" . }}
+            - name: POSTGRES_USER
+              value: {{ include "database.username" . }}
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "database.name" . }}
+                  key: rootPassword
+            volumeMounts:
+            - name: data
+              mountPath: /backups
+          dnsPolicy: ClusterFirst
+          volumes:
+          - name: data
+            hostPath:
+              path: {{ printf "%s-%s" .Values.database.hostPath "backup" }}
+              type: DirectoryOrCreate
+{{- end -}}

@@ -1,4 +1,4 @@
-{{- if .Values.database.enabled }}
+{{- if and .Values.database.enabled (eq .Values.database.type "mariadb") -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -26,7 +26,7 @@ spec:
           value: "1"
       containers:
       - name: {{ include "database.name" . }}
-        image: "{{ .Values.database.image.repository }}:{{ .Values.database.image.tag }}"
+        image: "{{ .Values.database.mariadb.image.repository }}:{{ .Values.database.mariadb.image.tag }}"
         args:
         - --character-set-server
         - utf8mb4
@@ -44,27 +44,27 @@ spec:
         - name: MARIADB_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ include "database.name" $ }}
+              name: {{ include "database.name" . }}
               key: rootPassword
         - name: MARIADB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ include "database.name" $ }}
+              name: {{ include "database.name" . }}
               key: userPassword
         ports:
         - name: db
-          containerPort: 3306
+          containerPort: {{ include "database.port" . }}
           protocol: TCP
         startupProbe:
           tcpSocket:
-            port: 3306
+            port: {{ include "database.port" .}}
           failureThreshold: 12
         livenessProbe:
           tcpSocket:
-            port: 3306
+            port: {{ include "database.port" .}}
         readinessProbe:
           tcpSocket:
-            port: 3306
+            port: {{ include "database.port" .}}
         resources:
           {{- toYaml .Values.database.resources | nindent 10 }}
         volumeMounts:
