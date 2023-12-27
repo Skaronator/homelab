@@ -79,12 +79,12 @@ spec:
         args:
         - -c
         - |
-          echo -e "Checking for the availability of MySQL Server deployment";
-          while ! nc -z {{ include "database.name" . }} 3306; do
+          echo -e "Checking for the availability of {{ .Values.database.type }} Server deployment";
+          while ! nc -z {{ include "database.name" . }} {{ include "database.port" . }}; do
             sleep 1;
             echo "...";
           done;
-          echo -e " >> MySQL DB Server has started";
+          echo -e " >> {{ .Values.database.type }} DB Server has started";
           sleep 5;
         {{- end }}
       {{- if .Values.envsubst.files }}
