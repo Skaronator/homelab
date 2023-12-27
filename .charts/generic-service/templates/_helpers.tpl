@@ -45,7 +45,7 @@ tcpSocket:
 {{- end }}
 
 {{- define "generic-service.envs" -}}
-{{- if .Values.database.enabled }}
+{{- if .Values.database.enabled -}}
 - name: TEMPLATE_DB_HOST
   value: {{ include "database.name" . }}
 - name: TEMPLATE_DB_PORT
@@ -58,7 +58,11 @@ tcpSocket:
   valueFrom:
     secretKeyRef:
       name: {{ include "database.name" . }}
+    {{- if eq .Values.database.type "mariadb" }}
       key: userPassword
+    {{- else }}
+      key: rootPassword
+    {{- end }}
 {{- end }}
 - name: TZ
   value: Europe/Berlin
