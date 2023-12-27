@@ -28,7 +28,16 @@ secretEnvs:
 envsubst:
   files:
   - src: /tmp-config/config.yml
-    dest: /config/config.yml
+    dest: /envsubst/config.yml
+
+command:
+- /bin/sh
+
+args:
+- -c
+- >
+  cp /envsubst/config.yml /config/config.yml &&
+  flexget daemon start
 
 configMaps:
 - name: config
