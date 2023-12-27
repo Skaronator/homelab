@@ -35,6 +35,10 @@
       "minimumReleaseAge": "1 day"
     },
     {
+      "matchPackageNames": ["ghcr.io/skaronator/devops-toolbox"],
+      "automerge": true
+    },
+    {
       "matchPackageNames": [
         "ghcr.io/home-assistant/home-assistant",
         "ghcr.io/esphome/esphome"
