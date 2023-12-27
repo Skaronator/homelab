@@ -1,4 +1,4 @@
-{{- if and .Values.database.enabled (eq .Values.database.type "mariadb") }}
+{{- if and .Values.database.enabled (eq .Values.database.type "postgresql") }}
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "database.labels" . | nindent 4 }}
 spec:
-  schedule: {{ .Values.database.mariadb.backup.schedule | quote }}
+  schedule: {{ .Values.database.postgresql.backup.schedule | quote }}
   timeZone: Europe/Berlin
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
@@ -30,31 +30,37 @@ spec:
           terminationGracePeriodSeconds: 30
           containers:
           - name: {{ include "database.name" . }}
-            image: "{{ .Values.database.mariadb.backup.image.repository }}:{{ .Values.database.mariadb.backup.image.tag }}"
+            image: "{{ .Values.database.postgresql.backup.image.repository }}:{{ .Values.database.postgresql.backup.image.tag }}"
             imagePullPolicy: IfNotPresent
             command:
             - /backup.sh
             env:
             - name: TZ
               value: Europe/Berlin
-            - name: MAX_BACKUPS
-              value: "60"
-            - name: GZIP_LEVEL
-              value: "9"
-            - name: MYSQL_HOST
+            - name: BACKUP_KEEP_DAYS
+              value: "7"
+            - name: BACKUP_KEEP_WEEKS
+              value: "2"
+            - name: BACKUP_KEEP_MONTHS
+              value: "2"
+            - name: POSTGRES_EXTRA_OPTS
+              value: "-Z9"
+            - name: POSTGRES_HOST
               value: {{ include "database.name" . }}
-            - name: MYSQL_PORT
-              value: {{ include "database.port" . | quote }}
-            - name: MYSQL_USER
-              value: root
-            - name: MYSQL_PASS
+            - name: POSTGRES_PORT
+              value: {{ include "database.port" . }}
+            - name: POSTGRES_DB
+              value: {{ include "database.database" . }}
+            - name: POSTGRES_USER
+              value: {{ include "database.username" . }}
+            - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ include "database.name" . }}
                   key: rootPassword
             volumeMounts:
             - name: data
-              mountPath: /backup
+              mountPath: /backups
           dnsPolicy: ClusterFirst
           volumes:
           - name: data

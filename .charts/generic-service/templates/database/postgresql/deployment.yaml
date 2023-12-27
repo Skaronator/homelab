@@ -1,4 +1,4 @@
-{{- if and .Values.database.enabled (eq .Values.database.type "mariadb") -}}
+{{- if and .Values.database.enabled (eq .Values.database.type "postgresql") -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -26,34 +26,22 @@ spec:
           value: "1"
       containers:
       - name: {{ include "database.name" . }}
-        image: "{{ .Values.database.mariadb.image.repository }}:{{ .Values.database.mariadb.image.tag }}"
-        args:
-        - --character-set-server
-        - utf8mb4
-        - --collation-server
-        - utf8mb4_unicode_ci
+        image: "{{ .Values.database.postgresql.image.repository }}:{{ .Values.database.postgresql.image.tag }}"
         env:
         - name: TZ
           value: Europe/Berlin
-        - name: MARIADB_AUTO_UPGRADE
-          value: "1"
-        - name: MARIADB_DATABASE
+        - name: POSTGRES_DB
           value: {{ include "database.database" . }}
-        - name: MARIADB_USER
+        - name: POSTGRES_USER
           value: {{ include "database.username" . }}
-        - name: MARIADB_ROOT_PASSWORD
+        - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: {{ include "database.name" . }}
               key: rootPassword
-        - name: MARIADB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "database.name" . }}
-              key: userPassword
         ports:
         - name: db
-          containerPort: {{ include "database.port" . }}
+          containerPort: {{ include "database.port" .}}
           protocol: TCP
         startupProbe:
           tcpSocket:
@@ -69,7 +57,7 @@ spec:
           {{- toYaml .Values.database.resources | nindent 10 }}
         volumeMounts:
         - name: data
-          mountPath: /var/lib/mysql
+          mountPath: /var/lib/postgresql/data
       volumes:
       - name: data
         hostPath:
