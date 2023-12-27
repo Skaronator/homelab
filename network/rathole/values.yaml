@@ -1,6 +1,6 @@
 image:
   repository: "rapiz1/rathole"
-  tag: "v0.5.0"
+  tag: "v0.5.0@sha256:a31b9178e985d4a84f46d4c3af6aa200ee0c5e7f821c7075a1f6669fb77392b1"
 
 health:
   enabled: false

@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/flexget/flexget"
-  tag: "3.11.2"
+  tag: "3.11.2@sha256:02db69721a84c13fe48bdfd4fad1e1d70dd2822e60eee6817e2925a15d9ce1b0"
 
 ports: 
 - name: main
