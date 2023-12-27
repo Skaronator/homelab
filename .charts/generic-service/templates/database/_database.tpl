@@ -1,17 +1,27 @@
+{{- define "database.enabled.mariadb" -}}
+{{- and .Values.database.enabled (eq .Values.database.type "mariadb") -}}
+{{- end }}
+
+{{- define "database.enabled.postgresql" -}}
+{{- and .Values.database.enabled (eq .Values.database.type "postgresql") -}}
+{{- end }}
+
 {{- define "database.name" -}}
 {{- printf "%s-%s" (include "generic-service.name" . | trunc 60) "db" -}}
 {{- end }}
-
 
 {{- define "database.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "database.name" . }}
 app.kubernetes.io/instance: {{ printf "%s-%s-%s" .Chart.Name .Release.Name "db" }}
 {{- end }}
 
-
 {{- define "database.labels" -}}
 {{ include "database.selectorLabels" . }}
-app.kubernetes.io/version: {{ include "extractLatest" .Values.database.image.tag }}
+{{ if include "database.enabled.mariadb" . }}
+app.kubernetes.io/version: {{ include "extractLatest" .Values.database.mariadb.image.tag }}
+{{- else -}}
+app.kubernetes.io/version: {{ include "extractLatest" .Values.database.postgresql.image.tag }}
+{{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 

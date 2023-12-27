@@ -87,18 +87,29 @@ envsubst:
 
 database:
   enabled: false
-  image:
-    repository: mariadb
-    tag: "11.2.2@sha256:9da6213d1a5714c4585c9c0003c51510b320d6f60e53d78701fe1e194126249f"
+  resources: {}
   hostPath: ""
   rootPassword: ""
   userPassword: ""
-  resources: {}
-  backup:
-    schedule: "0 4 * * *"
+  type: mariadb
+  mariadb:
     image:
-      repository: fradelg/mysql-cron-backup
-      tag: "latest@sha256:f5b7e459bd62ff16a9b358179e8e9942305e1062df4d2ac92205b29dfa158c15"
+      repository: mariadb
+      tag: "11.2.2@sha256:9da6213d1a5714c4585c9c0003c51510b320d6f60e53d78701fe1e194126249f"
+    backup:
+      schedule: "0 4 * * *"
+      image:
+        repository: fradelg/mysql-cron-backup
+        tag: "latest@sha256:f5b7e459bd62ff16a9b358179e8e9942305e1062df4d2ac92205b29dfa158c15"
+  postgresql:
+    image:
+      repository: postgres
+      tag: "16.1"
+    backup:
+      schedule: "0 4 * * *"
+      image:
+        repository: prodrigestivill/postgres-backup-local
+        tag: "14"
 
 helper:
   image:

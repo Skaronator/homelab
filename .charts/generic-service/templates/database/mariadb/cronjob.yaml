@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "database.labels" . | nindent 4 }}
 spec:
-  schedule: {{ .Values.database.backup.schedule | quote}}
+  schedule: {{ .Values.database.mariadb.backup.schedule | quote}}
   timeZone: Europe/Berlin
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
@@ -30,7 +30,7 @@ spec:
           terminationGracePeriodSeconds: 30
           containers:
           - name: {{ include "database.name" . }}
-            image: "{{ .Values.database.backup.image.repository }}:{{ .Values.database.backup.image.tag }}"
+            image: "{{ .Values.database.mariadb.backup.image.repository }}:{{ .Values.database.mariadb.backup.image.tag }}"
             imagePullPolicy: IfNotPresent
             command:
             - /backup.sh
