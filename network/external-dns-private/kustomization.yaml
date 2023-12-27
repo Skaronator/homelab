@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
 - base/sealedsecret.yaml
+- base/static-dns-records.yaml
 
 helmCharts:
 - repo: https://kubernetes-sigs.github.io/external-dns

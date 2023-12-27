@@ -1,0 +1,10 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: external-dns-for-unifi
+  annotations:
+    external-dns.alpha.kubernetes.io/target: 192.168.0.5
+spec:
+  ingressClassName: nginx-private
+  rules:
+  - host: unifi
