@@ -48,7 +48,7 @@ spec:
             - name: POSTGRES_HOST
               value: {{ include "database.name" . }}
             - name: POSTGRES_PORT
-              value: {{ include "database.port" . }}
+              value: {{ include "database.port" . | quote }}
             - name: POSTGRES_DB
               value: {{ include "database.database" . }}
             - name: POSTGRES_USER

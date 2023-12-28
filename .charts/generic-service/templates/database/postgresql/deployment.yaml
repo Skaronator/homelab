@@ -41,18 +41,18 @@ spec:
               key: rootPassword
         ports:
         - name: db
-          containerPort: {{ include "database.port" .}}
+          containerPort: {{ include "database.port" . }}
           protocol: TCP
         startupProbe:
           tcpSocket:
-            port: {{ include "database.port" .}}
+            port: {{ include "database.port" . }}
           failureThreshold: 12
         livenessProbe:
           tcpSocket:
-            port: {{ include "database.port" .}}
+            port: {{ include "database.port" . }}
         readinessProbe:
           tcpSocket:
-            port: {{ include "database.port" .}}
+            port: {{ include "database.port" . }}
         resources:
           {{- toYaml .Values.database.resources | nindent 10 }}
         volumeMounts:
