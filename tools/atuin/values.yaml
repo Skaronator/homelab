@@ -14,7 +14,7 @@ ports:
 ingress:
   host: atuin.wagner.gg
 
-command:
+args:
 - server
 - start
 
