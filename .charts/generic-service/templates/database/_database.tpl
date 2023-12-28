@@ -12,7 +12,7 @@ app.kubernetes.io/type: {{ .Values.database.type }}
 {{ include "database.selectorLabels" . }}
 {{- if eq .Values.database.type "mariadb" }}
 app.kubernetes.io/version: {{ include "extractLatest" .Values.database.mariadb.image.tag }}
-{{- else -}}
+{{- else }}
 app.kubernetes.io/version: {{ include "extractLatest" .Values.database.postgresql.image.tag }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
