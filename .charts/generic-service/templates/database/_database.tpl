@@ -29,7 +29,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- define "database.port" -}}
 {{- if eq .Values.database.type "mariadb" -}}
   3306
-{{- else if eq .Values.database.type "postgres" -}}
+{{- else if eq .Values.database.type "postgresql" -}}
   5432
 {{- else -}}
   {{- fail "Unsupported database type" -}}
