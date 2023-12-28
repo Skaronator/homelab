@@ -12,7 +12,7 @@ ports:
   containerPort: 8888
 
 ingress:
-  host: actualbudget.wagner.gg
+  host: atuin.wagner.gg
 
 envs:
 - ATUIN_HOST: "0.0.0.0"
