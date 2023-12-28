@@ -14,6 +14,10 @@ ports:
 ingress:
   host: atuin.wagner.gg
 
+command:
+- server
+- start
+
 envs:
 - ATUIN_HOST: "0.0.0.0"
 - ATUIN_OPEN_REGISTRATION: "true"
