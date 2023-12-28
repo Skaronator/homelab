@@ -1,7 +1,6 @@
 image:
   repository: "ckulka/baikal"
-  # Switch to experimental for MSMTPRC support. Currently not present in 0.9.3
-  tag: "experimental-nginx@sha256:cb0ddd842776e45602313f001fc6ca9553d8956aadd43bd2aa1c0f2a34db7d92"
+  tag: "0.9.4"
 
 hostPaths:
 - name: config
