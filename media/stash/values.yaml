@@ -1,6 +1,6 @@
 image:
   repository: "stashapp/stash"
-  tag: "v0.24.0@sha256:64fc4c6709c25501f4f78aa01ee415b25a21d7db919b189af4f59968155b4b0c"
+  tag: "v0.24.1@sha256:170ad8c69caa8df6c9ab804a78a9aa56db7ee32004737074b53c4acde8719956"
 
 ports:
 - name: main
