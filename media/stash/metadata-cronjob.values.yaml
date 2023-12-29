@@ -10,11 +10,12 @@ command:
 args:
 - -c
 - >
-  curl -v --silent "http://stash:9999/graphql"
+  echo "{\"query\":\"$GRAPHQL_QUERY\"}" | tr '\n' ' ' | curl -v
+  --silent "http://stash:9999/graphql"
   -H "ApiKey: $API_TOKEN"
   -H "Content-Type: application/json"
   --compressed
-  --data-raw '{"query":"$GRAPHQL_QUERY"}'
+  --data-binary @-
 
 envs:
 - GRAPHQL_QUERY: >
