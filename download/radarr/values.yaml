@@ -1,0 +1,26 @@
+image:
+  repository: "ghcr.io/hotio/radarr"
+  tag: "release-5.2.6.8376"
+
+ports: 
+- name: main
+  containerPort: 7878
+
+ingress:
+  host: radarr.wagner.gg
+
+envs:
+- PUID: 100
+- PGID: 101
+
+hostPaths:
+- name: config
+  hostPath: /srv/nvme/container-data/radarr
+  containerPath: /config
+
+homepage:
+  name: Radarr
+  group: Indexer
+  description: Movie Manager
+  icon: radarr.svg
+  weight: 12
