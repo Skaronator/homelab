@@ -42,6 +42,9 @@ spec:
       {{- if .Values.hostNetwork }}
       dnsPolicy: ClusterFirstWithHostNet
       {{- end }}
+      {{- if .Values.ingress.host }}
+      hostname: {{ .Values.ingress.host }}
+      {{- end }}
       dnsConfig:
         options:
         - name: ndots
