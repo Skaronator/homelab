@@ -17,9 +17,12 @@ hostPaths:
 - name: config
   hostPath: /srv/nvme/container-data/sabnzbd
   containerPath: /config
-- name: downloads
-  hostPath: /srv/downloads/Usenet
-  containerPath: /data
+- name: downloads-complete
+  hostPath: /srv/downloads/Usenet/complete
+  containerPath: /config/Downloads/complete
+- name: downloads-incomplete
+  hostPath: /srv/downloads/Usenet/incomplete
+  containerPath: /config/Downloads/incomplete
 
 homepage:
   name: SABnzbd
