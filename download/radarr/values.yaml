@@ -20,6 +20,9 @@ hostPaths:
 - name: downloads-usenet
   hostPath: /srv/downloads/Usenet
   containerPath: /downloads/usenet
+- name: movies
+  hostPath: /srv/hdd/multimedia/Filme-Radarr
+  containerPath: /movies
 
 homepage:
   name: Radarr
