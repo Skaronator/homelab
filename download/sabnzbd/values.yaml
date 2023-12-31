@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/hotio/sabnzbd"
-  tag: "release-4.1.0"
+  tag: "release-4.1.0@sha256:2778bb56922f4df9bcdc1cc3e5ed108430d970ad5e9e87fb2208ccbc87cbda98"
 
 ports: 
 - name: main
