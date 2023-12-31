@@ -138,6 +138,7 @@ spec:
         startupProbe:
           {{- include "generic-service.podHealthCheck" . | indent 10 }}
           failureThreshold: 12
+          periodSeconds: 2
         livenessProbe:
           {{- include "generic-service.podHealthCheck" . | indent 10 }}
         readinessProbe:
