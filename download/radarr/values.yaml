@@ -17,6 +17,9 @@ hostPaths:
 - name: config
   hostPath: /srv/nvme/container-data/radarr
   containerPath: /config
+- name: downloads-usenet
+  hostPath: /srv/downloads/Usenet
+  containerPath: /downloads/usenet
 
 homepage:
   name: Radarr

@@ -19,10 +19,10 @@ hostPaths:
   containerPath: /config
 - name: downloads-complete
   hostPath: /srv/downloads/Usenet/complete
-  containerPath: /config/Downloads/complete
+  containerPath: /downloads/usenet/complete
 - name: downloads-incomplete
   hostPath: /srv/downloads/Usenet/incomplete
-  containerPath: /config/Downloads/incomplete
+  containerPath: /downloads/usenet/incomplete
 
 homepage:
   name: SABnzbd
