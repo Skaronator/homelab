@@ -7,7 +7,6 @@ args:
 - --rpc-restricted-bind-port=18089
 - --no-igd
 - --no-zmq
-- --prune-blockchain
 
 hostPaths:
 - name: data
