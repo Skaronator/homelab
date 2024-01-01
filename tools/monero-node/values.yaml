@@ -20,6 +20,9 @@ ports:
 - name: p2p
   containerPort: 18080
 
-health:
+ingress:
   host: monero.wagner.gg
+
+health:
+  enabled: false
   path: "/get_info"
