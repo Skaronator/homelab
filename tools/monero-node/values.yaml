@@ -9,6 +9,7 @@ args:
 - --no-igd
 - --no-zmq
 - --prune-blockchain
+- --log-level=debug
 
 hostPaths:	
 - name: data	
