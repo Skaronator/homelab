@@ -24,5 +24,4 @@ ingress:
   host: monero.wagner.gg
 
 health:
-  enabled: false
-  path: "/get_info"
+  path: /get_height
