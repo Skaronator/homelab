@@ -56,8 +56,6 @@ config:
         icon: mdi-file-document-multiple-outline
     - Smart Home:
         icon: mdi-home-outline
-    - Server:
-        icon: mdi-server
     - Network:
         icon: mdi-lan
     - Media:
@@ -66,6 +64,8 @@ config:
         icon: mdi-download-multiple
     - Downloader:
         icon: mdi-download-outline
+    - Server:
+        icon: mdi-server
     target: _self
     theme: dark
     title: Homelab
