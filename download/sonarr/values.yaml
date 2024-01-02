@@ -1,0 +1,35 @@
+image:
+  repository: "https://ghcr.io/hotio/sonarr"
+  tag: "release-4.0.0.748"
+
+ports: 
+- name: main
+  containerPort: 8989
+
+ingress:
+  host: sonarr.wagner.gg
+
+envs:
+- PUID: 100
+- PGID: 101
+
+hostPaths:
+- name: config
+  hostPath: /srv/nvme/container-data/sonarr
+  containerPath: /config
+- name: downloads-torrent
+  hostPath: /srv/downloads/Torrent
+  containerPath: /downloads/torrent
+- name: downloads-usenet
+  hostPath: /srv/downloads/Usenet
+  containerPath: /downloads/usenet
+- name: series
+  hostPath: /srv/hdd/multimedia/Serien-Sonarr
+  containerPath: /series
+
+homepage:
+  name: Sonarr
+  group: Indexer
+  description: Serien Manager
+  icon: sonarr.svg
+  weight: 13
