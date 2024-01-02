@@ -44,12 +44,12 @@ hostPaths:
 - name: transcode
   hostPath: /srv/nvme/scrap-data/plex-transcode-cache
   containerPath: /transcode
-- name: multimedia
-  hostPath: /srv/hdd/multimedia
+- name: media
+  hostPath: /srv/media
   containerPath: /srv/StorageHDD/Multimedia
   readOnly: true
 - name: pictures
-  hostPath: /srv/nvme/pictures
+  hostPath: /srv/pictures
   containerPath: /srv/StorageSSD/Urlaubsbilder
   readOnly: true
 - name: music
