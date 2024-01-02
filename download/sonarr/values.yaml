@@ -1,5 +1,5 @@
 image:
-  repository: "https://ghcr.io/hotio/sonarr"
+  repository: "ghcr.io/hotio/sonarr"
   tag: "release-4.0.0.748"
 
 ports: 
