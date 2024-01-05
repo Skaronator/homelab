@@ -10,6 +10,14 @@ helmCharts:
   valuesFile: values.yaml
   namespace: media
 - name: generic-cronjob
-  releaseName: stash-metadata-cronjob
-  valuesFile: metadata-cronjob.values.yaml
+  releaseName: stash-metadatascan-cronjob
+  valuesFile: common-cronjob.values.yaml
+  additionalValuesFiles:
+  - metadatascan-cronjob.values.yaml
+  namespace: media
+- name: generic-cronjob
+  releaseName: stash-metadataidentify-cronjob
+  valuesFile: common-cronjob.values.yaml
+  additionalValuesFiles:
+  - metadataidentify-cronjob.values
   namespace: media
