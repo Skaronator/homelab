@@ -19,5 +19,5 @@ helmCharts:
   releaseName: stash-metadataidentify-cronjob
   valuesFile: common-cronjob.values.yaml
   additionalValuesFiles:
-  - metadataidentify-cronjob.values
+  - metadataidentify-cronjob.values.yaml
   namespace: media
