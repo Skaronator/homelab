@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/hotio/lidarr"
-  tag: "release-2.0.7.3849@sha256:fbe419c81eefe0c0f8402d2415794f4ad0c1cba96f7ae6d91007e05a706a0348"
+  tag: "release-2.0.7.3849@sha256:640a6b2140582ee384ce3c2fa1a59b2dbc07bef65fff3c2ad30c88c8aa5bc4a8"
 
 ports: 
 - name: main
