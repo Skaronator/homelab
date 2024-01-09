@@ -8,4 +8,4 @@ helmCharts:
 - name: generic-service
   releaseName: radarr
   valuesFile: values.yaml
-  namespace: download
+  namespace: media

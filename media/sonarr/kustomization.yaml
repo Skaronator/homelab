@@ -8,4 +8,4 @@ helmCharts:
 - name: generic-service
   releaseName: sonarr
   valuesFile: values.yaml
-  namespace: download
+  namespace: media
