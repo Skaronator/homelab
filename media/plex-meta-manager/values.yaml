@@ -1,0 +1,62 @@
+image:
+  repository: "meisnate12/plex-meta-manager"
+  tag: "v1.20.0"
+
+schedule: "0 6 * * *"
+suspend: true
+
+envs:
+- PMM_READ_ONLY_CONFIG: true
+- PMM_RUN: true
+- PMM_CONFIG: /envsubst/config.yaml
+
+secretEnvs:
+- PLEX_TOKEN: AgCklOd/EBl38hY1tQPbdJrq9tOmn2z9dMDsOOuTZqpPXHJw8GL/vSIQ21x+7D67zhuRzT4gUBkLG1uGJm1ztiQ+sI84fvKhOv85TTzvgERrT7fBFUqx5hODXukwuI7eiQG5QFTDs/08vLXuOoFYz+XYw6ocq4wulpZzDvYdPtz++3gVlxsjcBTx1JymUy72hY6YmUdCK02j0pf4N6/m9/nmXPrD6wFT/iSbGz9hwvnPcJoSJKLM3EINfJu0jB5HYz6tmsEnpOSJqt/pSEKV4pQobiUM6wSfX8iG7/yWqhiEAM9nZaF19C7WqaT5WU7WbgwHxj+mTcmagGFJnv/+7znrkDcib4n+yyuOIwHdTOLpO7PL2g2DZpBPjyokK+N2hgVbDYiF8Q4+Na3TlWFVDgaBfOwXVdaMXqNU9qEBvdgxhhgkWGB0jhuvTpAPMhThj8Gzix1XtEvMOk5KQXkfVOpSWmLp2G013u50oQ3Oy89RPrwZ9+ZnDTrgjRLyrBwQ4cx4u1CXNR9J8OgxSGLHJDh11K5Q4ampZpo3n29XB2R6Ui2pGGUW7jTrOR2haeMeyjji1WyrI8bvRdoiz3rqI75k/vMBEhyjUtcmtU1sA7Kx4zmuZoXDeidmNN3qQgLhFjvzFjUZK27HFugtbARCS3g/+Ye+TeKpi1uwGzkhHtCUTS9CN4dN0gOB9izJsZOB1h99pCNf+0ZEuhLGZF1FWxnn3fNF0w==
+- TRAKT_CLIENT_ID: AgCZvuTtU8QnU6Srv0dK6u/CxxEZ8EFDo6yu9bsJ7W4tnJL0znAorHUWn+X8lnAd3/QmzTzsRdC8YNogFldvtF1THRVU4hmkKUVQ2bH/gi4JQos1GgbH2wIJOq6keiG3/u9YjrczHAnqANKfBEJYZjCHu9Oy093XJ8GP/aNbJuz6Xw2E4n/aAwwIgN4k7o5dpLHYGHYwfRUDK6h+2dpSjnVSLGTPnvhpmTlmyTjYZmHufxrpN+MonK3GN9aFnSWgBNJK4hi1EbueXZqwEzm/aLUeDHUKpNGGcEEarhSAo97mL0IGxvn7/H5WvvJtf9L4bS7ktKquTePHo6uGYnZx8LBjdRslyPQPbXlOg5Nr/gJvDg+jZ7i8Co6hnjej0L9gznZVpBj4s5CowbwRxX5sACf3eUK3mRx4fEenJrQx9oYs557OkvWyNEtfPAbj6g0i2vUnzU2D8LJXeDmAYEcm1cccHMiNZLtCHWFeysmHwyYD/Gd/Ij8HW6LSp1owQYbVw4tHDgUBBfRC3FH6rIdiw8bBCBF1+stimm/Skx8PaTaOP1gIJ9CvKGXHlpHhgymAmtEhBdp8x1TzbRVx4ucMdX3mS1zGh8bYX1Afyj53IeFrA0tTFHkdZIFasx+1j3GX5L6ivHdplI6Avni8Orhy8Wc1JSsSW3hE20Y3r2EKuFkaFBGneP3BM3oJ42eV/ZdxpK3eunVyF/QIHk4yQUL/fZXL0/gyzRd6/JL+N2pHnCD7RyFWNtECoqL/1SNkPbQHLIOZhpK1pjK4SORwsXwmg+22
+- TRAKT_CLIENT_SECRET: AgBBrXBzPIMN+/WxcDcfYORlMHzjHNx2xKbHJL3ABOpLWaAdnon0mNZA/SxlpCogXcHUrMcAfekTOkGPczURa6YF3TJhVaYqL3EzYGw587wQC3YRGm+k9gGs6hU8ftrmoqucGGRhUBkKInIiWtC2WjWzMTCkSi657tVkOlPznlSyBd+3HNjb6LDsC2nxJiy9f9V8e2sJUEjRghL6P6YEKvgH0/UIHxcZlQJnEDKOs27xKLYzxJvnw26ob8A3v3WmDCYQa5M3nPiPEiNmSFXjHftvhhpKkUjaOkNQ8POkL2We1Th8KhNW8u8HcMlylFIzvPdkfnoal9UlBoRXbi+6rtiAYIFK9Iw/XR1hgmGyHWBMKBLJKveHUG5WxO1+idkI/an/v+hH+PIukg4vorxoQ9vI+oex6CG3V7lKDuan9/mlcGW3Pfu2L9mO00+Hb0e/e3t2okLX+7ctJXUz2vBGpPYrp47GQFhIZWU3WI66VfAP3ckEQHmP4CYvojNRjUF90u/7zGEArqf2XfJkoUXIgBBun8cwlLsRXFSvtVhH21Ks3lFIpHma794+JNWHefOUuIQbShZwQleFJ6BG4qOFGpmNslBl7UVzKgZ/wdyHLf1Q4MugbPVaXmAjL/rg8Z7YY1X0iZeVdrbi4jcgTR8TlIFfpuVfNV2/ewrhDOgveOYbUkJkaXO2YwOfJiy8KL+lEHb4xO8m/S34BdMWnuQ2zc/l5sY4GbpngwxUz3AvxLoNyQ0N1uXG63KyoetikqOBOZ7vZ+e0h3BZhN65VSTRJk73
+- TRAKT_PIN: AgBJQ0ipaqa3R+ss3asnPKgV46e1CUsGNIbyxgU8ii+eBqM1qVDFLtj9U6mmIRhaQMKra9rtiQT9WOMB1eP526K6/gMNj73onkaFV8jbEKveIAGAqZjLPrNJkXsLno7u5JWn2j/xaZ8RkfhNwz+G18d4eQ882zetYjG34CtnRBwGvCveDR1eI0YLKVtlHj2WzKNLvXoZhKR3WSv6PIlUe7bXRIcTN5XDcG4wciepQQ1QALYaPF2Vdf1CUWbk/P1hQMbbZN/UknAqtcvvB0UaTKAzcWEftLr1aDHrjz8vDihYmGlrV12jgjX3beUlKayRTPLkeRtO9u3PMZmw1gXwVECwHmAxQZzqvL+nR+VK85561yUdBPzhJF4f8aV9sRwg94CPIU7ECEWYqsThXhkpkGw9hhQHawqDDaemb45t0GPFdwf05cnojAiG/5P2THClAMiS9uaSfUnT0zJrF42uyIvIxFXsCi1J6wZ1SOaRIg7T4lMC4x5e0V+bzycjKcpWUqxIpLnkufaMvf6Sf3eS+7aQdth23EuktfYsxeQQ4GnFhLl6fZZfWDMBgNsr3Lmxfk+R7t6A+gdC7kNnf2vMSxsII4AlB+WrgvX8HnQR1lSTWh5wgkHSMejFwTt8zzCplcfwYqgYg9jIf+MOI6nFax989jkK2Le0apmp47crBD3rYkHuV0A7pi39X4RA9kElJ73azCa3zk0NXw==
+
+envsubst:
+  files:
+  - src: /configmap/config.yaml
+    dest: /envsubst/config.yaml
+
+configMaps:
+- name: config
+  mountPath: /configmap
+  subPath: config.yaml
+  content:
+    libraries:
+      Filme:
+        collection_files:
+        - file: /configmap/movies.yaml
+      # Serien:
+      #   collection_files:
+      #   - file: /config/tv.yaml
+    plex:
+      url: http://plex:32400
+      token: $PLEX_TOKEN
+      clean_bundles: false
+      empty_trash: false
+      optimize: false
+    trakt:
+      client_id: $TRAKT_CLIENT_ID
+      client_secret: $TRAKT_CLIENT_SECRET
+      pin: $TRAKT_PIN
+- name: config-series
+  mountPath: /configmap
+  subPath: movies.yaml
+  content:
+    collections:
+      Trakt Popular:
+        trakt_popular: 200
+        collection_order: custom
+        sync_mode: sync
+        sort_title: Traktpopular
+        summary: The most popular movies for all time.
+
+
+hostPaths:
+- name: config
+  hostPath: /srv/nvme/container-data/plex-meta-manager
+  containerPath: /config
