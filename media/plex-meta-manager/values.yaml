@@ -33,6 +33,10 @@ configMaps:
       # Serien:
       #   collection_files:
       #   - file: /config/tv.yaml
+    settings:
+      # currently not possible to configure custom cache location, its always the config dir which means /envsubst/
+      cache: false
+      tvdb_language: de
     plex:
       url: http://plex:32400
       token: $PLEX_TOKEN
@@ -54,9 +58,3 @@ configMaps:
         sync_mode: sync
         sort_title: Traktpopular
         summary: The most popular movies for all time.
-
-
-hostPaths:
-- name: config
-  hostPath: /srv/nvme/container-data/plex-meta-manager
-  containerPath: /config
