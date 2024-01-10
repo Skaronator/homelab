@@ -9,55 +9,128 @@ hostname: plex-meta-manager
 envs:
 - PMM_READ_ONLY_CONFIG: true
 - PMM_RUN: true
-- PMM_CONFIG: /envsubst/config.yaml
-- PMM_WIDTH: 150
+- PMM_CONFIG: /config/config.yaml
+- PMM_WIDTH: 200
 
 secretEnvs:
-- PLEX_TOKEN: AgCklOd/EBl38hY1tQPbdJrq9tOmn2z9dMDsOOuTZqpPXHJw8GL/vSIQ21x+7D67zhuRzT4gUBkLG1uGJm1ztiQ+sI84fvKhOv85TTzvgERrT7fBFUqx5hODXukwuI7eiQG5QFTDs/08vLXuOoFYz+XYw6ocq4wulpZzDvYdPtz++3gVlxsjcBTx1JymUy72hY6YmUdCK02j0pf4N6/m9/nmXPrD6wFT/iSbGz9hwvnPcJoSJKLM3EINfJu0jB5HYz6tmsEnpOSJqt/pSEKV4pQobiUM6wSfX8iG7/yWqhiEAM9nZaF19C7WqaT5WU7WbgwHxj+mTcmagGFJnv/+7znrkDcib4n+yyuOIwHdTOLpO7PL2g2DZpBPjyokK+N2hgVbDYiF8Q4+Na3TlWFVDgaBfOwXVdaMXqNU9qEBvdgxhhgkWGB0jhuvTpAPMhThj8Gzix1XtEvMOk5KQXkfVOpSWmLp2G013u50oQ3Oy89RPrwZ9+ZnDTrgjRLyrBwQ4cx4u1CXNR9J8OgxSGLHJDh11K5Q4ampZpo3n29XB2R6Ui2pGGUW7jTrOR2haeMeyjji1WyrI8bvRdoiz3rqI75k/vMBEhyjUtcmtU1sA7Kx4zmuZoXDeidmNN3qQgLhFjvzFjUZK27HFugtbARCS3g/+Ye+TeKpi1uwGzkhHtCUTS9CN4dN0gOB9izJsZOB1h99pCNf+0ZEuhLGZF1FWxnn3fNF0w==
-- TMDB_API_KEY: AgBoSroEUo97+DHbaYdw5h7oySTOVJtVcXWoIuf7OvkMHNWu0o/0ch+6zjIjjjgYnLl05x+N1v9t364PflZPa9/HI8xbzCqBKQ/3+SajreXjZq/jKQGbCPdAdAPedU+4+wl3+zBmUKREH+FSNWw4ycqbPa143QYtY0SqXGHT6MIB+zlsCopFi3o1X+O0QMsh66tJl7lexVQPRGEHPcLAVXDdQd0orugB+Px+yWQMtnvt9E258M7pESCL1Y65u+uLnYgfT2oyMvrQZHtWXI+Miutr+BlAJJ0dr0rNTRQ/cTAhl44y6PPnoPnZB2/+dRdrMg3D9yCdOvoEiuQaDUeyvm6VewIr+tu2iQtOfbZxWhbxa1t0TtI18nmh5Bwqr9b22QX6UxUrpxnGX36RvT3ZZyAqRmRp6qUhUzA3Nw17oTrmBTBHyAER0Y8ELfxX+bvW4FGzO+EdSZy8E1WZVWpmaXRRpOZ8SeVoq8oko1iiVbiQuTu53vfduLImqCkupGsSgBthf+gOM5gX2AaPoZpslK1HpHqLzmW/3wSzH+Mw9KgdPeXaJ0BMyMEbVArpXD/DPuQqJ5tn8cjX44hTf/ryZMsJY7y0WMDXpUbYiD3G22vtcs+8yyleFRy76oQ5AnT9PxIj7nQ3CCKk0Zcfx5PK/xY0dTaJS63luGQSZEo68s75lWojqRzMZvBflADlqKx4wMDGJuads7oJBZvifoLQ0lZfU5E5qQKRnlbjhzFoMfQ+EA==
-
-envsubst:
-  files:
-  - src: /configmap/config.yaml
-    dest: /envsubst/config.yaml
+- PMM_SECRET_PLEX_TOKEN: AgCklOd/EBl38hY1tQPbdJrq9tOmn2z9dMDsOOuTZqpPXHJw8GL/vSIQ21x+7D67zhuRzT4gUBkLG1uGJm1ztiQ+sI84fvKhOv85TTzvgERrT7fBFUqx5hODXukwuI7eiQG5QFTDs/08vLXuOoFYz+XYw6ocq4wulpZzDvYdPtz++3gVlxsjcBTx1JymUy72hY6YmUdCK02j0pf4N6/m9/nmXPrD6wFT/iSbGz9hwvnPcJoSJKLM3EINfJu0jB5HYz6tmsEnpOSJqt/pSEKV4pQobiUM6wSfX8iG7/yWqhiEAM9nZaF19C7WqaT5WU7WbgwHxj+mTcmagGFJnv/+7znrkDcib4n+yyuOIwHdTOLpO7PL2g2DZpBPjyokK+N2hgVbDYiF8Q4+Na3TlWFVDgaBfOwXVdaMXqNU9qEBvdgxhhgkWGB0jhuvTpAPMhThj8Gzix1XtEvMOk5KQXkfVOpSWmLp2G013u50oQ3Oy89RPrwZ9+ZnDTrgjRLyrBwQ4cx4u1CXNR9J8OgxSGLHJDh11K5Q4ampZpo3n29XB2R6Ui2pGGUW7jTrOR2haeMeyjji1WyrI8bvRdoiz3rqI75k/vMBEhyjUtcmtU1sA7Kx4zmuZoXDeidmNN3qQgLhFjvzFjUZK27HFugtbARCS3g/+Ye+TeKpi1uwGzkhHtCUTS9CN4dN0gOB9izJsZOB1h99pCNf+0ZEuhLGZF1FWxnn3fNF0w==
+- PMM_SECRET_TMDB_API_KEY: AgBoSroEUo97+DHbaYdw5h7oySTOVJtVcXWoIuf7OvkMHNWu0o/0ch+6zjIjjjgYnLl05x+N1v9t364PflZPa9/HI8xbzCqBKQ/3+SajreXjZq/jKQGbCPdAdAPedU+4+wl3+zBmUKREH+FSNWw4ycqbPa143QYtY0SqXGHT6MIB+zlsCopFi3o1X+O0QMsh66tJl7lexVQPRGEHPcLAVXDdQd0orugB+Px+yWQMtnvt9E258M7pESCL1Y65u+uLnYgfT2oyMvrQZHtWXI+Miutr+BlAJJ0dr0rNTRQ/cTAhl44y6PPnoPnZB2/+dRdrMg3D9yCdOvoEiuQaDUeyvm6VewIr+tu2iQtOfbZxWhbxa1t0TtI18nmh5Bwqr9b22QX6UxUrpxnGX36RvT3ZZyAqRmRp6qUhUzA3Nw17oTrmBTBHyAER0Y8ELfxX+bvW4FGzO+EdSZy8E1WZVWpmaXRRpOZ8SeVoq8oko1iiVbiQuTu53vfduLImqCkupGsSgBthf+gOM5gX2AaPoZpslK1HpHqLzmW/3wSzH+Mw9KgdPeXaJ0BMyMEbVArpXD/DPuQqJ5tn8cjX44hTf/ryZMsJY7y0WMDXpUbYiD3G22vtcs+8yyleFRy76oQ5AnT9PxIj7nQ3CCKk0Zcfx5PK/xY0dTaJS63luGQSZEo68s75lWojqRzMZvBflADlqKx4wMDGJuads7oJBZvifoLQ0lZfU5E5qQKRnlbjhzFoMfQ+EA==
+- PMM_SECRET_TRAKT_CLIENT_ID: AgCZvuTtU8QnU6Srv0dK6u/CxxEZ8EFDo6yu9bsJ7W4tnJL0znAorHUWn+X8lnAd3/QmzTzsRdC8YNogFldvtF1THRVU4hmkKUVQ2bH/gi4JQos1GgbH2wIJOq6keiG3/u9YjrczHAnqANKfBEJYZjCHu9Oy093XJ8GP/aNbJuz6Xw2E4n/aAwwIgN4k7o5dpLHYGHYwfRUDK6h+2dpSjnVSLGTPnvhpmTlmyTjYZmHufxrpN+MonK3GN9aFnSWgBNJK4hi1EbueXZqwEzm/aLUeDHUKpNGGcEEarhSAo97mL0IGxvn7/H5WvvJtf9L4bS7ktKquTePHo6uGYnZx8LBjdRslyPQPbXlOg5Nr/gJvDg+jZ7i8Co6hnjej0L9gznZVpBj4s5CowbwRxX5sACf3eUK3mRx4fEenJrQx9oYs557OkvWyNEtfPAbj6g0i2vUnzU2D8LJXeDmAYEcm1cccHMiNZLtCHWFeysmHwyYD/Gd/Ij8HW6LSp1owQYbVw4tHDgUBBfRC3FH6rIdiw8bBCBF1+stimm/Skx8PaTaOP1gIJ9CvKGXHlpHhgymAmtEhBdp8x1TzbRVx4ucMdX3mS1zGh8bYX1Afyj53IeFrA0tTFHkdZIFasx+1j3GX5L6ivHdplI6Avni8Orhy8Wc1JSsSW3hE20Y3r2EKuFkaFBGneP3BM3oJ42eV/ZdxpK3eunVyF/QIHk4yQUL/fZXL0/gyzRd6/JL+N2pHnCD7RyFWNtECoqL/1SNkPbQHLIOZhpK1pjK4SORwsXwmg+22
+- PMM_SECRET_TRAKT_CLIENT_SECRET: AgBBrXBzPIMN+/WxcDcfYORlMHzjHNx2xKbHJL3ABOpLWaAdnon0mNZA/SxlpCogXcHUrMcAfekTOkGPczURa6YF3TJhVaYqL3EzYGw587wQC3YRGm+k9gGs6hU8ftrmoqucGGRhUBkKInIiWtC2WjWzMTCkSi657tVkOlPznlSyBd+3HNjb6LDsC2nxJiy9f9V8e2sJUEjRghL6P6YEKvgH0/UIHxcZlQJnEDKOs27xKLYzxJvnw26ob8A3v3WmDCYQa5M3nPiPEiNmSFXjHftvhhpKkUjaOkNQ8POkL2We1Th8KhNW8u8HcMlylFIzvPdkfnoal9UlBoRXbi+6rtiAYIFK9Iw/XR1hgmGyHWBMKBLJKveHUG5WxO1+idkI/an/v+hH+PIukg4vorxoQ9vI+oex6CG3V7lKDuan9/mlcGW3Pfu2L9mO00+Hb0e/e3t2okLX+7ctJXUz2vBGpPYrp47GQFhIZWU3WI66VfAP3ckEQHmP4CYvojNRjUF90u/7zGEArqf2XfJkoUXIgBBun8cwlLsRXFSvtVhH21Ks3lFIpHma794+JNWHefOUuIQbShZwQleFJ6BG4qOFGpmNslBl7UVzKgZ/wdyHLf1Q4MugbPVaXmAjL/rg8Z7YY1X0iZeVdrbi4jcgTR8TlIFfpuVfNV2/ewrhDOgveOYbUkJkaXO2YwOfJiy8KL+lEHb4xO8m/S34BdMWnuQ2zc/l5sY4GbpngwxUz3AvxLoNyQ0N1uXG63KyoetikqOBOZ7vZ+e0h3BZhN65VSTRJk73
+- PMM_SECRET_TRAKT_ACCESS_TOKEN: AgBHUAw5vNaVUQebSu+JmYqXR498NWlOTVITBXyQWAnc9ZUCFeun8BG65QVaKGfrbCDfr1RONFONj3k19VLBwSb5Bn5zxrgCpEeqsp7LT57QNVzVyhiGxtfajXBtEJaLYXgIyZ8AyIsZejim+TErlMDe3guYK3kDdRM0NY7KSfAtIx/HGlDa9dYwSyub9dB1kQq5xFTYGUjuUu27UOKckhJS94nlq2TP57G5Nbk66z0JrDk0EyO9oI5gFYpRHZcoCl6l4GwkpJudGULaQarGCLpTYRhjVRlkqQGSFKYADhXLw04nXEeuT/5f3lIrlBSCYUctCt0+LKNi8JUYnfAJFEopDC+8o/iHyUd4/ZgZIW7QjRKVUO8QnCs/3pjuJWMURhzY27E7iswbHMzY56Phpm0Jfh3BzoUvrY8uWV0yvcq6o28YNZplwpl3Odf2/H20EcDBVSUsopqNTtvJKL3gBiSURUm0N2b5dVOVQthrUEaXjWg9AqZBgSI8z+I+MurlthXKVEfRSvhB+A8IT+6gS6nqrjTElONaO3lqU1+LLymaPrZQYQQMCu9s08fi2/Cj94Y6d5nTFpeg33w8HoiVtUXKTPvdX9+vrfGusVsqpL5UnmKNssqMbb0HdzYEn8MRh/r57BgTNzaeg4TB7xhYzOmmYTDS/fy8UmURkylpb+GQnpdeftKljBzOjEcCzA2FZeLEn+Yblgoq33lD+hlJvIudbigsckAvg1uJIX8VY4iEZ0V/mrca0qk6pkfazuQTNwpjDyWViiXNVFlACPQk6wN5
+- PMM_SECRET_TRAKT_REFRESH_TOKEN: AgAyAiElkmxKR3PFI25iEb4HfA02WB1n/ZiVmgZfQ3aArt/+XQc3i2exJeXEiSiYucbOelnXsEeR7cZ6U2rvl/E8104eZ0fuyTqop5NjYs97QUjRZC5TGmTm638D9XpTLABAxlPru57uLH20KCo5M5cTqG+7/yH1BxvHpz8D3k+Mf7kRwC3fQXKK2UOCto7t23/OCWzljuhd8L5UfKaHq3P8s/eqQgJFdtTqPfPdH0G2Uuyc51IQVZqk/dwvjnYF04xN0P8OjQ0p/BvT2HG3A8krLw+XXkBDzZodShsHOtaEdBERwj480aGjcLufWBV85eAKI0win0v5JWmPjibxjZmPKs95/gbz8w2HPA/gBF4Efxkx1D4xPTqHku4hNGWpiukLAoqm4Hgn+OsYhQJctHZYDP00oiN9Q06MEA52SNHAqkLJdM7MtGvvqecwqaR+gaqaMRsqY3ftdDdGoill+8tbpKS4p3oQqqmsifv74LcLNHHUTm5NQWrNKqMk6ik41K1KoHbCT5gGZaQib+H45aCeSjqTwEvBtWqUeGCblaORzkOkvERe5D3kiJXSOI5IqvuMlMtlOdrpO4p+Oq4C4qzvSDf1ysOoaM5gae26ANOAxGW2LofnXf8Zq55ztKVMdAOTutMbsECAyIqFVKS7x7AlPIanCm4/q/5jzjmSNvnTkQ67nzABk8aIxe8nnolqnikvKb7113W5+6waXcD1vD7QCAz7QkdT+W7c9JbxBYEzqIMnyOtYJpvfkJXqSajffK88NMdB8cQBHt5G1ZgEDGF9
+- PMM_SECRET_RADAR_TOKEN: AgA4a5EIL968zJAd+RTmT43BsugebVPGrvaAdz3jgTr4zrTI7sYwwQzNCRnEtxMEcTy4tBbj+m/imhtYvpMxacidj8KFwtUpE0QIYlLFETt5JtXvx66AQtzUJM8cfaEDLHqEIdPJ1wZ+BnPtQiCF2b3/SqWCBvSemOVFs/yX4KUIT5bT9//w1faeU26fClO0QXW1k+oNDqDUi+pkcm/2ecgYf+ey87GWJEKtNgZ6wiN0cyYJsdfq3b5x6vodxNPcFZw0DFW53skwPlY1AV9b/pP1+6bwjmkbHHW86FLJrsA+pAtgej2CPtSaZKn+q5qEw8W9BceTAU0q/c5LJBeYK5jG+R3N0i7zdPj5gBTooKBubffos6Zy/ZbILUpB7qvLqBr4aiR408scD119uqiwwLV6+QPylb5w/EBH2vC0fOEfYX4rO76yLl4/JVSe9kDPGhjfMnjPDCav1iJQJkbKiUpeJ3DAv17hCYjfnqrEMVroeqLrpDitDSAPdjqtA5UGOBv2EWtqN5ISWgH8ZCpzKQY5PWKOgN2VkjZ+2JF5kY7GM9T9PkrC7tIbalks8/qUFTa1hmZEzKECYjPjlQbwixpPkDoLCuQEcXVh7N58KbDZHvqGCkO1gFrVxgo9iAodknLuYSdW40sbgbgCbxn9JVJBnK0Zv17Gzv0mEUM97wDXOhCplLRgNVXxn2qrsvhdqKUXQPSf7HmSIY+gnq2fdXfLR8XKQy1TR3hskIOoAXj3gg==
 
 configMaps:
 - name: config
-  mountPath: /configmap
+  mountPath: /config
   subPath: config.yaml
   content:
     libraries:
       Filme:
         collection_files:
-        - file: /configmap/movies.yaml
+          - file: /config/movies.yaml
+          - pmm: trakt
+            template_variables:
+              language: de
+              limit: 20
+              use_collected: false
+              use_recommended: false
+              visible_library_popular: true
+              visible_home_popular: true
+              visible_shared_popular: true
+          - pmm: imdb
+            template_variables:
+              language: de
+              use_lowest: false
+              visible_library_top: true
+              visible_home_top: true
+              visible_shared_top: true
+              radarr_add_missing_top: true
+          - pmm: flixpatrol
+            template_variables:
+              language: de
+              location: germany
       # Serien:
       #   collection_files:
-      #   - file: /config/tv.yaml
+      #     - file: /config/tv.yaml
     settings:
-      # currently not possible to configure custom cache location,
-      # its always the config dir which means /envsubst/
-      cache: false
       tvdb_language: de
       # disable for plex
       verify_ssl: false
     plex:
       url: https://plex:32400
-      token: $PLEX_TOKEN
+      token: <<SECRET_PLEX_TOKEN>>
       clean_bundles: false
       empty_trash: false
       optimize: false
+    radarr:
+      url: http://radarr:7878
+      token: <<SECRET_RADAR_TOKEN>>
+      root_folder_path: /movies
+      availability: released
+      quality_profile: main
+    trakt:
+      client_id: <<SECRET_TRAKT_CLIENT_ID>>
+      client_secret: <<SECRET_TRAKT_CLIENT_SECRET>>
+      authorization:
+        access_token: <<SECRET_TRAKT_ACCESS_TOKEN>>
+        token_type: Bearer
+        expires_in: 7889238
+        refresh_token: <<SECRET_TRAKT_REFRESH_TOKEN>>
+        scope: public
+        created_at: 1704896775
     tmdb:
-      apikey: $TMDB_API_KEY
+      apikey: <<SECRET_TMDB_API_KEY>>
       language: de
       region: DE
+
 - name: config-series
-  mountPath: /configmap
+  mountPath: /config
   subPath: movies.yaml
   content:
-    collections:
-      Beliebte Filme:
-        tmdb_popular: 100
-        collection_order: custom
+
+    templates:
+      Movies_Best_of_Year:
+        trakt_list: https://trakt.tv/users/lish408/lists/rotten-tomatoes-best-of-<<key>>
+        sort_title: 01_Best of <<key>>
         sync_mode: sync
-        sort_title: ..Beliebte Filme
-        summary: Aktuell beliebte Filme von TheMovieDB
+        summary: Rotten Tomatoes - Besten Film von <<key>>
+        collection_order: release
+        collection_minimum: 3
+        delete_below_minimum: true
+        visible_library: true
+        visible_shared: false
+        visible_home: false
+        # schedule: monthly(1)
+        url_poster: https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager-Images/master/year/best/<<key>>.jpg
+
+    dynamic_collections:
+      Best_Movies_of_Year:
+        type: number
+        sync: true
+        data:
+          starting: 2014
+          ending: current_year-1
+        title_format: 🍅 Das Beste von <<key_name>>
+        template:
+          - Movies_Best_of_Year
+
+    # collections:
+      # Besten Filme:
+      #   sort_title: 00_best_movies
+      #   summary: Die besten Filme aller Zeiten
+      #   imdb_chart: top_movies
+      #   limit: 30
+      #   collection_order: random
+      #   # radarr_add_missing: true
+      #   visible_library: true
+      #   visible_home: true
+      #   visible_shared: true
+      #   sync_mode: sync
+      #   url_poster: https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager-Images/master/chart/imdb_top_30.jpg
+
+hostPaths:
+- name: config
+  hostPath: /srv/nvme/container-data/plex-meta-manager
+  containerPath: /config
