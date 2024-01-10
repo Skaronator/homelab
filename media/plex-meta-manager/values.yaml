@@ -3,8 +3,6 @@ image:
   tag: "v1.20.0@sha256:5bcf400823bf478ab87dff46f43e8a4995713c69d991cf1867acab2d0e528113"
 
 schedule: "0 6 * * *"
-suspend: true
-hostname: plex-meta-manager
 
 envs:
 - PMM_READ_ONLY_CONFIG: true
