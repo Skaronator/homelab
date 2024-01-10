@@ -69,10 +69,6 @@ configMaps:
               data:
                 starting: latest-3
                 ending: latest
-          - pmm: streaming
-            template_variables:
-              language: de
-              use_separator: false
       # Serien:
       #   collection_files:
       #     - file: /config/tv.yaml
