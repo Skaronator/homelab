@@ -49,6 +49,30 @@ configMaps:
             template_variables:
               language: de
               location: germany
+          - pmm: seasonal
+            template_variables:
+              language: de
+              use: false
+              use_years: true
+              use_valentine: true
+              use_easter: true
+              use_halloween: true
+              use_christmas: true
+          - pmm: based
+            template_variables:
+              language: de
+              sep_style: navy
+              use_separator: false
+          - pmm: oscars
+            template_variables:
+              language: de
+              data:
+                starting: latest-3
+                ending: latest
+          - pmm: streaming
+            template_variables:
+              language: de
+              use_separator: false
       # Serien:
       #   collection_files:
       #     - file: /config/tv.yaml
@@ -108,25 +132,11 @@ configMaps:
         type: number
         sync: true
         data:
-          starting: 2014
+          starting: current_year-5
           ending: current_year-1
         title_format: 🍅 Das Beste von <<key_name>>
         template:
           - Movies_Best_of_Year
-
-    # collections:
-      # Besten Filme:
-      #   sort_title: 00_best_movies
-      #   summary: Die besten Filme aller Zeiten
-      #   imdb_chart: top_movies
-      #   limit: 30
-      #   collection_order: random
-      #   # radarr_add_missing: true
-      #   visible_library: true
-      #   visible_home: true
-      #   visible_shared: true
-      #   sync_mode: sync
-      #   url_poster: https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager-Images/master/chart/imdb_top_30.jpg
 
 hostPaths:
 - name: config
