@@ -4,11 +4,13 @@ image:
 
 schedule: "0 6 * * *"
 suspend: true
+hostname: plex-meta-manager
 
 envs:
 - PMM_READ_ONLY_CONFIG: true
 - PMM_RUN: true
 - PMM_CONFIG: /envsubst/config.yaml
+- PMM_WIDTH: 150
 
 secretEnvs:
 - PLEX_TOKEN: AgCklOd/EBl38hY1tQPbdJrq9tOmn2z9dMDsOOuTZqpPXHJw8GL/vSIQ21x+7D67zhuRzT4gUBkLG1uGJm1ztiQ+sI84fvKhOv85TTzvgERrT7fBFUqx5hODXukwuI7eiQG5QFTDs/08vLXuOoFYz+XYw6ocq4wulpZzDvYdPtz++3gVlxsjcBTx1JymUy72hY6YmUdCK02j0pf4N6/m9/nmXPrD6wFT/iSbGz9hwvnPcJoSJKLM3EINfJu0jB5HYz6tmsEnpOSJqt/pSEKV4pQobiUM6wSfX8iG7/yWqhiEAM9nZaF19C7WqaT5WU7WbgwHxj+mTcmagGFJnv/+7znrkDcib4n+yyuOIwHdTOLpO7PL2g2DZpBPjyokK+N2hgVbDYiF8Q4+Na3TlWFVDgaBfOwXVdaMXqNU9qEBvdgxhhgkWGB0jhuvTpAPMhThj8Gzix1XtEvMOk5KQXkfVOpSWmLp2G013u50oQ3Oy89RPrwZ9+ZnDTrgjRLyrBwQ4cx4u1CXNR9J8OgxSGLHJDh11K5Q4ampZpo3n29XB2R6Ui2pGGUW7jTrOR2haeMeyjji1WyrI8bvRdoiz3rqI75k/vMBEhyjUtcmtU1sA7Kx4zmuZoXDeidmNN3qQgLhFjvzFjUZK27HFugtbARCS3g/+Ye+TeKpi1uwGzkhHtCUTS9CN4dN0gOB9izJsZOB1h99pCNf+0ZEuhLGZF1FWxnn3fNF0w==
@@ -54,7 +56,7 @@ configMaps:
   content:
     collections:
       Beliebte Filme:
-        tmdb_popular: 50
+        tmdb_popular: 100
         collection_order: custom
         sync_mode: sync
         sort_title: ..Beliebte Filme

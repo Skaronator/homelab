@@ -35,6 +35,9 @@ spec:
           terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
           securityContext: {{- toYaml .Values.podSecurityContext | nindent 12 }}
           restartPolicy: {{ .Values.restartPolicy }}
+          {{- if .Values.hostname }}
+          hostname: {{ .Values.hostname }}
+          {{- end }}
           dnsConfig:
             options:
             - name: ndots

@@ -39,6 +39,9 @@ spec:
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
       hostNetwork: {{ .Values.hostNetwork }}
+      {{- if .Values.hostname }}
+      hostname: {{ .Values.hostname }}
+      {{- end }}
       {{- if .Values.hostNetwork }}
       dnsPolicy: ClusterFirstWithHostNet
       {{- end }}
