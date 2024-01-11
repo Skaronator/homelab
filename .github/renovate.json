@@ -67,7 +67,7 @@
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "k0sproject/k0s",
-      "extractVersionTemplate": "^(?<version>v\\d+\\.\\d+)"
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ]
 }
