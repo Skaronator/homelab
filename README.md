@@ -15,7 +15,6 @@ Name | Description
 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) | Network-wide ads & trackers blocking DNS server
 [ArchiSteamFarm](https://github.com/JustArchiNET/ArchiSteamFarm) | Tool for managing Steam accounts and idling games
 [ArgoCD](https://github.com/argoproj/argo-cd) | GitOps tool for deploying applications to Kubernetes
-[Bitcoin Node](https://github.com/bitcoin/bitcoin) | Software implementation of the Bitcoin protocol for running a node
 [cert-manager](https://github.com/cert-manager/cert-manager) | Kubernetes add-on for managing SSL/TLS certificates
 [Debian](https://www.debian.org) | Stable Linux distribution
 [ESPHome](https://github.com/esphome/esphome) | Framework for creating custom firmware for ESP8266/ESP32 devices
@@ -46,10 +45,8 @@ Name | Description
 [Syncthing](https://github.com/syncthing/syncthing) | Decentralized file synchronization tool
 [Tautulli](https://github.com/Tautulli/Tautulli) | Monitoring and tracking tool for Plex Media Server
 [Transmission](https://github.com/transmission/transmission) | BitTorrent client for downloading and sharing files
-[Trilium Notes](https://github.com/zadam/trilium) | Personal knowledge management application
 [UniFi Controller](https://ui.com) | Software controller for managing UniFi network devices and services
 [Vaultwarden](Vaultwarden) | Self-hosted password manager
-[Vikunja](https://vikunja.io/) | Task and todo manager for personal use
 [ZFS](https://github.com/openzfs/zfs) | File system and logical volume manager for ZFS filesystems
 [Zigbee2MQTT](https://github.com/Koenkk/zigbee2mqtt) | Zigbee to MQTT bridge for connecting Zigbee devices to a MQTT broker
 [zrepl](https://github.com/zrepl/zrepl) | Asynchronous ZFS replication and backup solution
@@ -68,16 +65,16 @@ Name | Description
 ### Server "Spirit"
 
 * CPU: Ryzen 5800X
-* RAM: 64GB
+* RAM: 64GB ECC
 * Mainboard: X470D4U2-2T
-* OS: Debian
-* OS SSD: SanDisk 128GB
-* Storage SATA SSD: ZFS Spanned Pool (RAID 0)
+* OS: Debian 12
+* OS SSD: MX500 500GB
+* Storage ZPOOL SATA SSD: ZFS Spanned Pool (RAID 0)
   * Crucial MX500 2TB
   * Samsung 850 EVO 2TB
-* Storage NVMe SSD: ZFS Mirrored Pool (RAID 1)
+* Storage ZPOOL NVMe SSD: ZFS Mirrored Pool (RAID 1)
   * 2x WD Black SN850X 2TB
-* Storage HDD: 2x ZRAID2 (RAID 6)
+* Storage ZPOOL HDD: 2x ZRAID2 (RAID 6)
   * 12x WD White Label 18TB
 
 ### Server "Dawn"
@@ -90,5 +87,5 @@ Name | Description
 ### Network Equipment
 
 * FRITZ!Box 7590 AX
-* 3x UniFi Switch Flex XG (4x 10 Gbit/&s / 1 Gbit/&s)
-* 2x UniFi Switch Flex Mini (5x 1 Gbit/&s)
+* 3x UniFi Switch Flex XG (4x 10 Gbit/s / 1 Gbit/s)
+* 3x UniFi Switch Flex Mini (5x 1 Gbit/s)
