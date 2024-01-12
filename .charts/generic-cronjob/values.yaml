@@ -44,8 +44,6 @@ envs: []
 
 secretEnvs: []
 
-hostname: ""
-
 configMaps: []
 # - name: ""
 #   mountPath: ""

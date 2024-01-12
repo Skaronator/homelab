@@ -63,8 +63,6 @@ envs: []
 
 secretEnvs: []
 
-hostname: ""
-
 configMaps: []
 # - name: ""
 #   defaultMode: 0644
