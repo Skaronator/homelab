@@ -40,7 +40,7 @@ configMaps:
         filename: "{date:%Y-%m-%d} - {title[b:150]|empty|content[b:150]|empty|id} - {num:>02}.{extension}"
     downloader:
       retries: 30
-      rate: 25M
+      rate: 20M
       filesize-min: 100M
     output: {}
     postprocessor: {}
