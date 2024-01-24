@@ -45,7 +45,7 @@ configMaps:
               visible_home_top: true
               visible_shared_top: true
               radarr_add_missing_top: true
-              radarr_tag: imdb250
+              item_radarr_tag: imdb250
           - pmm: flixpatrol
             template_variables:
               language: de
@@ -73,7 +73,11 @@ configMaps:
             template_variables:
               language: de
               use_year_collections: true
-              year_collection_section: "2000"
+              radarr_add_missing: true
+              item_radarr_tag: oscars-winners
+              visible_library_popular: true
+              visible_home_popular: true
+              visible_shared_popular: true
       # Serien:
       #   collection_files:
       #     - file: /config/tv.yaml
