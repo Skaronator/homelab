@@ -45,6 +45,7 @@ configMaps:
               visible_home_top: true
               visible_shared_top: true
               radarr_add_missing_top: true
+              radarr_tag: imdb250
           - pmm: flixpatrol
             template_variables:
               language: de
@@ -61,11 +62,17 @@ configMaps:
           - pmm: based
             template_variables:
               language: de
-              sep_style: navy
               use_separator: false
           - pmm: oscars
             template_variables:
               language: de
+              data:
+                starting: latest-3
+                ending: latest
+          - pmm: oscars
+            template_variables:
+              language: de
+              use_year_collections: true
               data:
                 starting: latest-3
                 ending: latest
@@ -86,8 +93,8 @@ configMaps:
       url: http://radarr:7878
       token: <<SECRET_RADAR_TOKEN>>
       root_folder_path: /movies
-      availability: released
       quality_profile: main
+      tag: pmm
     trakt:
       client_id: <<SECRET_TRAKT_CLIENT_ID>>
       client_secret: <<SECRET_TRAKT_CLIENT_SECRET>>
