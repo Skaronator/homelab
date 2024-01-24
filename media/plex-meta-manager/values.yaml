@@ -66,6 +66,9 @@ configMaps:
           - pmm: oscars
             template_variables:
               language: de
+              visible_library_popular: true
+              visible_home_popular: true
+              visible_shared_popular: true
               data:
                 starting: latest-3
                 ending: latest
