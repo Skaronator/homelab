@@ -1,91 +1,107 @@
 # Niklas Homelab
 
-This project utilizes Infrastructure as Code and GitOps to automate provisioning, operating, and updating self-hosted services in my homelab.
+This project utilizes Infrastructure as Code and GitOps to automate the provisioning, operation, and updating of self-hosted services in my homelab.
 
 ![img](./.github/images/dashboard.png)
 
 ## History
 
-This is a new take on the GitOps Infrastructure for my Homelab. Up until now I used a private self-hosted Gitlab Repository containing all Kubernetes Deployments written in Terraform. I recently start migrating all deployments from Terraform to ArgoCD due to [outstanding design issues in Terraform with Kubernetes CRD and CR](https://github.com/hashicorp/terraform-provider-kubernetes/issues/1367).
-
-## Technology Stack
-
-Name | Description
----- | -----------
-[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) | Network-wide ads & trackers blocking DNS server
-[ArchiSteamFarm](https://github.com/JustArchiNET/ArchiSteamFarm) | Tool for managing Steam accounts and idling games
-[ArgoCD](https://github.com/argoproj/argo-cd) | GitOps tool for deploying applications to Kubernetes
-[cert-manager](https://github.com/cert-manager/cert-manager) | Kubernetes add-on for managing SSL/TLS certificates
-[Debian](https://www.debian.org) | Stable Linux distribution
-[ESPHome](https://github.com/esphome/esphome) | Framework for creating custom firmware for ESP8266/ESP32 devices
-[external-dns](https://github.com/kubernetes-sigs/external-dns) | Kubernetes add-on for managing DNS records
-[Firefly III](https://github.com/firefly-iii/firefly-iii) | Personal finance manager for tracking expenses and income
-[FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) | Service for bypassing Cloudflare's anti-bot protection
-[Home Assistant](https://github.com/home-assistant/core) | Open-source home automation platform
-[Homepage](https://github.com/benphelps/homepage) | Personal start page or dashboard
-[ingress-nginx](https://github.com/kubernetes/ingress-nginx) | Kubernetes Ingress controller for external access to services
-[JDownloader 2](https://jdownloader.org) | Download manager for various online hosting services
-[k0s](https://github.com/k0sproject/k0s) | Lightweight Kubernetes distribution
-[k0s: CoreDNS](https://github.com/coredns/coredns) | Flexible and extensible DNS server
-[k0s: metrics-server](https://github.com/kubernetes-sigs/metrics-server) | Collects resource utilization data for Kubernetes nodes and pods
-[Lidarr](https://github.com/Lidarr/Lidarr) | Automation tool for managing music collections
-[MetalLB](https://github.com/metallb/metallb) | Load-balancer implementation for bare metal Kubernetes clusters
-[MeTube](https://github.com/alexta69/metube) | Self-hosted web application for managing YouTube video playlists
-[Minecraft Server](https://github.com/itzg/docker-minecraft-server) | Hosting Modded Minecraft Server
-[Monero Node](https://github.com/monero-project/monero) | Software implementation for running a Monero cryptocurrency node
-[MQTT Broker](https://github.com/eclipse/mosquitto) | MQTT broker for the Internet of Things (IoT) communication protocol
-[paperless-ngx](https://github.com/paperless-ngx/paperless-ngx) | Document management system for organizing and archiving files
-[Plex](https://www.plex.tv) | Media server for organizing and streaming media content
-[Prowlarr](https://github.com/Prowlarr/Prowlarr) | API integration tool for managing and monitoring media libraries
-[Rathole](https://github.com/rapiz1/rathole) | Service for storing and organizing media files
-[Restic](https://github.com/restic/restic) | Backup and restore software for files and directories
-[Scrutiny](https://github.com/AnalogJ/scrutiny) | Disk health monitoring and analysis tool
-[Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets) | Kubernetes controller for managing encrypted secrets
-[Stash](https://github.com/stashapp/stash) | Media server for everything that is not in Plex
-[Syncthing](https://github.com/syncthing/syncthing) | Decentralized file synchronization tool
-[Tautulli](https://github.com/Tautulli/Tautulli) | Monitoring and tracking tool for Plex Media Server
-[Transmission](https://github.com/transmission/transmission) | BitTorrent client for downloading and sharing files
-[UniFi Controller](https://ui.com) | Software controller for managing UniFi network devices and services
-[Vaultwarden](Vaultwarden) | Self-hosted password manager
-[ZFS](https://github.com/openzfs/zfs) | File system and logical volume manager for ZFS filesystems
-[Zigbee2MQTT](https://github.com/Koenkk/zigbee2mqtt) | Zigbee to MQTT bridge for connecting Zigbee devices to a MQTT broker
-[zrepl](https://github.com/zrepl/zrepl) | Asynchronous ZFS replication and backup solution
-
-## External Resources and Services
-
-Name | Description
----- | -----------
-[Cloudflare](https://www.cloudflare.com) | DNS Server which is nativly supported by cert-manager.io and external-dns
-[Gandi](https://gandi.net) | Domain Provider
-[IONOS VPS](https://www.ionos.de/server/vps) | Simple 1€/month VPS. Providing stable IPv4 that is bridged with [Rathole](https://github.com/rapiz1/rathole) to my homelab
-[Scaleway Glacier (S3 Cold Storage)](https://www.scaleway.com/en/glacier-cold-storage/) | S3 Compatible storage for Restic for just 2€/TB
+This is a new approach to the GitOps infrastructure for my Homelab. Until now, I utilized a private self-hosted Gitlab Repository containing all Kubernetes Deployments written in Terraform. I recently started migrating all deployments from Terraform to ArgoCD due to [outstanding design issues in Terraform with Kubernetes CRD and CR](https://github.com/hashicorp/terraform-provider-kubernetes/issues/1367).
 
 ## Hardware Stack
 
-### Server "Spirit"
-
-* CPU: Ryzen 5800X
-* RAM: 64GB ECC
-* Mainboard: X470D4U2-2T
-* OS: Debian 12
-* OS SSD: MX500 500GB
-* Storage ZPOOL SATA SSD: ZFS Spanned Pool (RAID 0)
-  * Crucial MX500 2TB
-  * Samsung 850 EVO 2TB
-* Storage ZPOOL NVMe SSD: ZFS Mirrored Pool (RAID 1)
-  * 2x WD Black SN850X 2TB
-* Storage ZPOOL HDD: 2x ZRAID2 (RAID 6)
-  * 12x WD White Label 18TB
-
-### Server "Dawn"
-
-* Raspberry Pi 4
-* RAM: 8GB
-* OS: Raspberry Pi OS
-* OS SSD: Crucial MX500 512GB
+The hardware was specifically selected to achieve a low-power C10 CPU state, resulting in a power draw of around **12 watts** for Node 2 and 3. Node 1, however, draws more power due to the HDDs, but there is room for improvement in the future (considering MergeFS + SnapRAID).
 
 ### Network Equipment
 
 * FRITZ!Box 7590 AX
-* 3x UniFi Switch Flex XG (4x 10 Gbit/s / 1 Gbit/s)
+* 1x UniFi Switch Aggregation (8x 10 Gbit/s SFP+)
+* 3x UniFi Switch Flex XG (4x 10GBASE-T + 1x 1 Gbit/s)
 * 3x UniFi Switch Flex Mini (5x 1 Gbit/s)
+
+### Server "Node 1" (HDD Storage)
+
+Node 1 is the primary storage server that contains all spinning rust disks.
+
+<details>
+<summary>Detailed Hardware Specs</summary>
+
+* CPU: Intel i5 14600
+* RAM: 128 GB DDR4-3200 CL16-18-18-38
+* Mainboard: ASUS Prime H770-Plus D4
+* NIC: Intel X710-DA2 (2x 10 GBit/s SFP+)
+* OS: Debian 12
+* OS SSD: MX500 500GB
+* Storage ZFS ZPOOL HDD
+  * ZRAID2 (Raid6)
+    * 6x WD White Label 18TB
+  * ZRAID2 (Raid6)
+    * 6x WD White Label 18TB
+* Storage ZFS ZPOOL SSD: ZFS Spanned Pool (RAID 0)
+  * Crucial MX500 2TB
+  * Samsung 850 EVO 2TB
+* Storage RookIO
+  * 2x WD Black SN850X 2TB
+
+</details>
+
+### Server "Node 2"
+
+Node 2 is a low-power node for Kubernetes. It contains fast NVMe storage and fast networking for Rook.io/CephFS Storage.
+
+<details>
+<summary>Detailed Hardware Specs</summary>
+
+* CPU: Intel i5 14600
+* RAM: 64GB GB DDR4-3200 CL16-18-18-38
+* Mainboard: ASUS Prime H770-Plus D4
+* NIC: Intel X710-DA2 (2x 10 GBit/s SFP+)
+* OS: Debian 12
+* OS SSD:
+* Storage RookIO
+  * 1x Samsung 990 Pro 4TB
+
+</details>
+
+### Server "Node 3"
+
+Node 3 is a low-power node for Kubernetes. It contains fast NVMe storage and fast networking for Rook.io/CephFS Storage.
+
+<details>
+<summary>Detailed Hardware Specs</summary>
+
+* CPU: Intel i5 14600
+* RAM: 64GB GB DDR4-3200 CL16-18-18-38
+* Mainboard: ASUS Prime H770-Plus D4
+* NIC: Intel X710-DA2 (2x 10 GBit/s SFP+)
+* OS: Debian 12
+* OS SSD:
+* Storage RookIO
+  * 1x Samsung 990 Pro 4TB
+
+</details>
+
+## Software Stack
+
+All servers run the latest version of Debian. Kubernetes is provisioned by the awesome [k0s project](https://github.com/k0sproject/k0s).
+
+**Storage** is separated into two types:
+
+- **Cluster storage** is provisioned with [Rook.io](https://rook.io/) that runs on my fast NVMe drives. Storage is replicated across all 3 nodes, which means that all services continue to run even when 2 nodes fail.
+- **Local storage** is directly connected to [Node 1](#server-node-1-hdd-storage) to improve storage capacity. This is mostly the spinning rust disks.
+
+Backups are done directly with [Restic](https://github.com/restic/restic) and in the future with [velero](https://github.com/vmware-tanzu/velero), which also uses restic in the background. Backups are stored in [Scaleway Glacier Cold Storage](https://www.scaleway.com/en/glacier-cold-storage/), costing 2€/TB.
+
+**Ingress** is done using [ingress-nginx](https://github.com/kubernetes/ingress-nginx) Ingress Controller. The ingress controller is deployed twice for these use cases:
+
+- **nginx-private** provisions an Ingress that is only available from the local network.
+- **nginx-public** provisions an Ingress that is only available from the worldwide web.
+
+[MetalLB](https://github.com/metallb/metallb) provides a stable IP that is highly available and doesn't depend on a single node to be available.
+
+**DNS** records are automatically applied via [external-dns](https://github.com/kubernetes-sigs/external-dns). External DNS is deployed twice:
+
+- **private** watches all nginx-private ingress resources and automatically updates my AdGuardHome DNS records.
+- **public** watches all nginx-public ingress resources and automatically updates my Cloudflare DNS records.
+
+Automatic updates are handled by [renovate](https://github.com/renovatebot/renovate). Deployments are done using [ArgoCD](https://github.com/argoproj/argo-cd).
