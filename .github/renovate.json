@@ -20,13 +20,13 @@
     },
     {
       "matchDatasources": ["docker", "helm"],
-      "matchUpdateTypes": ["pinDigest"],
-      "automerge": true,
-      "automergeType": "branch"
+      "matchUpdateTypes": ["digest"],
+      "schedule": ["every monday"],
+      "automerge": true
     },
     {
       "matchDatasources": ["docker", "helm"],
-      "matchUpdateTypes": ["digest", "pin", "minor", "patch"],
+      "matchUpdateTypes": ["pinDigest", "pin", "minor", "patch"],
       "automerge": true
     },
     {
