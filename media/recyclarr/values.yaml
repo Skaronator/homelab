@@ -1,0 +1,39 @@
+image:
+  repository: "ghcr.io/recyclarr/recyclarr"
+  tag: "6.0.2"
+
+schedule: "0 6 * * *"
+suspend: true
+
+command:
+- "/sbin/tini"
+- "--"
+- "recyclarr sync --preview --config /config/config.yaml"
+
+secretEnvs:
+- RADARR_API_KEY: AgAxWWrDtdbNaKrzmRwLZq7b7Up/vjG96psJ8Mdjz9wJZPhoACym2rrwsfC4ehQLcyqGFVUPSMDrieZukut2bE5AyNd2TVsc4E6QEg0wBZWfLU64OyclF+Og8npC7uruZ2sDNpGCJZt8Bsi1pzYbkZQYMSDLglT4ywinQiRvjafdscCVviwDLdNuQODFQxowXjD8ZcMlKimVJf57OqSlhE1HAu+fLcnP7XXmAVPceFXKFIkNkrenZHH0XQ2gEc8OXVMeRKuj9Z4GpuaZJwE+0NsjtrHxX6tvEaK6pFvc3GHahLIvZLhSTq9GK754flHl4rdrYYyiyPtjmDqsqLuywQ+Akwqxq/zoby553gu/E26M5HpgMIbdiG1Vq3TBQiGMJKQB+DvSEIpFfQVUF0LZc/qjbMUuX/qlH+10nn5EUQXJhgCzxaWGu4D9JNXNZ6UfAuMwiC8xg/BPW/8nEDJ/mDrN3txjWSHGfskPoK/IVxijfv9Dgll2D/k1fIrN23sUNqZVhXGoat/OEWRifeHVQHi3vlFsoyKFCJHxL2VRYAl4EIJ5qQTW7NmvzG+huqbqF9gWT6FRFa6bos84oNqIq6+bsTXjn72n2wkI7aFeMxIDJr4/WPZ+0qvmapusFeQMhjyYvPIOhyX1Y4v6ZthTtaFYEx60dOdpm8F6MYeJl0njtPLR3/nQ1UqBCxZdLWZy5WWCEoHkG8kyr2pir0IBSpwmsPBkkg1aBHKuqEfVC7Xxsw==
+- SONARR_API_KEY: AgBAzG1i5jjqHaBcctkdGCDXG1a0iIrSBj2yWX8ZsQhMZpIPcBTOsu6J9q7tCu/Voyr02OfoX/ugtiziCe6QsFI0jLx4sgQexgXdv2FgYhUlB40nOxpy8LM0rmVWgP9nnN/GhAKk17TUK49YYVijrxC8OS2n2FS18AY3u5OtJ0xgl2xkYOE2GIxwIHtJwwYpR6i+xbnPQUyCPoXuOXpCrC2xjXDMXKjTxMcAGXFRfGD2uHq7Ozw3mNkDswEdQKKRT1ENAsOcH62g9LPQ6waUB531J81tu3ZFD5lCvcMJcjaJb5tTC+w6ACM0cka0VAyzeX9q18cfsV1uP7eXbgep2Y5cK8Gt6TF4EsJ6NKbK5T/7lkAIyE9rst8Re1lcAxS+01kndX+y7YfHbK3gXlE10ysiXRDD0oZ6P/9uPPsVq3YfyrQj/HMfxz4RveFSIxrlw7E5qOEQ3K4zEk1+4tr2k4jnqXAqlXjaHSHCs+s891iGmOnOCOD121eXqzkto4IqKBED8d62GrIgllriSrMgxHTQ4EDQhOJX7qFT/QP6L5WyD97PCnezo1TBF5u5Po4O6CRnxf2hW/icaRP+qZQmrnvf0B5znOxj/hE4ybGulcpPm+7JAZvoYj5za4LunhAvfvS5mFMMN1142sltWo6tLPp/fJLz2mdmIpSq+sbJ3YoYK35j1C80mqxv/UtcC2BV28Eoo6SkiQMm0lVKWMn8NwCpfP4CS9sIFykuklkTEMxjew==
+
+configMaps:
+- name: config
+  mountPath: /config
+  subPath: config.yaml
+  content:
+
+    radarr:
+      movies:
+        base_url: http://radarr:7878
+        api_key: !env_var RADARR_API_KEY
+        replace_existing_custom_formats: true
+        custom_formats:
+        - trash_ids:
+          - ec8fa7296b64e8cd390a1600981f3923 # Repack/Proper
+          - eb3d5cc0a2be0db205fb823640db6a3c # Repack v2
+          - 44e7c4de10ae50265753082e5dc76047 # Repack v2
+
+
+    sonarr:
+      series:
+        base_url: http://sonarr:8989
+        api_key: !env_var SONARR_API_KEY
+        replace_existing_custom_formats: true
