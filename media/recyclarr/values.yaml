@@ -2,8 +2,7 @@ image:
   repository: "ghcr.io/recyclarr/recyclarr"
   tag: "6.0.2@sha256:02add40feae0569401b5020528e06419b47046723d0bb4bef1e82325e9eefdad"
 
-schedule: "0 6 * * *"
-suspend: true
+schedule: "0 3 * * *"
 
 args:
 - sync
@@ -33,8 +32,6 @@ configMaps:
         custom_formats:
         - trash_ids:
           # HDR
-          - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
-          - ae43b294509409a6a13919dedd4764c4 # Repack2
           - c53085ddbd027d9624b320627748612f # DV HDR10Plus
           - e23edd2482476e595fb990b12e7c609c # DV HDR10
           - 58d6a88f13e2db7f5059c41047876f00 # DV
@@ -42,9 +39,13 @@ configMaps:
           - a3e19f8f627608af0211acd02bf89735 # DV SDR
           - b974a6cd08c1066250f1f177d7aa1225 # HDR10Plus
           - dfb86d5941bc9075d6af23b09c2aeecd # HDR10
-          - e61e28db95d22bedcadf030b8f156d96 # HDR (undefined)
+          - e61e28db95d22bedcadf030b8f156d96 # HDR
+          - 2a4d9069cc1fe3242ff9bdaebed239bb # HDR (undefined)
           - 08d6d8834ad9ec87b1dc7ec8148e7a1f # PQ
           - 9364dd386c9b4a1100dde8264690add7 # HLG
+          # repacks
+          - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
+          - ae43b294509409a6a13919dedd4764c4 # Repack2
 
     sonarr:
       series:
@@ -53,6 +54,18 @@ configMaps:
         replace_existing_custom_formats: true
         custom_formats:
         - trash_ids:
+          - 2b239ed870daba8126a53bd5dc8dc1c8 # DV HDR10Plus
+          - 7878c33f1963fefb3d6c8657d46c2f0a # DV HDR10
+          - 6d0d8de7b57e35518ac0308b0ddf404e # DV
+          - 1f733af03141f068a540eec352589a89 # DV HLG
+          - 27954b0a80aab882522a88a4d9eae1cd # DV SDR
+          - a3d82cbef5039f8d295478d28a887159 # HDR10Plus
+          - 3497799d29a085e2ac2df9d468413c94 # HDR10
+          - 3e2c4e748b64a1a1118e0ea3f4cf6875 # HDR
+          - bb019e1cd00f304f80971c965de064dc # HDR (undefined)
+          - 2a7e3be05d3861d6df7171ec74cad727 # PQ
+          - 17e889ce13117940092308f48b48b45b # HLG
+          # repacks
           - ec8fa7296b64e8cd390a1600981f3923 # Repack/Proper
           - eb3d5cc0a2be0db205fb823640db6a3c # Repack v2
           - 44e7c4de10ae50265753082e5dc76047 # Repack v2
