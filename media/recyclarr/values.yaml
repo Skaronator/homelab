@@ -45,8 +45,6 @@ configMaps:
           - e61e28db95d22bedcadf030b8f156d96 # HDR (undefined)
           - 08d6d8834ad9ec87b1dc7ec8148e7a1f # PQ
           - 9364dd386c9b4a1100dde8264690add7 # HLG
-          # HDR Boost
-          - 55a5b50cb416dea5a50c4955896217ab # DV HDR10Plus Boost
 
     sonarr:
       series:
