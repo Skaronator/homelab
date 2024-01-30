@@ -28,11 +28,24 @@ configMaps:
       movies:
         base_url: http://radarr:7878
         api_key: $RADARR_API_KEY
+        delete_old_custom_formats: true
         replace_existing_custom_formats: true
         custom_formats:
         - trash_ids:
           - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
           - ae43b294509409a6a13919dedd4764c4 # Repack2
+          - c53085ddbd027d9624b320627748612f # DV HDR10Plus
+          - e23edd2482476e595fb990b12e7c609c # DV HDR10
+          - 58d6a88f13e2db7f5059c41047876f00 # DV
+          - 55d53828b9d81cbe20b02efd00aa0efd # DV HLG
+          - a3e19f8f627608af0211acd02bf89735 # DV SDR
+          - b974a6cd08c1066250f1f177d7aa1225 # HDR10Plus
+          - dfb86d5941bc9075d6af23b09c2aeecd # HDR10
+          - e61e28db95d22bedcadf030b8f156d96 # HDR
+          - 08d6d8834ad9ec87b1dc7ec8148e7a1f # PQ
+          - 9364dd386c9b4a1100dde8264690add7 # HLG
+          quality_profiles:
+          - name: recyclarr
 
     sonarr:
       series:
