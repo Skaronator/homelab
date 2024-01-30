@@ -32,6 +32,7 @@ configMaps:
         replace_existing_custom_formats: true
         custom_formats:
         - trash_ids:
+          # HDR
           - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
           - ae43b294509409a6a13919dedd4764c4 # Repack2
           - c53085ddbd027d9624b320627748612f # DV HDR10Plus
@@ -41,11 +42,11 @@ configMaps:
           - a3e19f8f627608af0211acd02bf89735 # DV SDR
           - b974a6cd08c1066250f1f177d7aa1225 # HDR10Plus
           - dfb86d5941bc9075d6af23b09c2aeecd # HDR10
-          - e61e28db95d22bedcadf030b8f156d96 # HDR
+          - e61e28db95d22bedcadf030b8f156d96 # HDR (undefined)
           - 08d6d8834ad9ec87b1dc7ec8148e7a1f # PQ
           - 9364dd386c9b4a1100dde8264690add7 # HLG
-          quality_profiles:
-          - name: recyclarr
+          # HDR Boost
+          - 55a5b50cb416dea5a50c4955896217ab # DV HDR10Plus Boost
 
     sonarr:
       series:
