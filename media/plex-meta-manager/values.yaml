@@ -31,9 +31,9 @@ configMaps:
           - pmm: trakt
             template_variables:
               language: de
-              limit: 20
               use_collected: false
               use_recommended: false
+              use_watched: false
               visible_library_popular: true
               visible_home_popular: true
               visible_shared_popular: true
@@ -151,7 +151,7 @@ configMaps:
             default: false
             conditions:
             - rating.gte: 9.0
-              value: true
+              key: true
 
     dynamic_collections:
       Best_Movies_of_Year:
