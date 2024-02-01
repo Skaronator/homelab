@@ -44,8 +44,6 @@ configMaps:
               visible_library_top: true
               visible_home_top: true
               visible_shared_top: true
-              radarr_add_missing_top: true
-              item_radarr_tag: imdb250
           - pmm: flixpatrol
             template_variables:
               language: de
@@ -146,8 +144,14 @@ configMaps:
         visible_library: true
         visible_shared: false
         visible_home: false
-        # schedule: monthly(1)
         url_poster: https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager-Images/master/year/best/<<key>>.jpg
+        item_radarr_tag: best-movie-<<key>>
+        conditionals:
+          radarr_add_missing:
+            default: false
+            conditions:
+            - rating.gte: 9.0
+              value: true
 
     dynamic_collections:
       Best_Movies_of_Year:
