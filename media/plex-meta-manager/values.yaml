@@ -140,7 +140,7 @@ configMaps:
         type: number
         sync: true
         data:
-          starting: current_year-5
+          starting: 2014
           ending: current_year-1
         title_format: 🍅 Das Beste von <<key_name>>
         template:
