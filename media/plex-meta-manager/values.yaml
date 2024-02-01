@@ -53,12 +53,26 @@ configMaps:
           - pmm: seasonal
             template_variables:
               language: de
-              use: false
+              use_separator: false
               use_years: true
               use_valentine: true
+              use_patrick: false
               use_easter: true
+              use_mother: false
+              use_memorial: false
+              use_father: false
+              use_independence: false
+              use_labor: false
               use_halloween: true
+              use_veteran: false
+              use_thanksgiving: false
               use_christmas: true
+              use_aapi: false
+              use_disabilities: false
+              use_black_history: false
+              use_lgbtq: false
+              use_latinx: false
+              use_women: false
           - pmm: based
             template_variables:
               language: de
