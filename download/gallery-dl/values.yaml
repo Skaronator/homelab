@@ -31,6 +31,8 @@ configMaps:
       base-directory: /downloads
       archive: /downloads/.gallery-dl.db
       retries: 30
+      sleep: [0, 2]
+      sleep-request: [0, 2]
       coomerparty:
         username: $USERNAME
         password: $PASSWORD
