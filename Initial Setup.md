@@ -17,15 +17,15 @@ apt-get remove --auto-remove brltty
 Add the following to this file: `/etc/security/limits.conf`
 
 ```txt
-*       soft    nofile          65535
-*       hard    nofile          65535
-root    soft    nofile          65535
-root    hard    nofile          65535
+*       soft    nofile          1048576
+*       hard    nofile          1048576
+root    soft    nofile          1048576
+root    hard    nofile          1048576
 ```
 
 **Not sure if I need to modify the following**:
 
-Add `DefaultLimitNOFILE=65535` in `/etc/systemd/system.conf` and `/etc/systemd/user.conf` below `[manager]`
+Add `DefaultLimitNOFILE=1048576` in `/etc/systemd/system.conf` and `/etc/systemd/user.conf` below `[manager]`
 
 ## Setting up Kubernetes
 
