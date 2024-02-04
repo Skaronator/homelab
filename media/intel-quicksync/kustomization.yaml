@@ -1,17 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+resources:
+- base/gpu-device.yaml
+
 helmCharts:
 - repo: https://intel.github.io/helm-charts
   name: intel-device-plugins-operator
   version: 0.29.0
   includeCRDs: true
   releaseName: intel-device-plugins-operator
-  valuesFile: operator.values.yaml
-  namespace: media
-- repo: https://intel.github.io/helm-charts
-  name: intel-device-plugins-gpu
-  version: 0.29.0
-  releaseName: intel-device-plugins-gpu
-  valuesFile: gpu.values.yaml
+  valuesFile: values.yaml
   namespace: media
