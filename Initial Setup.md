@@ -23,6 +23,13 @@ root    soft    nofile          1048576
 root    hard    nofile          1048576
 ```
 
+Add the following to this file: `nano /etc/sysctl.conf`
+
+```txt
+fs.inotify.max_user_instances = 1280
+fs.inotify.max_user_watches = 10028400
+```
+
 **Not sure if I need to modify the following**:
 
 Add `DefaultLimitNOFILE=1048576` in `/etc/systemd/system.conf` and `/etc/systemd/user.conf` below `[manager]`
