@@ -1,4 +1,5 @@
 # allow simultanous video encodings
 sharedDevNum: 32
 # set empty since all nodes are supported
-nodeSelector: {}
+nodeSelector:
+  kubernetes.io/arch: amd64
