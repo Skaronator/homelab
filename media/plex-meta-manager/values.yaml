@@ -137,7 +137,7 @@ configMaps:
         trakt_list: https://trakt.tv/users/lish408/lists/rotten-tomatoes-best-of-<<key>>
         sort_title: 01_Best of <<key>>
         sync_mode: sync
-        summary: Rotten Tomatoes - Besten Film von <<key>>
+        summary: Rotten Tomatoes - Die besten Film von <<key>>
         collection_order: release
         collection_minimum: 3
         delete_below_minimum: true
