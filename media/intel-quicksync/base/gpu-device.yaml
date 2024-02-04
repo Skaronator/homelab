@@ -10,4 +10,3 @@ spec:
     intel.feature.node.kubernetes.io/gpu: "true"
   preferredAllocationPolicy: none
   sharedDevNum: 32
-  resourceManager: false
