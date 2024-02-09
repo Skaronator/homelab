@@ -32,7 +32,6 @@
     {
       "matchDatasources": ["docker", "helm"],
       "matchUpdateTypes": ["major"],
-      "minimumReleaseAge": "1 day",
       "assignees": ["Skaronator"]
     },
     {
