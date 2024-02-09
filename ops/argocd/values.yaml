@@ -15,9 +15,8 @@ server:
       gethomepage.dev/description: Kubernetes Deployments
       gethomepage.dev/icon: argocd.svg
       gethomepage.dev/weight: "1"
-    hosts:
-    - argocd.wagner.gg
-    tls:
+    hostname: argocd.wagner.gg
+    extraTls:
     - secretName: argocd.wagner.gg
       hosts:
       - argocd.wagner.gg
