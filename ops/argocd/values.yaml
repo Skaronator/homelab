@@ -8,7 +8,6 @@ server:
     ingressClassName: nginx-private
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
-      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
       nginx.ingress.kubernetes.io/backend-protocol: HTTPS
       gethomepage.dev/enabled: "true"
       gethomepage.dev/group: Server
@@ -21,3 +20,14 @@ server:
     - secretName: argocd.wagner.gg
       hosts:
       - argocd.wagner.gg
+  ingressGrpc:
+    enabled: true
+    ingressClassName: nginx-private
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    hostname: argocd-grpc.wagner.gg
+    extraTls:
+    - secretName: argocd-grpc.wagner.gg
+      hosts:
+      - argocd-grpc.wagner.gg

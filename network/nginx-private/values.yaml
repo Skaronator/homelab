@@ -12,6 +12,3 @@ controller:
   ingressClassResource:
     name: nginx-private
     controllerValue: k8s.io/ingress-nginx-private
-
-  extraArgs:
-    enable-ssl-passthrough: "true"
