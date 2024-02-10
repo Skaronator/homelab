@@ -8,7 +8,7 @@ server:
     ingressClassName: nginx-private
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
-      nginx.ingress.kubernetes.io/backend-protocol: GRPC
+      nginx.ingress.kubernetes.io/backend-protocol: GRPCS
       gethomepage.dev/enabled: "true"
       gethomepage.dev/group: Server
       gethomepage.dev/name: ArgoCD
