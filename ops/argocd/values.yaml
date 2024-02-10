@@ -25,9 +25,9 @@ server:
     ingressClassName: nginx-private
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
-      nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-    hostname: argocd-grpc.wagner.gg
+      nginx.ingress.kubernetes.io/backend-protocol: GRPC
+    hostname: grpc.argocd.wagner.gg
     extraTls:
-    - secretName: argocd-grpc.wagner.gg
+    - secretName: grpc.argocd.wagner.gg
       hosts:
-      - argocd-grpc.wagner.gg
+      - grpc.argocd.wagner.gg
