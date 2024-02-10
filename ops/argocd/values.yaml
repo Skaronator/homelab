@@ -1,10 +1,6 @@
 configs:
   cm:
     kustomize.buildOptions: --enable-helm
-  params:
-    # needs to be insecure due to the gRPC ingress.
-    # We do TLS termination with our ingress so everything is still secure
-    server.insecure: "true" 
 
 server:
   ingress:
@@ -24,14 +20,3 @@ server:
     - secretName: argocd.wagner.gg
       hosts:
       - argocd.wagner.gg
-  ingressGrpc:
-    enabled: true
-    ingressClassName: nginx-private
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-      nginx.ingress.kubernetes.io/backend-protocol: GRPC
-    hostname: grpc.argocd.wagner.gg
-    extraTls:
-    - secretName: grpc.argocd.wagner.gg
-      hosts:
-      - grpc.argocd.wagner.gg
