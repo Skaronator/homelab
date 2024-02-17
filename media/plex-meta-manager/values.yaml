@@ -111,6 +111,7 @@ configMaps:
       token: <<SECRET_RADAR_TOKEN>>
       root_folder_path: /movies
       quality_profile: main
+      availability: cinemas
       tag: pmm
     trakt:
       client_id: <<SECRET_TRAKT_CLIENT_ID>>
