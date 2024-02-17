@@ -67,7 +67,7 @@
       "customType": "regex",
       "fileMatch": ["^k0sctl.yaml$"],
       "matchStrings": [
-        "\\s+version\\:(!?\\s)(?<currentValue>.*)\\n"
+        "\\s+version\\:(!?\\s)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\+k0s\\.(?<build>\\d+)\\n"
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "k0sproject/k0s",
