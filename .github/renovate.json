@@ -71,8 +71,8 @@
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "k0sproject/k0s",
-      "versioningTemplate": "^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\+k0s\\.(?<build>\\d+)$",
-      "extractVersionTemplate": "^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\+k0s\\.(?<build>\\d+)$"
+      "versioningTemplate": "semver-coerced",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ]
 }
