@@ -19,11 +19,6 @@ config:
         icon: adguard-home.svg
         weight: 2
   - Server:
-    - IPMI:
-        description: Server Management
-        href: https://192.168.0.4/
-        icon: asrockrackipmi.png
-        weight: 5
     - Portainer:
         description: Container Management
         href: https://192.168.0.2:9443
@@ -36,14 +31,6 @@ config:
         href: https://app.plex.tv/desktop
         icon: plex.svg
         namespace: media
-        weight: 1
-  - Downloader:
-    - JDownloader:
-        app: jdownloader
-        description: HTTP Downloader
-        href: https://my.jdownloader.org
-        icon: jdownloader2.png
-        namespace: download
         weight: 1
   settings:
     color: neutral
