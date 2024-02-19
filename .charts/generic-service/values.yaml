@@ -104,7 +104,7 @@ database:
   postgresql:
     image:
       repository: postgres
-      tag: "16.2@sha256:70f6cd29aed7e32beed22dde542360c598784ff222d89ed1313442363adf75eb"
+      tag: "16.2@sha256:1bd17d36d605b63fd62f03800a932bae292250659ffc417cf8c29836cc353b5f"
     backup:
       schedule: "0 4 * * *"
       image:
