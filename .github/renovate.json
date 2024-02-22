@@ -57,8 +57,7 @@
     },
     {
       "matchPackageNames": ["k0sproject/k0s"],
-      "assignees": ["Skaronator"],
-      "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\+k0s\\.(?<build>\\d+)$"
+      "assignees": ["Skaronator"]
     },
     {
       "matchPackagePrefixes": ["ghcr.io/hotio"],
@@ -73,7 +72,9 @@
         "\\s+version\\:(!?\\s)(?<currentValue>.*)\\n"
       ],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "k0sproject/k0s"
+      "depNameTemplate": "k0sproject/k0s",
+      "currentValueTemplate": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\+k0s\\.(?<build>\\d+)$",
+      "versioningTemplate": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\+k0s\\.(?<build>\\d+)$"
     }
   ]
 }
