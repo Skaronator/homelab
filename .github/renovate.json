@@ -7,6 +7,7 @@
   "timezone": "Europe/Berlin",
   "automergeSchedule": ["after 3am", "before 6am"],
   "rebaseWhen": "conflicted",
+  "prHourlyLimit": 0,
   "helm-values": {
     "fileMatch": [
       "(^|/|\\w+\\.)values\\.ya?ml$"
