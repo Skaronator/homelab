@@ -43,8 +43,7 @@
     },
     {
       "matchPackageNames": [
-        "ghcr.io/home-assistant/home-assistant",
-        "ghcr.io/esphome/esphome"
+        "ghcr.io/home-assistant/home-assistant"
       ],
       "allowedVersions": "/^[0-9]+\\.[0-9]+\\.[1-9]+$/"
     },
