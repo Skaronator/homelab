@@ -46,7 +46,7 @@
         "ghcr.io/home-assistant/home-assistant",
         "ghcr.io/esphome/esphome"
       ],
-      "allowedVersions": "/^.+\\.[1-9]+$/"
+      "allowedVersions": "!/^.+\\.0$/"
     },
     {
       "matchPackageNames": ["plexinc/pms-docker"],
