@@ -42,11 +42,8 @@
       "automerge": true
     },
     {
-      "matchPackageNames": [
-        "ghcr.io/home-assistant/home-assistant",
-        "ghcr.io/esphome/esphome"
-      ],
-      "allowedVersions": "!/\\.0$/"
+      "matchPackageNames": ["ghcr.io/home-assistant/home-assistant"],
+      "allowedVersions": "!/^.+\\.0$/"
     },
     {
       "matchPackageNames": ["plexinc/pms-docker"],
