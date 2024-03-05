@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/paperless-ngx/paperless-ngx"
-  tag: "2.5.4@sha256:ce3aab0002d459af2fd13933c8ca8df87ecb92bf26fbffdba208149b8ee6f851"
+  tag: "2.6.0@sha256:13af9a6272ba7558e83a1c294211e3013092e12b6829eafd617a7375bc42a672"
 
 hostPaths:
 - name: data
