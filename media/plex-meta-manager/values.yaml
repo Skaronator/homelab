@@ -104,7 +104,6 @@ configMaps:
       url: https://plex:32400
       token: <<SECRET_PLEX_TOKEN>>
       clean_bundles: true
-      empty_trash: true
       optimize: true
     radarr:
       url: http://radarr:7878
