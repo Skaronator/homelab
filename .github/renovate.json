@@ -43,8 +43,9 @@
     },
     {
       "matchPackageNames": ["ghcr.io/home-assistant/home-assistant"],
-      "matchCurrentVersion": "/^.+\\.0$/",
-      "automerge": false
+      "matchNewValue": "/^.+\\.0$/",
+      "automerge": false,
+      "dependencyDashboardApproval": true
     },
     {
       "matchPackageNames": ["plexinc/pms-docker"],
