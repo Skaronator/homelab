@@ -7,8 +7,7 @@ ports:
   containerPort: 8181
 
 ingress:
-  host: tautulli.skaronator.com
-  public: true
+  host: tautulli.wagner.gg
 
 homepage:
   name: Tautulli
