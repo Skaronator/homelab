@@ -43,6 +43,11 @@
       "assignees": ["Skaronator"]
     },
     {
+      "matchDepTypes": ["Kustomization"],
+      "matchUpdateTypes": ["major"],
+      "assignees": ["Skaronator"]
+    },
+    {
       "matchPackageNames": ["ghcr.io/skaronator/devops-toolbox"],
       "automerge": true
     },
