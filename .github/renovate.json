@@ -22,18 +22,23 @@
       "pinDigests": true
     },
     {
-      "matchDatasources": ["docker", "helm", "Kustomization"],
+      "matchDatasources": ["docker", "helm"],
       "matchUpdateTypes": ["digest"],
       "schedule": ["every monday"],
       "automerge": true
     },
     {
-      "matchDatasources": ["docker", "helm", "Kustomization"],
+      "matchDatasources": ["docker", "helm"],
       "matchUpdateTypes": ["pinDigest", "pin", "minor", "patch"],
       "automerge": true
     },
     {
-      "matchDatasources": ["docker", "helm", "Kustomization"],
+      "matchDepTypes": ["Kustomization"],
+      "matchUpdateTypes": ["pinDigest", "pin", "minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchDatasources": ["docker", "helm"],
       "matchUpdateTypes": ["major"],
       "assignees": ["Skaronator"]
     },
