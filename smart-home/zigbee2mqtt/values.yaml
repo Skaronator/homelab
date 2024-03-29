@@ -6,6 +6,10 @@ hostPaths:
 - name: data
   hostPath: /srv/nvme/container-data/home-assistant/zigbee2mqtt
   containerPath: /app/data
+- name: stick
+  hostPath: /dev/serial/by-id/usb-Silicon_Labs_slae.sh_cc2652rb_stick_-_slaesh_s_iot_stuff_00_12_4B_00_25_9B_A8_7C-if00-port0
+  containerPath: /dev/ttyACM0
+  type: CharDevice
 
 ports: 
 - name: main
@@ -20,3 +24,7 @@ homepage:
   description: Zigbee Bridge
   icon: zigbee2mqtt.svg
   weight: 55
+
+securityContext:
+  # TODO: one day I'll fix this. Adding all capabilities didn't fix it fyi
+  privileged: true
