@@ -2,14 +2,12 @@ image:
   repository: "ghcr.io/koenkk/zigbee2mqtt"
   tag: "1.36.0@sha256:4de1ee53d67a9b4556045c34a2722bfd2348dabbefcb792e862643104d3e9fd0"
 
+replicas: 0
+
 hostPaths:
 - name: data
   hostPath: /srv/nvme/container-data/home-assistant/zigbee2mqtt
   containerPath: /app/data
-- name: stick
-  hostPath: /dev/serial/by-id/usb-Silicon_Labs_slae.sh_cc2652rb_stick_-_slaesh_s_iot_stuff_00_12_4B_00_25_9B_A8_7C-if00-port0
-  containerPath: /dev/ttyACM0
-  type: CharDevice
 
 ports: 
 - name: main
