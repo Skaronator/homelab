@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/koenkk/zigbee2mqtt"
-  tag: "1.36.1"
+  tag: "1.36.1@sha256:32901c8b100ee4d04123eb714523a023ca4aba7946e504209c7d773d07f697b5"
 
 hostPaths:
 - name: data
