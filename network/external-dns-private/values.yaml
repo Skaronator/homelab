@@ -12,6 +12,8 @@ provider:
       repository: ghcr.io/muhlba91/external-dns-provider-adguard
       tag: v5.0.0@sha256:4cda12a6e865efbf7e1a3309bdbd66a5ae35ebfc5e035967e5cc4c55df952db9
     env:
+    - name: SERVER_HOST
+      value: "0.0.0.0" 
     - name: ADGUARD_URL
       value: http://192.168.0.2
     - name: ADGUARD_USER
