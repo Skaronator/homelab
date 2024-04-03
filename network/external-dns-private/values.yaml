@@ -1,26 +1,8 @@
-image:
-  tag: "27-amd64@sha256:133f6cd4a3d553ecf0d902ec02233afb5e3dc3a709f3278a452da29585606dd3"
-  repository: "ghcr.io/skaronator/external-dns"
-        
 policy: "sync"
 
 extraArgs: 
 - "--ingress-class=nginx-private"
+- "--webhook-provider-url=http://localhost:8888"
 
-provider: "adguardhome"
-registry: "noop"
+provider: "webhook"
 interval: "15s"
-
-env:
-- name: EXTERNAL_DNS_ADGUARDHOME_SERVER
-  value: http://192.168.0.2
-- name: EXTERNAL_DNS_ADGUARDHOME_USERNAME
-  valueFrom:
-    secretKeyRef:
-      name: external-dns-adguard-home
-      key: username
-- name: EXTERNAL_DNS_ADGUARDHOME_PASSWORD
-  valueFrom:
-    secretKeyRef:
-      name: external-dns-adguard-home
-      key: password
