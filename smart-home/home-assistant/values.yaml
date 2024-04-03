@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/home-assistant/home-assistant"
-  tag: "2024.4.0b6@sha256:810e0ab1dd80789d5101a68bee7aabcb440fffaf824e382418a2cdb4ebd331c1"
+  tag: "2024.4.0b7@sha256:b3062ba7d7461f682c0a947caaafea3c95ba0c572d429c5962f99e310884866d"
 
 hostPaths:
 - name: data
