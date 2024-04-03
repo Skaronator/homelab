@@ -1,8 +1,26 @@
-policy: "sync"
+policy: sync
+registry: noop
+interval: 15s
 
 extraArgs: 
 - "--ingress-class=nginx-private"
-- "--webhook-provider-url=http://localhost:8888"
 
-provider: "webhook"
-interval: "15s"
+provider:
+  name: webhook
+  webhook:
+    image:
+      repository: ghcr.io/muhlba91/external-dns-provider-adguard
+      tag: v5.0.0@sha256:4cda12a6e865efbf7e1a3309bdbd66a5ae35ebfc5e035967e5cc4c55df952db9
+    env:
+    - name: ADGUARD_URL
+      value: http://192.168.0.2
+    - name: ADGUARD_USER
+      valueFrom:
+        secretKeyRef:
+          name: external-dns-adguard-home
+          key: username
+    - name: ADGUARD_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: external-dns-adguard-home
+          key: password
