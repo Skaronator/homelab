@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
 - name: generic-service
-  releaseName: baikal
+  releaseName: radicale
   valuesFile: values.yaml
   namespace: tools
