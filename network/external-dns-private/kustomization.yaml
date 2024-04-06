@@ -12,3 +12,4 @@ helmCharts:
   releaseName: external-dns-private
   valuesFile: values.yaml
   namespace: network
+  includeCRDs: true

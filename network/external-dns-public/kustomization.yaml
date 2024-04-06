@@ -11,3 +11,4 @@ helmCharts:
   releaseName: external-dns-public
   valuesFile: values.yaml
   namespace: network
+  includeCRDs: false # installed by private release

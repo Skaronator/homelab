@@ -9,6 +9,11 @@ extraArgs:
 provider:
   name: cloudflare
 
+sources:
+  - service
+  - ingress
+  - crd
+
 env:
 - name: CF_API_EMAIL
   valueFrom:

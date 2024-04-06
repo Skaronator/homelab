@@ -5,6 +5,11 @@ interval: 15s
 extraArgs: 
 - "--ingress-class=nginx-private"
 
+sources:
+  - service
+  - ingress
+  - crd
+
 provider:
   name: webhook
   webhook:
