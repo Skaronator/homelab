@@ -1,6 +1,6 @@
 image:
-  repository: "ckulka/baikal"
-  tag: "0.9.4@sha256:ad7c26a792208011ef620c5c92c56696a9a195499f328af551d610bbd8fba5e6"
+  repository: "ghcr.io/mralucarddante/baikal-docker-hass"
+  tag: "0.9.4"
 
 hostPaths:
 - name: config
