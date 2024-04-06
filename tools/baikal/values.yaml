@@ -19,6 +19,13 @@ ingress:
   public: true
   publicPath: /dav.php
 
+homepage:
+  name: Baikal
+  group: Organization
+  description: Lightweight CalDAV+CardDAV server
+  icon: baikal.png
+  weight: 30
+
 envs:
 - SMTP_HOST: smtp.migadu.com
 - SMTP_PORT: 465
