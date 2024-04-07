@@ -7,6 +7,10 @@ hostPaths:
   hostPath: /srv/nvme/container-data/radicale
   containerPath: /data
 
+command:
+  - --config
+  - /config/config
+
 ports: 
 - name: main
   containerPort: 5232
