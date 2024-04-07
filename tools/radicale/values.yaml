@@ -1,6 +1,6 @@
 image:
   repository: "skaronator/radicale"
-  tag: "profiling-1"
+  tag: "profiling-1@sha256:5b09a60aed605ba2f6212a20cc31536b4c31cb472fa5a8834048e54f39c7cf5f"
 
 hostPaths:
 - name: data
