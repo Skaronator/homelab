@@ -7,6 +7,8 @@ hostPaths:
   hostPath: /srv/nvme/container-data/radicale
   containerPath: /data
 
+replicas: 0
+
 args:
   - --config
   - /config/config
