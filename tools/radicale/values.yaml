@@ -1,0 +1,58 @@
+image:
+  repository: "tomsquest/docker-radicale"
+  tag: "3.1.9.1@sha256:603f1fbe2e31ba532faa96763265af9eac9e1b2c9b93f23f1cc8f5cc221914ab"
+
+hostPaths:
+- name: data
+  hostPath: /srv/nvme/container-data/radicale
+  containerPath: /data
+
+ports: 
+- name: main
+  containerPort: 5232
+
+ingress:
+  host: radicale.wagner.gg
+  # public: true
+  # publicPath: /dav.php
+
+# homepage:
+#   name: Baikal
+#   group: Organization
+#   description: Lightweight CalDAV+CardDAV server
+#   icon: baikal.png
+#   weight: 30
+
+configMaps:
+- name: config
+  mountPath: /config
+  subPath: config
+  content: |
+    [server]
+    hosts = 0.0.0.0:5232
+
+    [auth]
+    type = htpasswd
+    htpasswd_encryption = bcrypt
+    htpasswd_filename = /config/htpasswd
+    delay = 5
+
+    [storage]
+    type = multifilesystem
+    filesystem_folder = /data
+
+    [rights]
+    type = owner_only
+
+    [web]
+    type = internal
+
+    [logging]
+    level = info
+    mask_passwords = True
+
+- name: htpasswd
+  mountPath: /config
+  subPath: htpasswd
+  content: |
+    niklas:$2a$16$hQhoXDqRRv7rXriCWoBV3uU9KDCMr4sG8yG8hzFrx4WmxuFLP6rfC
