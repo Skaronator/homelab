@@ -7,7 +7,7 @@ hostPaths:
   hostPath: /srv/nvme/container-data/radicale
   containerPath: /data
 
-command:
+args:
   - --config
   - /config/config
 
