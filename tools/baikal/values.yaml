@@ -27,6 +27,7 @@ homepage:
   weight: 30
 
 envs:
+- BAIKAL_INVITE_FROM: $(SMTP_FROM)
 - SMTP_HOST: smtp.migadu.com
 - SMTP_PORT: 465
 - MSMTPRC: |
