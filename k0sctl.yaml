@@ -11,7 +11,7 @@ spec:
     role: controller+worker
     noTaints: true
   k0s:
-    version: v1.29.3+k0s.0
+    version: v1.29.4+k0s.0
     config:
       spec:
         api:
