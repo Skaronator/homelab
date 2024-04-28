@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/mralucarddante/baikal-docker-hass"
-  tag: "0.9.4@sha256:6575113c7b4529944342ad0be24b480314ec4f52123057e09f9ecca495fd2cca"
+  tag: "0.9.5@sha256:5da19b2cbb69659c96d11ae3b14c0fa115a6347c82e8b120e9d07f36a630fce0"
 
 hostPaths:
 - name: config
