@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
 - name: generic-cronjob
-  releaseName: plex-meta-manager
+  releaseName: kometa
   valuesFile: values.yaml
   namespace: media
