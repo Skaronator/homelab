@@ -79,8 +79,8 @@ hostPaths: []
 
 envsubst:
   image:
-    repository: cmd.cat/envsubst
-    tag: "latest@sha256:7cbe28ee33f325f7e96157107bcb20d79e263193a6a7de034aa8322934a0b716"
+    repository: nixery.dev/envsubst
+    tag: "latest"
   files: []
   # - src:
   #   dest:
