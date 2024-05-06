@@ -79,7 +79,7 @@ hostPaths: []
 
 envsubst:
   image:
-    repository: nixery.dev/envsubst/shell
+    repository: nixery.dev/shell/envsubst
     tag: "latest"
   files: []
   # - src:
