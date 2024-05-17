@@ -3,6 +3,26 @@ kind: Cluster
 metadata:
   name: tardis
 spec:
+  k0s:
+    version: v1.30.0+k0s.0
+    config:
+      spec:
+        api:
+          externalAddress: 192.168.0.30
+          sans:
+            - 192.168.0.30
+        network:
+          podCIDR: 10.244.0.0/16
+          serviceCIDR: 10.96.0.0/12
+          controlPlaneLoadBalancing:
+            enabled: true
+            type: Keepalived
+            keepalived:
+              vrrpInstances:
+                - virtualIPs: ["192.168.0.30/23"]
+                  authPass: homelab
+        telemetry:
+          enabled: false
   hosts:
   - ssh:
       address: 192.168.0.5
@@ -10,20 +30,3 @@ spec:
       keyPath: ~/.ssh/id_rsa
     role: controller+worker
     noTaints: true
-  k0s:
-    version: v1.30.0+k0s.0
-    config:
-      spec:
-        api:
-          address: 192.168.0.5
-          externalAddress: 192.168.0.5
-          sans:
-          - 192.168.0.5
-        network:
-          podCIDR: 10.244.0.0/16
-          serviceCIDR: 10.96.0.0/12
-        telemetry:
-          enabled: false
-        featureGates:
-        - name: SidecarContainers
-          enabled: true
