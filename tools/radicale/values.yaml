@@ -41,7 +41,6 @@ configMaps:
     [logging]
     level = info
     mask_passwords = True
-    profiling = True
 
 - name: htpasswd
   mountPath: /config
