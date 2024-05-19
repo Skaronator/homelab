@@ -1,6 +1,6 @@
 image:
   repository: "docker.io/skaronator/radicale"
-  tag: "profiling-4@sha256:a62736b1be0866f6215fcad6970acbeff73a85f4e86cec167620b92ac48ee326"
+  tag: "profiling-5"
 
 hostPaths:
 - name: data
