@@ -47,4 +47,4 @@ configMaps:
   mountPath: /config
   subPath: htpasswd
   content: |
-    niklas:$apr1$hci4jgdl$OAoTUVwEQQbVHoGe2qQt/.
+    niklas:$2y$11$WSR5tSsmULHeQllnJbjry.rdmQD1Zh5FVlOWGA00P.tHo/zwjr7Gy
