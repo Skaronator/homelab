@@ -1,6 +1,6 @@
 image:
-  repository: "tomsquest/docker-radicale"
-  tag: "3.1.9.1@sha256:603f1fbe2e31ba532faa96763265af9eac9e1b2c9b93f23f1cc8f5cc221914ab"
+  repository: "docker.io/skaronator/radicale"
+  tag: "profiling-3"
 
 hostPaths:
 - name: data
@@ -50,9 +50,10 @@ configMaps:
     [logging]
     level = info
     mask_passwords = True
+    profiling = True
 
 - name: htpasswd
   mountPath: /config
   subPath: htpasswd
   content: |
-    niklas:$2a$16$hQhoXDqRRv7rXriCWoBV3uU9KDCMr4sG8yG8hzFrx4WmxuFLP6rfC
+    niklas:$apr1$hci4jgdl$OAoTUVwEQQbVHoGe2qQt/.
