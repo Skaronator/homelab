@@ -22,10 +22,6 @@ configMaps:
     [server]
     hosts = 0.0.0.0:5232
 
-    [auth]
-    lc_username = False
-
-
     [storage]
     type = multifilesystem
     filesystem_folder = /data
