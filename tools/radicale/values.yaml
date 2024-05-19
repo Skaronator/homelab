@@ -13,15 +13,6 @@ ports:
 
 ingress:
   host: radicale.wagner.gg
-  # public: true
-  # publicPath: /dav.php
-
-# homepage:
-#   name: Baikal
-#   group: Organization
-#   description: Lightweight CalDAV+CardDAV server
-#   icon: baikal.png
-#   weight: 30
 
 configMaps:
 - name: config
@@ -30,6 +21,10 @@ configMaps:
   content: |
     [server]
     hosts = 0.0.0.0:5232
+
+    [auth]
+    lc_username = False
+
 
     [storage]
     type = multifilesystem
@@ -43,5 +38,4 @@ configMaps:
 
     [logging]
     level = info
-    mask_passwords = True
     profiling = True
