@@ -116,7 +116,7 @@ hostPaths:
   containerPath: /mnt/multimedia
   type: Directory
 - name: clips
-  hostPath: /srv/hdd/clips
+  hostPath: /mnt/mergefs/clips
   containerPath: /mnt/clips
   type: Directory
 - name: backup
