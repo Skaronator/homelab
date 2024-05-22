@@ -4,7 +4,6 @@ metadata:
   name: main
 spec:
   enableMonitoring: true
-  image: intel/intel-gpu-plugin:0.29.0
   logLevel: 2
   nodeSelector:
     intel.feature.node.kubernetes.io/gpu: "true"
