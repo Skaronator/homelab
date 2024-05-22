@@ -112,23 +112,23 @@ hostPaths:
   containerPath: /mnt/niklas
   type: Directory
 - name: multimedia
-  hostPath: /srv/hdd/multimedia
+  hostPath: /mnt/mergefs/multimedia
   containerPath: /mnt/multimedia
   type: Directory
 - name: clips
-  hostPath: /srv/hdd/clips
+  hostPath: /mnt/mergefs/clips
   containerPath: /mnt/clips
   type: Directory
 - name: backup
-  hostPath: /srv/hdd/backup
+  hostPath: /mnt/mergefs/backup
   containerPath: /mnt/backup
   type: Directory
 - name: pp
-  hostPath: /srv/hdd/pp
+  hostPath: /mnt/mergefs/pp
   containerPath: /mnt/pp
   type: Directory
 - name: bb
-  hostPath: /srv/hdd/bb
+  hostPath: /mnt/mergefs/bb
   containerPath: /mnt/bb
   type: Directory
 - name: downloads

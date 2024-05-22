@@ -16,5 +16,5 @@ args:
 
 hostPaths:
 - name: data
-  hostPath: /srv/hdd/backup/Trakt
+  hostPath: /mnt/mergefs/backup/Trakt
   containerPath: /data

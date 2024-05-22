@@ -27,7 +27,7 @@ hostPaths:
   hostPath: /srv/downloads/Usenet
   containerPath: /downloads/usenet
 - name: series
-  hostPath: /srv/hdd/multimedia/Serien-Sonarr
+  hostPath: /mnt/mergefs/multimedia/Serien-Sonarr
   containerPath: /series
 
 homepage:
