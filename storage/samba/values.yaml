@@ -41,8 +41,8 @@ configMaps:
     auth:
     - user: niklas
       password: ${PASSWORD_NIKLAS}
-      gid: 15000
-      uid: 15000
+      gid: 101
+      uid: 100
       group: users
     share:
     - name: 4all
