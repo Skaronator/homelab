@@ -10,8 +10,6 @@ ports:
 health:
   type: TCP
 
-replicas: 0
-
 podLabels:
   zfs-encryption: "true"
 
