@@ -26,10 +26,10 @@ hostPaths:
   hostPath: /srv/downloads/Usenet
   containerPath: /downloads/usenet
 - name: movies
-  hostPath: /srv/hdd/multimedia/Filme-Radarr
+  hostPath: /srv/mergefs/multimedia/Filme-Radarr
   containerPath: /movies
 - name: live-music
-  hostPath: /srv/hdd/multimedia/Live-Konzerte
+  hostPath: /srv/mergefs/multimedia/Live-Konzerte
   containerPath: /live-music
 
 homepage:

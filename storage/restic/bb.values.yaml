@@ -46,7 +46,7 @@ hostPaths:
   hostPath: /srv/nvme/scrap-data/restic-cache
   containerPath: /mnt/cache
 - name: data
-  hostPath: /srv/hdd/bb
+  hostPath: /srv/mergefs/bb
   containerPath: /mnt/bb
   type: Directory
   readOnly: true
