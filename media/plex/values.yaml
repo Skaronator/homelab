@@ -2,6 +2,8 @@ image:
   repository: "plexinc/pms-docker"
   tag: "1.40.2.8395-c67dce28e@sha256:88c77d86087699f79da9907107243d2b31ed1e0f37e6cfde4cb3082180702ba1"
 
+replicas: 0
+
 ports:
 - name: main
   containerPort: 32400
@@ -29,9 +31,6 @@ ports:
 health:
   path: /identity
   type: HTTPS
-
-podLabels:
-  zfs-encryption: "true"
 
 envs:
 - CHANGE_CONFIG_DIR_OWNERSHIP: "true"
