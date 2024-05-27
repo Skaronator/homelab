@@ -52,7 +52,7 @@ configMaps:
 
 hostPaths:
 - name: downloads
-  hostPath: /srv/mergefs/pp/Person
+  hostPath: /mnt/mergefs/pp/Person
   containerPath: /downloads
   type: Directory
 

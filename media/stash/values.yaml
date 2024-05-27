@@ -38,5 +38,5 @@ hostPaths:
   hostPath: /srv/nvme/scrap-data/stash-cache
   containerPath: /cache
 - name: data
-  hostPath: /srv/mergefs/pp
+  hostPath: /mnt/mergefs/pp
   containerPath: /data
