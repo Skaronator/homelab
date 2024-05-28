@@ -8,7 +8,6 @@ spec:
     config:
       spec:
         api:
-          externalAddress: 192.168.0.30
           sans:
             - 192.168.0.30
         network:
