@@ -24,6 +24,22 @@ config:
         href: https://192.168.0.2:9443
         icon: portainer.svg
         weight: 30
+  - Server:
+    - "Proxmox Node 1":
+        description: Promox Web UI
+        href: https://192.168.0.31:8006
+        icon: proxmox.svg
+        weight: 41
+    - "Proxmox Node 2":
+        description: Promox Web UI
+        href: https://192.168.0.32:8006
+        icon: proxmox.svg
+        weight: 42
+    - "Proxmox Node 3":
+        description: Promox Web UI
+        href: https://192.168.0.33:8006
+        icon: proxmox.svg
+        weight: 43
   - Media:
     - Plex:
         app: plex
