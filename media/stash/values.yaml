@@ -9,8 +9,9 @@ ports:
 ingress:
   host: stash.wagner.gg
 
-podLabels:
-  zfs-encryption: "true"
+resources:
+  limits:
+    gpu.intel.com/i915: "1"
 
 homepage:
   name: Stash
