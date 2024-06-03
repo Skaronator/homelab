@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/gethomepage/homepage"
-  tag: "v0.9.1@sha256:1076b12ab95d95790fb24b5be85c090912c6d379533e30f3756b90857dfa32c6"
+  tag: "v0.9.1@sha256:840da91bbec48e009524c0e66616c5dbbfce4497d3c387687c668a956975d6dd"
 
 config:
   bookmarks: {}
