@@ -8,7 +8,7 @@ resources:
 helmCharts:
 - repo: https://kubernetes-sigs.github.io/external-dns
   name: external-dns
-  version: 1.14.4
+  version: 1.14.5
   releaseName: external-dns-private
   valuesFile: values.yaml
   namespace: network
