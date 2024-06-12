@@ -2,6 +2,8 @@ image:
   repository: "ghcr.io/curl/curl-container/curl-multi"
   tag: "8.8.0@sha256:461ac0190a806ff4b8cd18b4bb68216e200b77f0e19aa76060698081656e9cae"
 
+schedule: "0 4 * * *"
+
 command:
 - "/bin/sh"
 

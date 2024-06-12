@@ -1,5 +1,3 @@
-schedule: "0 4 * * *"
-
 envs:
 - GRAPHQL_QUERY: >
     mutation {
