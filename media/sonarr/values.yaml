@@ -9,6 +9,8 @@ ports:
 ingress:
   host: sonarr.wagner.gg
 
+replicas: 0
+
 envs:
 - PUID: 100
 - PGID: 101
