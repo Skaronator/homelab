@@ -6,8 +6,8 @@ applicationsets:
         repoURL: https://github.com/Skaronator/homelab.git
         revision: main
         directories:
-        - path: "**/*"
-        - path: ".*/**"
+        - path: "kubernetes/**/*"
+        - path: "kubernetes/.*/**"
           exclude: true
     template:
       metadata:
