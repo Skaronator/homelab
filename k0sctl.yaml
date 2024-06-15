@@ -29,3 +29,4 @@ spec:
       keyPath: ~/.ssh/id_rsa
     role: controller+worker
     noTaints: true
+    privateInterface: enp3s0f1np1
