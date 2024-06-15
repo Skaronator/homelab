@@ -11,7 +11,7 @@ applicationsets:
           exclude: true
     template:
       metadata:
-        name: '{{path[1]}}'
+        name: '{{path[2]}}'
       spec:
         project: default
         source:
@@ -19,10 +19,10 @@ applicationsets:
           targetRevision: main
           path: '{{path}}'
           kustomize:
-            namespace: '{{path[0]}}'
+            namespace: '{{path[1]}}'
         destination:
           name: in-cluster
-          namespace: '{{path[0]}}'	
+          namespace: '{{path[1]}}'	
         syncPolicy:	
           automated:
             selfHeal: true	
