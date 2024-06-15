@@ -2,6 +2,9 @@ configs:
   cm:
     kustomize.buildOptions: --enable-helm
 
+global:
+  domain: argocd.wagner.gg
+
 server:
   ingress:
     enabled: true
@@ -15,7 +18,6 @@ server:
       gethomepage.dev/description: Kubernetes Deployments
       gethomepage.dev/icon: argocd.svg
       gethomepage.dev/weight: "1"
-    hostname: argocd.wagner.gg
     extraTls:
     - secretName: argocd.wagner.gg
       hosts:
