@@ -12,8 +12,8 @@ This project utilizes Infrastructure as Code and GitOps to automate the provisio
 - [x] Automated DNS updates of global DNS (Cloudflare) using [cert-manager.io](https://cert-manager.io/)
 - [x] Automated certificate creation and renewal using [cert-manager.io](https://cert-manager.io/)
 - [x] Automated backups using [restic](https://restic.net/)
-- [ ] Media Server setup using [Plex](https://www.plex.tv/)
-- [ ] Media Automation using Radarr, Sonarr, Lidarr
+- [x] Media Server setup using [Plex](https://www.plex.tv/)
+- [x] Media Automation using Radarr, Sonarr, Lidarr
 - [ ] Kubernetes Native Storage using [Rook.io](https://rook.io/)
 - [ ] Automated Kubernetes backups using [velero](https://velero.io/)
 - [ ] Automated Database Setup and Backups using [CloudNativePG](https://cloudnative-pg.io/)
