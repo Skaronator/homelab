@@ -41,11 +41,11 @@ flowchart TD
 
     p1 --> nfs[NFS Server] 
 
-    p1 ---> cp1[Talos\nControl-Plane]
-    p2 ---> cp2[Talos\nControl-Plane]
-    p3 ---> cp3[Talos\nControl-Plane]
+    p1 ---> cp1[Talos\nKubernetes\nControl-Plane]
+    p2 ---> cp2[Talos\nKubernetes\nControl-Plane]
+    p3 ---> cp3[Talos\nKubernetes\nControl-Plane]
 
-    p1 ---> w1[Talos\nWorker]
-    p2 ---> w2[Talos\nWorker]
-    p3 ---> w3[Talos\nWorker]
+    p1 ---> w1[Talos\nKubernetes\nWorker]
+    p2 ---> w2[Talos\nKubernetes\nWorker]
+    p3 ---> w3[Talos\nKubernetes\nWorker]
 ```
