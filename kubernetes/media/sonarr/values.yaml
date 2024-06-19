@@ -9,8 +9,6 @@ ports:
 ingress:
   host: sonarr.wagner.gg
 
-replicas: 0
-
 envs:
 - PUID: 100
 - PGID: 101
@@ -26,7 +24,7 @@ hostPaths:
   hostPath: /srv/downloads/Usenet
   containerPath: /downloads/usenet
 - name: series
-  hostPath: /srv/hdd/multimedia/Serien-Sonarr
+  hostPath: /mnt/mergefs/multimedia/Serien-Sonarr
   containerPath: /series
 
 homepage:
