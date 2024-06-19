@@ -46,7 +46,7 @@ hostPaths:
   hostPath: /srv/nvme/scrap-data/plex-transcode-cache
   containerPath: /transcode
 - name: multimedia
-  hostPath: /mnt/mergefs/multimedia
+  hostPath: /srv/hdd/multimedia
   containerPath: /srv/multimedia
   readOnly: true
 - name: pictures
