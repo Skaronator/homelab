@@ -8,7 +8,7 @@ parameters:
   share: /srv/nvme/nfs-test
   subDir: ${pvc.metadata.namespace}-${pvc.metadata.name}
   mountPermissions: "0"
-reclaimPolicy: Delete
+reclaimPolicy: Retain
 volumeBindingMode: Immediate
 mountOptions:
   - nfsvers=4.1
