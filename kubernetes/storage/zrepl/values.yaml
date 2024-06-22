@@ -20,6 +20,11 @@ configMaps:
         type: stdout
     jobs:
     - filesystems:
+        # backup everything from hdd
+        hdd: false
+        # except root and backup
+        hdd/backup: false
+        hdd<: true
         # backup everything from nvme
         nvme: false
         # except root and scrap-data
@@ -38,6 +43,7 @@ configMaps:
       type: snap
     - filesystems:
         downloads: true
+        hdd/backup: true
         nvme/scrap-data: true
       name: shortterm
       pruning:
