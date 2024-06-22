@@ -6,7 +6,7 @@ provisioner: nfs.csi.k8s.io
 parameters:
   server: 192.168.0.5
   share: /srv/nvme/nfs-test
-  subDir: ${pvc.metadata.namespace}/${pvc.metadata.name}
+  subDir: ${pvc.metadata.namespace}-${pvc.metadata.name}
   mountPermissions: "0"
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
