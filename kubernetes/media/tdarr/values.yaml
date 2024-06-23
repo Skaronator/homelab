@@ -1,0 +1,47 @@
+image:
+  repository: "ghcr.io/haveagitgat/tdarr"
+  tag: "2.21.01"
+
+podLabels:
+  zfs-encryption: "true"
+
+ports:
+- name: main
+  containerPort: 8265
+
+ingress:
+  host: tdarr.wagner.gg
+
+homepage:
+  name: tdarr
+  group: Media
+  description: Media Transcoder
+  icon: tdarr
+  weight: 45
+
+envs:
+- PUID: 100
+- PGID: 101
+- UMASK_SET: 002
+- serverIP: 0.0.0.0
+- serverPort: 8266
+- webUIPort: 8265
+- internalNode: true
+- inContainer: true
+- ffmpegVersion: 6
+- nodeName: main
+
+resources:
+  limits:
+    gpu.intel.com/i915: "1"
+
+hostPaths:
+- name: configs
+  hostPath: /srv/nvme/container-data/tdarr/configs
+  containerPath: /app/configs
+- name: server
+  hostPath: /srv/nvme/container-data/tdarr/server
+  containerPath: /app/server
+- name: transcode
+  hostPath: /srv/nvme/scrap-data/tdarr-cache
+  containerPath: /temp 

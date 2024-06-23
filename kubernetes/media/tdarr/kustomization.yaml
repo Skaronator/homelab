@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
 - name: generic-service
-  releaseName: unmanic
+  releaseName: tdarr
   valuesFile: values.yaml
   namespace: media
