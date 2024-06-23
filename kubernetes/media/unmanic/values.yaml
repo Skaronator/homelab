@@ -1,0 +1,37 @@
+image:
+  repository: "josh5/unmanic"
+  tag: "0.2.7"
+
+podLabels:
+  zfs-encryption: "true"
+
+ports:
+- name: main
+  containerPort: 8888
+
+ingress:
+  host: unmanic.wagner.gg
+
+homepage:
+  name: unmanic
+  group: Media
+  description: Media Transcoder
+  icon: unmanic
+  weight: 45
+
+
+envs:
+- PUID: 100
+- PGID: 101
+
+resources:
+  limits:
+    gpu.intel.com/i915: "1"
+
+hostPaths:
+- name: data
+  hostPath: /srv/nvme/container-data/unmanic
+  containerPath: /config
+- name: transcode
+  hostPath: /srv/nvme/scrap-data/unmanic-cache
+  containerPath: /tmp/unmanic
