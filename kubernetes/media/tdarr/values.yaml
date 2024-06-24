@@ -42,6 +42,9 @@ hostPaths:
 - name: server
   hostPath: /srv/nvme/container-data/tdarr/server
   containerPath: /app/server
-- name: transcode
+- name: cache
   hostPath: /srv/nvme/scrap-data/tdarr-cache
   containerPath: /temp 
+- name: pp
+  hostPath: /srv/hdd/pp
+  containerPath: /mnt/pp
