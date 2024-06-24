@@ -95,12 +95,12 @@ database:
   mariadb:
     image:
       repository: mariadb
-      tag: "11.4.2@sha256:396146c0a2e703ddebcf51f26abb28bf5590991d1d830c35c1d802034d140352"
+      tag: "11.4.2@sha256:e59ba8783bf7bc02a4779f103bb0d8751ac0e10f9471089709608377eded7aa8"
     backup:
       schedule: "0 4 * * *"
       image:
         repository: fradelg/mysql-cron-backup
-        tag: "latest@sha256:df6ad4f9845eb873d492c70201412cec64370f9507a7bdc433e514ce920de075"
+        tag: "latest@sha256:21742256f4ee60f222ff07168a4e36c5e0f92483f5f85b8418d4e2f93900f3e6"
   postgresql:
     image:
       repository: postgres
@@ -109,7 +109,7 @@ database:
       schedule: "0 4 * * *"
       image:
         repository: prodrigestivill/postgres-backup-local
-        tag: "16@sha256:295861660cc409c391f9855ff798abdd2989b1be1c995f22ea793f1351da32aa"
+        tag: "16@sha256:f873bbfb406db633ab879628b11ef8092279639c467a2ea5f5bfa08b776252fb"
 
 helper:
   image:
