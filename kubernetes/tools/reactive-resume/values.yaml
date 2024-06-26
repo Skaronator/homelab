@@ -21,7 +21,7 @@ envs:
 - CHROME_URL: ws://reactive-resume-chrome:3000
 
 # -- Database (Postgres) --
-- DATABASE_URL: postgres://$(TEMPLATE_DB_USERNAME):$(TEMPLATE_DB_PASSWORD)@$(TEMPLATE_DB_HOST):$(TEMPLATE_DB_PORT)/$(TEMPLATE_DB_DATABASE)
+- DATABASE_URL: postgresql://$(TEMPLATE_DB_USERNAME):$(TEMPLATE_DB_PASSWORD)@$(TEMPLATE_DB_HOST):$(TEMPLATE_DB_PORT)/$(TEMPLATE_DB_DATABASE)
 
 # -- Emails --
 - MAIL_FROM: noreply@localhost
