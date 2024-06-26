@@ -17,7 +17,7 @@ spec:
           service:
             name: minio
             port:
-              name: main
+              name: api
         path: /
         pathType: Prefix
   tls:
