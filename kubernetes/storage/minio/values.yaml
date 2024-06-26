@@ -1,6 +1,6 @@
 image:
   repository: "quay.io/minio/minio"
-  tag: "RELEASE.2024-06-26T01-06-18Z"
+  tag: "RELEASE.2024-06-26T01-06-18Z@sha256:337d6f0e90b1992759b832ede340a170cc8ca5cd5db097898b15a3ed121351f7"
 
 ports:
 - name: main
