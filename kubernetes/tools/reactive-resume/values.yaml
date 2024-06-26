@@ -8,6 +8,8 @@ ports:
 
 ingress:
   host: rr.wagner.gg
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 16m
 
 envs:
 - PORT: 3000
