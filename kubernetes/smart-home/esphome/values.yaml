@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/esphome/esphome"
-  tag: "2024.6.1@sha256:1fc2667fa912cfcadec65c0a9d90f4ef3492552bed6752ca795ceca65f7651a2"
+  tag: "2024.6.3@sha256:2e65da2dff67d2bd52fe03464740f076643b8972e1a9332501dead6a409cf7a0"
 
 hostPaths:
 - name: data
