@@ -11,6 +11,11 @@ ports:
 ingress:
   host: minio.wagner.gg
 
+args:
+- server
+- /data
+- --console-address=:9001
+
 homepage:
   name: MinIO
   group: Cloud
