@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-if [ "$#" -eq 0 ]; then
-  echo "Usage: $0 [<password_file> | <password>]"
-  exit 1
-fi
-
 if [ -f "$1" ]; then
   password=$(cat "$1")
   echo "Using password from file: $1"
