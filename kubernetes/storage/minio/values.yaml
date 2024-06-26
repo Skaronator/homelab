@@ -11,6 +11,13 @@ ports:
 ingress:
   host: minio.wagner.gg
 
+homepage:
+  name: MinIO
+  group: Cloud
+  description: Object Storage
+  icon: minio.svg
+  weight: 60
+
 envs:
 - MINIO_ROOT_USER: niklas
 
