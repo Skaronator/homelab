@@ -48,7 +48,7 @@ configMaps:
       name: shortterm
       pruning:
         keep:
-        - grid: 1x24h(keep=all) | 5x1d
+        - grid: 1x24h(keep=all) | 3x1d
           regex: ^shortterm_.*$
           type: grid
       snapshotting:
