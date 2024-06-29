@@ -3,7 +3,6 @@ image:
   tag: "6.0.2@sha256:02add40feae0569401b5020528e06419b47046723d0bb4bef1e82325e9eefdad"
 
 schedule: "0 3 * * *"
-suspend: true
 
 args:
 - sync
@@ -23,7 +22,6 @@ configMaps:
   mountPath: /config
   subPath: config.yaml
   content:
-
     radarr:
       movies:
         base_url: http://radarr:7878
@@ -47,7 +45,6 @@ configMaps:
           # repacks
           - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
           - ae43b294509409a6a13919dedd4764c4 # Repack2
-
     sonarr:
       series:
         base_url: http://sonarr:8989
