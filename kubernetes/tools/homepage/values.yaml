@@ -26,7 +26,8 @@ config:
         weight: 30
     - "Proxmox Node 1":
         description: Promox Web UI
-        href: https://192.168.0.31:8006
+        # TODO use .31 IP
+        href: https://192.168.0.5:8006
         icon: proxmox.svg
         weight: 41
     - "Proxmox Node 2":
