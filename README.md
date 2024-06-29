@@ -1,7 +1,7 @@
 # GitOps Driven Homelab
 
 > [!IMPORTANT]
-> The project is currently in a transitional state from a single-node Debian server with k0s to a multi-node high-available setup with Proxmox and Talos and rook.io.
+> The project is currently in a transitional state from a single-node Debian server with k0s to a multi-node high-available setup using Proxmox, Talos and rook.io.
 
 This project utilizes Infrastructure as Code and GitOps to automate the provisioning, operation, and updating of self-hosted services in my homelab.
 
@@ -17,6 +17,7 @@ This project utilizes Infrastructure as Code and GitOps to automate the provisio
 - [x] Automated backups using [restic](https://restic.net/)
 - [x] Media Server setup using [Plex](https://www.plex.tv/)
 - [x] Media Automation using Radarr, Sonarr, Lidarr
+- [x] Password Management with Vaultwarden
 - [ ] Kubernetes Native Storage using [Rook.io](https://rook.io/)
 - [ ] Automated Kubernetes backups using [velero](https://velero.io/)
 - [ ] Automated Database Setup and Backups using [CloudNativePG](https://cloudnative-pg.io/)
@@ -42,7 +43,8 @@ flowchart TD
     2 --> p2[Proxmox]
     3 --> p3[Proxmox]
 
-    p1 --> nfs[NFS Server] 
+    p1 --> nas[TrueNAS]
+    nas --> nfs[NFS Server\nfor Kubernetes]
 
     p1 ---> cp1[Talos\nKubernetes\nControl-Plane]
     p2 ---> cp2[Talos\nKubernetes\nControl-Plane]
