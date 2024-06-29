@@ -7,6 +7,8 @@ hostPaths:
   hostPath: /srv/nvme/container-data/home-assistant/config
   containerPath: /config
 
+replicas: 0
+
 ports: 
 - name: main
   containerPort: 8123
