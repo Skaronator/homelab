@@ -1,4 +1,7 @@
-# Niklas Homelab
+# GitOps Driven Homelab
+
+> [!IMPORTANT]
+> The project is currently in a transitional state from a single-node Debian server with k0s to a multi-node high-available setup with Proxmox and Talos and rook.io.
 
 This project utilizes Infrastructure as Code and GitOps to automate the provisioning, operation, and updating of self-hosted services in my homelab.
 
