@@ -41,6 +41,7 @@ resource "proxmox_vm_qemu" "this" {
   #     pcie   = 1
   #   }
   # }
+
   lifecycle {
     ignore_changes = [
       hostpci

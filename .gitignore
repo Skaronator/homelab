@@ -6,3 +6,9 @@ secrets.txt
 # Terraform
 *.tfvars
 .terraform
+
+# Talos
+talsecret.yaml
+kubeconfig
+talosconfig
+talos/clusterconfig
