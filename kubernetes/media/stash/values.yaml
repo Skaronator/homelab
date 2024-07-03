@@ -8,10 +8,6 @@ podLabels:
 ports:
 - name: main
   containerPort: 9999
-- name: dlna
-  containerPort: 1338
-  hostPort: 1338
-  protocol: UDP
 
 hostNetwork: true
 
