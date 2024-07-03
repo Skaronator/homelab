@@ -8,6 +8,9 @@ podLabels:
 ports:
 - name: main
   containerPort: 9999
+- name: dlan
+  containerPort: 1338
+  hostPort: 1338
 
 ingress:
   host: stash.wagner.gg
