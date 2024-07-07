@@ -1,0 +1,17 @@
+image:
+  repository: "ghcr.io/home-assistant-libs/python-matter-server"
+  tag: "6.2.2"
+
+hostPaths:
+- name: data
+  hostPath: /srv/nvme/container-data/matter-server
+  containerPath: /data
+
+ports: 
+- name: main
+  containerPort: 5580
+
+health:
+  path: /
+
+hostNetwork: true
