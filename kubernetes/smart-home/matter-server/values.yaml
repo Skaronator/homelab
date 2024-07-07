@@ -15,3 +15,13 @@ health:
   path: /
 
 hostNetwork: true
+
+ingress:
+  host: matter.wagner.gg
+
+homepage:
+  name: Matter Server
+  group: Smart Home
+  description: Matter Device Management
+  icon: home-assistant.svg
+  weight: 70
