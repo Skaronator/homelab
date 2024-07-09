@@ -17,6 +17,9 @@ ports:
 - name: main
   containerPort: 8000
 
+health:
+  startupProbeSeconds: 90
+
 ingress:
   host: paperless.wagner.gg
   annotations:
