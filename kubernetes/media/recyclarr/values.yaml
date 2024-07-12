@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/recyclarr/recyclarr"
-  tag: "7.1.0@sha256:81ba81657ab75e9fe38e570141e5445d820dbbbae7012b2e7246b5f17b4abe8f"
+  tag: "7.1.1@sha256:3bc426b72453e76767a7f2144ebcea2870cdf1ecfef6886ee1115c88890f9091"
 
 schedule: "0 3 * * *"
 
