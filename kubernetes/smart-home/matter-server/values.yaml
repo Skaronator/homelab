@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/home-assistant-libs/python-matter-server"
-  tag: "6.2.2@sha256:91e16c750eda7846ac811186d343950ac581fb94440530b47b29fa5e2b219d93"
+  tag: "6.3.0@sha256:ac6f5cf1649fa6bdfde7dce6218e9bc126119cc9b324019ad389872e83f5c093"
 
 hostPaths:
 - name: data
