@@ -12,7 +12,7 @@ ingress:
 hostPaths:
 - name: config
   hostPath: /srv/nvme/container-data/overseerr
-  containerPath: /config
+  containerPath: /app/config
 
 homepage:
   name: Overseerr
