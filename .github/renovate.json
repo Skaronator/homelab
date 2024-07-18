@@ -75,7 +75,7 @@
     },
     {
       "description": "Wait for stable release. Updating this instantly will cause issues since amd64 builds always take a tiny bit more",
-      "matchPackageNames": ["redis", "mariadb", "postgres"],
+      "matchPackageNames": ["redis", "mariadb", "postgres", "csi-driver-nfs"],
       "minimumReleaseAge": "4 hours"
     }
   ],
