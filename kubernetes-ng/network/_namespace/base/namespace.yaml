@@ -3,5 +3,4 @@ kind: Namespace
 metadata:
   name: network
   labels:
-    kubernetes.io/metadata.name: network
     pod-security.kubernetes.io/enforce: privileged

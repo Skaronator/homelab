@@ -1,40 +1,45 @@
 # Talos Setup
 
+## Required Tools
+
+* [talhelper](https://github.com/budimanjojo/talhelper)
+* [go-task](https://github.com/go-task/task)
+* [talosctl](https://www.talos.dev/latest/learn-more/talosctl/)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+* [cilium-cli](https://github.com/cilium/cilium-cli)
+
 ## Initial Setup
 
-Generate node config using: `talhelper genconfig`
+Generate initial secrets using: `task gensecrets`
 
-Switch to the newly generated folder and set the env variable to talosctl:
+After that you can join the fresh nodes using:
 
-```bash
-cd clusterconfig
-export TALOSCONFIG="$PWD/talosconfig"
-```
-
-After that you can join the nodes using:
+Note: The new VMs are unconfigured and got a random IP from DHCP, hence we need to check in Proxmox VM Console which IP the VM actually has.
 
 ```bash
 # CP
-talosctl apply --file homelab-talos-cp-1.yaml -i -n 192.168.1.xx
-talosctl apply --file homelab-talos-cp-2.yaml -i -n 192.168.1.xx
-talosctl apply --file homelab-talos-cp-3.yaml -i -n 192.168.1.xx
+IP=192.168.1.xx HOST=cp-1 task join
+IP=192.168.1.xx HOST=cp-2 task join
+IP=192.168.1.xx HOST=cp-3 task join
 # Worker
-talosctl apply --file homelab-talos-worker-1.yaml -i -n 192.168.1.xx
-talosctl apply --file homelab-talos-worker-2.yaml -i -n 192.168.1.xx
-talosctl apply --file homelab-talos-worker-3.yaml -i -n 192.168.1.xx
+IP=192.168.1.xx HOST=worker-1 task join
+IP=192.168.1.xx HOST=worker-2 task join
+IP=192.168.1.xx HOST=worker-3 task join
 ```
 
-After everything is more or less running we can bootstrap etcd on **one** of the control plane nodes:
+After applying all configuration the nodes should be rebooted and more or less ready. Now we can bootstrap the cluster once:
 
 ```bash
-talosctl bootstrap --nodes talos-cp-1
+task bootstrap
 ```
 
-After bootstrapping we can generate a kubectl config:
+After that we should have a kubeconfig file in the current directory. If not, or you want to generate later again you can run
 
 ```bash
-talosctl kubeconfig --nodes talos-cp-1 .
+task genconfig
 ```
+
+This command also outputs your current nodes.
 
 Since we're using a Virtual high-available IP for the control plane we should modify the generated kubeconfig. Adjust the IP to the Talos `/machine/network/interfaces/0/vip` IP.
 
@@ -59,9 +64,8 @@ As you can see the nodes are all `NotReady`. This is expected since we are still
 
 ## Install CNI
 
-We're using cilium as CNI as it provides many powerful features for us.
+We're using cilium as CNI as it provides many powerful features for us. We install it using the install-tools task.
 
 ```bash
-kubectl create namespace network
-
+task install-tools
 ```

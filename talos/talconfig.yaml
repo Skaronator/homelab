@@ -2,7 +2,7 @@
 clusterName: homelab
 talosVersion: v1.7.5
 kubernetesVersion: v1.30.1
-endpoint: https://192.168.0.41:6443
+endpoint: https://192.168.0.40:6443
 clusterPodNets:
   - 10.244.0.0/16
 clusterSvcNets:
@@ -17,6 +17,15 @@ patches:
     path: /cluster/proxy
     value:
       disabled: true
+  - op: add
+    path: /machine/network/nameservers
+    value:
+      - 192.168.0.2
+  - op: add
+    path: /machine/time
+    value:
+      servers:
+        - 192.168.0.1
 
 controlPlane:
   patches:
@@ -25,15 +34,9 @@ controlPlane:
         path: /machine/network/interfaces/0/vip
         value:
           ip: 192.168.0.40
-      - op: add
-        path: /machine/network/nameservers
-        value:
-          - 192.168.0.2
-      - op: add
-        path: /machine/time
-        value:
-          servers:
-            - 192.168.0.1
+      - op: replace
+        path: /cluster/controlPlane/endpoint
+        value: https://192.168.0.41:6443
 
 nodes:
 # control planes
