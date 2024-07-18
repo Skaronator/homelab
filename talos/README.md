@@ -8,6 +8,8 @@
 * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 * [cilium-cli](https://github.com/cilium/cilium-cli)
 
+The fastest to install all tools using [Homebrew](https://brew.sh), even on linux. You can checkout my [dotfiles/Brewfile](https://github.com/Skaronator/dotfiles/blob/main/brew/Brewfile).
+
 ## Initial Setup
 
 Generate initial secrets using: `task gensecrets`
