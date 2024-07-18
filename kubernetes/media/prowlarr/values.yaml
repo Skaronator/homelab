@@ -10,8 +10,8 @@ ingress:
   host: prowlarr.wagner.gg
 
 envs:
-- PUID: 100
-- PGID: 101
+- PUID: 5000
+- PGID: 5000
 
 hostPaths:
 - name: config

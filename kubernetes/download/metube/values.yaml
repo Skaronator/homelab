@@ -10,8 +10,8 @@ ingress:
   host: metube.wagner.gg
 
 envs:
-- UID: 100
-- GID: 101
+- UID: 5000
+- GID: 5000
 - OUTPUT_TEMPLATE: "%(uploader)s/%(title)s [%(id)s].%(ext)s"
 - YTDL_OPTIONS: |
     {
