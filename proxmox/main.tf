@@ -14,30 +14,33 @@ terraform {
   }
   required_providers {
     proxmox = {
-      source  = "Telmate/proxmox"
-      version = "3.0.1-rc3"
+      source  = "bpg/proxmox"
+      version = "~> 0.61.1"
     }
   }
   required_version = "~> 1.8"
 }
 
 provider "proxmox" {
-  alias       = "node1"
-  pm_api_url  = "https://192.168.0.5:8006/api2/json"
-  pm_user     = var.proxmox_user
-  pm_password = var.proxmox_password
+  alias    = "node1"
+  endpoint = "https://192.168.0.5:8006/"
+  username = var.proxmox_user
+  password = var.proxmox_password
+  insecure = true
 }
 
 provider "proxmox" {
-  alias       = "node2"
-  pm_api_url  = "https://192.168.0.32:8006/api2/json"
-  pm_user     = var.proxmox_user
-  pm_password = var.proxmox_password
+  alias    = "node2"
+  endpoint = "https://192.168.0.32:8006/"
+  username = var.proxmox_user
+  password = var.proxmox_password
+  insecure = true
 }
 
 provider "proxmox" {
-  alias       = "node3"
-  pm_api_url  = "https://192.168.0.33:8006/api2/json"
-  pm_user     = var.proxmox_user
-  pm_password = var.proxmox_password
+  alias    = "node3"
+  endpoint = "https://192.168.0.33:8006/"
+  username = var.proxmox_user
+  password = var.proxmox_password
+  insecure = true
 }

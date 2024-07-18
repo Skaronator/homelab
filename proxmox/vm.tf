@@ -2,14 +2,12 @@ locals {
   cp = {
     cores  = 4
     memory = 4096
-    size   = "32G"
-    iso    = "local:iso/talos-v1.7.5.iso"
+    size   = 32
   }
   worker = {
     cores  = 16
     memory = 48 * 1024
-    size   = "64G"
-    iso    = "local:iso/talos-v1.7.5.iso"
+    size   = 64
   }
 }
 
@@ -33,8 +31,8 @@ module "vm_node_1" {
   memory       = each.value.memory
   size         = each.value.size
   storage_name = "local-zfs"
-  iso          = each.value.iso
-  pci_devices  = lookup(each.value, "pci_devices", [])
+  iso          = proxmox_virtual_environment_download_file.talos_1_7_5_node1.id
+  hostpci      = lookup(each.value, "hostpci", {})
 
   providers = {
     proxmox = proxmox.node1
@@ -50,9 +48,9 @@ module "vm_node_2" {
     "talos-worker-2" = merge(local.worker, {
       name = "talos-worker-2"
       vmid = 112
-      pci_devices = [
-        "0000:07:00.0"
-      ]
+      hostpci = {
+        hostpci0 = "0000:07:00"
+      }
     })
   }
   source = "./modules/vm"
@@ -64,8 +62,8 @@ module "vm_node_2" {
   memory       = each.value.memory
   size         = each.value.size
   storage_name = "local-lvm"
-  iso          = each.value.iso
-  pci_devices  = lookup(each.value, "pci_devices", [])
+  iso          = proxmox_virtual_environment_download_file.talos_1_7_5_node2.id
+  hostpci      = lookup(each.value, "hostpci", {})
 
   providers = {
     proxmox = proxmox.node2
@@ -81,6 +79,9 @@ module "vm_node_3" {
     "talos-worker-3" = merge(local.worker, {
       name = "talos-worker-3"
       vmid = 113
+      hostpci = {
+        hostpci0 = "0000:06:00"
+      }
     })
   }
   source = "./modules/vm"
@@ -92,8 +93,8 @@ module "vm_node_3" {
   memory       = each.value.memory
   size         = each.value.size
   storage_name = "local-lvm"
-  iso          = each.value.iso
-  pci_devices  = lookup(each.value, "pci_devices", [])
+  iso          = proxmox_virtual_environment_download_file.talos_1_7_5_node3.id
+  hostpci      = lookup(each.value, "hostpci", {})
 
   providers = {
     proxmox = proxmox.node3

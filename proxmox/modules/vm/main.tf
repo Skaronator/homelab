@@ -1,50 +1,48 @@
-resource "proxmox_vm_qemu" "this" {
-  name        = var.name
-  target_node = var.target_node
-  vmid        = var.vmid
-  cpu         = "host"
-  cores       = var.cores
-  memory      = var.memory
-  onboot      = true
 
-  network {
-    bridge    = "vmbr0"
-    firewall  = false
-    link_down = false
-    model     = "virtio"
-  }
-  disks {
-    scsi {
-      scsi0 {
-        disk {
-          size    = var.size
-          storage = var.storage_name
-        }
-      }
-    }
-    ide {
-      ide1 {
-        cdrom {
-          iso = var.iso
-        }
-      }
-    }
+resource "proxmox_virtual_environment_vm" "this" {
+  name            = var.name
+  node_name       = var.target_node
+  description     = "Managed by Terraform"
+  vm_id           = var.vmid
+  stop_on_destroy = true
+  keyboard_layout = "de"
+
+  memory {
+    dedicated = var.memory
   }
 
-  # TODO Use this once the provider has fixed this:
-  # https://github.com/Telmate/terraform-provider-proxmox/issues/1029
-  # dynamic "hostpci" {
-  #   for_each = var.pci_devices
-  #   content {
-  #     host   = hostpci.value
-  #     rombar = 1
-  #     pcie   = 1
-  #   }
-  # }
+  cpu {
+    cores        = var.cores
+    architecture = "x86_64"
+    type         = "host"
+  }
 
-  lifecycle {
-    ignore_changes = [
-      hostpci
-    ]
+  cdrom {
+    enabled = true
+    file_id = var.iso
+  }
+
+  disk {
+    datastore_id = var.storage_name
+    file_format  = "raw"
+    interface    = "scsi0"
+    size         = var.size
+  }
+
+  network_device {
+    bridge = "vmbr0"
+  }
+
+  operating_system {
+    type = "l26"
+  }
+
+  dynamic "hostpci" {
+    for_each = var.hostpci
+    content {
+      device = hostpci.key
+      id     = hostpci.value
+      rombar = true
+    }
   }
 }

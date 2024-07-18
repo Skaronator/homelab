@@ -30,7 +30,7 @@ variable "iso" {
   type = string
 }
 
-variable "pci_devices" {
-  type    = list(string)
-  default = []
+variable "hostpci" {
+  type    = map(string)
+  default = {}
 }
