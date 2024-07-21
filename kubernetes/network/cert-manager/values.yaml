@@ -7,3 +7,5 @@ startupapicheck:
 global:
   leaderElection:
     namespace: "network"
+
+enableCertificateOwnerRef: true
