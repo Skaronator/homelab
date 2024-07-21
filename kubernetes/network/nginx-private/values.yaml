@@ -1,6 +1,9 @@
 controller:
   terminationGracePeriodSeconds: 30
 
+  extraArgs:
+    default-ssl-certificate: network/wildcard-wagner.gg
+
   config:
     enable-brotli: "true"
     use-gzip: "true"

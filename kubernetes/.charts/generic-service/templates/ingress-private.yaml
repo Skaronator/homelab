@@ -6,7 +6,6 @@ metadata:
   labels:
     {{- include "generic-service.labels" . | nindent 4 }}
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     {{- if .Values.ingress.basicAuth }}
     nginx.ingress.kubernetes.io/auth-type: "basic"
@@ -38,10 +37,6 @@ metadata:
   {{- end }}
 spec:
   ingressClassName: nginx-private
-  tls:
-  - hosts: 
-    - {{ .Values.ingress.host }}
-    secretName: {{ .Values.ingress.host }}
   rules:
   - host: {{ .Values.ingress.host }}
     http:

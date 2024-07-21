@@ -7,7 +7,6 @@ metadata:
     {{- include "generic-service.labels" . | nindent 4 }}
   annotations:
     external-dns.alpha.kubernetes.io/target: vps.wagner.gg
-    cert-manager.io/cluster-issuer: letsencrypt
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     # rate limiting
     nginx.ingress.kubernetes.io/limit-connections: "10"
@@ -21,10 +20,7 @@ metadata:
   {{- end }}
 spec:
   ingressClassName: nginx-public
-  tls:
-  - hosts:
-    - {{ .Values.ingress.host }}
-    secretName: {{ .Values.ingress.host }}
+  
   rules:
   - host: {{ .Values.ingress.host }}
     http:
