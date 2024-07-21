@@ -23,6 +23,8 @@ args:
   --exclude=*.log
   --iexclude=esphome/.esphome
   --iexclude=radarr/MediaCover
+  --iexclude=lidarr/MediaCover
+  --iexclude=sonarr/MediaCover
   --iexclude=home-assistant/database
   --iexclude=home-assistant/database-backup
   --iexclude=stash/generated
