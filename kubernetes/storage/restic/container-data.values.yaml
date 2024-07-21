@@ -22,6 +22,11 @@ args:
   --host=kubernetes-cronjob
   --exclude=*.log
   --iexclude=esphome/.esphome
+  --iexclude=radarr/MediaCover
+  --iexclude=home-assistant/database
+  --iexclude=home-assistant/database-backup
+  --iexclude=stash/generated
+  --iexclude=stash/blobs
   --iexclude=Plex\ Media\ Server/Cache/PhotoTranscoder
   &&
   restic stats --mode raw-data latest
