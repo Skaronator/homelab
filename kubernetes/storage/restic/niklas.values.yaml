@@ -10,8 +10,6 @@ command:
 args:
 - -c
 - >
-  restic init
-  &&
   restic snapshots
   &&
   restic backup
