@@ -1,5 +1,5 @@
 image:
-  repository: "ghcr.io/stirling-tools/s-pdf:alpha"
+  repository: "ghcr.io/stirling-tools/s-pdf"
   tag: "0.26.1"
 
 hostPaths:
