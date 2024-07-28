@@ -1,0 +1,22 @@
+image:
+  repository: "ghcr.io/stirling-tools/s-pdf:alpha"
+  tag: "0.26.1"
+
+hostPaths:
+- name: data
+  hostPath: /srv/nvme/container-data/stirling
+  containerPath: /configs
+
+ports: 
+- name: main
+  containerPort: 8080
+
+ingress:
+  host: stirling.wagner.gg
+
+homepage:
+  name: Stirling PDF
+  group: Organization
+  description: PDF Tools
+  icon: stirling-pdf.svg
+  weight: 40
