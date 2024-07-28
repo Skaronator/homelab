@@ -94,9 +94,7 @@ configMaps:
               visible_library_popular: true
               visible_home_popular: true
               visible_shared_popular: true
-      # Serien:
-      #   collection_files:
-      #     - file: /config/tv.yaml
+      Serien: {}
     settings:
       tvdb_language: de
       # disable for plex
