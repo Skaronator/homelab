@@ -60,3 +60,5 @@ hostPaths:
   hostPath: /srv/nvme/music
   containerPath: /srv/music
   readOnly: true
+
+replicas: 0

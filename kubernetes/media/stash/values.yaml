@@ -46,3 +46,5 @@ hostPaths:
 - name: data
   hostPath: /srv/hdd/pp
   containerPath: /data
+
+replicas: 0

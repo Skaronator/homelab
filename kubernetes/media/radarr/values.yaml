@@ -39,3 +39,5 @@ homepage:
   description: Movie Manager
   icon: radarr.svg
   weight: 12
+
+replicas: 0
