@@ -5,7 +5,7 @@ resources:
 - base/ingress.yaml
 
 helmGlobals:
-  chartHome: ../../.charts
+  chartHome: ../../../helm-charts
 
 helmCharts:
 - name: generic-service
