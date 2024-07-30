@@ -1,7 +1,7 @@
 # GitOps Driven Homelab
 
 > [!IMPORTANT]
-> The project is currently in a transitional state from a single-node Debian server with k0s to a multi-node high-available setup using Proxmox, Talos and rook.io.
+> The project is currently in a transitional state from a single-node Debian server with k0s to a multi-node high-available setup using Talos and rook.io.
 
 This project utilizes Infrastructure as Code and GitOps to automate the provisioning, operation, and updating of self-hosted services in my homelab.
 
@@ -25,32 +25,24 @@ This project utilizes Infrastructure as Code and GitOps to automate the provisio
 
 ## Hardware Stack
 
-The cluster consists of three nodes. Node 1 is the primary storage server that contains all spinning rust disks. Node 2 and 3 contain fast NVMe storage and fast networking for Rook.io/CephFS Storage.
+The cluster consists of three identical nodes. All low power mini PCs that contain fast NVMe storage and fast networking for Rook.io/CephFS storage.
 
-The hardware was specifically selected to achieve a low-power C10 CPU state, resulting in a power draw of around **14 watts** for Node 2 and 3. Node 1, however, draws more power due to the HDDs.
+The large storage on the spinning rust is on my Synology NAS which is available using NFS storage.
+
+The hardware is not final yet since I'm waiting for the new Synology DS1825+ NAS to be available. I'm also not sure which Mini PC to buy since Zen 5 mobile looks really good but there are no mini PCs available as of now.
 
 ```mermaid
 flowchart TD
-    1[Node 1]
-    2[Node 2]
-    3[Node 3]
+    nas[144TB Synology NAS]
+    1[Mini PC 1]
+    2[Mini PC 2]
+    3[Mini PC 3]
 
     sw[10 Gbit/s Switch]
 
-    sw <--> 1 & 2 & 3
+    nas <--> sw <--> 1 & 2 & 3
 
-    1 --> p1[Proxmox]
-    2 --> p2[Proxmox]
-    3 --> p3[Proxmox]
-
-    p1 --> nas[TrueNAS]
-    nas --> nfs[NFS Server\nfor Kubernetes]
-
-    p1 ---> cp1[Talos\nKubernetes\nControl-Plane]
-    p2 ---> cp2[Talos\nKubernetes\nControl-Plane]
-    p3 ---> cp3[Talos\nKubernetes\nControl-Plane]
-
-    p1 ---> w1[Talos\nKubernetes\nWorker]
-    p2 ---> w2[Talos\nKubernetes\nWorker]
-    p3 ---> w3[Talos\nKubernetes\nWorker]
+    1 --> t1[Talos\nKubernetes]
+    2 --> t2[Talos\nKubernetes]
+    3 --> t3[Talos\nKubernetes]
 ```
