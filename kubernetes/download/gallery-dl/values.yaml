@@ -4,8 +4,6 @@ image:
 
 schedule: "0 2 * * *"
 
-suspend: true
-
 securityContext:
   runAsUser: 5000
   runAsGroup: 5000

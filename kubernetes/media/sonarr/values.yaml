@@ -36,5 +36,3 @@ homepage:
   description: Serien Manager
   icon: sonarr.svg
   weight: 13
-
-replicas: 0
