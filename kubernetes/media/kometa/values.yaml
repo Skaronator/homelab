@@ -89,8 +89,8 @@ configMaps:
             template_variables:
               language: de
               use_year_collections: true
-              radarr_add_missing: true
-              item_radarr_tag: oscars-winners
+              # radarr_add_missing: true
+              # item_radarr_tag: oscars-winners
               visible_library_popular: true
               visible_home_popular: true
               visible_shared_popular: true
@@ -145,7 +145,6 @@ configMaps:
         visible_shared: false
         visible_home: false
         url_poster: https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager-Images/master/year/best/<<key>>.jpg
-        item_radarr_tag: best-movie-<<key>>
 
     dynamic_collections:
       Best_Movies_of_Year:
