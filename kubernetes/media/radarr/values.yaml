@@ -12,6 +12,8 @@ ports:
 ingress:
   host: radarr.wagner.gg
 
+replicas: 0
+
 envs:
 - PUID: 5000
 - PGID: 5000

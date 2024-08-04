@@ -112,23 +112,23 @@ hostPaths:
   containerPath: /mnt/niklas
   type: Directory
 - name: multimedia
-  hostPath: /srv/hdd/multimedia
+  hostPath: /srv/tmpdisk/multimedia
   containerPath: /mnt/multimedia
   type: Directory
 - name: clips
-  hostPath: /srv/hdd/clips
+  hostPath: /srv/tmpdisk/clips
   containerPath: /mnt/clips
   type: Directory
 - name: backup
-  hostPath: /srv/hdd/backup
+  hostPath: /srv/tmpdisk/backup
   containerPath: /mnt/backup
   type: Directory
 - name: pp
-  hostPath: /srv/hdd/pp
+  hostPath: /srv/tmpdisk/pp
   containerPath: /mnt/pp
   type: Directory
 - name: bb
-  hostPath: /srv/hdd/bb
+  hostPath: /srv/tmpdisk/bb
   containerPath: /mnt/bb
   type: Directory
 - name: downloads
