@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/justarchinet/archisteamfarm"
-  tag: "6.0.6.0@sha256:688cc3500d43caebfd94b87846c8d53905f403d9039b6413921723873961162b"
+  tag: "6.0.6.1@sha256:35e3a9c6ccbc96a4aa832e3e84096e9fb70fb5363f0c2bdded906d3e471827d9"
 
 hostPaths:
 - name: data
