@@ -1,0 +1,20 @@
+image:
+  repository: "ghcr.io/librespeed/speedtest"
+  tag: "5.4.0"
+
+ports: 
+- name: main
+  containerPort: 80
+
+ingress:
+  host: speedtest.wagner.gg
+
+homepage:
+  name: Speedtest
+  group: Cloud
+  description: Local Speedtest
+  icon: librespeed.svg
+  weight: 55
+
+envs:
+- MODE: standalone
