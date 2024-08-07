@@ -9,7 +9,7 @@ ports:
 ingress:
   host: speedtest.wagner.gg
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 64m
+    nginx.ingress.kubernetes.io/proxy-body-size: 128m
 
 homepage:
   name: Speedtest
