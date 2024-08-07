@@ -24,5 +24,3 @@ ingress:
 
 health:
   path: /get_height
-
-replicas: 0
