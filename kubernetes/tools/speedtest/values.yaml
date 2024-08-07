@@ -1,15 +1,15 @@
 image:
-  repository: "ghcr.io/librespeed/speedtest"
-  tag: "5.4.0@sha256:98ddbdd5783165f37642458a40864899b09c439cc77f9d878a1e1833afe9256d"
+  repository: "docker.io/openspeedtest/latest"
+  tag: "v2.0.5"
 
 ports: 
 - name: main
-  containerPort: 80
+  containerPort: 3000
 
 ingress:
   host: speedtest.wagner.gg
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 128m
+    nginx.ingress.kubernetes.io/proxy-body-size: 64m
 
 homepage:
   name: Speedtest
