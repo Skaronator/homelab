@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
 - name: generic-service
-  releaseName: baikal
+  releaseName: speedtest
   valuesFile: values.yaml
   namespace: tools
