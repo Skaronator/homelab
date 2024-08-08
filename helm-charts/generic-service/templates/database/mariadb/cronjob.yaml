@@ -38,7 +38,7 @@ spec:
             - name: TZ
               value: Europe/Berlin
             - name: MAX_BACKUPS
-              value: "60"
+              value: "14"
             - name: GZIP_LEVEL
               value: "9"
             - name: MYSQL_HOST
