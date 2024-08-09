@@ -15,7 +15,7 @@ homepage:
   name: Speedtest
   group: Cloud
   description: Local Speedtest
-  icon: librespeed.svg
+  icon: openspeedtest.png
   weight: 55
 
 envs:

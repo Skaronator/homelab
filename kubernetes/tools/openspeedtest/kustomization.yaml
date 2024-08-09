@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
 - name: generic-service
-  releaseName: speedtest
+  releaseName: openspeedtest
   valuesFile: values.yaml
   namespace: tools
