@@ -26,7 +26,7 @@ spec:
   - ssh:
       address: 192.168.0.5
       user: root
-      keyPath: ~/.ssh/id_rsa
+      keyPath: ~/.ssh/ssh_key
     role: controller+worker
     noTaints: true
-    privateInterface: enp3s0f1np1
+    privateInterface: enp3s0f1
