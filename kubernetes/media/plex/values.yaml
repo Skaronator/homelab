@@ -1,6 +1,6 @@
 image:
   repository: "plexinc/pms-docker"
-  tag: "1.40.5.8854-f36c552fd@sha256:fcc648adcf9207a9bc52954de7219effbc01114f202f4a0fad30386afaddf02b"
+  tag: "1.40.5.8897-e5987a19d@sha256:2faf8cb9c5f9e824de41cea420e18ad6fe8ae17905bc16bd23661bb90d96e2e4"
 
 podLabels:
   zfs-encryption: "true"
