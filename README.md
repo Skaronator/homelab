@@ -25,15 +25,13 @@ This project utilizes Infrastructure as Code and GitOps to automate the provisio
 
 ## Hardware Stack
 
-The cluster consists of three identical nodes. All low power mini PCs that contain fast NVMe storage and fast networking for Rook.io/CephFS storage.
-
-The large storage on the spinning rust is on my Synology NAS which is available using NFS storage.
-
-The hardware is not final yet since I'm waiting for the new Synology DS1825+ NAS to be available. I'm also not sure which Mini PC to buy since Zen 5 mobile looks fantastic, but there are no mini PCs available as of now.
+The hardware is still not final.
+I'm waiting on a new 8 Bay NAS, probably the Synology DS1825+, that contains all spinning rust.
+Additionally, I'm also waiting for new Zen 5 Mobile or Intel Lunar Lake Mobile Mini PCs which each have a 4 TB NVMe for Rook.io/CephFS.
 
 ```mermaid
 flowchart TD
-    nas[144TB Synology NAS]
+    nas[144TB NAS]
     1[Mini PC 1]
     2[Mini PC 2]
     3[Mini PC 3]
@@ -42,7 +40,7 @@ flowchart TD
 
     nas <--> sw <--> 1 & 2 & 3
 
-    1 --> t1[Talos\nKubernetes]
-    2 --> t2[Talos\nKubernetes]
-    3 --> t3[Talos\nKubernetes]
+    1 --> t1[Talos Kubernetes]
+    2 --> t2[Talos Kubernetes]
+    3 --> t3[Talos Kubernetes]
 ```
