@@ -29,7 +29,7 @@ The cluster consists of three identical nodes. All low power mini PCs that conta
 
 The large storage on the spinning rust is on my Synology NAS which is available using NFS storage.
 
-The hardware is not final yet since I'm waiting for the new Synology DS1825+ NAS to be available. I'm also not sure which Mini PC to buy since Zen 5 mobile looks really good but there are no mini PCs available as of now.
+The hardware is not final yet since I'm waiting for the new Synology DS1825+ NAS to be available. I'm also not sure which Mini PC to buy since Zen 5 mobile looks fantastic, but there are no mini PCs available as of now.
 
 ```mermaid
 flowchart TD
