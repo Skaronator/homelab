@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/hotio/sonarr"
-  tag: "release-4.0.9.2244@sha256:7d529d4c39d6bd31f8f536e7be539fe5ec552585a1ab1599ae718df9127d59de"
+  tag: "release-4.0.9.2244@sha256:cea2a38c7c841f75ba1aa8a13d02ba82ea4bc96f6959c1cea6cd8cb2cabca36c"
 
 podLabels:
   zfs-encryption: "true"
