@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/haveagitgat/tdarr"
-  tag: "2.25.01@sha256:30cbbde230e95819d2c42044c923f8da8b1a48d89b276412ea89ea46b0ac6418"
+  tag: "2.25.01@sha256:30ae9ec437d0955783a3309e22542fd3fa8135b436c9dbcac39b178a11b4c0cc"
 
 podLabels:
   zfs-encryption: "true"
