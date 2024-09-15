@@ -101,7 +101,7 @@ database:
       schedule: "0 4 * * *"
       image:
         repository: fradelg/mysql-cron-backup
-        tag: "latest@sha256:5f4705fc80f3d75e8d7460e44ad27c122d4345e14f69a9c95cc0831399028325"
+        tag: "latest@sha256:dc89747163e3eb03471a013accd71128abdb3297caeaf0a1046140e573040609"
   postgresql:
     image:
       repository: postgres
