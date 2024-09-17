@@ -66,6 +66,10 @@ configMaps:
   subPath: ocr-decrypt.sh
   content: |
     #!/usr/bin/env bash
+    if [[ "${DOCUMENT_WORKING_PATH}" != *.pdf ]]; then
+      echo "The file is not a PDF. Skipping."
+      exit 0
+    fi
     qpdf --show-encryption "${DOCUMENT_WORKING_PATH}" | grep 'File is not encrypted' || qpdf --decrypt --replace-input "${DOCUMENT_WORKING_PATH}"
 
 homepage:
