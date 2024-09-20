@@ -16,9 +16,9 @@ provider:
     image:
       repository: ghcr.io/muhlba91/external-dns-provider-adguard
       tag: v7.0.1@sha256:12ba21c06ef26a53ccc9d764bbcf932661bb04ec1e481853013f7d09a1ac714a
-    service:
-      port: 8888
     env:
+    - name: SERVER_PORT
+      value: "8080" 
     - name: SERVER_HOST
       value: "0.0.0.0" 
     - name: ADGUARD_URL
