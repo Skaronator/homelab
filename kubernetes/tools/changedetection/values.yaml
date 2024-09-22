@@ -12,7 +12,7 @@ ports:
   containerPort: 5000
 
 ingress:
-  host: changedetection.wagner.gg
+  host: change.wagner.gg
 
 homepage:
   name: ChangeDetection
