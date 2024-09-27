@@ -1,3 +1,5 @@
+schedule: "0 * * * *"
+
 envs:
 - GRAPHQL_QUERY: >
     mutation {
