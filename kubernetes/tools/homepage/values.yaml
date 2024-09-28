@@ -10,7 +10,7 @@ config:
   - Network:
     - Unifi Gateway:
         description: Firewall
-        href: http://192.168.0.1
+        href: https://192.168.0.1/network/default/dashboard
         icon: unifi.svg
         weight: 1
     - AdGuard Home:
@@ -73,18 +73,12 @@ config:
 
 ingress:
   main:
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
     enabled: true
     hosts:
     - host: home.wagner.gg
       paths:
       - path: /
     ingressClassName: nginx-private
-    tls:
-    - hosts:
-      - home.wagner.gg
-      secretName: home.wagner.gg
 
 enableRbac: true
 
