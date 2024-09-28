@@ -8,8 +8,8 @@ config:
     mode: cluster
   services:
   - Network:
-    - FritzBox:
-        description: UniFi Gateway
+    - Unifi Gateway:
+        description: Firewall
         href: http://192.168.0.1
         icon: unifi.svg
         weight: 1
