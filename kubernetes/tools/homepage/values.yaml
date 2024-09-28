@@ -24,8 +24,8 @@ config:
         href: https://192.168.0.2:9443
         icon: portainer.svg
         weight: 30
-    - "Proxmox Node 1":
-        description: Promox Web UI
+    - "Proxmox":
+        description: Server Web UI
         href: https://192.168.0.5:8006
         icon: proxmox.svg
         weight: 41
