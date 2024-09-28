@@ -9,9 +9,9 @@ config:
   services:
   - Network:
     - FritzBox:
-        description: Router
+        description: UniFi Gateway
         href: http://192.168.0.1
-        icon: avmfritzbox.svg
+        icon: unifi.svg
         weight: 1
     - AdGuard Home:
         description: DNS Server
@@ -26,20 +26,9 @@ config:
         weight: 30
     - "Proxmox Node 1":
         description: Promox Web UI
-        # TODO use .31 IP
         href: https://192.168.0.5:8006
         icon: proxmox.svg
         weight: 41
-    - "Proxmox Node 2":
-        description: Promox Web UI
-        href: https://192.168.0.32:8006
-        icon: proxmox.svg
-        weight: 42
-    - "Proxmox Node 3":
-        description: Promox Web UI
-        href: https://192.168.0.33:8006
-        icon: proxmox.svg
-        weight: 43
   - Media:
     - Plex:
         app: plex
