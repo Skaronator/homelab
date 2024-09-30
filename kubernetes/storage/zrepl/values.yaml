@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/skaronator/zrepl"
-  tag: "main@sha256:7ac4c6690077040a5307919195d97791b8e700e5108407a3833c302a3ee98c4e"
+  tag: "main@sha256:13a27dfe96137f6ee8fe0e0b0e75cd115161739dc657b2e525953ff2624edefa"
 
 securityContext:
   privileged: true
