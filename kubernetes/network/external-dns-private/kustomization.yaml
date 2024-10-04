@@ -4,25 +4,6 @@ kind: Kustomization
 resources:
 - base/sealedsecret.yaml
 
-patchesJson6902:
-  - target:
-      version: v1
-      kind: Deployment
-      name: external-dns-private
-    patch: |
-      [
-        {
-          "op": "replace",
-          "path": "/spec/template/spec/containers/1/ports",
-          "value": [
-            {
-              "name": "http-webhook",
-              "containerPort": 8888
-            }
-          ]
-        }
-      ]
-
 helmCharts:
 - repo: https://kubernetes-sigs.github.io/external-dns
   name: external-dns
