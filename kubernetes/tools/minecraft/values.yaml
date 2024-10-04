@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/itzg/minecraft-server"
-  tag: "2024.9.0@sha256:a7c48b666fc1962d33f895cce64fa0a690351b0a71b0240ffd6c80c3387038fa"
+  tag: "2024.10.0@sha256:8e4850952064ac4e55ac7d302bf1beff6e25bb52f96d0bc524b9349e34b0ef4a"
 
 replicas: 0
 
