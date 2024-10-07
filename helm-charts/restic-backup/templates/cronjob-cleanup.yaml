@@ -1,3 +1,4 @@
+{{- if .Values.schedule.cleanup }}
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -95,3 +96,4 @@ spec:
           nodeSelector:
             {{- toYaml . | nindent 8 }}
           {{- end }}
+{{- end }}

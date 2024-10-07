@@ -1,6 +1,6 @@
 schedule:
   backup: "0 1 * * *"
-  cleanup: "0 6 2 * *"
+  # cleanup: "0 6 2 * *"
 
 envs:
 - RESTIC_REPOSITORY: "$(REPOSITORY_BASE_PATH)-container-data"
