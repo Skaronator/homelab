@@ -55,7 +55,6 @@ spec:
               --keep-daily={{ .Values.keep.daily }}
               --keep-monthly={{ .Values.keep.monthly }}
               --prune
-              --dry-run
               &&
               restic snapshots
               &&
