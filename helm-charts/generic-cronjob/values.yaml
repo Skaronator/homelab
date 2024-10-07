@@ -19,12 +19,6 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-health:
-  enabled: true
-  port: main
-  type: HTTP
-  path: /
-
 resources: {}
   # limits:
   #   cpu: 100m
