@@ -96,7 +96,7 @@ database:
   mariadb:
     image:
       repository: mariadb
-      tag: "11.5.2@sha256:4066f2d4805fef72a83cf4a62689a0aadb6e83a8c8a82b64431edd4b94f684f8"
+      tag: "11.5.2@sha256:9e7695800ab8fa72d75053fe536b090d0c9373465b32a073c73bc7940a2e8dbe"
     backup:
       schedule: "0 4 * * *"
       image:
@@ -110,7 +110,7 @@ database:
       schedule: "0 4 * * *"
       image:
         repository: prodrigestivill/postgres-backup-local
-        tag: "16@sha256:6f89d848d412d3c3844b9b78a7368b895d4b068cc3cadc125bc53514f5e4efd6"
+        tag: "16@sha256:73f18e914cb6ffb29840b3fc5be0763f48eb1ca05f093c769ccd13982a634544"
 
 helper:
   image:
