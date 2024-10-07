@@ -1,11 +1,11 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "restic-backup.name" . }}
+  name: {{ include "restic-backup.name" . }}-backup
   labels:
     {{- include "restic-backup.labels" . | nindent 4 }}
 spec:
-  schedule: {{ .Values.schedule | quote }}
+  schedule: {{ .Values.schedule.backup | quote }}
   timeZone: Europe/Berlin
   suspend: {{ .Values.suspend }}
   concurrencyPolicy: {{ .Values.concurrencyPolicy }}

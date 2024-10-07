@@ -1,4 +1,6 @@
-schedule: "0 3 * * *"
+schedule:
+  backup: "0 3 * * *"
+  cleanup: "0 6 4 * *"
 
 envs:
 - RESTIC_REPOSITORY: "$(REPOSITORY_BASE_PATH)-niklas"

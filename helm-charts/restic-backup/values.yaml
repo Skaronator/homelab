@@ -40,7 +40,6 @@ secretEnvs: []
 
 concurrencyPolicy: Forbid
 parallelism: 1
-schedule: ""
 suspend: false
 successfulJobsHistoryLimit: 1
 failedJobsHistoryLimit: 2
@@ -53,3 +52,11 @@ restic:
   path:
   exclude: []
   iexclude: []
+
+keep:
+  daily: 30
+  monthly: 3
+
+schedule:
+  backup: ""
+  cleanup: ""
