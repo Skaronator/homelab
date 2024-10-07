@@ -1,6 +1,6 @@
 schedule:
   backup: "30 2 * * *"
-  cleanup: "0 6 3 * *"
+  # cleanup: "0 6 3 * *"
 
 envs:
 - RESTIC_REPOSITORY: "$(REPOSITORY_BASE_PATH)-music"

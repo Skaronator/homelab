@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "restic-backup.name" . }}-backup
+  name: {{ include "restic-backup.name" . }}
   labels:
     {{- include "restic-backup.labels" . | nindent 4 }}
 spec:
