@@ -48,7 +48,6 @@ spec:
             args:
             - -c
             - >
-              restic unlock --remove-all &&
               restic snapshots
               &&
               restic forget
