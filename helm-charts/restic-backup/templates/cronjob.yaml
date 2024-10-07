@@ -1,0 +1,106 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "restic-backup.name" . }}
+  labels:
+    {{- include "restic-backup.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.schedule | quote }}
+  timeZone: Europe/Berlin
+  suspend: {{ .Values.suspend }}
+  concurrencyPolicy: {{ .Values.concurrencyPolicy }}
+  failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
+  successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
+  jobTemplate:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end}}
+      labels:
+        {{- include "restic-backup.selectorLabels" . | nindent 8 }}
+    spec:
+      backoffLimit: {{ .Values.backoffLimit }}
+      parallelism: {{ .Values.parallelism }}
+      template:
+        metadata:
+          {{- with .Values.podAnnotations }}
+          annotations:
+            {{- toYaml . | nindent 12 }}
+          {{- end}}
+          labels:
+            {{- include "restic-backup.selectorLabels" . | nindent 12 }}
+        spec:
+          serviceAccountName: {{ include "restic-backup.name" . }}
+          terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+          securityContext: {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          restartPolicy: {{ .Values.restartPolicy }}
+          dnsConfig:
+            options:
+            - name: ndots
+              value: "1"
+          containers:
+          - name: {{ include "restic-backup.name" . }}
+            securityContext: {{- toYaml .Values.securityContext | nindent 14 }}
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            imagePullPolicy: {{ .Values.image.pullPolicy }}
+            args:
+            - -c
+            {{ if .Values.restic.runInit }}
+            - restic init
+            {{ else }}
+            - >
+              restic snapshots
+              &&
+              restic backup
+              "/mnt/{{ .Release.Name }}"
+              --verbose
+              --cleanup-cache
+              --limit-upload={{ .Values.restic.uploadSpeed }}
+              --host=kubernetes-cronjob
+              {{ range .Values.restic.exclude }}
+              --exclude="{{ . }}"
+              {{ end }}
+              {{ range .Values.restic.iexclude }}
+              --iexclude="{{ . }}"
+              {{ end }}
+              &&
+              restic stats --mode raw-data latest
+              &&
+              restic unlock --remove-all
+              &&
+              restic diff $(restic snapshots --json | jq -r '.[-2:][].id')
+            {{ end }}
+            command:
+            - /bin/sh
+            env:
+            {{ if hasPrefix "/srv/nvme/" (.Values.restic.path | required "Path to backup is required!") }}
+            - name: RESTIC_READ_CONCURRENCY
+              value: "50"
+            {{ end }}
+            - name: RESTIC_PROGRESS_FPS
+              value: "0.01666"
+            - name: RESTIC_CACHE_DIR
+              value: /mnt/cache
+            {{- include "restic-backup.envs" . | nindent 12 }}
+            resources:
+              {{- toYaml .Values.resources | nindent 14 }}
+            volumeMounts:
+            - name: cache
+              mountPath: /mnt/cache
+            - name: backup
+              mountPath: "/mnt/{{ .Release.Name }}"
+          volumes:
+          - name: cache
+            hostPath:
+              path: /srv/nvme/scrap-data/restic-cache
+              type: DirectoryOrCreate
+          - name: backup
+            hostPath:
+              path: {{ .Values.restic.path | quote | required "Path to backup is required!" }}
+              type: Directory
+              readOnly: true
+          {{- with .Values.nodeSelector }}
+          nodeSelector:
+            {{- toYaml . | nindent 8 }}
+          {{- end }}

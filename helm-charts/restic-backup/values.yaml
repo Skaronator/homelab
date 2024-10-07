@@ -1,0 +1,55 @@
+image:
+  repository: "restic/restic"
+  pullPolicy: IfNotPresent
+  tag: "0.17.1@sha256:424a4e1fcc6fe2557b5614239dc71a2c793acb33a83ea217171bd7edc1862dcb"
+
+serviceAccount:
+  annotations: {}
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+terminationGracePeriodSeconds: 30
+
+args: []
+command: []
+
+envs: []
+
+secretEnvs: []
+
+concurrencyPolicy: Forbid
+parallelism: 1
+schedule: ""
+suspend: false
+successfulJobsHistoryLimit: 1
+failedJobsHistoryLimit: 2
+restartPolicy: OnFailure
+backoffLimit: 1
+
+restic:
+  runInit: false
+  uploadSpeed: 4250
+  path:
+  exclude: []
+  iexclude: []
