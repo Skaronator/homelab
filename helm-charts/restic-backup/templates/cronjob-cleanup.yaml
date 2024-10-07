@@ -47,10 +47,8 @@ spec:
             imagePullPolicy: {{ .Values.image.pullPolicy }}
             args:
             - -c
-            {{ if .Values.restic.runInit }}
-            - restic init
-            {{ else }}
             - >
+              restic unlock --remove-all &&
               restic snapshots
               &&
               restic forget
@@ -62,7 +60,6 @@ spec:
               restic snapshots
               &&
               restic stats --mode raw-data latest
-            {{ end }}
             command:
             - /bin/sh
             env:
@@ -80,18 +77,11 @@ spec:
             volumeMounts:
             - name: cache
               mountPath: /mnt/cache
-            - name: backup
-              mountPath: /mnt/backup
           volumes:
           - name: cache
             hostPath:
               path: /srv/nvme/scrap-data/restic-cache
               type: DirectoryOrCreate
-          - name: backup
-            hostPath:
-              path: {{ .Values.restic.path | quote | required "Path to backup is required!" }}
-              type: Directory
-              readOnly: true
           {{- with .Values.nodeSelector }}
           nodeSelector:
             {{- toYaml . | nindent 8 }}
