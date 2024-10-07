@@ -53,17 +53,17 @@ spec:
               restic snapshots
               &&
               restic backup
-              "/mnt/{{ .Release.Name }}"
+              /mnt/backup
               --verbose
               --cleanup-cache
               --limit-upload={{ .Values.restic.uploadSpeed }}
               --host=kubernetes-cronjob
-              {{ range .Values.restic.exclude }}
+              {{- range .Values.restic.exclude -}}
               --exclude="{{ . }}"
-              {{ end }}
-              {{ range .Values.restic.iexclude }}
+              {{- end -}}
+              {{- range .Values.restic.iexclude -}}
               --iexclude="{{ . }}"
-              {{ end }}
+              {{ end -}}
               &&
               restic stats --mode raw-data latest
               &&
@@ -89,7 +89,7 @@ spec:
             - name: cache
               mountPath: /mnt/cache
             - name: backup
-              mountPath: "/mnt/{{ .Release.Name }}"
+              mountPath: /mnt/backup
           volumes:
           - name: cache
             hostPath:
