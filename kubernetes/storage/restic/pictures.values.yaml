@@ -9,22 +9,21 @@ command:
 
 args:
 - -c
-- restic init
-# - >
-#   restic snapshots
-#   &&
-#   restic backup
-#   /mnt/pictures
-#   --verbose
-#   --cleanup-cache
-#   --limit-upload=4250
-#   --host=kubernetes-cronjob
-#   &&
-#   restic stats --mode raw-data latest
-#   &&
-#   restic unlock --remove-all
-#   &&
-#   restic diff $(restic snapshots --json | jq -r '.[-2:][].id')
+- >
+  restic snapshots
+  &&
+  restic backup
+  /mnt/pictures
+  --verbose
+  --cleanup-cache
+  --limit-upload=4250
+  --host=kubernetes-cronjob
+  &&
+  restic stats --mode raw-data latest
+  &&
+  restic unlock --remove-all
+  &&
+  restic diff $(restic snapshots --json | jq -r '.[-2:][].id')
 
 envs:
 - RESTIC_REPOSITORY: "$(REPOSITORY_BASE_PATH)-pictures"
