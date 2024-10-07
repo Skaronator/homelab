@@ -21,7 +21,7 @@ helmCharts:
   releaseName: restic-niklas
   valuesFile: niklas.values.yaml
   namespace: storage
-# - name: generic-cronjob
-#   releaseName: restic-bb
-#   valuesFile: bb.values.yaml
-#   namespace: storage
+- name: generic-cronjob
+  releaseName: restic-bb
+  valuesFile: bb.values.yaml
+  namespace: storage
