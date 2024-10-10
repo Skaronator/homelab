@@ -61,14 +61,6 @@ spec:
             command:
             - /bin/sh
             env:
-            {{ if hasPrefix "/srv/nvme/" (.Values.restic.path | required "Path to backup is required!") }}
-            - name: RESTIC_READ_CONCURRENCY
-              value: "50"
-            {{ end }}
-            - name: RESTIC_PROGRESS_FPS
-              value: "0.01666"
-            - name: RESTIC_CACHE_DIR
-              value: /mnt/cache
             {{- include "restic-backup.envs" . | nindent 12 }}
             resources:
               {{- toYaml .Values.resources | nindent 14 }}

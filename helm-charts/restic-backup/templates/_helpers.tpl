@@ -25,6 +25,14 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- define "restic-backup.envs" -}}
 - name: TZ
   value: Europe/Berlin
+{{ if hasPrefix "/srv/nvme/" (.Values.restic.path | required "Path to backup is required!") }}
+- name: RESTIC_READ_CONCURRENCY
+  value: "50"
+{{ end }}
+- name: RESTIC_PROGRESS_FPS
+  value: "0.01666"
+- name: RESTIC_CACHE_DIR
+  value: /mnt/cache
 {{- range $k, $v := .Values.secretEnvs }}
 {{- range $kk, $vv := $v }}
 - name: {{ $kk | quote }}

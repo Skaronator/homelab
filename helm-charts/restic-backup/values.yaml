@@ -48,7 +48,7 @@ backoffLimit: 1
 
 restic:
   runInit: false
-  uploadSpeed: 4250
+  uploadSpeed: 4000
   path:
   exclude: []
   iexclude: []
