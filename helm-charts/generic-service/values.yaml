@@ -96,7 +96,7 @@ database:
   mariadb:
     image:
       repository: mariadb
-      tag: "11.5.2@sha256:9e7695800ab8fa72d75053fe536b090d0c9373465b32a073c73bc7940a2e8dbe"
+      tag: "11.5.2@sha256:712a4eac9f79d8ba5c4c2275573532edeb012573b1df84fb568d4e9d602f0340"
     backup:
       schedule: "0 4 * * *"
       image:
