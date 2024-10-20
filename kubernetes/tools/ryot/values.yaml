@@ -1,0 +1,19 @@
+image:
+  repository: "ghcr.io/ignisda/ryot"
+  tag: "v7.6.0"
+
+ports: 
+- name: main
+  containerPort: 8000
+
+ingress:
+  host: ryot.wagner.gg
+
+envs:
+- DATABASE_URL: postgres://$(TEMPLATE_DB_USERNAME):$(TEMPLATE_DB_PASSWORD)@$(TEMPLATE_DB_HOST):$(TEMPLATE_DB_PORT)/$(TEMPLATE_DB_DATABASE)
+
+database:
+  enabled: true
+  type: postgresql
+  hostPath: /srv/nvme/container-data/ryot
+  rootPassword: AgBnzcaWmAl1QFnBOr+WpOuep+ExW+MTUr8EAcEWvaCY/wYpNMUcpOxJA6HI+vLXPzFtfk/F4domTRZ4Uu1fdGJdC66w4sYTT4qwiKjDXyr7kPL6rQnne/NnHh6k+7BxmF+uburNvAEWG/lovMCXx33o4g15SBYf16iYkZ8fGyHq7LSXZApaUFmMk4VNyzhofwFPV+bpr4R+GyX5bcZpO10RZnZsnJxrzDCWE+oX0RpL0GeglMnjGPFXZ+/DXZUDFUUIpi9HzJ9FtbGj74qAKEzwgD9Lb5K4Qcuo5xHRFGTFA6qGHuTuatrueAvx0K8Cx0KZ1Wz04wxAyhmFy/kvS/7oGEDlVxEHJLC48B4NIw1b7st40lcBltegruQWPgheyp9y09tsfhFWmrM2wU0tXOB93ggvOHv5Z/+S9Gozt2RyHnhm0ftbV7LkME9haXNV2G879xowFxFgWT3tIQ3632BDWwDnqHwzEKaVsjwtMz00zVzgNj6WF9xgNQJUbQIkQwwMPzx59Av9XhMJaxQ7p1CqgxosqMO0auo6zsq4iLZXjHGHP8/276QtSaHOC//gavphhNgi1JfM9EPtN3XYBadcz5HEHPlj6G/hr/UqgCwcgsSwUMeygaGy+VGgcvaFM883FozYZ46EYjzn8YSeMBhyrV5R9+jNpy8FqcJvcObf1F6HGvWZf0OsDzXjKhidwMJcX+khpnDmixE7V+JMxrFmMPlWLPJtZgPZyb6eD08RSSYrQZ87CAa5/rbKHwUAt+INnFDpQUG1VIMLT++jiX/T
