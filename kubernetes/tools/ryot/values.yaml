@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/ignisda/ryot"
-  tag: "v7.6.0"
+  tag: "v7.6.0@sha256:48eea2d298d9d38a1df4542e4f8d237e7076e5bd3b626e98487f2e50cff8314a"
 
 ports: 
 - name: main
