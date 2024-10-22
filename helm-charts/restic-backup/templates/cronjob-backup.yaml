@@ -82,6 +82,7 @@ spec:
               mountPath: /mnt/cache
             - name: backup
               mountPath: /mnt/backup
+              readOnly: true
           volumes:
           - name: cache
             hostPath:
@@ -91,7 +92,6 @@ spec:
             hostPath:
               path: {{ .Values.restic.path | quote | required "Path to backup is required!" }}
               type: Directory
-              readOnly: true
           {{- with .Values.nodeSelector }}
           nodeSelector:
             {{- toYaml . | nindent 8 }}
