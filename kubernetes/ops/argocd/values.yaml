@@ -1,6 +1,8 @@
 configs:
   cm:
     kustomize.buildOptions: --enable-helm
+  params:
+    controller.diff.server.side: "true"
 
 global:
   domain: argocd.wagner.gg
