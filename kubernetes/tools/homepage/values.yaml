@@ -7,6 +7,12 @@ config:
   kubernetes:
     mode: cluster
   services:
+  - "Smart Home":
+    - Valetudo:
+        description: Robotic Vacuum
+        href: http://192.168.0.11
+        icon: valetudo.svg
+        weight: 5
   - Network:
     - Unifi Gateway:
         description: Firewall
@@ -24,11 +30,6 @@ config:
         href: https://192.168.0.2:9443
         icon: portainer.svg
         weight: 30
-    - "Proxmox":
-        description: Server Web UI
-        href: https://192.168.0.5:8006
-        icon: proxmox.svg
-        weight: 41
   - Media:
     - Plex:
         app: plex
