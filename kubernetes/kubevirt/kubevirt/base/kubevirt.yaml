@@ -9,6 +9,7 @@ spec:
   configuration:
     developerConfiguration:
       featureGates: []
+        # - LiveMigration
   customizeComponents: {}
   imagePullPolicy: IfNotPresent
   workloadUpdateStrategy: {}
