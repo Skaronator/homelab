@@ -13,5 +13,6 @@ spec:
     flags:
       handler:
         kubelet-pods-dir: /var/lib/k0s/kubelet/pods
+        kubelet-root: /var/lib/k0s/kubelet
   imagePullPolicy: IfNotPresent
   workloadUpdateStrategy: {}
