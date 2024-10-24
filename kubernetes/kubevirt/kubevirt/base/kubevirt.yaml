@@ -3,13 +3,11 @@ apiVersion: kubevirt.io/v1
 kind: KubeVirt
 metadata:
   name: kubevirt
-  namespace: kubevirt
 spec:
   certificateRotateStrategy: {}
   configuration:
     developerConfiguration:
       featureGates: []
-        # - LiveMigration
   customizeComponents: {}
   imagePullPolicy: IfNotPresent
   workloadUpdateStrategy: {}
