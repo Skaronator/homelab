@@ -9,6 +9,9 @@ spec:
     developerConfiguration:
       featureGates:
         - Root
-  customizeComponents: {}
+  customizeComponents:
+    flags:
+      handler:
+        kubelet-pods-dir: /var/lib/k0s/kubelet/pods
   imagePullPolicy: IfNotPresent
   workloadUpdateStrategy: {}
