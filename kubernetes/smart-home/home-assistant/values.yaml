@@ -23,7 +23,7 @@ homepage:
   group: Smart Home
   description: Smart Home Management
   icon: home-assistant.svg
-  weight: 50
+  weight: 1
 
 securityContext:
   capabilities:
