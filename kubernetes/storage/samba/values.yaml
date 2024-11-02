@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/crazy-max/samba"
-  tag: "4.19.6@sha256:d02680060b5366b696023ccbd8aa6809d0b7ad1c77da1a5db84262545cbab153"
+  tag: "4.19.9@sha256:270a8dcaeb7be73c3a63e2d7cc966cfdc6ca70b418c59e4af406bee6ea41ded7"
 
 podLabels:
   zfs-encryption: "true"
