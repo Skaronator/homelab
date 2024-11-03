@@ -22,4 +22,3 @@ spec:
       keyPath: ~/.ssh/ssh_key
     role: controller+worker
     noTaints: true
-    privateInterface: enp3s0f1
