@@ -13,13 +13,6 @@ spec:
         network:
           podCIDR: 10.244.0.0/16
           serviceCIDR: 10.96.0.0/12
-          controlPlaneLoadBalancing:
-            enabled: true
-            type: Keepalived
-            keepalived:
-              vrrpInstances:
-                - virtualIPs: ["192.168.0.30/23"]
-                  authPass: homelab
         telemetry:
           enabled: false
   hosts:
