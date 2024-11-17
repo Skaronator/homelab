@@ -81,7 +81,7 @@ hostPaths: []
 envsubst:
   image:
     repository: nixery.dev/shell/envsubst
-    tag: "latest@sha256:86c229f218d8a5b4bb0a1febdb98605841e726b21c59b20dc3b4ded48db09d6f"
+    tag: "latest@sha256:b7f33a35733cbddd37462bfb16c5bdcdc1b72fc9c7661e1eb6b9b2a02276c91e"
   files: []
   # - src:
   #   dest:
@@ -105,7 +105,7 @@ database:
   postgresql:
     image:
       repository: postgres
-      tag: "16.4@sha256:91f464e7ba0ad91a106c94cff079fb4384139291b8c0502fd36989cf2c788bbb"
+      tag: "16.5@sha256:53f3e608f9475ce120ced2d0f430b89458d7faa28530e0b0977a6af64d294877"
     backup:
       schedule: "0 4 * * *"
       image:

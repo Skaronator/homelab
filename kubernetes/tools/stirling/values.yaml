@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/stirling-tools/s-pdf"
-  tag: "0.31.1@sha256:fefbcbdc851bfdb29e172df03d8ac280efdd3eada92b16c46b0fc15932152c6c"
+  tag: "0.33.1@sha256:d30bf0b2826f0e71cf6fe1b806d918db6d90121ac70b3384569e3b49edf51b3f"
 
 hostPaths:
 - name: data
