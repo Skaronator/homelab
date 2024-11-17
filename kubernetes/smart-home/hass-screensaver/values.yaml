@@ -10,7 +10,7 @@ ingress:
   host: hass-screensaver.wagner.gg
 
 envs:
-  - HA_BASE_URL: home-assistant:8123
+  - HA_BASE_URL: http://home-assistant:8123
   - HA_SCREENSHOT_URL: /flur-dashboard/0
   - LANGUAGE: de
   - RENDERING_SCREEN_HEIGHT: 825
