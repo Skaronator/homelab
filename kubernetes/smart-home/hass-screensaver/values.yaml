@@ -1,6 +1,6 @@
 image:
   repository: "sibbl/hass-lovelace-kindle-screensaver"
-  tag: "1.0.12"
+  tag: "1.0.12@sha256:dc06ba97c8507ccc5737609eb939b1823b64e8b1d58805ae150b4e74d73d6b26"
 
 ports: 
 - name: main
