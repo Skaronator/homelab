@@ -10,10 +10,12 @@ envs:
 
 ports: 
 - name: main
-  containerPort: 3000
+  containerPort: 8080
+- name: websocket
+  containerPort: 8080
 
 health:
-  type: TCP
+  path: /stats
 
 securityContext:
   capabilities:
