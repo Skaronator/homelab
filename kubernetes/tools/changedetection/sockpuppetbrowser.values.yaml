@@ -12,6 +12,9 @@ ports:
 - name: main
   containerPort: 3000
 
+health:
+  type: TCP
+
 securityContext:
   capabilities:
     add:
