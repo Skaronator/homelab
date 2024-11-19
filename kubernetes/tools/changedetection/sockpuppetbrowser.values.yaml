@@ -1,0 +1,18 @@
+image:
+  repository: "dgtlmoon/sockpuppetbrowser"
+  tag: "latest"
+
+envs:
+- SCREEN_WIDTH: 1920
+- SCREEN_HEIGHT: 1024
+- SCREEN_DEPTH: 16
+- MAX_CONCURRENT_CHROME_PROCESSES: 10
+
+ports: 
+- name: main
+  containerPort: 3000
+
+securityContext:
+  capabilities:
+    add:
+      - SYS_ADMIN

@@ -9,3 +9,7 @@ helmCharts:
   releaseName: changedetection
   valuesFile: values.yaml
   namespace: tools
+- name: generic-service
+  releaseName: sockpuppetbrowser
+  valuesFile: sockpuppetbrowser.values.yaml
+  namespace: tools
