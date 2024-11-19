@@ -12,7 +12,7 @@ ports:
 - name: main
   containerPort: 8080
 - name: websocket
-  containerPort: 8080
+  containerPort: 3000
 
 health:
   path: /stats
