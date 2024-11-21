@@ -9,6 +9,8 @@ ports:
 ingress:
   host: hass-screensaver.wagner.gg
 
+strategyType: RollingUpdate
+
 envs:
   - HA_BASE_URL: http://home-assistant:8123
   - HA_SCREENSHOT_URL: /flur-dashboard/0?kiosk
@@ -16,7 +18,6 @@ envs:
   - RENDERING_SCREEN_HEIGHT: 825
   - RENDERING_SCREEN_WIDTH: 1200
   - SCALING: 1.25
-  - DITHER: true
   - GRAYSCALE_DEPTH: 4
 
 secretEnvs:
