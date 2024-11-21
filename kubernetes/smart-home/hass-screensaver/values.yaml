@@ -1,6 +1,6 @@
 image:
   repository: "lanrat/hass-screenshot"
-  tag: "latest"
+  tag: "latest@sha256:ac4e74c7ae4e6a99a570b6d28782e8d83c7c57960e1587e2b51411450759c846"
 
 ports: 
 - name: main
