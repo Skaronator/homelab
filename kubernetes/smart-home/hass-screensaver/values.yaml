@@ -20,7 +20,6 @@ envs:
   - SCALING: 1.25
   - IMAGE_FORMAT: png
   - REAL_TIME: true
-  - DITHER: true
 
 
 secretEnvs:
