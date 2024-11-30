@@ -42,7 +42,7 @@ configMaps:
     downloader:
       retries: 30
       rate: 20M
-      videolength-min: 3min
+      videolength-min: 4m30s
     output: {}
     postprocessor: {}
 
