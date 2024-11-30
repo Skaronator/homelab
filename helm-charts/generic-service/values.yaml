@@ -96,7 +96,7 @@ database:
   mariadb:
     image:
       repository: mariadb
-      tag: "11.5.2@sha256:2d50fe0f77dac919396091e527e5e148a9de690e58f32875f113bef6506a17f5"
+      tag: "11.6.2@sha256:0a620383fe05d20b3cc7510ebccc6749f83f1b0f97f3030d10dd2fa199371f07"
     backup:
       schedule: "0 4 * * *"
       image:
@@ -105,7 +105,7 @@ database:
   postgresql:
     image:
       repository: postgres
-      tag: "16.5@sha256:53f3e608f9475ce120ced2d0f430b89458d7faa28530e0b0977a6af64d294877"
+      tag: "16.6@sha256:5d65b8bdb20369ea902b987aa63cfe4983130bc8cd2c25830d126636b80b608d"
     backup:
       schedule: "0 4 * * *"
       image:
@@ -115,7 +115,7 @@ database:
 helper:
   image:
     repository: busybox
-    tag: "1.37.0@sha256:768e5c6f5cb6db0794eec98dc7a967f40631746c32232b78a3105fb946f3ab83"
+    tag: "1.37.0@sha256:db142d433cdde11f10ae479dbf92f3b13d693fd1c91053da9979728cceb1dc68"
 
 homepage:
   name: ""
