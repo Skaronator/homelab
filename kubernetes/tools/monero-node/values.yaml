@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/sethforprivacy/simple-monerod"
-  tag: "v0.18.3.4@sha256:6bec35fd417451c2c610eb0ff372df035596bd812ed8981b8aa8fa1df59b5159"
+  tag: "v0.18.3.4@sha256:576c158cbdb13c6b9d0da2599b518fbc6bff53f48abfbf12a85d01fe84415375"
 
 args:
 - --rpc-restricted-bind-ip=0.0.0.0
