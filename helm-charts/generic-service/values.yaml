@@ -110,7 +110,7 @@ database:
       schedule: "0 4 * * *"
       image:
         repository: prodrigestivill/postgres-backup-local
-        tag: "16@sha256:73f18e914cb6ffb29840b3fc5be0763f48eb1ca05f093c769ccd13982a634544"
+        tag: "16@sha256:e7182c0dac78540405e954597fcb3f4cfa67955d5df008152ab41ce166fe6014"
 
 helper:
   image:
