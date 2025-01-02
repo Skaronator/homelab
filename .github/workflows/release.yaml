@@ -46,9 +46,8 @@ jobs:
 
             return `${nextMajorMinor}.${nextPatch}`;
 
-      - uses: ncipollo/release-action@v1.14.0
+      - name: Release
+        uses: softprops/action-gh-release@v2.2.0
         with:
-          generateReleaseNotes: true
-          tag: ${{ steps.release-tag.outputs.result }}
-          makeLatest: true
-          owner: Skaronator
+          generate_release_notes: true
+          tag_name: ${{ steps.release-tag.outputs.result }}
