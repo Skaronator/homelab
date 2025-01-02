@@ -50,4 +50,5 @@ jobs:
         with:
           generateReleaseNotes: true
           tag: ${{ steps.release-tag.outputs.result }}
-          name: ${{ steps.release-tag.outputs.result }}
+          makeLatest: true
+          owner: Skaronator
