@@ -48,6 +48,6 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         with:
-          generateReleaseNotes: false
+          generateReleaseNotes: true
           tag: ${{ steps.determine-next-tag.outputs.result }}
           name: ${{ steps.determine-next-tag.outputs.result }}
