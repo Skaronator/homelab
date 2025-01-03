@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/dgtlmoon/changedetection.io"
-  tag: "dev@sha256:b04b528e18cac83771efc597126f325446c18666e28d842f832b02eaba418386"
+  tag: "dev@sha256:96ec7a970da0a6e06387af29858fd0a66bbc9b7795ad9dcf261dfed374f78c2e"
 
 hostPaths:
 - name: config
