@@ -10,7 +10,7 @@ body = """
     {% for commit in commits | unique(attribute="message") %}
         - {% if commit.scope %}*({{ commit.scope }})* {% endif %}\
             {% if commit.breaking %}[**breaking**] {% endif %}\
-            {{ commit.message | upper_first }}\
+            {{ commit.message | upper_first }} [{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})\
     {% endfor %}
 {% endfor %}\n
 """
@@ -21,7 +21,7 @@ footer = """
 trim = true
 # postprocessors
 postprocessors = [
-  # { pattern = '<REPO>', replace = "https://github.com/orhun/git-cliff" }, # replace repository URL
+  { pattern = '\$REPO', replace = "https://github.com/Skaronator/homelab" },
 ]
 # render body even when there are no releases to process
 # render_always = true
