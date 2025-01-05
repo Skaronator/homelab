@@ -63,4 +63,3 @@ jobs:
         with:
           tag_name: ${{ steps.release-tag.outputs.result }}
           body: ${{ steps.git-cliff.outputs.content }}
-          draft: true
