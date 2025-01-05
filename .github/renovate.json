@@ -4,9 +4,6 @@
     "mergeConfidence:all-badges",
     "config:recommended"
   ],
-  "labels": [
-    "renovate"
-  ],
   "timezone": "Europe/Berlin",
   "automergeSchedule": [
     "after 3am",
