@@ -56,9 +56,7 @@ jobs:
         id: git-cliff
         with:
           config: cliff.toml
-          args: --unreleased --tag ${{ steps.release-tag.outputs.result }}
-        env:
-          OUTPUT: CHANGELOG.md
+          args: --unreleased
 
       - name: Release
         uses: softprops/action-gh-release@v2.2.0
