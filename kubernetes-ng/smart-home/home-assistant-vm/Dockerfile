@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/alpine:3.21.0 AS builder
+FROM public.ecr.aws/docker/library/alpine:3.21.1 AS builder
 
 ENV VERSION=13.2
 RUN apk add --no-cache curl xz \
