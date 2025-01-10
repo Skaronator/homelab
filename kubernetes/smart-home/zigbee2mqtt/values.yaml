@@ -14,8 +14,6 @@ ports:
 ingress:
   host: zigbee.wagner.gg
 
-replicas: 0
-
 homepage:
   name: Zigbee2MQTT
   group: Smart Home
