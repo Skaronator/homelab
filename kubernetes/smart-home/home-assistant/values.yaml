@@ -2,6 +2,8 @@ image:
   repository: "ghcr.io/home-assistant/home-assistant"
   tag: "2025.1.2@sha256:871f84a00db8d05856a70ee3761b138a8e91eb108d61f2fa176e7eeadb5eda03"
 
+replicas: 0
+
 hostPaths:
 - name: data
   hostPath: /srv/nvme/container-data/home-assistant/config
