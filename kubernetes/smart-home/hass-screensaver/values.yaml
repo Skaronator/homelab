@@ -12,7 +12,7 @@ ingress:
 strategyType: RollingUpdate
 
 envs:
-  - HA_BASE_URL: http://home-assistant:8123
+  - HA_BASE_URL: https://ha.wagner.gg
   - HA_SCREENSHOT_URL: /flur-dashboard/0?kiosk
   - LANGUAGE: de
   - RENDERING_SCREEN_HEIGHT: 825
