@@ -4,7 +4,7 @@ kind: Kustomization
 helmCharts:
 - repo: https://helm.cilium.io
   name: cilium
-  version: 1.16.5
+  version: 1.16.6
   includeCRDs: true
   releaseName: cilium
   valuesFile: values.yaml
