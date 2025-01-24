@@ -7,6 +7,6 @@ resources:
 helmCharts:
 - repo: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
   name: csi-driver-nfs
-  version: v4.9.0
+  version: v4.10.0
   releaseName: csi-driver-nfs
   valuesFile: values.yaml
