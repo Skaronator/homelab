@@ -18,7 +18,7 @@ server:
       gethomepage.dev/group: Server
       gethomepage.dev/name: ArgoCD
       gethomepage.dev/description: Kubernetes Deployments
-      gethomepage.dev/icon: argocd.svg
+      gethomepage.dev/icon: argo-cd.svg
       gethomepage.dev/weight: "1"
     extraTls:
     - secretName: argocd.wagner.gg

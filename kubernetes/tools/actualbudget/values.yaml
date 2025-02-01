@@ -18,5 +18,5 @@ homepage:
   name: Actual Budget
   group: Organization
   description: Personal Finance Manager
-  icon: actual
+  icon: actual-budget.svg
   weight: 5

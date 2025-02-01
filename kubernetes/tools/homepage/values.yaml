@@ -8,6 +8,11 @@ config:
     mode: cluster
   services:
   - "Smart Home":
+    - "Home Assistant":
+        description: Smart Home
+        href: http://192.168.0.11
+        icon: home-assistant.svg
+        weight: 5
     - Valetudo:
         description: Robotic Vacuum
         href: http://192.168.0.11
