@@ -9,17 +9,32 @@ applicationsets:
         - path: "kubernetes/**/*"
         - path: "kubernetes/.*/**"
           exclude: true
+        - path: "kubernetes/tools/**"
+          exclude: true
+        - path: "kubernetes/storage/**"
+          exclude: true
+        - path: "kubernetes/ops/**"
+          exclude: true
+        - path: "kubernetes/network/**"
+          exclude: true
+        - path: "kubernetes/media/**"
+          exclude: true
+        - path: "kubernetes/download/**"
+          exclude: true
     template:
       metadata:
-        name: '{{path[2]}}'
+        name: '{{path[1]}}-{{path[2]}}'
       spec:
         project: default
         source:
           repoURL: https://github.com/Skaronator/homelab.git
           targetRevision: main
           path: '{{path}}'
-          kustomize:
-            namespace: '{{path[1]}}'
+        plugin:
+          name: kustomize-helm
+          parameters:
+            - name: NAMESPACE
+              string: '{{path[1]}}'
         destination:
           name: in-cluster
           namespace: '{{path[1]}}'	

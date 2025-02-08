@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-kustomize-helm-workaround
+  labels:
+    app.kubernetes.io/part-of: argocd
+data:
+  command.sh: |
+    #!/bin/bash
+    set -e
+    extras="--namespace $PARAM_NAMESPACE"
+    helm $extras $@

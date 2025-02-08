@@ -1,0 +1,74 @@
+configs:
+  cm:
+    kustomize.buildOptions: --enable-helm
+  params:
+    controller.diff.server.side: "true"
+  cmp:
+    create: true
+    plugins:
+      # This plugin is mostly based on https://github.com/argoproj/argo-cd/issues/10745#issuecomment-1949298357
+      kustomize-helm:
+        parameters:
+          static:
+            - name: NAMESPACE
+              title: Namespace of the application
+              required: true
+              itemType: string
+              collectionType: string
+        generate:
+          command: ["bash", "-c"]
+          args: ["kustomize edit set namespace -- \"$PARAM_NAMESPACE\" && kustomize build --enable-helm --helm-command '/home/argocd/cmp-server/config/command.sh'"]
+
+repoServer:
+  extraContainers:
+    - name: cmp-kustomize-helm
+      command: ["/var/run/argocd/argocd-cmp-server"]
+      image: |-
+        {{ default .Values.global.image.repository .Values.repoServer.image.repository }}:{{ default (include "argo-cd.defaultTag" .) .Values.repoServer.image.tag }}
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+          - ALL
+        runAsNonRoot: true
+        runAsUser: 999
+      volumeMounts:
+        - name: var-files
+          mountPath: /var/run/argocd
+        - name: plugins
+          mountPath: /home/argocd/cmp-server/plugins
+        - name: argocd-cmp-cm
+          mountPath: /home/argocd/cmp-server/config/plugin.yaml
+          subPath: kustomize-helm.yaml
+        - name: argocd-kustomize-helm-workaround
+          mountPath: /home/argocd/cmp-server/config/command.sh
+          subPath: command.sh
+  volumes:
+    - name: argocd-kustomize-helm-workaround
+      configMap:
+        name: argocd-kustomize-helm-workaround
+        defaultMode: 0777
+    - name: argocd-cmp-cm
+      configMap:
+        name: argocd-cmp-cm
+
+global:
+  domain: argocd.wagner.gg
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx-private
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/group: Server
+      gethomepage.dev/name: ArgoCD
+      gethomepage.dev/description: Kubernetes Deployments
+      gethomepage.dev/icon: argo-cd.svg
+      gethomepage.dev/weight: "1"
+    extraTls:
+    - secretName: argocd.wagner.gg
+      hosts:
+      - argocd.wagner.gg
