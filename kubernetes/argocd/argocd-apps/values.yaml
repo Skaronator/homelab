@@ -35,6 +35,12 @@ applicationsets:
           exclude: true
         - path: "kubernetes/tools/v*"
           exclude: true
+        - path: "kubernetes/storage/m*"
+          exclude: true
+        - path: "kubernetes/storage/r*"
+          exclude: true
+        - path: "kubernetes/storage/s*"
+          exclude: true
     template:
       metadata:
         name: '{{path[1]}}-{{path.basenameNormalized}}'
