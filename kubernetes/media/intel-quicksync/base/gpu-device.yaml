@@ -3,6 +3,7 @@ kind: GpuDevicePlugin
 metadata:
   name: main
 spec:
+  image: intel/intel-gpu-plugin:0.32.0
   enableMonitoring: true
   logLevel: 2
   nodeSelector:
