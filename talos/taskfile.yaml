@@ -18,24 +18,36 @@ tasks:
       vars: [IP, HOST]
     cmds:
       - task: init
-      - test -f clusterconfig/homelab-talos-{{.HOST}}.yaml
-      - talosctl apply --file clusterconfig/homelab-talos-{{.HOST}}.yaml -i -n {{.IP}}
-  bootstrap:
-    prompt: Are you sure to bootstrap the cluster? Running this command more than once breaks your cluster!
-    vars:
+      - test -f clusterconfig/homelab-{{.HOST}}.yaml
+      - talosctl apply --file clusterconfig/homelab-{{.HOST}}.yaml -i -n {{.IP}}
+  apply:
+    env:
       TALOSCONFIG: "{{.TASKFILE_DIR}}/clusterconfig/talosconfig"
     cmds:
-      - talosctl bootstrap --nodes talos-cp-1
+      - task: init
+      - talhelper gencommand apply | bash
+  upgrade:
+    env:
+      TALOSCONFIG: "{{.TASKFILE_DIR}}/clusterconfig/talosconfig"
+    cmds:
+      - task: init
+      - talhelper gencommand upgrade | bash
+  bootstrap:
+    prompt: Are you sure to bootstrap the cluster? Running this command more than once breaks your cluster!
+    env:
+      TALOSCONFIG: "{{.TASKFILE_DIR}}/clusterconfig/talosconfig"
+    cmds:
+      - talhelper gencommand bootstrap | bash
       - task: genconfig
   genconfig:
-    vars:
+    env:
       TALOSCONFIG: "{{.TASKFILE_DIR}}/clusterconfig/talosconfig"
       KUBECONFIG: "{{.TASKFILE_DIR}}/kubeconfig"
     cmds:
-      - talosctl kubeconfig --nodes talos-cp-1 .
+      - talhelper gencommand kubeconfig | bash
       - kubectl get nodes
   install-tools:
-    vars:
+    env:
       KUBECONFIG: "{{.TASKFILE_DIR}}/kubeconfig"
     cmds:
       - kubectl kustomize ../kubernetes-ng/network/_namespace | kubectl apply -f -
