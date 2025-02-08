@@ -8,4 +8,3 @@ helmCharts:
   repo: https://bitnami-labs.github.io/sealed-secrets
   includeCRDs: true
   valuesFile: values.yaml
-  namespace: ops
