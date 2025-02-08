@@ -9,17 +9,32 @@ applicationsets:
         - path: "kubernetes/**/*"
         - path: "kubernetes/.*/**"
           exclude: true
-        - path: "kubernetes/tools/**"
-          exclude: true
         - path: "kubernetes/storage/**"
-          exclude: true
-        - path: "kubernetes/ops/**"
           exclude: true
         - path: "kubernetes/media/**"
           exclude: true
         - path: "kubernetes/download/**"
           exclude: true
-        - path: "kubernetes/tools/hass-screensaver"
+        - path: "kubernetes/tools/a*"
+          exclude: true
+        - path: "kubernetes/tools/b*"
+          exclude: true
+        - path: "kubernetes/tools/c*"
+          exclude: true
+        - path: "kubernetes/tools/f*"
+          exclude: true
+        - path: "kubernetes/tools/m*"
+          exclude: true
+        - path: "kubernetes/tools/o*"
+          exclude: true
+        - path: "kubernetes/tools/p*"
+          exclude: true
+        - path: "kubernetes/tools/r*"
+          exclude: true
+        - path: "kubernetes/tools/s*"
+          exclude: true
+        - path: "kubernetes/tools/v*"
+          exclude: true
     template:
       metadata:
         name: '{{path[1]}}-{{path.basenameNormalized}}'
