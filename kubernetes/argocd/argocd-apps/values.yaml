@@ -30,11 +30,11 @@ applicationsets:
           repoURL: https://github.com/Skaronator/homelab.git
           targetRevision: main
           path: '{{path}}'
-        plugin:
-          name: kustomize-helm
-          parameters:
-            - name: NAMESPACE
-              string: '{{path[1]}}'
+          plugin:
+            name: kustomize-helm
+            parameters:
+              - name: NAMESPACE
+                string: '{{path[1]}}'
         destination:
           name: in-cluster
           namespace: '{{path[1]}}'	
