@@ -19,6 +19,7 @@ applicationsets:
           exclude: true
         - path: "kubernetes/download/**"
           exclude: true
+        - path: "kubernetes/tools/hass-screensaver"
     template:
       metadata:
         name: '{{path[1]}}-{{path.basenameNormalized}}'
