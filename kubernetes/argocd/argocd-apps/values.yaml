@@ -19,14 +19,6 @@ applicationsets:
           exclude: true
         - path: "kubernetes/download/**"
           exclude: true
-        - path: "kubernetes/network/external-*"
-          exclude: true
-        - path: "kubernetes/network/metal-lb"
-          exclude: true
-        - path: "kubernetes/network/nginx-*"
-          exclude: true
-        - path: "kubernetes/network/rathole"
-          exclude: true
     template:
       metadata:
         name: '{{path[1]}}-{{path.basenameNormalized}}'
