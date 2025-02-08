@@ -43,7 +43,6 @@ applicationsets:
             selfHeal: true	
             prune: true	
           syncOptions:
-          - CreateNamespace=true
           - FailOnSharedResource=true
         ignoreDifferences:
           - group: apiextensions.k8s.io
