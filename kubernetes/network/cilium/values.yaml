@@ -43,3 +43,4 @@ k8sServicePort: 7445
 tls:
   secretsNamespace:
     create: false
+    secretsNamespace: network
