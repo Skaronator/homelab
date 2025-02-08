@@ -7,7 +7,7 @@ parameters:
   server: 192.168.0.5
   share: /mnt/user/container-data
   subDir: ${pvc.metadata.namespace}-${pvc.metadata.name}
-  mountPermissions: "0"
+  mountPermissions: "0777"
   onDelete: archive
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
