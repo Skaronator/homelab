@@ -1,0 +1,8 @@
+apiVersion: cilium.io/v2alpha1
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: main
+spec:
+  cidrs:
+    - start: "192.168.0.240"
+      stop: "192.168.0.255"
