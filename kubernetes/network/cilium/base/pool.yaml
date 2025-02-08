@@ -3,6 +3,6 @@ kind: CiliumLoadBalancerIPPool
 metadata:
   name: main
 spec:
-  cidrs:
+  blocks:
     - start: "192.168.0.240"
       stop: "192.168.0.255"
