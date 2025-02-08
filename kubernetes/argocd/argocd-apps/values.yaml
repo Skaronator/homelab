@@ -23,7 +23,7 @@ applicationsets:
           exclude: true
     template:
       metadata:
-        name: '{{path[1]}}-{{path[2]}}'
+        name: '{{path[1]}}-{{path.basenameNormalized}}'
       spec:
         project: default
         source:
