@@ -15,11 +15,17 @@ applicationsets:
           exclude: true
         - path: "kubernetes/ops/**"
           exclude: true
-        - path: "kubernetes/network/**"
-          exclude: true
         - path: "kubernetes/media/**"
           exclude: true
         - path: "kubernetes/download/**"
+          exclude: true
+        - path: "kubernetes/network/external-*"
+          exclude: true
+        - path: "kubernetes/network/metal-lb"
+          exclude: true
+        - path: "kubernetes/network/nginx-*"
+          exclude: true
+        - path: "kubernetes/network/rathole"
           exclude: true
     template:
       metadata:
