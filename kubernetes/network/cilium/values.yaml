@@ -1,5 +1,8 @@
 ipam:
   mode: kubernetes
+  # Fix argocd diff:
+  # https://github.com/cilium/cilium/issues/35811#issuecomment-2633477431
+  multiPoolPreAllocation: null
 
 kubeProxyReplacement: true
 
