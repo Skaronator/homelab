@@ -10,6 +10,6 @@ parameters:
   mountPermissions: "0777"
   onDelete: retain
 reclaimPolicy: Retain
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: Immediate
 mountOptions:
   - nfsvers=4.1
