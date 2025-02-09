@@ -9,8 +9,6 @@ applicationsets:
         - path: "kubernetes/**/*"
         - path: "kubernetes/.*/**"
           exclude: true
-        - path: "kubernetes/media/**"
-          exclude: true
         - path: "kubernetes/download/**"
           exclude: true
         - path: "kubernetes/tools/a*"
@@ -38,6 +36,18 @@ applicationsets:
         - path: "kubernetes/storage/r*"
           exclude: true
         - path: "kubernetes/storage/s*"
+          exclude: true
+        - path: "kubernetes/media/k*"
+          exclude: true
+        - path: "kubernetes/media/l*"
+          exclude: true
+        - path: "kubernetes/media/p*"
+          exclude: true
+        - path: "kubernetes/media/r*"
+          exclude: true
+        - path: "kubernetes/media/s*"
+          exclude: true
+        - path: "kubernetes/media/t*"
           exclude: true
     template:
       metadata:
