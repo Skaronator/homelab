@@ -38,6 +38,6 @@ volumes:
   - name: cache
     storageClass: scrap-data
     containerPath: /cache
-  # - name: data
-  #   storageClass: pp
-  #   containerPath: /data
+  - name: data
+    storageClass: pp
+    containerPath: /data
