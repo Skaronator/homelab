@@ -9,7 +9,11 @@ applicationsets:
         - path: "kubernetes/**/*"
         - path: "kubernetes/.*/**"
           exclude: true
-        - path: "kubernetes/download/**"
+        - path: "kubernetes/download/f*"
+          exclude: true
+        - path: "kubernetes/download/s*"
+          exclude: true
+        - path: "kubernetes/download/t*"
           exclude: true
         - path: "kubernetes/tools/a*"
           exclude: true

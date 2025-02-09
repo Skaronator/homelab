@@ -1,0 +1,16 @@
+{{- range .Values.volumes }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "generic-cronjob.name" $ }}-{{ .name }}
+  labels:
+    {{- include "generic-cronjob.labels" $ | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Mi
+  storageClassName: {{ .storageClass }}
+{{- end }}

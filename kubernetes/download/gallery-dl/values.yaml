@@ -49,9 +49,8 @@ configMaps:
 
 hostPaths:
 - name: downloads
-  hostPath: /srv/hdd/pp/Person
+  storageClass: pp
   containerPath: /downloads
-  type: Directory
 
 secretEnvs:
 - HOST: AgC1m5Dw4soWDAXyDjGor3AtMht8VSfxVv+lB/m3mgoyx80BGibUstaBO3H8/YclJxbHUlHv6Wxw7+ZQDhuEs+cwkCiKcVCJhHrcicj8bf2RZaUiRmc1FRELFkVtamrxqPl5KpeOUTmL3yKcDsx3m4p9spR26o5L+YcGHKD8O1Mim++uORPLfXWlYz5hDEsX1XDdMKbImGLE1yB17NSvhPAomhAOjOg07PF94DGa60XAsVivZilITIXA4Sxg0D++ubVg5Z/rbC6fFurts2MA4xMriI3z1Uv74QwKOIvYtq9gfYit71EL/QLEwx1XjMS+lEqF6VbWj+WT8OWPTSec1cLUeIBF1HWURHB5cvwNc5jkfr1ZzIbuWPPPwCwWIc9x8/H0sGtAx243rVa8D0NpTlpqo8p1DHGi3WVS3eTxaMRHlYCFc5tITJ2aoy6WlsM4R3679t0a/nIUTeBpwc9xz7InFMZ36Q6vm/vEeQ7t1tqnumxgBvewXXRL/YPseaal1dftbmF8IkHpJbHMKDVek8SLOeKBbj+n6VBsKwRmPF7JvNJw3OMS8N6L/i+3frf5OC9ajtfN3s83bM8wWeIIa8MZTjP3sw690ZvwqlQRFBuxOQq0AO0h1v67ZWo/QxLsaOtyQGntaDFH+UH0u/exrJL7iooNDaJ8xi12YvCBfqL3y6QwhSCiF/+ZyV+A5Eh2q9xAP7jgyClxHGY/zx0hwMr54DyIoM7FUNgOeC0=
