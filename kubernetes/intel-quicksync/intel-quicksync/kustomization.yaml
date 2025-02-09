@@ -11,4 +11,3 @@ helmCharts:
   includeCRDs: true
   releaseName: intel-device-plugins-operator
   valuesFile: values.yaml
-  namespace: media
