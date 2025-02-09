@@ -5,8 +5,8 @@ image:
 schedule: "0 2 * * *"
 
 securityContext:
-  runAsUser: 5000
-  runAsGroup: 5000
+  runAsUser: 1000
+  runAsGroup: 100
 
 restartPolicy: Never
 
