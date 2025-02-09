@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
 - base/container-data.yaml
+- base/multimedia.yaml
 
 helmCharts:
 - repo: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts

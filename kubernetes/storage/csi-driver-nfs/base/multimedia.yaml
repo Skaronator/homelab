@@ -1,15 +1,15 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: container-data
+  name: multimedia
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 192.168.0.5
-  share: /mnt/user/container-data
-  subDir: ${pvc.metadata.namespace}-${pvc.metadata.name}
+  share: /mnt/user/multimedia
+  subDir: /
   mountPermissions: "0777"
-  onDelete: archive
-reclaimPolicy: Delete
+  onDelete: retain
+reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
 mountOptions:
   - nfsvers=4.1
