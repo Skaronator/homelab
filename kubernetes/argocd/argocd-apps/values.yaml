@@ -13,8 +13,6 @@ applicationsets:
           exclude: true
         - path: "kubernetes/tools/a*"
           exclude: true
-        - path: "kubernetes/tools/b*"
-          exclude: true
         - path: "kubernetes/tools/c*"
           exclude: true
         - path: "kubernetes/tools/f*"
