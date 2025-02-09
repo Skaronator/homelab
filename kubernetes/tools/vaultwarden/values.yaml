@@ -7,8 +7,6 @@ volumes:
     storageClass: container-data
     containerPath: /data
 
-replicas: 0
-
 ports: 
 - name: main
   containerPort: 80
