@@ -27,6 +27,11 @@ ports: []
 #   containerPort: 0
 #   protocol: TCP
 
+service:
+  type: ClusterIP
+  externalTrafficPolicy: ""
+  loadBalancerIP: ""
+
 health:
   enabled: true
   startupProbeFailureThreshold: 60

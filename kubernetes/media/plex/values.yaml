@@ -30,9 +30,13 @@ health:
   path: /identity
   type: HTTPS
 
+service:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  loadBalancerIP: 192.168.0.241
+
 envs:
-# TODO make dynamic with cilium
-- ADVERTISE_IP: "http://192.168.0.51:32400/"
+- ADVERTISE_IP: "http://192.168.0.241:32400/"
 
 resources:
   limits:
