@@ -47,7 +47,9 @@ applicationsets:
           exclude: true
         - path: "kubernetes/media/s*"
           exclude: true
-        - path: "kubernetes/media/t*"
+        - path: "kubernetes/media/td*"
+          exclude: true
+        - path: "kubernetes/media/tr*"
           exclude: true
     template:
       metadata:

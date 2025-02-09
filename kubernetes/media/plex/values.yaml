@@ -42,26 +42,6 @@ resources:
   limits:
     gpu.intel.com/i915: "1"
 
-# hostPaths:
-# - name: data
-#   hostPath: /srv/nvme/container-data/plex
-#   containerPath: /config
-# - name: transcode
-#   hostPath: /srv/nvme/scrap-data/plex-transcode-cache
-#   containerPath: /transcode
-# - name: multimedia
-#   hostPath: /srv/hdd/multimedia
-#   containerPath: /srv/multimedia
-#   readOnly: true
-# - name: pictures
-#   hostPath: /srv/nvme/pictures
-#   containerPath: /srv/pictures
-#   readOnly: true
-# - name: music
-#   hostPath: /srv/nvme/music
-#   containerPath: /srv/music
-#   readOnly: true
-
 volumes:
   - name: data
     storageClass: container-data

@@ -16,7 +16,7 @@ homepage:
   icon: tautulli.svg
   weight: 25
 
-hostPaths:
-- name: data
-  hostPath: /srv/nvme/container-data/tautulli
-  containerPath: /config
+volumes:
+  - name: data
+    storageClass: container-data
+    containerPath: /config
