@@ -45,7 +45,7 @@ applicationsets:
           exclude: true
         - path: "kubernetes/media/r*"
           exclude: true
-        - path: "kubernetes/media/s*"
+        - path: "kubernetes/media/so*"
           exclude: true
         - path: "kubernetes/media/td*"
           exclude: true

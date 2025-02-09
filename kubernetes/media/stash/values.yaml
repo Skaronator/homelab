@@ -26,23 +26,27 @@ homepage:
   weight: 50
 
 envs:
-- STASH_STASH: /data/
-- STASH_CACHE: /cache/
-- STASH_GENERATED: /generated/
+  - STASH_STASH: /data/
+  - STASH_CACHE: /cache/
+  - STASH_GENERATED: /generated/
+  - STASH_METADATA: /metadata/
 
-hostPaths:
-- name: database
-  hostPath: /srv/nvme/container-data/stash/database
-  containerPath: /root/.stash
-- name: blobs
-  hostPath: /srv/nvme/container-data/stash/blobs
-  containerPath: /blobs
-- name: generated
-  hostPath: /srv/nvme/container-data/stash/generated
-  containerPath: /generated
-- name: cache
-  hostPath: /srv/nvme/scrap-data/stash-cache
-  containerPath: /cache
-- name: data
-  hostPath: /srv/hdd/pp
-  containerPath: /data
+volumes:
+  - name: database
+    storageClass: container-data
+    containerPath: /root/.stash
+  - name: blobs
+    storageClass: container-data
+    containerPath: /blobs
+  - name: generated
+    storageClass: container-data
+    containerPath: /generated
+  - name: metadata
+    storageClass: container-data
+    containerPath: /metadata
+  - name: cache
+    storageClass: container-data
+    containerPath: /cache
+  # - name: data
+  #   storageClass: pp
+  #   containerPath: /data
