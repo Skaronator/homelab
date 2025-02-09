@@ -114,7 +114,7 @@ spec:
       {{- if and .Values.ports .Values.health.enabled }}
         startupProbe:
           {{- include "generic-service.podHealthCheck" . | indent 10 }}
-          failureThreshold: {{ .Values.health.startupProbeSeconds }}
+          failureThreshold: {{ .Values.health.startupProbeFailureThreshold }}
           periodSeconds: 1
         livenessProbe:
           {{- include "generic-service.podHealthCheck" . | indent 10 }}

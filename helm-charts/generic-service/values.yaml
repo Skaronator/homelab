@@ -29,7 +29,7 @@ ports: []
 
 health:
   enabled: true
-  startupProbeSeconds: 30
+  startupProbeFailureThreshold: 60
   port: main
   type: HTTP
   path: /

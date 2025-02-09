@@ -18,7 +18,7 @@ ports:
   containerPort: 8000
 
 health:
-  startupProbeSeconds: 90
+  startupProbeFailureThreshold: 90
 
 ingress:
   host: paperless.wagner.gg

@@ -15,7 +15,7 @@ ports:
   containerPort: 80
 
 health:
-  startupProbeSeconds: 90
+  startupProbeFailureThreshold: 90
 
 ingress:
   host: baikal.wagner.gg
