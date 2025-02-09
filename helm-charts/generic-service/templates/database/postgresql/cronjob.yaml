@@ -64,7 +64,6 @@ spec:
           dnsPolicy: ClusterFirst
           volumes:
           - name: data
-            hostPath:
-              path: {{ printf "%s-%s" .Values.database.hostPath "backup" }}
-              type: DirectoryOrCreate
+            persistentVolumeClaim:
+              claimName: {{ include "database.name" . }}-backup
 {{- end -}}

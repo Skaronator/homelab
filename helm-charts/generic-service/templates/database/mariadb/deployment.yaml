@@ -72,9 +72,8 @@ spec:
           mountPath: /var/lib/mysql
       volumes:
       - name: data
-        hostPath:
-          path: {{ .Values.database.hostPath | required "database.hostPath is required!" | quote }}
-          type: DirectoryOrCreate
+        persistentVolumeClaim:
+          claimName: {{ include "database.name" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
