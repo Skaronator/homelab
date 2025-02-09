@@ -46,31 +46,8 @@ spec:
         options:
         - name: ndots
           value: "1"
-    {{- if or .Values.hostPaths .Values.database.enabled .Values.envsubst.files }}
+    {{- if or .Values.database.enabled .Values.envsubst.files }}
       initContainers:
-      {{- if .Values.hostPaths }}
-      - name: prepare-storage
-        image: "{{ .Values.helper.image.repository }}:{{ .Values.helper.image.tag }}"
-        securityContext:
-          allowPrivilegeEscalation: false
-          runAsUser: 0
-        command:
-        - /bin/sh
-        args:
-        - -c
-        - |
-          set -ex;
-          {{- range .Values.hostPaths }}
-          {{- if not (has .type (list "CharDevice")) }}
-          chmod 777 {{ .containerPath | quote }};
-          {{- end }}
-          {{- end }}
-        volumeMounts:
-        {{- range .Values.hostPaths }}
-        - name: {{ .name }}
-          mountPath: {{ .containerPath | quote }}
-        {{- end }}
-        {{- end }}
       {{- if .Values.database.enabled }}
       - name: wait-for-db
         image: "{{ .Values.helper.image.repository }}:{{ .Values.helper.image.tag }}"
@@ -146,7 +123,7 @@ spec:
       {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
-        {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files }}
+        {{- if or .Values.configMaps .Values.envsubst.files .Values.volumes }}
         volumeMounts:
         {{- if .Values.envsubst.files }}
         - name: envsubst
@@ -157,13 +134,13 @@ spec:
           mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
           subPath: {{ .subPath | quote }}
         {{- end }}
-        {{- range .Values.hostPaths }}
-        - name: {{ .name }}
+        {{- range .Values.volumes }}
+        - name: pvc-{{ .name }}
           mountPath: {{ .containerPath | quote }}
           readOnly: {{ .readOnly | default false }}
         {{- end }}
         {{- end -}}
-      {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files }}
+      {{- if or .Values.configMaps .Values.envsubst.files .Values.volumes }}
       volumes:
       {{- if .Values.envsubst.files }}
       - name: envsubst
@@ -175,11 +152,10 @@ spec:
           name: {{ include "generic-service.name" $ }}
           defaultMode: {{ .defaultMode | default 0644 }}
       {{- end }}
-      {{- range .Values.hostPaths }}
-      - name: {{ .name }}
-        hostPath:
-          path: {{ .hostPath | quote }}
-          type: {{ .type | default "DirectoryOrCreate" }}
+      {{- range .Values.volumes }}
+      - name: pvc-{{ .name }}
+        persistentVolumeClaim:
+          claimName: {{ include "generic-service.name" $ }}-{{ .name }}
       {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}

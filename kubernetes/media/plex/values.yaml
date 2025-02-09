@@ -34,29 +34,41 @@ health:
   type: HTTPS
 
 envs:
-- CHANGE_CONFIG_DIR_OWNERSHIP: "true"
-- ADVERTISE_IP: "http://192.168.0.5:32400/"
+# TODO make dynamic with cilium
+- ADVERTISE_IP: "http://192.168.0.51:32400/"
 
 resources:
   limits:
     gpu.intel.com/i915: "1"
 
-hostPaths:
-- name: data
-  hostPath: /srv/nvme/container-data/plex
-  containerPath: /config
-- name: transcode
-  hostPath: /srv/nvme/scrap-data/plex-transcode-cache
-  containerPath: /transcode
-- name: multimedia
-  hostPath: /srv/hdd/multimedia
-  containerPath: /srv/multimedia
-  readOnly: true
-- name: pictures
-  hostPath: /srv/nvme/pictures
-  containerPath: /srv/pictures
-  readOnly: true
-- name: music
-  hostPath: /srv/nvme/music
-  containerPath: /srv/music
-  readOnly: true
+# hostPaths:
+# - name: data
+#   hostPath: /srv/nvme/container-data/plex
+#   containerPath: /config
+# - name: transcode
+#   hostPath: /srv/nvme/scrap-data/plex-transcode-cache
+#   containerPath: /transcode
+# - name: multimedia
+#   hostPath: /srv/hdd/multimedia
+#   containerPath: /srv/multimedia
+#   readOnly: true
+# - name: pictures
+#   hostPath: /srv/nvme/pictures
+#   containerPath: /srv/pictures
+#   readOnly: true
+# - name: music
+#   hostPath: /srv/nvme/music
+#   containerPath: /srv/music
+#   readOnly: true
+
+volumes:
+  - name: data
+    storageClass: container-data
+    containerPath: /config
+  - name: transcode
+    storageClass: container-data
+    containerPath: /transcode
+  - name: multimedia
+    storageClass: multimedia
+    containerPath: /srv/multimedia
+    readOnly: true
