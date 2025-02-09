@@ -29,7 +29,6 @@ envs:
   - STASH_STASH: /data/
   - STASH_CACHE: /cache/
   - STASH_GENERATED: /generated/
-  - STASH_METADATA: /metadata/
 
 volumes:
   - name: database
@@ -41,11 +40,8 @@ volumes:
   - name: generated
     storageClass: container-data
     containerPath: /generated
-  - name: metadata
-    storageClass: container-data
-    containerPath: /metadata
   - name: cache
-    storageClass: container-data
+    storageClass: scrap-data
     containerPath: /cache
   # - name: data
   #   storageClass: pp

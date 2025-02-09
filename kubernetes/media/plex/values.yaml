@@ -47,7 +47,7 @@ volumes:
     storageClass: container-data
     containerPath: /config
   - name: transcode
-    storageClass: container-data
+    storageClass: scrap-data
     containerPath: /transcode
   - name: multimedia
     storageClass: multimedia
