@@ -5,6 +5,8 @@ image:
 podLabels:
   zfs-encryption: "true"
 
+replicas: 0
+
 ports:
 - name: main
   containerPort: 32400
