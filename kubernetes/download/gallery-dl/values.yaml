@@ -47,7 +47,7 @@ configMaps:
     output: {}
     postprocessor: {}
 
-hostPaths:
+volumes:
 - name: downloads
   storageClass: pp
   containerPath: /downloads

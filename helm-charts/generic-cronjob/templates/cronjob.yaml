@@ -89,7 +89,7 @@ spec:
               subPath: {{ .subPath | quote }}
             {{- end }}
             {{- range .Values.volumes }}
-            - name: {{ .name }}
+            - name: pvc-{{ .name }}
               mountPath: {{ .containerPath | quote }}
               readOnly: {{ .readOnly | default false }}
             {{- end }}
@@ -109,7 +109,7 @@ spec:
           {{- range .Values.volumes }}
           - name: pvc-{{ .name }}
             persistentVolumeClaim:
-              claimName: {{ include "generic-service.name" $ }}-{{ .name }}
+              claimName: {{ include "generic-cronjob.name" $ }}-{{ .name }}
           {{- end }}
           {{- end }}
           {{- with .Values.nodeSelector }}
