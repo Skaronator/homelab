@@ -28,8 +28,8 @@ configMaps:
   subPath: config.yaml
   content:
     extractor:
-      base-directory: /downloads
-      archive: /downloads/.gallery-dl/{username}_{service}.db
+      base-directory: /downloads/Person
+      archive: /downloads/Person/.gallery-dl/{username}_{service}.db
       archive-event: ["file", "skip"]
       retries: 30
       sleep-429: 120
