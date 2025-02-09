@@ -9,8 +9,6 @@ ports:
 - name: main
   containerPort: 9999
 
-hostNetwork: true
-
 ingress:
   host: stash.wagner.gg
 
