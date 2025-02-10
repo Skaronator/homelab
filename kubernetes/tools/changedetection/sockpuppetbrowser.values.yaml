@@ -1,6 +1,6 @@
 image:
   repository: "dgtlmoon/sockpuppetbrowser"
-  tag: "latest@sha256:e284d1b3bcb73f3603d4390ccb533d7d421b2dc9c08cef316d6ef0744daff229"
+  tag: "latest@sha256:e6495d61d5fd8853bc11f60c467ee608ebfd222e15f763a641d3661bd56aeaf9"
 
 envs:
 - SCREEN_WIDTH: 1920
