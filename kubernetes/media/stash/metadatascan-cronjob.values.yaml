@@ -1,4 +1,4 @@
-schedule: "0 * * * *"
+schedule: "0 6 * * *"
 
 envs:
 - GRAPHQL_QUERY: >
