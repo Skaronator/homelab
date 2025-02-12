@@ -85,7 +85,7 @@ volumes: []
 envsubst:
   image:
     repository: nixery.dev/shell/envsubst
-    tag: "latest@sha256:bcc9954caa1514d59a9ace404070ccd74e3f78c96c826e5ec2ed7169f41ae45f"
+    tag: "latest@sha256:e9e8eb6db935f0210d8e68f8b916022a27b6d8e21394bb51c37ffe2375b0e50d"
   files: []
   # - src:
   #   dest:
