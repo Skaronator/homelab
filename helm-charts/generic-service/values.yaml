@@ -85,7 +85,7 @@ volumes: []
 envsubst:
   image:
     repository: nixery.dev/shell/envsubst
-    tag: "latest@sha256:bcc9954caa1514d59a9ace404070ccd74e3f78c96c826e5ec2ed7169f41ae45f"
+    tag: "latest@sha256:e9e8eb6db935f0210d8e68f8b916022a27b6d8e21394bb51c37ffe2375b0e50d"
   files: []
   # - src:
   #   dest:
@@ -100,7 +100,7 @@ database:
   mariadb:
     image:
       repository: mariadb
-      tag: "11.6.2@sha256:a9547599cd87d7242435aea6fda22a9d83e2c06d16c658ef70d2868b3d3f6a80"
+      tag: "11.6.2@sha256:bfb1298c06cd15f446f1c59600b3a856dae861705d1a2bd2a00edbd6c74ba748"
     backup:
       schedule: "0 4 * * *"
       image:
@@ -109,7 +109,7 @@ database:
   postgresql:
     image:
       repository: postgres
-      tag: "16.6@sha256:c965017e1d29eb03e18a11abc25f5e3cd78cb5ac799d495922264b8489d5a3a1"
+      tag: "16.6@sha256:557fea37a744d5f4c8faab304b0a90858b53ab119735a88c131fd19dab802f36"
     backup:
       schedule: "0 4 * * *"
       image:
