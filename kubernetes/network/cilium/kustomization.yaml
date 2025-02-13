@@ -8,7 +8,7 @@ resources:
 helmCharts:
 - repo: https://helm.cilium.io
   name: cilium
-  version: 1.17.0
+  version: 1.17.1
   includeCRDs: true
   releaseName: cilium
   valuesFile: values.yaml
