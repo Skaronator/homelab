@@ -15,7 +15,6 @@ k8sClientRateLimit:
 
 # Native, L2 direct routing.
 routingMode: native
-autoDirectNodeRoutes: true
 
 securityContext:
   capabilities:
