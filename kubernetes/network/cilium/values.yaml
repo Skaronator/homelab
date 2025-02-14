@@ -14,8 +14,7 @@ k8sClientRateLimit:
   burst: 30
 
 extraConfig:
-  multicast-enabled: "true"
-  enable-bpf-masquerade: "false"
+  enable-endpoint-routes: "true"
 
 securityContext:
   capabilities:
