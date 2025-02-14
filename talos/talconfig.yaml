@@ -11,10 +11,6 @@ clusterSvcNets:
 patches:
 - |-
   - op: add
-    path: /cluster/proxy
-    value:
-      disabled: true
-  - op: add
     path: /machine/network/nameservers
     value:
       - 192.168.0.2
