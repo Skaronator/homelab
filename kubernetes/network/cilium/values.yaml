@@ -13,8 +13,9 @@ k8sClientRateLimit:
   qps: 15
   burst: 30
 
-extraConfig:
-  enable-endpoint-routes: "true"
+# Native, L2 direct routing.
+routingMode: native
+autoDirectNodeRoutes: true
 
 securityContext:
   capabilities:
