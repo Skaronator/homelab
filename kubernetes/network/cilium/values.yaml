@@ -13,6 +13,9 @@ k8sClientRateLimit:
   qps: 15
   burst: 30
 
+extraConfig:
+  multicast-enabled: "true"
+
 securityContext:
   capabilities:
     ciliumAgent: 
