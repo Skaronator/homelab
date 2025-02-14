@@ -45,8 +45,6 @@ applicationsets:
           exclude: true
         - path: "kubernetes/media/td*"
           exclude: true
-        - path: "kubernetes/media/tr*"
-          exclude: true
     template:
       metadata:
         name: '{{path[1]}}-{{path.basenameNormalized}}'
