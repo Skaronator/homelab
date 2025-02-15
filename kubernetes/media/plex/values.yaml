@@ -47,3 +47,11 @@ volumes:
     storageClass: multimedia
     containerPath: /srv/multimedia
     readOnly: true
+  - name: music
+    storageClass: music
+    containerPath: /srv/music
+    readOnly: true
+  - name: pictures
+    storageClass: pictures
+    containerPath: /srv/pictures
+    readOnly: true
