@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "database.labels" . | nindent 4 }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   revisionHistoryLimit: 2
   strategy:
     type: Recreate
