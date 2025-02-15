@@ -1,11 +1,18 @@
 deployNodeAgent: true
+snapshotsEnabled: false
+
+initContainers:
+  - name: velero-plugin-for-aws
+    image: velero/velero-plugin-for-aws:v1.11.1
+    volumeMounts:
+      - mountPath: /target
+        name: plugins
 
 configuration:
   backupStorageLocation:
-    - name: backblaze-b2
+    - name: backblaze
       provider: aws
       bucket: skn-velero
-      default: true
       credential:
         name: velero-backblaze
         key: credentials
