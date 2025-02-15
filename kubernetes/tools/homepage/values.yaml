@@ -30,8 +30,13 @@ config:
         icon: adguard-home.svg
         weight: 2
   - Server:
+    - Unraid:
+        description: Unraid Server
+        href: https://192.168.0.5
+        icon: unraid.svg
+        weight: 10
     - Portainer:
-        description: Container Management
+        description: Pi Container Management
         href: https://192.168.0.2:9443
         icon: portainer.svg
         weight: 30
