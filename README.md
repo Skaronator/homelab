@@ -24,15 +24,15 @@ This project utilizes Infrastructure as Code and GitOps to automate the provisio
 After nearly a decade with Debian and ZFS, I’ve switched to Unraid for a more power-efficient storage solution.
 Unlike ZFS, Unraid allows idle disks to spin down, significantly reducing energy consumption while still providing over 100 TB of RAID storage.
 
-My setup consists of a single Unraid server that runs Kubernetes in Talos VMs.
+My setup consists of a single Unraid server that runs Kubernetes in [Talos Linux](https://www.talos.dev) VMs.
 
 ```mermaid
 flowchart TD
  subgraph s1["Unraid Server"]
         nfs["Unraid NFS"]
         subgraph vm["Unraid VM"]
-            cp1["Talos Kubernetes Control Plane 1"]
-            w1["Talos Kubernetes Worker 1"]
+            cp1["Talos Kubernetes<br/>Control Plane 1"]
+            w1["Talos Kubernetes<br/>Worker 1"]
         end
         nfs <--> cp1 & w1
   end
