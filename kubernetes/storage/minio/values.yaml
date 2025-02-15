@@ -33,5 +33,3 @@ volumes:
   - name: data
     storageClass: container-data
     containerPath: /data
-
-replicas: 0
