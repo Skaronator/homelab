@@ -2,10 +2,10 @@ image:
   repository: "ghcr.io/dgtlmoon/changedetection.io"
   tag: "0.49.1@sha256:c48b0b83d4af7c7e60aef37adcd381c8a8ecb3ec613b19ddcfca880f95a7d004"
 
-hostPaths:
-- name: config
-  hostPath: /srv/nvme/container-data/atuin/config
-  containerPath: /datastore
+volumes:
+  - name: data
+    storageClass: container-data
+    containerPath: /datastore
 
 ports: 
 - name: main
