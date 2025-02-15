@@ -73,11 +73,6 @@ config:
     theme: dark
     title: Homelab
   widgets:
-  - resources:
-      backend: resources
-      cpu: true
-      expanded: true
-      memory: true
   - search:
       provider: google
       target: _blank
