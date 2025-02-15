@@ -15,7 +15,7 @@ fi
 
 echo "Password: $password"
 
-export SEALED_SECRETS_CONTROLLER_NAMESPACE="ops"
+export SEALED_SECRETS_CONTROLLER_NAMESPACE="sealed-secrets"
 export SEALED_SECRETS_CONTROLLER_NAME="sealed-secrets"
 export SEALED_SECRETS_SCOPE="cluster-wide"
 
