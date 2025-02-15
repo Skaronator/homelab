@@ -2,10 +2,10 @@ image:
   repository: "ghcr.io/justarchinet/archisteamfarm"
   tag: "6.1.3.1@sha256:d8c452167886087174a582508969c1ba76e172c6b7576bdf3c42c79e01b5ad09"
 
-hostPaths:
-- name: data
-  hostPath: /srv/nvme/container-data/archisteamfarm
-  containerPath: /app/config
+volumes:
+  - name: data
+    storageClass: container-data
+    containerPath: /app/config
 
 ports: 
 - name: main
