@@ -1,1 +1,15 @@
 deployNodeAgent: true
+
+configuration:
+  backupStorageLocation:
+    - name: backblaze-b2
+      provider: aws
+      bucket: skn-velero
+      default: true
+      credential:
+        name: velero-backblaze
+        key: credentials
+      config:
+        region: eu-central-003
+        s3Url: https://s3.eu-central-003.backblazeb2.com
+        s3ForcePathStyle: "true"
