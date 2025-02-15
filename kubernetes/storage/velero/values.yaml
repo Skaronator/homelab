@@ -1,8 +1,16 @@
 deployNodeAgent: true
+snapshotsEnabled: false
+
+initContainers:
+  - name: velero-plugin-for-aws
+    image: velero/velero-plugin-for-aws:v1.11.1
+    volumeMounts:
+      - mountPath: /target
+        name: plugins
 
 configuration:
   backupStorageLocation:
-    - name: backblaze-b2
+    - name: backblaze
       provider: aws
       bucket: skn-velero
       default: true
@@ -13,3 +21,11 @@ configuration:
         region: eu-central-003
         s3Url: https://s3.eu-central-003.backblazeb2.com
         s3ForcePathStyle: "true"
+
+schedules:
+  main:
+    schedule: "0 1 * * *"
+    template:
+      ttl: "48h"
+      storageLocation: backblaze
+      includedClusterScopedResources: ["*"]
