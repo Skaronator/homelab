@@ -30,10 +30,10 @@ volumes:
     storageClass: container-data
     containerPath: /root/.stash
   - name: blobs
-    storageClass: container-data
+    storageClass: scrap-data
     containerPath: /blobs
   - name: generated
-    storageClass: container-data
+    storageClass: scrap-data
     containerPath: /generated
   - name: cache
     storageClass: scrap-data
