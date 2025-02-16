@@ -81,6 +81,7 @@ volumes: []
   #   storageClass: ""
   #   containerPath: ""
   #   readOnly: false
+  #   skipBackup: false
 
 envsubst:
   image:

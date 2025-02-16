@@ -82,3 +82,15 @@ tcpSocket:
 {{- end }}
 {{- end }}
 {{- end }}
+
+{{- define "generic-service.excludedVolumes" -}}
+{{- $excludes := list -}}
+{{- range .Values.volumes -}}
+  {{- if .skipBackup -}}
+    {{- $excludes = append $excludes .name -}}
+  {{- end -}}
+{{- end -}}
+{{- if $excludes -}}
+backup.velero.io/backup-volumes-excludes: {{ join "," $excludes | quote }}
+{{- end -}}
+{{- end -}}
