@@ -33,7 +33,7 @@ schedules:
           app.kubernetes.io/name: velero
           app.kubernetes.io/instance: velero
           app.kubernetes.io/managed-by: Helm
-      ttl: "48h"
+      ttl: "720h"
       storageLocation: backblaze
       includedClusterScopedResources: ["*"]
       resourcePolicy:
