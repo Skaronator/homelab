@@ -36,3 +36,6 @@ schedules:
       ttl: "48h"
       storageLocation: backblaze
       includedClusterScopedResources: ["*"]
+      resourcePolicy:
+        kind: ConfigMap
+        name: volume-backup-policy

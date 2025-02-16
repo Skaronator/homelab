@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - base/repo-secrets.yaml
   - base/s3-secrets.yaml
+  - base/volume-policies.yaml
 
 helmCharts:
 - repo: https://vmware-tanzu.github.io/helm-charts
