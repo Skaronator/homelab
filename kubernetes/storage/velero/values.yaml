@@ -21,6 +21,8 @@ configuration:
         region: eu-central-003
         s3Url: https://s3.eu-central-003.backblazeb2.com
         s3ForcePathStyle: "true"
+        # Bugfix for Backblaze b2 https://github.com/vmware-tanzu/velero/issues/7534
+        checksumAlgorithm: ""
 
 schedules:
   main:
