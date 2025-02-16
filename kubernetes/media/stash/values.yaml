@@ -32,11 +32,9 @@ volumes:
   - name: blobs
     storageClass: container-data
     containerPath: /blobs
-    skipBackup: true
   - name: generated
     storageClass: container-data
     containerPath: /generated
-    skipBackup: true
   - name: cache
     storageClass: scrap-data
     containerPath: /cache
