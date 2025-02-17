@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/hotio/lidarr"
-  tag: "release-2.9.6.4552@sha256:10b65910acc02fc5064b952ed7991646a0709f7563839cc6ccfbf225c3a0cc42"
+  tag: "release-2.9.6.4552@sha256:bb2a3de0d0ab05e25d012573505f674df182d5487916dfd76611a2f8685ea319"
 
 podLabels:
   zfs-encryption: "true"
