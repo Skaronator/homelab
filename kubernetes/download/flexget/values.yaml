@@ -9,9 +9,10 @@ ports:
 ingress:
   host: flexget.wagner.gg
 
-hostPaths:
+
+volumes:
 - name: config
-  hostPath: /srv/nvme/container-data/flexget
+  storageClass: container-data
   containerPath: /config
 
 homepage:
