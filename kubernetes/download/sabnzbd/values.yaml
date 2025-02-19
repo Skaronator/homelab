@@ -13,12 +13,12 @@ envs:
 - PUID: 5000
 - PGID: 5000
 
-hostPaths:
+volumes:
 - name: config
-  hostPath: /srv/nvme/container-data/sabnzbd
+  storageClass: container-data
   containerPath: /config
 - name: downloads
-  hostPath: /srv/downloads/Usenet
+  storageClass: downloads-usenet
   containerPath: /downloads/usenet
 
 homepage:

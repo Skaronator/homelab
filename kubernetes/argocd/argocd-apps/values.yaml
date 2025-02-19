@@ -11,8 +11,6 @@ applicationsets:
           exclude: true
         - path: "kubernetes/download/f*"
           exclude: true
-        - path: "kubernetes/download/s*"
-          exclude: true
         - path: "kubernetes/download/t*"
           exclude: true
         - path: "kubernetes/tools/at*"
