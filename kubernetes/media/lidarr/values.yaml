@@ -13,8 +13,8 @@ ingress:
   host: lidarr.wagner.gg
 
 envs:
-- PUID: 5000
-- PGID: 5000
+- PUID: 1000
+- PGID: 100
 
 volumes:
 - name: config
