@@ -13,7 +13,6 @@ envs:
 - PUID: 5000
 - PGID: 5000
 
-
 volumes:
 - name: config
   storageClass: container-data
