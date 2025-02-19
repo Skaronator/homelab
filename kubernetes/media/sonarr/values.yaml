@@ -2,9 +2,6 @@ image:
   repository: "ghcr.io/hotio/sonarr"
   tag: "release-4.0.13.2932@sha256:c554d289078bb89474c18c818e782ccfcad58edd7f7b25e32c4cabe4257b82ef"
 
-podLabels:
-  zfs-encryption: "true"
-
 ports: 
 - name: main
   containerPort: 8989
@@ -16,18 +13,19 @@ envs:
 - PUID: 5000
 - PGID: 5000
 
-hostPaths:
+
+volumes:
 - name: config
-  hostPath: /srv/nvme/container-data/sonarr
+  storageClass: container-data
   containerPath: /config
 - name: downloads-torrent
-  hostPath: /srv/downloads/Torrent
+  storageClass: downloads-torrent
   containerPath: /downloads/torrent
 - name: downloads-usenet
-  hostPath: /srv/downloads/Usenet
+  storageClass: downloads-usenet
   containerPath: /downloads/usenet
 - name: series
-  hostPath: /srv/hdd/multimedia/Serien-Sonarr
+  storageClass: multimedia-sonarr
   containerPath: /series
 
 homepage:

@@ -4,6 +4,8 @@ kind: Kustomization
 resources:
 - base/container-data.yaml
 - base/multimedia.yaml
+- base/multimedia-radarr.yaml
+- base/multimedia-sonarr.yaml
 - base/pp.yaml
 - base/scrap-data.yaml
 - base/pictures.yaml
