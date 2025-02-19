@@ -7,15 +7,11 @@ applicationsets:
         revision: main
         directories:
         - path: "kubernetes/**/*"
-        - path: "kubernetes/.*/**"
-          exclude: true
         - path: "kubernetes/tools/at*"
           exclude: true
         - path: "kubernetes/tools/f*"
           exclude: true
         - path: "kubernetes/tools/m*"
-          exclude: true
-        - path: "kubernetes/tools/p*"
           exclude: true
         - path: "kubernetes/storage/r*"
           exclude: true

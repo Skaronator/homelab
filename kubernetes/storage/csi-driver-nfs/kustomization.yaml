@@ -9,6 +9,7 @@ resources:
 - base/pictures.yaml
 - base/music.yaml
 - base/downloads.yaml
+- base/niklas.yaml
 
 helmCharts:
 - repo: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
