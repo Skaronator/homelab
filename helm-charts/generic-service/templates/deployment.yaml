@@ -137,6 +137,9 @@ spec:
         {{- range .Values.volumes }}
         - name: pvc-{{ .name }}
           mountPath: {{ .containerPath | quote }}
+          {{- with .subPath }}
+          subPath: {{ . | quote }}
+          {{- end }}
           readOnly: {{ .readOnly | default false }}
         {{- end }}
         {{- end -}}

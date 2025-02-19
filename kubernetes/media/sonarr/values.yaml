@@ -25,7 +25,8 @@ volumes:
   storageClass: downloads-usenet
   containerPath: /downloads/usenet
 - name: series
-  storageClass: multimedia-sonarr
+  storageClass: multimedia
+  subPath: Serien-Sonarr
   containerPath: /series
 
 homepage:

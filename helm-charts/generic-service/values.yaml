@@ -79,6 +79,7 @@ configMaps: []
 volumes: []
   # - name: ""
   #   storageClass: ""
+  #   subPath: ""
   #   containerPath: ""
   #   readOnly: false
 
