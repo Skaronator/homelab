@@ -19,10 +19,12 @@ volumes:
   storageClass: container-data
   containerPath: /config
 - name: downloads-torrent
-  storageClass: downloads-torrent
+  storageClass: downloads
+  subPath: Torrent
   containerPath: /downloads/torrent
 - name: downloads-usenet
-  storageClass: downloads-usenet
+  storageClass: downloads
+  subPath: Usenet
   containerPath: /downloads/usenet
 - name: series
   storageClass: multimedia

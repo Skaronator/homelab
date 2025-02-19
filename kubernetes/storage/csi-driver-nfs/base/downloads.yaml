@@ -1,11 +1,11 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: multimedia-radarr
+  name: downloads
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 192.168.0.5
-  share: /mnt/user/multimedia/Filme-Radarr
+  share: /mnt/user/downloads/
   subDir: /
   mountPermissions: "0777"
   onDelete: retain
