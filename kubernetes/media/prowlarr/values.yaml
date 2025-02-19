@@ -13,10 +13,10 @@ envs:
 - PUID: 5000
 - PGID: 5000
 
-hostPaths:
-- name: config
-  hostPath: /srv/nvme/container-data/prowlarr
-  containerPath: /config
+volumes:
+  - name: config
+    storageClass: container-data
+    containerPath: /config
 
 homepage:
   name: Prowlarr
