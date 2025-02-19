@@ -9,8 +9,6 @@ applicationsets:
         - path: "kubernetes/**/*"
         - path: "kubernetes/.*/**"
           exclude: true
-        - path: "kubernetes/download/t*"
-          exclude: true
         - path: "kubernetes/tools/at*"
           exclude: true
         - path: "kubernetes/tools/f*"

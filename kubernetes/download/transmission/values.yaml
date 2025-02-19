@@ -2,15 +2,16 @@ image:
   repository: "haugene/transmission-openvpn"
   tag: "5.3.1@sha256:a128b49e29379895c5815e8bea3c1b5eb42ccbef4ab9e5109a72b97d8fd7c0b0"
 
-hostPaths:
-- name: data
-  hostPath: /srv/nvme/container-data/transmission
+volumes:
+- name: config
+  storageClass: container-data
   containerPath: /config/transmission-home
 - name: vpn
-  hostPath: /srv/nvme/container-data/vpn
+  storageClass: container-data
   containerPath: /etc/openvpn/custom
 - name: downloads
-  hostPath: /srv/downloads/Torrent
+  storageClass: downloads
+  subPath: Torrent
   containerPath: /downloads/torrent
 
 ports: 
