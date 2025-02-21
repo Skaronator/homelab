@@ -2,14 +2,18 @@ image:
   repository: "ghcr.io/jef/streetmerchant"
   tag: "3.11.0@sha256:03acd5697521c515aeb82e0344d9dc6bc720f60f800b6098fcc9a2e8743564fc"
 
-health:
-  enabled: false
+ports: 
+- name: main
+  containerPort: 8080
 
 envs:
-- SHOW_ONLY_COUNTRY: DE
+- LOG_LEVEL: debug
+- STORES: nvidia-de,mediamarkt,medimax,galaxus,futurex,expert,euronics-de,equippr,cyberport,computeruniverse,caseking,asus-de,arlt,amazon-de,amazon-de-warehouse,alternate-de,acompc,notebooksbilliger,mindfactory,otto,pcking,proshop-de,saturn,spielegrotte
 - SHOW_ONLY_SERIES: 5090
+# - MAX_PRICE_SERIES_5090: 2500
 - SMTP_ADDRESS: smtp.migadu.com
 - SMTP_PORT: 587
+- WEB_PORT: 8080
 
 secretEnvs:
 - EMAIL_TO: AgC2ILVUACaDisOaJ2jdsoCvvMhH0jARHENxYFCWRIbgVRWIAsulteoiql0ZKQ3ybPgU5dCLGGXpVcAaABFGgiXC/BM1Pbrx/8jqebpVzyUMzP4TzQJTbLbic+gOIK9TgwPMbhXBEyWL0hWCVaohYxrYkIk/b/D03C5D0oZvak+d60niLyq1sdRUdvnvJwxIx+ujYS2eWS5XprMwfWCzFGEabxlu4zzMSBgrp5Almdxw8qJAKiaFbee5Ig+/vaI7SemrJsQu6fq68KaYeVZvvaimxaMB0nKUNoNt+D8cgZGHC+yZTcSAFNQrnPS/rerHRJh8jOY/JLaamkP97uZqN1N4Aiq2gSJJah4OOlqtZWxhPWKpZ15ipK1yBl8tOjgvBmNCoFPDTW/eaUXdqwlUoQ5qwhxAP6ABWBgYEnGijd3yilCICK7Qp+A+y+m+/qcWNvi+3/Nu2FlicCuvuF6Mz5tEvpr0IpxVAw+q5FnzfdLtrG9akLD7HTo9tnogcEjn6UE+DS9GdTLcRiZWuHtI1Wqpql/BqhfFxN1gZT2V3MnNeDYYlMgbIIutDJ2xk/SiOgiDhZqCXq+iyeXrnuF3IY/vywtjFCdzj0QBypNigONpUW9geLn7YB6ZBc8qfaE9cMFPVeGWYtwgahIrDEYE7W7tRfLdnWrd53zdyATLdPsFe/OaxtoZBLzEU3a7Za1lYhCfMJan4aAY9i+bJhHg4VzU
