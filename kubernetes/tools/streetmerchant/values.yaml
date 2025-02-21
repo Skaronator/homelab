@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/jef/streetmerchant"
-  tag: "3.11.0"
+  tag: "3.11.0@sha256:03acd5697521c515aeb82e0344d9dc6bc720f60f800b6098fcc9a2e8743564fc"
 
 health:
   enabled: false
