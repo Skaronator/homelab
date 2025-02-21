@@ -31,6 +31,8 @@ service:
 
 envs:
 - ADVERTISE_IP: "http://192.168.0.241:32400/"
+- PLEX_UID: 1001
+- PLEX_GID: 100
 
 resources:
   limits:
