@@ -3,8 +3,14 @@ kind: Kustomization
 
 resources:
   - base/secret.yaml
-  - base/multimedia-smb.yaml
-  - base/container-data-smb.yaml
+  - base/container-data.yaml
+  - base/multimedia.yaml
+  - base/pp.yaml
+  - base/scrap-data.yaml
+  - base/pictures.yaml
+  - base/music.yaml
+  - base/downloads.yaml
+  - base/niklas.yaml
 
 helmCharts:
 - repo: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
