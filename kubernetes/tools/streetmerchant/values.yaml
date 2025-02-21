@@ -6,7 +6,8 @@ health:
   enabled: false
 
 envs:
-- SHOW_ONLY_COUNTRY: de
+- SHOW_ONLY_COUNTRY: DE
+- SHOW_ONLY_SERIES: 5090
 - SMTP_ADDRESS: smtp.migadu.com
 - SMTP_PORT: 587
 
