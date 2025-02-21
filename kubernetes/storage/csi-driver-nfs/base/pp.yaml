@@ -12,4 +12,6 @@ parameters:
 reclaimPolicy: Retain
 volumeBindingMode: Immediate
 mountOptions:
-  - nfsvers=4.1
+  - nfsvers=4.2
+  - noatime
+  - nodiratime
