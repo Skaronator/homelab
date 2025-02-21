@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - base/secret.yaml
+  - base/multimedia-smb.yaml
+  - base/container-data-smb.yaml
+
+helmCharts:
+- repo: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+  name: csi-driver-smb
+  version: v1.17.0
+  releaseName: csi-driver-smb
+  valuesFile: values.yaml
