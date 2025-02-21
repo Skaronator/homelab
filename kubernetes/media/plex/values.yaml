@@ -44,7 +44,7 @@ volumes:
     storageClass: scrap-data
     containerPath: /transcode
   - name: multimedia
-    storageClass: multimedia
+    storageClass: multimedia-smb
     containerPath: /srv/multimedia
     readOnly: true
   - name: music
