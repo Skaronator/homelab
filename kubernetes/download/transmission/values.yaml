@@ -35,7 +35,7 @@ homepage:
   weight: 2
 
 envs:
-- PUID: 1000
+- PUID: 1001
 - PGID: 100
 - GLOBAL_APPLY_PERMISSIONS: false
 - OPENVPN_PROVIDER: custom

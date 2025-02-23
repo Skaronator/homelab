@@ -22,7 +22,7 @@ homepage:
   weight: 45
 
 envs:
-- PUID: 1000
+- PUID: 1001
 - PGID: 100
 - UMASK_SET: 002
 - serverIP: 0.0.0.0

@@ -22,7 +22,7 @@ ingress:
   host: syncthing.wagner.gg
 
 envs:
-- PUID: 1000
+- PUID: 1001
 - PGID: 100
 
 homepage:
