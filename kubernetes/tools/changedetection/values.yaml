@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/dgtlmoon/changedetection.io"
-  tag: "0.49.4@sha256:42e81c2aa97593c52c9a085df9100c38606a0f1387bd30cd9907df0be640d266"
+  tag: "0.49.6@sha256:44dc8854a1e114c30aed0263778043c5d52dfbc98e1dee3b41c1b4584dad08f6"
 
 volumes:
   - name: data
