@@ -3,7 +3,7 @@ snapshotsEnabled: false
 
 initContainers:
   - name: velero-plugin-for-aws
-    image: velero/velero-plugin-for-aws:v1.11.1@sha256:3b0c402e0d55eb797a7ebe1f2525f18bdcdca8ee826680cd2d7cf657071e9d58
+    image: velero/velero-plugin-for-aws:v1.12.0@sha256:c648365557865767366eb6597ebebf722d508dfbb1c163ca1ffd848ecf1c6dfc
     volumeMounts:
       - mountPath: /target
         name: plugins
