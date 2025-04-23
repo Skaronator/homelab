@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/hotio/radarr"
-  tag: "release-5.21.1.9799@sha256:0faef1bbc02538933ebb1a16738151bcdb50eb3275be6a6ff1625851cbacc4e9"
+  tag: "release-5.22.4.9896@sha256:873ee80721f2751275ef77c83224ba2ed59654d4ba07e81c219c87e28a4863ed"
 
 podLabels:
   zfs-encryption: "true"
