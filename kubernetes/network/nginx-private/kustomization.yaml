@@ -4,7 +4,7 @@ kind: Kustomization
 helmCharts:
 - repo: https://kubernetes.github.io/ingress-nginx
   name: ingress-nginx
-  version: 4.12.1
+  version: 4.12.2
   releaseName: nginx-private
   valuesFile: values.yaml
   namespace: network
