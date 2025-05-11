@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/hotio/sonarr"
-  tag: "release-4.0.14.2939@sha256:dca933b8668c9244a452562695669f824ac5752575dacd927b5aade23a083f9a"
+  tag: "release-4.0.14.2939@sha256:a026a293876d82c3f0dfb6d5a210bec6a15587ab88ec246acb94ee51b25cedd9"
 
 ports: 
 - name: main
