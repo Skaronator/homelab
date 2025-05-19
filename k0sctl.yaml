@@ -1,0 +1,21 @@
+apiVersion: k0sctl.k0sproject.io/v1beta1
+kind: Cluster
+metadata:
+  name: tardis
+spec:
+  k0s:
+    version: v1.32.4+k0s.0
+    config:
+      spec:
+        network:
+          podCIDR: 10.244.0.0/16
+          serviceCIDR: 10.96.0.0/12
+        telemetry:
+          enabled: false
+  hosts:
+  - ssh:
+      address: 192.168.0.7
+      user: root
+      keyPath: ~/.ssh/id_ed25519
+    role: controller+worker
+    noTaints: true
