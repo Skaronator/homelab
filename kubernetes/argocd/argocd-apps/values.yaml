@@ -9,8 +9,6 @@ applicationsets:
         - path: "kubernetes/**/*"
         - path: "kubernetes/download/**"
           exclude: true
-        - path: "kubernetes/intel-quicksync/**"
-          exclude: true
         - path: "kubernetes/media/**"
           exclude: true
         - path: "kubernetes/network/rathole"
