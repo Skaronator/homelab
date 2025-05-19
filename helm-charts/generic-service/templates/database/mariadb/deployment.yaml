@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "database.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: 1
   revisionHistoryLimit: 2
   strategy:
     type: Recreate
@@ -72,8 +72,9 @@ spec:
           mountPath: /var/lib/mysql
       volumes:
       - name: data
-        persistentVolumeClaim:
-          claimName: {{ include "database.name" . }}
+        hostPath:
+          path: {{ .Values.database.hostPath | required "database.hostPath is required!" | quote }}
+          type: DirectoryOrCreate
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

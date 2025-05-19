@@ -34,7 +34,7 @@ service:
 
 health:
   enabled: true
-  startupProbeFailureThreshold: 60
+  startupProbeSeconds: 60
   port: main
   type: HTTP
   path: /
@@ -76,12 +76,12 @@ configMaps: []
 #   subPath: ""
 #   content: ""
 
-volumes: []
-  # - name: ""
-  #   storageClass: ""
-  #   subPath: ""
-  #   containerPath: ""
-  #   readOnly: false
+hostPaths: []
+# - name: ""
+#   hostPath: ""
+#   containerPath: ""
+#   readOnly: false
+#   type: "DirectoryOrCreate"
 
 envsubst:
   image:

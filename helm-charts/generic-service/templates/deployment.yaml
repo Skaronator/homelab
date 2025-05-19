@@ -46,8 +46,31 @@ spec:
         options:
         - name: ndots
           value: "1"
-    {{- if or .Values.database.enabled .Values.envsubst.files }}
+    {{- if or .Values.hostPaths .Values.database.enabled .Values.envsubst.files }}
       initContainers:
+      {{- if .Values.hostPaths }}
+      - name: prepare-storage
+        image: "{{ .Values.helper.image.repository }}:{{ .Values.helper.image.tag }}"
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0
+        command:
+        - /bin/sh
+        args:
+        - -c
+        - |
+          set -ex;
+          {{- range .Values.hostPaths }}
+          {{- if not (has .type (list "CharDevice")) }}
+          chmod 777 {{ .containerPath | quote }};
+          {{- end }}
+          {{- end }}
+        volumeMounts:
+        {{- range .Values.hostPaths }}
+        - name: {{ .name }}
+          mountPath: {{ .containerPath | quote }}
+        {{- end }}
+        {{- end }}
       {{- if .Values.database.enabled }}
       - name: wait-for-db
         image: "{{ .Values.helper.image.repository }}:{{ .Values.helper.image.tag }}"
@@ -114,17 +137,16 @@ spec:
       {{- if and .Values.ports .Values.health.enabled }}
         startupProbe:
           {{- include "generic-service.podHealthCheck" . | indent 10 }}
-          failureThreshold: {{ .Values.health.startupProbeFailureThreshold }}
+          failureThreshold: {{ .Values.health.startupProbeSeconds }}
           periodSeconds: 1
         livenessProbe:
           {{- include "generic-service.podHealthCheck" . | indent 10 }}
-          failureThreshold: 10
         readinessProbe:
           {{- include "generic-service.podHealthCheck" . | indent 10 }}
       {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
-        {{- if or .Values.configMaps .Values.envsubst.files .Values.volumes }}
+        {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files }}
         volumeMounts:
         {{- if .Values.envsubst.files }}
         - name: envsubst
@@ -135,16 +157,13 @@ spec:
           mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
           subPath: {{ .subPath | quote }}
         {{- end }}
-        {{- range .Values.volumes }}
-        - name: pvc-{{ .name }}
+        {{- range .Values.hostPaths }}
+        - name: {{ .name }}
           mountPath: {{ .containerPath | quote }}
-          {{- with .subPath }}
-          subPath: {{ . | quote }}
-          {{- end }}
           readOnly: {{ .readOnly | default false }}
         {{- end }}
         {{- end -}}
-      {{- if or .Values.configMaps .Values.envsubst.files .Values.volumes }}
+      {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files }}
       volumes:
       {{- if .Values.envsubst.files }}
       - name: envsubst
@@ -156,10 +175,11 @@ spec:
           name: {{ include "generic-service.name" $ }}
           defaultMode: {{ .defaultMode | default 0644 }}
       {{- end }}
-      {{- range .Values.volumes }}
-      - name: pvc-{{ .name }}
-        persistentVolumeClaim:
-          claimName: {{ include "generic-service.name" $ }}-{{ .name }}
+      {{- range .Values.hostPaths }}
+      - name: {{ .name }}
+        hostPath:
+          path: {{ .hostPath | quote }}
+          type: {{ .type | default "DirectoryOrCreate" }}
       {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}

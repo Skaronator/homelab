@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "database.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: 1
   revisionHistoryLimit: 2
   strategy:
     type: Recreate
@@ -24,11 +24,6 @@ spec:
         options:
         - name: ndots
           value: "1"
-      securityContext:
-        runAsNonRoot: true
-        fsGroup: 100
-        runAsUser: 1000
-        runAsGroup: 100
       containers:
       - name: {{ include "database.name" . }}
         image: "{{ .Values.database.postgresql.image.repository }}:{{ .Values.database.postgresql.image.tag }}"
@@ -65,8 +60,9 @@ spec:
           mountPath: /var/lib/postgresql/data
       volumes:
       - name: data
-        persistentVolumeClaim:
-          claimName: {{ include "database.name" . }}
+        hostPath:
+          path: {{ .Values.database.hostPath | required "database.hostPath is required!" | quote }}
+          type: DirectoryOrCreate
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
