@@ -13,7 +13,7 @@ applicationsets:
           exclude: true
         - path: "kubernetes/media/**"
           exclude: true
-        - path: "kubernetes/network/**"
+        - path: "kubernetes/network/rathole"
           exclude: true
         - path: "kubernetes/storage/**"
           exclude: true
