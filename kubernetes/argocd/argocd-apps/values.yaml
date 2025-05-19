@@ -7,21 +7,17 @@ applicationsets:
         revision: main
         directories:
         - path: "kubernetes/**/*"
-        - path: "kubernetes/tools/at*"
+        - path: "kubernetes/download/**"
           exclude: true
-        - path: "kubernetes/tools/f*"
+        - path: "kubernetes/intel-quicksync/**"
           exclude: true
-        - path: "kubernetes/tools/m*"
+        - path: "kubernetes/media/**"
           exclude: true
-        - path: "kubernetes/storage/r*"
+        - path: "kubernetes/network/**"
           exclude: true
-        - path: "kubernetes/storage/s*"
+        - path: "kubernetes/storage/**"
           exclude: true
-        - path: "kubernetes/media/k*"
-          exclude: true
-        - path: "kubernetes/media/recy*"
-          exclude: true
-        - path: "kubernetes/media/td*"
+        - path: "kubernetes/tools/**"
           exclude: true
     template:
       metadata:
