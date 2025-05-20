@@ -17,33 +17,33 @@ applicationsets:
           exclude: true
         - path: "kubernetes/storage/**"
           exclude: true
-        - path: "kubernetes/tools/archisteamfarm/**"
+        - path: "kubernetes/tools/archisteamfarm"
           exclude: true
-        - path: "kubernetes/tools/atuin/**"
+        - path: "kubernetes/tools/atuin"
           exclude: true
-        - path: "kubernetes/tools/changedetection/**"
+        - path: "kubernetes/tools/changedetection"
           exclude: true
-        - path: "kubernetes/tools/firefly/**"
+        - path: "kubernetes/tools/firefly"
           exclude: true
-        - path: "kubernetes/tools/hass-screensaver/**"
+        - path: "kubernetes/tools/hass-screensaver"
           exclude: true
-        - path: "kubernetes/tools/home-assistant-forward/**"
+        - path: "kubernetes/tools/home-assistant-forward"
           exclude: true
-        - path: "kubernetes/tools/homepage/**"
+        - path: "kubernetes/tools/homepage"
           exclude: true
-        - path: "kubernetes/tools/minecraft/**"
+        - path: "kubernetes/tools/minecraft"
           exclude: true
-        - path: "kubernetes/tools/monero-node/**"
+        - path: "kubernetes/tools/monero-node"
           exclude: true
-        - path: "kubernetes/tools/openspeedtest/**"
+        - path: "kubernetes/tools/openspeedtest"
           exclude: true
-        - path: "kubernetes/tools/paperless-ngx/**"
+        - path: "kubernetes/tools/paperless-ngx"
           exclude: true
-        - path: "kubernetes/tools/reactive-resume/**"
+        - path: "kubernetes/tools/reactive-resume"
           exclude: true
-        - path: "kubernetes/tools/stirling/**"
+        - path: "kubernetes/tools/stirling"
           exclude: true
-        - path: "kubernetes/tools/vaultwarden/**"
+        - path: "kubernetes/tools/vaultwarden"
           exclude: true
     template:
       metadata:
