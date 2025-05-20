@@ -17,7 +17,33 @@ applicationsets:
           exclude: true
         - path: "kubernetes/storage/**"
           exclude: true
-        - path: "kubernetes/tools/**"
+        - path: "kubernetes/tools/archisteamfarm/**"
+          exclude: true
+        - path: "kubernetes/tools/atuin/**"
+          exclude: true
+        - path: "kubernetes/tools/changedetection/**"
+          exclude: true
+        - path: "kubernetes/tools/firefly/**"
+          exclude: true
+        - path: "kubernetes/tools/hass-screensaver/**"
+          exclude: true
+        - path: "kubernetes/tools/home-assistant-forward/**"
+          exclude: true
+        - path: "kubernetes/tools/homepage/**"
+          exclude: true
+        - path: "kubernetes/tools/minecraft/**"
+          exclude: true
+        - path: "kubernetes/tools/monero-node/**"
+          exclude: true
+        - path: "kubernetes/tools/openspeedtest/**"
+          exclude: true
+        - path: "kubernetes/tools/paperless-ngx/**"
+          exclude: true
+        - path: "kubernetes/tools/reactive-resume/**"
+          exclude: true
+        - path: "kubernetes/tools/stirling/**"
+          exclude: true
+        - path: "kubernetes/tools/vaultwarden/**"
           exclude: true
     template:
       metadata:
