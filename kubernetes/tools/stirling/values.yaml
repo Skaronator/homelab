@@ -2,10 +2,10 @@ image:
   repository: "ghcr.io/stirling-tools/s-pdf"
   tag: "0.46.2@sha256:396ca949b81198a65b9abfec38518fa44e871b1970dad9f9718ffd030eef9b92"
 
-volumes:
-  - name: configs
-    storageClass: container-data
-    containerPath: /configs
+hostPaths:
+- name: configs
+  hostPath: /mnt/container-data/stirling
+  containerPath: /configs
 
 ports: 
 - name: main

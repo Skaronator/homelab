@@ -33,13 +33,9 @@ applicationsets:
           exclude: true
         - path: "kubernetes/tools/monero-node"
           exclude: true
-        - path: "kubernetes/tools/openspeedtest"
-          exclude: true
         - path: "kubernetes/tools/paperless-ngx"
           exclude: true
         - path: "kubernetes/tools/reactive-resume"
-          exclude: true
-        - path: "kubernetes/tools/stirling"
           exclude: true
         - path: "kubernetes/tools/vaultwarden"
           exclude: true
