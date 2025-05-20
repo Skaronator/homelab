@@ -25,12 +25,6 @@ applicationsets:
           exclude: true
         - path: "kubernetes/tools/firefly"
           exclude: true
-        - path: "kubernetes/tools/hass-screensaver"
-          exclude: true
-        - path: "kubernetes/tools/home-assistant-forward"
-          exclude: true
-        - path: "kubernetes/tools/minecraft"
-          exclude: true
         - path: "kubernetes/tools/monero-node"
           exclude: true
         - path: "kubernetes/tools/paperless-ngx"
