@@ -3,12 +3,21 @@ kind: Service
 metadata:
   name: vaultwarden-forward
 spec:
-  type: ExternalName
-  externalName: 192.168.0.5
   ports:
     - port: 9432
       targetPort: 9432
       protocol: TCP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: vaultwarden-forward
+subsets:
+  - addresses:
+      - ip: 192.168.0.5
+    ports:
+      - port: 9432
+        protocol: TCP
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
