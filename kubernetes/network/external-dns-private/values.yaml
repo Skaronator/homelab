@@ -10,6 +10,8 @@ sources:
   - ingress
   - crd
 
+triggerLoopOnEvent: true
+
 provider:
   name: webhook
   webhook:
