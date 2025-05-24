@@ -90,3 +90,6 @@ enableRbac: true
 
 serviceAccount:
   create: true
+
+envs:
+  - HOMEPAGE_ALLOWED_HOSTS: home.wagner.gg
