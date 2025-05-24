@@ -11,9 +11,7 @@ applicationsets:
           exclude: true
         - path: "kubernetes/media/**"
           exclude: true
-        - path: "kubernetes/network/rathole"
-          exclude: true
-        - path: "kubernetes/network/external-dns-*"
+        - path: "kubernetes/network/external-dns-private"
           exclude: true
         - path: "kubernetes/storage/**"
           exclude: true
