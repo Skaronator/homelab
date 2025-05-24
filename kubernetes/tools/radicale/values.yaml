@@ -1,0 +1,26 @@
+image:
+  repository: "tomsquest/docker-radicale"
+  tag: "3.5.3.1"
+
+hostPaths:
+- name: config
+  hostPath: /mnt/container-data/radicale-config
+  containerPath: /config
+- name: data
+  hostPath: /mnt/container-data/radicale-data
+  containerPath: /data
+
+ports: 
+- name: main
+  containerPort: 5232
+
+ingress:
+  host: radicale.wagner.gg
+  public: true
+
+homepage:
+  name: Radicale
+  group: Organization
+  description: Lightweight CalDAV+CardDAV server
+  icon: radicale.png
+  weight: 30
