@@ -12,14 +12,16 @@
   "rebaseWhen": "conflicted",
   "prHourlyLimit": 0,
   "helm-values": {
-    "fileMatch": [
-      "(^|/|\\w+\\.)values\\.ya?ml$"
+    "managerFilePatterns": [
+      "/(^|/|\\w+\\.)values\\.ya?ml$/"
     ],
     "pinDigests": true
   },
   "packageRules": [
     {
-      "matchPackageNames": ["nixery.dev/shell/envsubst"],
+      "matchPackageNames": [
+        "nixery.dev/shell/envsubst"
+      ],
       "pinDigests": false
     },
     {
@@ -150,8 +152,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^k0sctl.yaml$"
+      "managerFilePatterns": [
+        "/^k0sctl.yaml$/"
       ],
       "matchStrings": [
         "\\s+version\\:(!?\\s)(?<currentValue>.*)\\n"
