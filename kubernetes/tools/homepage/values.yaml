@@ -32,7 +32,7 @@ config:
   - Server:
     - Unraid:
         description: Unraid Server
-        href: https://192.168.0.5
+        href: https://192.168.0.5:8443
         icon: unraid.svg
         weight: 10
     - Portainer:
