@@ -163,7 +163,9 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": ["^kubernetes/intel-quicksync/intel-quicksync/base/gpu-device\\.ya?ml$"],
+      "managerFilePatterns": [
+        "/^kubernetes/intel-quicksync/intel-quicksync/base/gpu-device.yaml$/"
+      ],
       "matchStrings": [
         "^\\s*image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\s*$"
       ],
