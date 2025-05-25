@@ -1,6 +1,6 @@
 ---
 clusterName: homelab
-talosVersion: v1.9.4
+talosVersion: v1.10.2
 endpoint: https://192.168.0.41:6443
 clusterPodNets:
   - 10.244.0.0/16
