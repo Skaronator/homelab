@@ -162,11 +162,23 @@
       "depNameTemplate": "k0sproject/k0s"
     },
     {
+      "customType": "regex",
       "managerFilePatterns": ["^kubernetes/intel-quicksync/intel-quicksync/base/gpu-device\\.ya?ml$"],
       "matchStrings": [
-        "^\\s*image:\\s*(!?\\s*)?(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\s*$"
+        "^\\s*image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\s*$"
       ],
       "datasourceTemplate": "docker"
+    },
+    {   
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^talos/talconfig.yaml$/"
+      ],
+      "matchStrings": [
+        "\\s+talosVersion\\:(!?\\s)(?<currentValue>.*)\\n"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "siderolabs/talos"
     }
   ]
 }
