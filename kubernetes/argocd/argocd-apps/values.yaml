@@ -9,8 +9,6 @@ applicationsets:
         - path: "kubernetes/**/*"
         - path: "kubernetes/download/**"
           exclude: true
-        - path: "kubernetes/media/**"
-          exclude: true
         - path: "kubernetes/storage/**"
           exclude: true
         - path: "kubernetes/tools/archisteamfarm"
@@ -28,6 +26,28 @@ applicationsets:
         - path: "kubernetes/tools/reactive-resume"
           exclude: true
         - path: "kubernetes/tools/vaultwarden"
+          exclude: true
+        - path: "kubernetes/media/kometa"
+          exclude: true
+        - path: "kubernetes/media/lidarr"
+          exclude: true
+        - path: "kubernetes/media/plex"
+          exclude: true
+        - path: "kubernetes/media/prowlarr"
+          exclude: true
+        - path: "kubernetes/media/radarr"
+          exclude: true
+        - path: "kubernetes/media/recyclarr"
+          exclude: true
+        - path: "kubernetes/media/sonarr"
+          exclude: true
+        - path: "kubernetes/media/stash"
+          exclude: true
+        - path: "kubernetes/media/tautulli"
+          exclude: true
+        - path: "kubernetes/media/tdarr"
+          exclude: true
+        - path: "kubernetes/media/trakt-backup"
           exclude: true
     template:
       metadata:
