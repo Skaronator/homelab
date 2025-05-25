@@ -160,6 +160,13 @@
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "k0sproject/k0s"
+    },
+    {
+      "managerFilePatterns": ["^kubernetes/intel-quicksync/intel-quicksync/base/gpu-device\\.ya?ml$"],
+      "matchStrings": [
+        "^\\s*image:\\s*(!?\\s*)?(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\s*$"
+      ],
+      "datasourceTemplate": "docker"
     }
   ]
 }
