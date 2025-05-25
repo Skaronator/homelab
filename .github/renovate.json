@@ -100,19 +100,6 @@
     },
     {
       "matchPackageNames": [
-        "ghcr.io/skaronator/devops-toolbox"
-      ],
-      "automerge": true
-    },
-    {
-      "matchPackageNames": [
-        "ghcr.io/home-assistant/home-assistant"
-      ],
-      "matchNewValue": "/^.+\\.0$/",
-      "automerge": false
-    },
-    {
-      "matchPackageNames": [
         "plexinc/pms-docker"
       ],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)\\-(?<revision>\\w+)$"
@@ -125,7 +112,8 @@
     },
     {
       "matchPackageNames": [
-        "k0sproject/k0s"
+        "k0sproject/k0s",
+        "siderolabs/talos"
       ],
       "assignees": [
         "Skaronator"
@@ -167,7 +155,7 @@
         "/^kubernetes/intel-quicksync/intel-quicksync/base/gpu-device.yaml$/"
       ],
       "matchStrings": [
-        "^\\s*image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\s*$"
+        "\\s+image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\n"
       ],
       "datasourceTemplate": "docker"
     },
