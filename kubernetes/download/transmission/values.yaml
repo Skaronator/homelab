@@ -1,6 +1,6 @@
 image:
   repository: "haugene/transmission-openvpn"
-  tag: "5.3.1@sha256:a128b49e29379895c5815e8bea3c1b5eb42ccbef4ab9e5109a72b97d8fd7c0b0"
+  tag: "5.3.2@sha256:ecc30da79114d801295fd10a5dbaf8640b19707d012fb55be0671ddbe0503037"
 
 volumes:
 - name: config
