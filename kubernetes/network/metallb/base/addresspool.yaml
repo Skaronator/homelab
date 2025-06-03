@@ -4,7 +4,8 @@ metadata:
   name: main-pool
 spec:
   addresses:
-  - 192.168.8.1-192.168.8.255
+    - 192.168.8.0/24
+  avoidBuggyIPs: true
 ---
 apiVersion: metallb.io/v1beta1
 kind: BFDProfile
