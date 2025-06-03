@@ -6,25 +6,24 @@ spec:
   addresses:
   - 192.168.0.250-192.168.0.255
 ---
-apiVersion: metallb.io/v1beta2
-kind: BGPPeer
-metadata:
-  name: unifi
-spec:
-  myASN: 65001
-  peerASN: 65000
-  peerAddress: 192.168.0.1
-  peerPort: 179
----
-apiVersion: metallb.io/v1beta1
-kind: BGPAdvertisement
-metadata:
-  name: main-pool
-spec:
-  ipAddressPools:
-    - main-pool
-  peers:
-    - unifi
-  nodeSelectors:
-    - matchLabels:
-        kubernetes.io/hostname: k0s-worker
+# apiVersion: metallb.io/v1beta2
+# kind: BGPPeer
+# metadata:
+#   name: unifi
+# spec:
+#   myASN: 65001
+#   peerASN: 65000
+#   peerAddress: 192.168.0.1
+# ---
+# apiVersion: metallb.io/v1beta1
+# kind: BGPAdvertisement
+# metadata:
+#   name: main-pool
+# spec:
+#   ipAddressPools:
+#     - main-pool
+#   peers:
+#     - unifi
+#   nodeSelectors:
+#     - matchLabels:
+#         kubernetes.io/hostname: k0s-worker
