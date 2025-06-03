@@ -6,11 +6,20 @@ spec:
   addresses:
   - 192.168.8.1-192.168.8.255
 ---
+apiVersion: metallb.io/v1beta1
+kind: BFDProfile
+metadata:
+  name: main
+spec:
+  receiveInterval: 100
+  transmitInterval: 100
+---
 apiVersion: metallb.io/v1beta2
 kind: BGPPeer
 metadata:
   name: unifi
 spec:
+  bfdProfile: main
   myASN: 65001
   peerASN: 65000
   peerAddress: 192.168.0.1
