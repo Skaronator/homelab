@@ -11,8 +11,8 @@ kind: BGPPeer
 metadata:
   name: unifi
 spec:
-  myASN: 64501
-  peerASN: 64500
+  myASN: 65001
+  peerASN: 65000
   peerAddress: 192.168.0.1
   peerPort: 179
   nodeSelectors:
