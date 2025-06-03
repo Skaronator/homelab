@@ -15,9 +15,6 @@ spec:
   peerASN: 65000
   peerAddress: 192.168.0.1
   peerPort: 179
-  nodeSelectors:
-    - matchLabels:
-        kubernetes.io/hostname: k0s-worker
 ---
 apiVersion: metallb.io/v1beta1
 kind: BGPAdvertisement
@@ -28,3 +25,6 @@ spec:
     - main-pool
   peers:
     - unifi
+  nodeSelectors:
+    - matchLabels:
+        kubernetes.io/hostname: k0s-worker
