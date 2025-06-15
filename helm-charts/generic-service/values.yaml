@@ -83,6 +83,11 @@ hostPaths: []
 #   readOnly: false
 #   type: "DirectoryOrCreate"
 
+emptyDirs: []
+
+# - name: ""
+#   containerPath: ""
+
 envsubst:
   image:
     repository: nixery.dev/shell/envsubst

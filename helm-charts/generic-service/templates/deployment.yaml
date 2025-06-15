@@ -146,7 +146,7 @@ spec:
       {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
-        {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files }}
+        {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files .Values.emptyDirs }}
         volumeMounts:
         {{- if .Values.envsubst.files }}
         - name: envsubst
@@ -157,13 +157,17 @@ spec:
           mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
           subPath: {{ .subPath | quote }}
         {{- end }}
+        {{- range .Values.emptyDirs }}
+        - name: emptydir-{{ .name }}
+          mountPath: {{ .containerPath | quote }}
+        {{- end }}
         {{- range .Values.hostPaths }}
         - name: {{ .name }}
           mountPath: {{ .containerPath | quote }}
           readOnly: {{ .readOnly | default false }}
         {{- end }}
         {{- end -}}
-      {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files }}
+      {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files .Values.emptyDirs }}
       volumes:
       {{- if .Values.envsubst.files }}
       - name: envsubst
@@ -174,6 +178,10 @@ spec:
         configMap:
           name: {{ include "generic-service.name" $ }}
           defaultMode: {{ .defaultMode | default 0644 }}
+      {{- end }}
+      {{- range .Values.emptyDirs }}
+      - name: emptydir-{{ .name }}
+        emptyDir: {}
       {{- end }}
       {{- range .Values.hostPaths }}
       - name: {{ .name }}
