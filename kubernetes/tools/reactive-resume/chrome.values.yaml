@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/browserless/chromium"
-  tag: "v2.32.0@sha256:1c7e90e7c30ced050d60bfac99aa21aa277d61d84be3c307e95b29cfadb0026a"
+  tag: "v2.32.1@sha256:cade7f4aca3e1a3af13aff2c55231305ec942fd08048c1c4d4dc265757091650"
 
 ports: 
 - name: main
