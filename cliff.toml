@@ -6,14 +6,22 @@ header = """
 # https://keats.github.io/tera/docs/#introduction
 body = """
 {% for group, commits in commits | group_by(attribute="group") %}
-    ## {{ group | striptags | trim | upper_first }}
-    {% for commit in commits | unique(attribute="message") %}
-        - {% if commit.scope %}*({{ commit.scope }})* {% endif %}\
-            {% if commit.breaking %}[**breaking**] {% endif %}\
-            {{ commit.message | upper_first }} [{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})\
-    {% endfor %}
-{% endfor %}\n
+## {{ group | striptags | trim | upper_first }}
+{% if group is starting_with("<!-- 9") %}
+<details>
+<summary>View all changes</summary>
+{%- for commit in commits | unique(attribute="message") | sort(attribute="scope") %}
+- {{ commit.message | upper_first }} [{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})
+{%- endfor %}
+</details>
+{% else %}
+{%- for commit in commits | unique(attribute="message") %}
+- {% if commit.scope %}*({{ commit.scope }})* {% endif %}{% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message | upper_first }} [{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})
+{%- endfor %}
+{% endif %}
+{%- endfor %}
 """
+
 # template for the changelog footer
 footer = """
 """
@@ -23,10 +31,6 @@ trim = true
 postprocessors = [
   { pattern = '\$REPO', replace = "https://github.com/Skaronator/homelab" },
 ]
-# render body even when there are no releases to process
-# render_always = true
-# output file path
-# output = "test.md"
 
 [git]
 # parse the commits based on https://www.conventionalcommits.org
@@ -45,9 +49,10 @@ commit_preprocessors = [
 ]
 # regex for parsing and grouping commits
 commit_parsers = [
-  { message = "^chore\\(deps.*\\).*helm\\ release.*", group = "<!-- 97 --> Updates - Helm Charts"  },
-  { message = "^chore\\(deps.*\\).*docker\\ tag.*", group = "<!-- 98 --> Updates - Container Tags"  },
-  { message = "^chore\\(deps.*\\).*docker\\ digest.*", group = "<!-- 99 --> Updates - Container Digest"  },
+  { message = "^chore\\(deps\\)\\: update dependency (.*) to.*", scope="${1}", group = "<!-- 97 --> Updates - Dependencies"  },
+  { message = "^chore\\(deps\\)\\: update helm release (.*) to.*", scope="${1}", group = "<!-- 97 --> Updates - Helm Charts"  },
+  { message = "^chore\\(deps\\)\\: update (.*) docker tag.*", scope="${1}", group = "<!-- 98 --> Updates - Container Tags"  },
+  { message = "^chore\\(deps\\)\\: update (.*) docker digest.*", scope="${1}", group = "<!-- 99 --> Updates - Container Digest"  },
   { message = ".*", group = "<!-- 0 --> What's Changed" },
 ]
 # filter out the commits that are not matched by commit parsers
