@@ -16,7 +16,7 @@ body = """
 </details>
 {% else %}
 {%- for commit in commits | unique(attribute="message") %}
-- {% if commit.scope %}*({{ commit.scope }})* {% endif %}{% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message | upper_first }} [{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})
+- {% if commit.scope %}**{{ commit.scope }}**: {% endif %}{% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message | upper_first }} [{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})
 {%- endfor %}
 {% endif %}
 {%- endfor %}
