@@ -42,10 +42,6 @@ configMaps:
       uid: 5000
       group: users
     share:
-    - name: 4all
-      path: /mnt/4all
-      readonly: "no"
-      guestok: "no"
     - name: Urlaubsbilder
       path: /mnt/pictures
       readonly: "no"
@@ -99,10 +95,6 @@ hostPaths:
 - name: music
   hostPath: /srv/nvme/music
   containerPath: /mnt/music
-  type: Directory
-- name: 4all
-  hostPath: /srv/nvme/4all
-  containerPath: /mnt/4all
   type: Directory
 - name: niklas
   hostPath: /srv/nvme/niklas
