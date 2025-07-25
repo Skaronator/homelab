@@ -1,9 +1,6 @@
 image:
   repository: "ghcr.io/crazy-max/samba"
-  tag: "4.19.9@sha256:270a8dcaeb7be73c3a63e2d7cc966cfdc6ca70b418c59e4af406bee6ea41ded7"
-
-podLabels:
-  zfs-encryption: "true"
+  tag: "4.21.4"
 
 ports:
 - name: main
@@ -14,7 +11,7 @@ health:
   type: TCP
 
 envs:
-- SAMBA_SERVER_STRING: "Spirit Samba"
+- SAMBA_SERVER_STRING: "Samba"
 
 secretEnvs:
 - PASSWORD_NIKLAS: AgBOm6I8n4Atd+Zk5raeTrWiregnSX1wPzjPw9/+IOWnxmU5ik3WJOjOYh7Uq/ood7DohmV2c6zx6YZ+dprT5d+qn44a0Mpz7bAgKNHs073YSKE2V8ztBvtncVXfXu8Qg39/yli5gdclHKe+s+QYGTHk/pE25MSaVh2YLE86isKaO2LATwxwqcXML6s+ygkEQq8v7HVtAJaXfGSnMwz5pByrjfSDYIsjW6nIQ6CCS72P+QGnPdEyLBL9iaFwRanEXtPblMGAU+12yJ4KWycDKkj47dJl1bmNW62W0G0N8lAwI+DxXlALySHwDRHNAy3OryWyfdP3Hkv9bBEEXlyq4dBae640fUd00rS4WUy+BXW97g273iSkRRiI4lY53KEVRcr9NbwbfuAAWkuUgTnlQHQ9rjQ7MlNzPq8fLlNxlENx7nHLrIruVsxiTP8YD2LFwW2cJmsJ22cGopyX9dQaGvjbxvNs9K3D81Aey8QBs1p6klA/WucmbgGWplr+kp/I7+Ut05Odp7S5iKNFVsqlJmA+NSbEsx0u+Cc2YynJvaddQCjrARz404gnz7NVY20sCl5bzpAf32Zh59Usk6RDdvbUUVygGNDAGDrkovBtt+V82eqTK3iYlbo1fdFsllyGFzXSHiUL06c7rowjy5dVyHiL11HlSDAkWvDu6M0plraisNf3yOg9vbcgRuju8XJN5tFpHit+rhiqcP3b/odOiN/5oQS2iP3M
@@ -71,11 +68,11 @@ configMaps:
       readonly: "no"
       guestok: "no"
       validusers: "niklas"
-    - name: Downloads
-      path: /mnt/downloads
-      readonly: "no"
-      guestok: "no"
-      validusers: "niklas"
+    # - name: Downloads
+    #   path: /mnt/downloads
+    #   readonly: "no"
+    #   guestok: "no"
+    #   validusers: "niklas"
     - name: Niklas
       path: /mnt/niklas
       readonly: "no"
@@ -131,7 +128,7 @@ hostPaths:
   hostPath: /srv/hdd/bb
   containerPath: /mnt/bb
   type: Directory
-- name: downloads
-  hostPath: /srv/downloads
-  containerPath: /mnt/downloads
-  type: Directory
+# - name: downloads
+#   hostPath: /srv/downloads
+#   containerPath: /mnt/downloads
+#   type: Directory
