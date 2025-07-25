@@ -4,10 +4,10 @@ image:
 
 hostPaths:
 - name: config
-  hostPath: /mnt/container-data/radicale-config
+  hostPath: /srv/nvme/container-data/radicale-config
   containerPath: /config
 - name: data
-  hostPath: /mnt/container-data/radicale-data
+  hostPath: /srv/nvme/container-data/radicale-data
   containerPath: /data
 
 ports: 

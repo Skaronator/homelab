@@ -15,6 +15,6 @@ spec:
   hosts:
   - role: controller+worker
     openSSH:
-      address: 192.168.0.7
+      address: 192.168.0.5
       user: root
     noTaints: true

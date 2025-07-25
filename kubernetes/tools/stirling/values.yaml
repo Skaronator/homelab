@@ -4,7 +4,7 @@ image:
 
 hostPaths:
 - name: configs
-  hostPath: /mnt/container-data/stirling
+  hostPath: /srv/nvme/container-data/stirling
   containerPath: /configs
 
 ports: 
