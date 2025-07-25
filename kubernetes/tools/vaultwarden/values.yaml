@@ -2,10 +2,10 @@ image:
   repository: "ghcr.io/dani-garcia/vaultwarden"
   tag: "1.34.1@sha256:48267ea14d8649b2e553a5fe290c40b5dd94d54e9a24b26ae7134a75a659695f"
 
-volumes:
-  - name: data
-    storageClass: container-data
-    containerPath: /data
+hostPaths:
+- name: configs
+  hostPath: /srv/nvme/container-data/vaultwarden
+  containerPath: /data
 
 ports: 
 - name: main
@@ -25,11 +25,6 @@ homepage:
   icon: bitwarden.svg
   weight: 1
 
-database:
-  enabled: true
-  rootPassword: AgBSqF1wtbop1WWWArHRzyJCajshVlKyqp2FB8SdB78iOGvBWsmYbazQkXVf+m/U5zje9ILmTcEuSUAaPPrDqODjjgdywbIWkFbs07Vwm3KHcm8L0z8ro2s2EB3NoutYIyGAa05bbT6h7CjW79RjPD6SYEECwmG3p5WkFHwb1tAFpFq1U14gyhZDrfmYGGR12XmJmoh9CTc9Co2K0lPHuTD3S/2A4PNaMZVfB2MQkPAPPlOQdEbT3rDtF+bnODcHE563JM22hGkZAVRIwwGOj9TE0CEj/fQilrNVFn1H9ciDtg4xKhDqcd2C+eDhSnbpczvAOzJWvmPX4SjYllqO/sFlTFjOQtvvTdI1eaPoLAPbyMVzi72nhEul0BM82iUJdmz5aF0zc2e7MwTwIV9KQJm0nkS05Tuo8bopjg6kuGWfi+at9B3zdo622cn4aTUcXWEcFtIc3FqA6cG2VOkGapg8poYbvD6PGjtEAVR39kLMXFImMBmtb0XNrzebJl51bOGWEcEb12rf8ESqq3fVbTuPFb5XnbWobKTBEo5w+irBVRpRhloe8Pt0vYxB8AdIAXRx9z0u3gS4N75KmlZfwwpDd027M+FZrCBysE1epwDYz3X+QuOcFP9lQ/6+M7HVTA5LJuv9beFA0LJAWfhGgSXTWmmW2O3BQJXCXv76vcVz+BIATjuwLYBkOyqEDZ4u7yOrpmM03PLEo4DmvPXvNvglkRwXgmM/6dpkYNULJ2R9awhF9g6u50BrxP1vzuvZ062M03saGJeqtWAxUma4+LNO
-  userPassword: AgBUmZ4sDkAsX0rL32HAbPTynYIoNb+1Qj1hExBOp5+cK1foMkjpSysYlI262CSbG00kv+6WZ/fMb5UJLTfYuUdlQPaTx+tPZpXKPMEdPnbCStF3ILStUFcDYi4OeKh3m1cFLsJPqmJxfUVQcNJ75t5KRmQncdnr7mYg/G64w51SnZQ4goaDolOruZENVYiqLrEsV7YFNZJ8LgE67Csp2nmAKbcBjcglwrxyzNn3oBn5x7oPJuHxDQyWSjVBVwcUiaKRY2aDaPdGCn3KrmE6sgRwxYo8KfP9JVs1kIGv57DJ3Y89JaCdCRWJCG+qdIJMYOBf0UrDOscU3MFzRCkwNinJs4VxfOFFsktw07eLdeMIPsIRIlvnpCVM9NXoDBUm7vYzH/TnQFpY0IiqCQrKg51943QUv05Li6VG9n4X2ik2AcI/JtoDMgqJwn8igYZOqhwRzPnLxsMzHBFs+oIBWDLYg18/RVwgkLwOJUBa0qDagsxXlOj73R+cyQOK8jUk5Sl+XFS2V7/3NfQ5Bx7bxty3wQ4jKSO4PWnoG6cne0xbdCjSQNDDv7cSwCx7dVFvMVjftQ5yevZyarlnN/SYwwDEYgmWw9SeWJLgpSQFVK9R6ytL+Y1YPwICi9M2QHLfSBCrYFRaqaWFmN32HzjbfXu35w6ydPYxDJmM4s/EvSNrB/n5WGx79eAl3I5pi3K1FU6fcCpO2q7OG8MGsu/mHLE52LQcE9XTWxOmGCEW72GhwESL3fBIK36IaOLjrDijQtyDCrjnkplCJkrGUiDnLhsa
-
 envs:
 - SIGNUPS_ALLOWED: false
 - INVITATIONS_ALLOWED: false
@@ -37,7 +32,6 @@ envs:
 - SHOW_PASSWORD_HINT: false
 - PASSWORD_ITERATIONS: "1000000"
 - ICON_SERVICE: bitwarden
-- DATABASE_URL: mysql://$(TEMPLATE_DB_USERNAME):$(TEMPLATE_DB_PASSWORD)@$(TEMPLATE_DB_HOST):$(TEMPLATE_DB_PORT)/$(TEMPLATE_DB_DATABASE)
 - ADMIN_TOKEN: $argon2id$v=19$m=65540,t=3,p=4$U0g2SFVGRWJKWWNsdVloS0lMQXVOV3lKZS9BUXc0V1A0QzJqUE9WcDUzRT0$bxhRneNd4uVDYirTsD9FOHG5tQTQlahp1NhGg9AcqTM
 # Email
 - REQUIRE_DEVICE_EMAIL: true

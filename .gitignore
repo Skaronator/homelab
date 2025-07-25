@@ -2,6 +2,7 @@ charts
 k0s_backup_*.tar.gz
 *.log
 secrets.txt
+tt.yaml
 
 # OpenTF
 *.tfvars
