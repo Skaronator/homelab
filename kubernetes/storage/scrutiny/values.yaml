@@ -2,7 +2,7 @@ image:
   # repository: "ghcr.io/analogj/scrutiny"
   # tag: "v0.8.1-omnibus@sha256:66a65d1d7f2bf330a55e0bb073a3b2496a7b61dc6414c8c53550bc0c3f6885dd"
   repository: ghcr.io/skaronator/scrutiny
-  tag: "3.3@sha256:9947e7813cbaacdcd0c935aeb6c84bde04a9056559eae0be0273431c769daae4"
+  tag: "3.4"
 
 securityContext:
   privileged: true
@@ -45,6 +45,11 @@ hostPaths:
   hostPath: /run/udev
   containerPath: /run/udev
   type: ""
+  readOnly: true
+- name: hostid
+  hostPath: /etc/hostid
+  containerPath: /etc/hostid
+  type: File
   readOnly: true
 
 homepage:
