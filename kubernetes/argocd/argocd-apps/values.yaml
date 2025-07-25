@@ -9,7 +9,13 @@ applicationsets:
         - path: "kubernetes/**/*"
         - path: "kubernetes/download/**"
           exclude: true
-        - path: "kubernetes/storage/**"
+        - path: "kubernetes/storage/minio"
+          exclude: true
+        - path: "kubernetes/storage/restic"
+          exclude: true
+        - path: "kubernetes/storage/syncthing"
+          exclude: true
+        - path: "kubernetes/storage/velero"
           exclude: true
         - path: "kubernetes/tools/atuin"
           exclude: true
