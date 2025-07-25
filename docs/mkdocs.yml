@@ -1,0 +1,75 @@
+site_name: Skaronator Homelab
+site_url: https://skaronator.github.io/homelab
+repo_url: https://github.com/Skaronator/homelab
+edit_uri: edit/main/docs/docs/
+
+theme:
+  language: en
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - content.action.edit
+    - content.action.view
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: blue
+      accent: deep orange
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+plugins:
+  - search:
+  - git-revision-date-localized:
+      enabled: !ENV [CI, false]
+      enable_creation_date: true
+      locale: en
+      type: timeago
+  - privacy:
+      enabled: !ENV [CI, false]
+  - minify:
+      enabled: !ENV [CI, false]
+      minify_html: true
+      minify_js: true
+      htmlmin_opts:
+        remove_comments: true
+
+nav:
+  - Home: index.md
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+markdown_extensions:
+  # admotions
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  # icons
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
