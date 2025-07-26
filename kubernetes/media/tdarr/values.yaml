@@ -22,8 +22,8 @@ homepage:
   weight: 45
 
 envs:
-- PUID: 1001
-- PGID: 100
+- PUID: 5000
+- PGID: 5000
 - UMASK_SET: 002
 - serverIP: 0.0.0.0
 - serverPort: 8266

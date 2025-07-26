@@ -37,29 +37,29 @@ service:
 
 envs:
 - ADVERTISE_IP: "http://192.168.0.241:32400/"
-- PLEX_UID: 1001
-- PLEX_GID: 100
+- PLEX_UID: 5000
+- PLEX_GID: 5000
 
 resources:
   limits:
     gpu.intel.com/i915: "1"
 
-volumes:
-  - name: data
-    storageClass: container-data
-    containerPath: /config
-  - name: transcode
-    storageClass: scrap-data
-    containerPath: /transcode
-  - name: multimedia
-    storageClass: multimedia
-    containerPath: /srv/multimedia
-    readOnly: true
-  - name: music
-    storageClass: music
-    containerPath: /srv/music
-    readOnly: true
-  - name: pictures
-    storageClass: pictures
-    containerPath: /srv/pictures
-    readOnly: true
+hostPaths:
+- name: config
+  hostPath: /srv/nvme/container-data/plex
+  containerPath: /config
+- name: transcode
+  hostPath: /srv/nvme/scrap-data/plex-transcode-cache
+  containerPath: /transcode
+- name: multimedia
+  hostPath: /srv/hdd/multimedia
+  containerPath: /srv/multimedia
+  readOnly: true
+- name: pictures
+  hostPath: /srv/nvme/pictures
+  containerPath: /srv/pictures
+  readOnly: true
+- name: music
+  hostPath: /srv/nvme/music
+  containerPath: /srv/music
+  readOnly: true

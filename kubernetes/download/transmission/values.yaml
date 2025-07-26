@@ -35,8 +35,8 @@ homepage:
   weight: 2
 
 envs:
-- PUID: 1001
-- PGID: 100
+- PUID: 5000
+- PGID: 5000
 - GLOBAL_APPLY_PERMISSIONS: false
 - OPENVPN_PROVIDER: custom
 - TRANSMISSION_PEER_PORT: 29619

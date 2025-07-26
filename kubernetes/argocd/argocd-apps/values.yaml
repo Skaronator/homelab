@@ -33,8 +33,6 @@ applicationsets:
           exclude: true
         - path: "kubernetes/media/lidarr"
           exclude: true
-        - path: "kubernetes/media/plex"
-          exclude: true
         - path: "kubernetes/media/prowlarr"
           exclude: true
         - path: "kubernetes/media/radarr"
