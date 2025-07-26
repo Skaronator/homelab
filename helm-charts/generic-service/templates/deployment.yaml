@@ -73,20 +73,13 @@ spec:
         {{- end }}
       {{- if .Values.database.enabled }}
       - name: wait-for-db
-        image: "{{ .Values.helper.image.repository }}:{{ .Values.helper.image.tag }}"
+        image: "{{ .Values.wait4x.image.repository }}:{{ .Values.wait4x.image.tag }}"
         command:
         - /bin/sh
         args:
-        - -c
-        - |
-          echo -e "Checking for the availability of {{ .Values.database.type }} Server deployment";
-          while ! nc -z {{ include "database.name" . }} {{ include "database.port" . }}; do
-            sleep 1;
-            echo "...";
-          done;
-          echo -e " >> {{ .Values.database.type }} DB Server has started";
-          sleep 5;
-        {{- end }}
+        - mysql
+        - tcp {{ include "database.name" . }}:{{ include "database.port" . }}
+      {{- end }}
       {{- if .Values.envsubst.files }}
       - name: envsubst
         image: "{{ .Values.envsubst.image.repository }}:{{ .Values.envsubst.image.tag }}"
