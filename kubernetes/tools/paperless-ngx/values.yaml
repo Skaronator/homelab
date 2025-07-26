@@ -7,7 +7,7 @@ hostPaths:
   hostPath: /srv/nvme/container-data/paperless-ngx-data
   containerPath: /usr/src/paperless/data
 - name: media
-  hostPath: /srv/nvme/container-data/paperless/paperless-ngx-media
+  hostPath: /srv/nvme/container-data/paperless-ngx-media
   containerPath: /usr/src/paperless/media
 - name: consume
   hostPath: /srv/nvme/niklas/Paperless-Import
