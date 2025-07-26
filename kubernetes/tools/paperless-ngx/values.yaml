@@ -2,16 +2,15 @@ image:
   repository: "ghcr.io/paperless-ngx/paperless-ngx"
   tag: "2.17.1@sha256:ab72a0ab42a792228cdbe83342b99a48acd49f7890ae54b1ae8e04401fba24ee"
 
-
-volumes:
+hostPaths:
 - name: data
-  storageClass: container-data
+  hostPath: /srv/nvme/container-data/paperless-ngx-data
   containerPath: /usr/src/paperless/data
 - name: media
-  storageClass: container-data
+  hostPath: /srv/nvme/container-data/paperless/paperless-ngx-media
   containerPath: /usr/src/paperless/media
 - name: consume
-  storageClass: niklas
+  hostPath: /srv/nvme/niklas/Paperless-Import
   subPath: Paperless-Import
   containerPath: /usr/src/paperless/consume
 
@@ -57,6 +56,7 @@ secretEnvs:
 
 database:
   enabled: true
+  hostPath: /srv/nvme/container-data/paperless/paperless-ngx-db
   rootPassword: AgBoHmk+Ytg8chxL+jLoko4HSPIw4vj7BUeuHOgbpgIn9kDm5T5ERB/rmouSOHU/w1QBPTPvqaTIApLS78JDac/yO60HZ+Dvo9TK4tAlu1j0h1f/YKPwGIY8NO2kX6NJ0Fe1ATfikNlTSksGQyjjH9Y0GvJtYh5m4LRenOAFKt/v1T+yAUvjgppbbZhPLnOMZW8KRmL9NJDtglRPwk5gEz66oomUb/Rab9npXuhlITzIlK9NYxxcTL41XKDh3u+E9ty1gKyk8GP+8eMgh/q6WUm+YmOStZEiC+JxZLmWz5q1vcWgRwdRGEfVICxJO444x/YSsSqZPlaO+RRcEzBH1W+gwQ3LHGr6BBLuSEGeBpL2ZZGsuvJ8NP6icYZ/wpkPcr5msJNjMt80Stx/THy0bzU97MYa8ZRiTTbhcoBXVIFntcfCXctkvt7NkieL/kLqkJG6f3lwvMNGMIGdCgB8EOZXaHKJco0ICiotTEuFHFCl2CjOg6Ij4FjsiTGyGSK/9gRoeQn1E53f0/7E66oAX1L+Ul58NbwVuQ/pzYlcRkzPYl6V2QDkdl/+HX5n2N0Ur1QuKs2884naBP0fBTRsA2eMcdz8ivgh2UeiW3rJqkT4RMZaPQChyr82l/G3PqDKBJE2jwzMCWWJr41qNgy20PwIvyiHR218TrKRn4LLdp41tZC5ggjXUu1t57jEzsYvP6D44GZA+nYqIuPQoJqY8nzG61Bnt7SDxhzgO7TT4GTlbrXhWTxe03D0qCmvdNyOnNPfik+8mdX3yrXAstPdESKp
   userPassword: AgAKWv1aaQI5G5tZiq0qbXI8OPYiGpcPJ+Iz30163bMYLGekvdcGcPIdny9blgiwhHgoCHge/l5G1hXd9hX4thyJGQqK7PT9WNmSBazUHQYJTTZ3BePcmZLT/gREEzpwj4GFyjsi604QDXkJEr5IOm7IsGKNWkOVSaUoSRfK4AbfgzZIrfUY75O/CLmUva8RRnguJz/m7eOhGZINWFYLKY/aolwyD2JVRCskHMTX5bvs7+U/iuGUmTXfdZ/1DhF2fIxnprDPuqdWB6Jju1WRu8ol2iAUoLu0p1HeYbTRieWc9ezI71qqel5x7bC01mVAJrqzvfb08dav19HgniUeRrCEYKpmUz9+9m4a2GD0mE3/O8VkmldA3SrxSQn5l2zmT/cpwI8jY4PZ9+Cr8FZQ2ZtqD16RXQLTl6RQy5uBttyoPBM7SzVYn4PuToh+RLtUoJlGX1+9a/vM9/aU+6l9TLG298QTvulXGIFySlogdlq3CuE6QAyTu84HSKuWSU168VgRapaHmcUCxSzRrDechMSatPSXfDHsiGARp5YQx/Ykk+ti+pVLREq+zin6UfLxFWc5EL969Qil+ERp6c0QDFbsIGofuQ7U7pkY1Uw5Mdn6xAOGCsuwp15m5ZVh/RMf57WFGlEdBEeGB2usU7YfB6E0hDzCiglkmGJpTRs+9zuC53/ZXe3fuRYUUazPeqkN4KHL/plPNYP+pfHxm/YShNqorDR1QJ7cTZcYhVMmiFouhv7ouMZT0UamC8pULutAh0afqjS9hiNGxw1kQdPYj0gK
 
