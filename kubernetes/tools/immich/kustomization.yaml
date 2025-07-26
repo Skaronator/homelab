@@ -7,7 +7,7 @@ helmGlobals:
 helmCharts:
 - name: generic-service
   releaseName: immich-server
-  valuesFile: server.values.yaml
+  valuesFile: values.yaml
   namespace: tools
 - name: generic-service
   releaseName: paperless-redis
