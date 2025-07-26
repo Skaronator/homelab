@@ -10,6 +10,10 @@ helmCharts:
   valuesFile: values.yaml
   namespace: tools
 - name: generic-service
-  releaseName: paperless-redis
+  releaseName: immich-redis
   valuesFile: redis.values.yaml
+  namespace: tools
+- name: generic-service
+  releaseName: immich-machine-learning
+  valuesFile: machine-learning.values.yaml
   namespace: tools
