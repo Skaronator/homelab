@@ -130,7 +130,7 @@ helper:
 wait4x:
   image:
     repository: wait4x/wait4x
-    tag: "3.5.0"
+    tag: "3.5.0@sha256:e690b4527db0755ab4ef56c1722a560a961d043e5621ad233c38763a05e6b414"
 
 homepage:
   name: ""
