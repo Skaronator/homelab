@@ -13,7 +13,7 @@ args:
 - /data
 - https://darekkay.com/service/trakt/trakt.php?username=Skaronator
 
-volumes:
-  - name: data
-    storageClass: container-data
-    containerPath: /data
+hostPaths:
+- name: data
+  hostPath: /srv/hdd/backup/Trakt
+  containerPath: /data

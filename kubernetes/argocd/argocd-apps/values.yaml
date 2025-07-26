@@ -19,15 +19,11 @@ applicationsets:
           exclude: true
         - path: "kubernetes/tools/atuin"
           exclude: true
-        - path: "kubernetes/tools/changedetection"
-          exclude: true
         - path: "kubernetes/tools/firefly"
           exclude: true
         - path: "kubernetes/tools/monero-node"
           exclude: true
         - path: "kubernetes/tools/reactive-resume"
-          exclude: true
-        - path: "kubernetes/media/kometa"
           exclude: true
         - path: "kubernetes/media/lidarr"
           exclude: true
@@ -44,8 +40,6 @@ applicationsets:
         - path: "kubernetes/media/tautulli"
           exclude: true
         - path: "kubernetes/media/tdarr"
-          exclude: true
-        - path: "kubernetes/media/trakt-backup"
           exclude: true
     template:
       metadata:

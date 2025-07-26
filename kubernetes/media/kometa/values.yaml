@@ -104,7 +104,7 @@ configMaps:
       token: <<SECRET_PLEX_TOKEN>>
       clean_bundles: true
       optimize: true
-      empty_trash: true
+      # empty_trash: true
     radarr:
       url: http://radarr:7878
       token: <<SECRET_RADAR_TOKEN>>
