@@ -1,0 +1,10 @@
+image:
+  repository: "ghcr.io/immich-app/immich-machine-learning"
+  tag: "v1.136.0"
+
+ports: 
+- name: main
+  containerPort: 3003
+
+health:
+  path: /

@@ -1,0 +1,42 @@
+image:
+  repository: "ghcr.io/immich-app/immich-server"
+  tag: "v1.136.0"
+
+hostPaths:
+- name: data
+  hostPath: /srv/nvme/container-data/immich-data
+  containerPath: /usr/src/app/upload
+
+ports:
+- name: main
+  containerPort: 2283
+
+ingress:
+  host: immich.wagner.gg
+
+health:
+  path: /
+
+homepage:
+  name: Immich
+  group: Organization
+  description: Image Server
+  icon: immich
+  weight: 1
+
+envs:
+- DB_HOSTNAME: $(TEMPLATE_DB_HOST)
+- DB_PORT: $(TEMPLATE_DB_PORT)
+- DB_DATABASE_NAME: $(TEMPLATE_DB_DATABASE)
+- DB_USERNAME: $(TEMPLATE_DB_USERNAME)
+- DB_PASSWORD: $(TEMPLATE_DB_PASSWORD)
+
+database:
+  enabled: false
+  hostPath: /srv/nvme/container-data/immich-db
+  rootPassword: AgAfWvyaKizdPTpf8ldjbZbwPSemeNP/ADsd33sUAtez/12UKkQ2KI476glST72mo18QzlHTDrE1lQCBJjUPOXrfKLuBc0b7z/4zFLK1pMggIxBBpxrEr142uNStgJGRgTjr3v+E2YSdiHaNuVyXczjzOIrWT0G4WWS9nY/do6ZRDnI4nKq5uelNeUECJ0H6tgv7SX2WpFn67BhNeahksCAmzWkCwwRWONgGPmS5+grQZeZqrozU90ikyulbry+qRR62J3job0zoY/a0c5duZbI5yJKYY5pHqrkdnYF3RvGrjg/aYTbU/UyY0fIrbAmJqMvGcygyiMlEYEX+VmoHyi3IQ+EFxVh/vQi2Bc6nTdyfhw1rWSVz7a5A3Ts2GBoJZ1pOFsJUXP1wzcgs3VVWjx8MtswZu8+Ubje3oftc/CU+s4xGQfzWPSAnAYQIfzHzzipgbwpulZWRsRezuBPutJxrf5Py84hzmSd3YxQp1+aYGvPkxptV3aQo3t79RW2FVkqkmBJeBm7W5oploxkCw4kML8p0CS57IP/YeOfH052SKCYR1v60vgT2GSZTrYvNY4BRf7Lge71cdioE6qLwbdAWPkpAL/AKfhM/CQ9aZZ/hCZ+VUwXRwznRDxMVatjd2NwmKEM/AE4TlZJ3xNnmlOtnCSDnwQnhjdSozZMv7KX5+KKpDAW+NclkesJzMJuzY/YeC7YlajwJq68bPn3OOXbwtgL8ohU08LFti8jJHAs=
+  type: postgresql
+  postgresql:
+    image:
+      repository: ghcr.io/immich-app/postgres
+      tag: "14-vectorchord0.4.3-pgvectors0.2.0@sha256:5f6a838e4e44c8e0e019d0ebfe3ee8952b69afc2809b2c25f7b0119641978e91"
