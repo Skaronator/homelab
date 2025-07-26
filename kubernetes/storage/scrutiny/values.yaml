@@ -2,7 +2,7 @@ image:
   # repository: "ghcr.io/analogj/scrutiny"
   # tag: "v0.8.1-omnibus@sha256:66a65d1d7f2bf330a55e0bb073a3b2496a7b61dc6414c8c53550bc0c3f6885dd"
   repository: ghcr.io/skaronator/scrutiny
-  tag: "3.14@sha256:28c62ace3d9f93c19a0f1a7f687be9b9985662b920620e4db22307a60a9b8309"
+  tag: "3.15"
 
 securityContext:
   privileged: true
