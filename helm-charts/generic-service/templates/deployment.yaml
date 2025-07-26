@@ -74,11 +74,9 @@ spec:
       {{- if .Values.database.enabled }}
       - name: wait-for-db
         image: "{{ .Values.wait4x.image.repository }}:{{ .Values.wait4x.image.tag }}"
-        command:
-        - /bin/sh
         args:
-        - mysql
-        - tcp {{ include "database.name" . }}:{{ include "database.port" . }}
+        - tcp
+        - {{ include "database.name" . }}:{{ include "database.port" . }}
       {{- end }}
       {{- if .Values.envsubst.files }}
       - name: envsubst
