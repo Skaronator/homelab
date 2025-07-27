@@ -13,8 +13,8 @@ spec:
         telemetry:
           enabled: false
   hosts:
-  - role: controller+worker
-    openSSH:
-      address: 192.168.0.5
-      user: root
-    noTaints: true
+    - role: controller+worker
+      openSSH:
+        address: 192.168.0.5
+        user: root
+      noTaints: true

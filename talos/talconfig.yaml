@@ -1,4 +1,3 @@
----
 clusterName: homelab
 talosVersion: v1.10.5
 endpoint: https://192.168.0.41:6443
@@ -8,19 +7,19 @@ clusterSvcNets:
   - 10.96.0.0/12
 
 patches:
-- |-
-  - op: add
-    path: /machine/network/nameservers
-    value:
-      - 192.168.0.2
-  - op: add
-    path: /machine/time
-    value:
-      servers:
-        - 0.de.pool.ntp.org
-        - 1.de.pool.ntp.org
-        - 2.de.pool.ntp.org
-        - 3.de.pool.ntp.org
+  - |-
+    - op: add
+      path: /machine/network/nameservers
+      value:
+        - 192.168.0.2
+    - op: add
+      path: /machine/time
+      value:
+        servers:
+          - 0.de.pool.ntp.org
+          - 1.de.pool.ntp.org
+          - 2.de.pool.ntp.org
+          - 3.de.pool.ntp.org
 
 controlPlane:
   patches:
@@ -34,69 +33,69 @@ controlPlane:
         value: https://192.168.0.41:6443
 
 nodes:
-# control planes
-- hostname: talos-cp-1
-  ipAddress: 192.168.0.41
-  controlPlane: true
-  networkInterfaces:
-    - deviceSelector:
-        busPath: 0*
-      addresses:
-        - 192.168.0.41/24
-      routes:
-        - network: 0.0.0.0/0
-          gateway: 192.168.0.1
-  installDiskSelector:
-    serial: "vdisk*"
-# - hostname: talos-cp-2
-#   ipAddress: 192.168.0.42
-#   controlPlane: true
-#   networkInterfaces:
-#     - deviceSelector:
-#         busPath: 0*
-#       addresses:
-#         - 192.168.0.42/24
-#       routes:
-#         - network: 0.0.0.0/0
-#           gateway: 192.168.0.1
-#   installDiskSelector:
-#     serial: "vdisk*"
-# - hostname: talos-cp-3
-#   ipAddress: 192.168.0.43
-#   controlPlane: true
-#   networkInterfaces:
-#     - deviceSelector:
-#         busPath: 0*
-#       addresses:
-#         - 192.168.0.43/24
-#       routes:
-#         - network: 0.0.0.0/0
-#           gateway: 192.168.0.1
-  # installDiskSelector:
-  #   serial: "vdisk*"
-# worker nodes
-- hostname: talos-worker-1
-  ipAddress: 192.168.0.51
-  nodeLabels:
-    intel.feature.node.kubernetes.io/gpu: "true"
-  schematic:
-    customization:
-      systemExtensions:
-        officialExtensions:
-          - siderolabs/i915
-          - siderolabs/intel-ice-firmware
-          - siderolabs/intel-ucode
-          - siderolabs/mei
-  networkInterfaces:
-    - deviceSelector:
-        busPath: 0*
-      addresses:
-        - 192.168.0.51/24
-      routes:
-        - network: 0.0.0.0/0
-          gateway: 192.168.0.1
-  installDiskSelector:
-    serial: "vdisk*"
+  # control planes
+  - hostname: talos-cp-1
+    ipAddress: 192.168.0.41
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          busPath: 0*
+        addresses:
+          - 192.168.0.41/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.0.1
+    installDiskSelector:
+      serial: "vdisk*"
+      # - hostname: talos-cp-2
+      #   ipAddress: 192.168.0.42
+      #   controlPlane: true
+      #   networkInterfaces:
+      #     - deviceSelector:
+      #         busPath: 0*
+      #       addresses:
+      #         - 192.168.0.42/24
+      #       routes:
+      #         - network: 0.0.0.0/0
+      #           gateway: 192.168.0.1
+      #   installDiskSelector:
+      #     serial: "vdisk*"
+      # - hostname: talos-cp-3
+      #   ipAddress: 192.168.0.43
+      #   controlPlane: true
+      #   networkInterfaces:
+      #     - deviceSelector:
+      #         busPath: 0*
+      #       addresses:
+      #         - 192.168.0.43/24
+      #       routes:
+      #         - network: 0.0.0.0/0
+      #           gateway: 192.168.0.1
+    # installDiskSelector:
+    #   serial: "vdisk*"
+  # worker nodes
+  - hostname: talos-worker-1
+    ipAddress: 192.168.0.51
+    nodeLabels:
+      intel.feature.node.kubernetes.io/gpu: "true"
+    schematic:
+      customization:
+        systemExtensions:
+          officialExtensions:
+            - siderolabs/i915
+            - siderolabs/intel-ice-firmware
+            - siderolabs/intel-ucode
+            - siderolabs/mei
+    networkInterfaces:
+      - deviceSelector:
+          busPath: 0*
+        addresses:
+          - 192.168.0.51/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.0.1
+    installDiskSelector:
+      serial: "vdisk*"
 # - hostname: talos-worker-2
 #   ipAddress: 192.168.0.52
 #   networkInterfaces:
