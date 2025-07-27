@@ -1,47 +1,55 @@
 image:
   repository: "ghcr.io/analogj/scrutiny"
   tag: "v0.8.1-omnibus@sha256:66a65d1d7f2bf330a55e0bb073a3b2496a7b61dc6414c8c53550bc0c3f6885dd"
+
 securityContext:
   privileged: true
   capabilities:
     add:
-      - SYS_RAWIO
-      - SYS_ADMIN
+    - SYS_RAWIO
+    - SYS_ADMIN
+
 ports:
-  - name: main
-    containerPort: 8080
+- name: main
+  containerPort: 8080
+
 ingress:
   host: scrutiny.wagner.gg
+
 health:
   path: /api/health
+
 envs:
-  - DEBUG: "true"
-  - MAIL_HOST: smtp.migadu.com
-  - MAIL_PORT: 587
-  - SCRUTINY_NOTIFY_URLS: smtp://$(MAIL_USERNAME):$(MAIL_PASSWORD)@$(MAIL_HOST):$(MAIL_PORT)/?fromAddress=$(MAIL_FROM)&toAddresses=$(MAIL_TO)
-  - COLLECTOR_ZFS_ENABLED: "true"
+- DEBUG: "true"
+- MAIL_HOST: smtp.migadu.com
+- MAIL_PORT: 587
+- SCRUTINY_NOTIFY_URLS: smtp://$(MAIL_USERNAME):$(MAIL_PASSWORD)@$(MAIL_HOST):$(MAIL_PORT)/?fromAddress=$(MAIL_FROM)&toAddresses=$(MAIL_TO)
+- COLLECTOR_ZFS_ENABLED: "true"
+
 secretEnvs:
-  - MAIL_FROM: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
-  - MAIL_TO: AgA0os+JPi7L5M4P1D9Rww56SBCteqp6COxFGmTePMeUu/rMPXUf3LcgGdM9Y75xTY+EUrZqk170ht917wp+ig7gjmwKl4zPYd/F0MNPKPiemlKI2H386MvNcjbfFtwMdP+bH9YofGcDLr6AYhkjGVFXn0y/oS3G687pGj6p37KXkr2HcP56C2iYFN3MwxxeniaDB/WvwCxgj1XgSfV9YrfCzkoT+3voRDJJn12oENkLrSBl4X07y5fZxwOQDSA1yeZi1MDocaU7NlzsnjZOSTXw2Hi+FxvnV4tLRgrO4Da8e7ERasQPQsw0VuznxbkU0BxE9s/37gu+CdRQuzVYJsDoqQ864d4uRJg0sUULryLxNawWFPLMs+BeLfXclPntpUu23RYAgp2cXqR81Ay0U+OHPha8YyRX4A6fQopLipN/WxLr90YDIOR6+TDxydxK0nQdjbrutMC8qGqhjzsqnBurPZhdsV1eBPim36xiVL6Svyd2uABoTWxjX5i9Apjxgx2NUn1cI4z76ufbQyhOZrPPNe17vDMGO0y6gSuodv/vPb4pGQ55Hy1zYbg3zVrfs7OVaDLQLcs5wQiOSoD8ALJXgv17ryk9BIKtZbHmjivLCWEyCf//JltZBzUe7zPJ7aiI+HRzZGCImOtzK9Qt+Y7R9Zd07iV/pW8fC9ZqbgeeVIU01tVwCYBlnGwNhkADYMgpjEkZnj5FPPD7t02/dZmS
-  - MAIL_USERNAME: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
-  - MAIL_PASSWORD: AgCzzndqBjY2iJ746hwzJXiJ5vMOU43ubyIOICoV1k4VUZq/sdblc5t5jcYPIWwa2VC1NzRp5Xvaqq0PjcTjr/RDAwyVZ+9lwtJBI2E8/M9Zd99MjihcY1zVjB0uKRwIvDiIKieZ6WQfPiE4lPbGX7cHQzJTu8wItYZ246IzbKvZXi2oGANdWK6AOWb1M8lC2DTo7UJ6N+AjQZblk0T/Imw3kpnRTi3Z1pZOl6BbBNBHBx1zzGX2Bgk7uic1CoUNR0Np+rEF8Ji7lmBFczosjSpbf64jSLm6E8Uy+89HhijQgFqCqaxU0DMlNe617pmHQVWqI6BfWGvEJ+mMk0L7p9cRNx8NNlKVUAnu8zkRdZjp5ccbnIhjMEtGznS4+Z3Qcw8mHYaD3aaY30Wy/4RpfofUttHGp7YObS8IIEMBVF9otZkmFFjM2cFrZ4IG2Zzuat+T+hIsRv+YnD2rOOw/Q3PvvtvRdrGi5UrhdMDrfjO+SQfVDd3Bu+JUGzAWBkWR67ZXvpwZDTUzcFgUYrqfsDAYj4FEycvTfbVKRy65GxLdJWZxD1FvticZphWaWy+z3wuhbLjWacu+GHV86fl8q1dy+3JNwlAa2F1nF3wIVq3Q+VwZHC7RB2u+juJt0YsGc+3myFyYojIwq43xojDP3NztuQQOr73EpUUUrejA4DBWfwYuG5XVlb9OvhR7es9aPbJV4manNwWOjfiuPiOGpaAgxQWIZvQskGsW68U0jIpQnW1Fjm95D6BEMztLBQ==
+- MAIL_FROM: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
+- MAIL_TO: AgA0os+JPi7L5M4P1D9Rww56SBCteqp6COxFGmTePMeUu/rMPXUf3LcgGdM9Y75xTY+EUrZqk170ht917wp+ig7gjmwKl4zPYd/F0MNPKPiemlKI2H386MvNcjbfFtwMdP+bH9YofGcDLr6AYhkjGVFXn0y/oS3G687pGj6p37KXkr2HcP56C2iYFN3MwxxeniaDB/WvwCxgj1XgSfV9YrfCzkoT+3voRDJJn12oENkLrSBl4X07y5fZxwOQDSA1yeZi1MDocaU7NlzsnjZOSTXw2Hi+FxvnV4tLRgrO4Da8e7ERasQPQsw0VuznxbkU0BxE9s/37gu+CdRQuzVYJsDoqQ864d4uRJg0sUULryLxNawWFPLMs+BeLfXclPntpUu23RYAgp2cXqR81Ay0U+OHPha8YyRX4A6fQopLipN/WxLr90YDIOR6+TDxydxK0nQdjbrutMC8qGqhjzsqnBurPZhdsV1eBPim36xiVL6Svyd2uABoTWxjX5i9Apjxgx2NUn1cI4z76ufbQyhOZrPPNe17vDMGO0y6gSuodv/vPb4pGQ55Hy1zYbg3zVrfs7OVaDLQLcs5wQiOSoD8ALJXgv17ryk9BIKtZbHmjivLCWEyCf//JltZBzUe7zPJ7aiI+HRzZGCImOtzK9Qt+Y7R9Zd07iV/pW8fC9ZqbgeeVIU01tVwCYBlnGwNhkADYMgpjEkZnj5FPPD7t02/dZmS
+- MAIL_USERNAME: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
+- MAIL_PASSWORD: AgCzzndqBjY2iJ746hwzJXiJ5vMOU43ubyIOICoV1k4VUZq/sdblc5t5jcYPIWwa2VC1NzRp5Xvaqq0PjcTjr/RDAwyVZ+9lwtJBI2E8/M9Zd99MjihcY1zVjB0uKRwIvDiIKieZ6WQfPiE4lPbGX7cHQzJTu8wItYZ246IzbKvZXi2oGANdWK6AOWb1M8lC2DTo7UJ6N+AjQZblk0T/Imw3kpnRTi3Z1pZOl6BbBNBHBx1zzGX2Bgk7uic1CoUNR0Np+rEF8Ji7lmBFczosjSpbf64jSLm6E8Uy+89HhijQgFqCqaxU0DMlNe617pmHQVWqI6BfWGvEJ+mMk0L7p9cRNx8NNlKVUAnu8zkRdZjp5ccbnIhjMEtGznS4+Z3Qcw8mHYaD3aaY30Wy/4RpfofUttHGp7YObS8IIEMBVF9otZkmFFjM2cFrZ4IG2Zzuat+T+hIsRv+YnD2rOOw/Q3PvvtvRdrGi5UrhdMDrfjO+SQfVDd3Bu+JUGzAWBkWR67ZXvpwZDTUzcFgUYrqfsDAYj4FEycvTfbVKRy65GxLdJWZxD1FvticZphWaWy+z3wuhbLjWacu+GHV86fl8q1dy+3JNwlAa2F1nF3wIVq3Q+VwZHC7RB2u+juJt0YsGc+3myFyYojIwq43xojDP3NztuQQOr73EpUUUrejA4DBWfwYuG5XVlb9OvhR7es9aPbJV4manNwWOjfiuPiOGpaAgxQWIZvQskGsW68U0jIpQnW1Fjm95D6BEMztLBQ==
+
 hostPaths:
-  - name: data
-    hostPath: /srv/nvme/container-data/scrutiny/config
-    containerPath: /opt/scrutiny/config
-  - name: influxdb
-    hostPath: /srv/nvme/container-data/scrutiny/influxdb
-    containerPath: /opt/scrutiny/influxdb
-  - name: udev
-    hostPath: /run/udev
-    containerPath: /run/udev
-    type: ""
-    readOnly: true
-  - name: hostid
-    hostPath: /etc/hostid
-    containerPath: /etc/hostid
-    type: File
-    readOnly: true
+- name: data
+  hostPath: /srv/nvme/container-data/scrutiny/config
+  containerPath: /opt/scrutiny/config
+- name: influxdb
+  hostPath: /srv/nvme/container-data/scrutiny/influxdb
+  containerPath: /opt/scrutiny/influxdb
+- name: udev
+  hostPath: /run/udev
+  containerPath: /run/udev
+  type: ""
+  readOnly: true
+- name: hostid
+  hostPath: /etc/hostid
+  containerPath: /etc/hostid
+  type: File
+  readOnly: true
+
 homepage:
   name: Scrutiny
   group: Server

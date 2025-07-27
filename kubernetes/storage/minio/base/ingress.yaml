@@ -10,17 +10,17 @@ metadata:
 spec:
   ingressClassName: nginx-private
   rules:
-    - host: minio-api.wagner.gg
-      http:
-        paths:
-          - backend:
-              service:
-                name: minio
-                port:
-                  name: api
-            path: /
-            pathType: Prefix
+  - host: minio-api.wagner.gg
+    http:
+      paths:
+      - backend:
+          service:
+            name: minio
+            port:
+              name: api
+        path: /
+        pathType: Prefix
   tls:
-    - hosts:
-        - minio-api.wagner.gg
-      secretName: minio-api.wagner.gg
+  - hosts:
+    - minio-api.wagner.gg
+    secretName: minio-api.wagner.gg

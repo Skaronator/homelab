@@ -1,16 +1,19 @@
 image:
   repository: "ghcr.io/curl/curl-container/curl-multi"
   tag: "8.15.0@sha256:60f706e22d08217a29aba419095752d7def798567cc6c4005af2793e43b94d12"
+
 schedule: "0 3 * * *"
+
 args:
-  - -v
-  - --silent
-  - --remote-header-name
-  - --remote-name
-  - --output-dir
-  - /data
-  - https://darekkay.com/service/trakt/trakt.php?username=Skaronator
+- -v
+- --silent
+- --remote-header-name
+- --remote-name
+- --output-dir
+- /data
+- https://darekkay.com/service/trakt/trakt.php?username=Skaronator
+
 hostPaths:
-  - name: data
-    hostPath: /srv/hdd/backup/Trakt
-    containerPath: /data
+- name: data
+  hostPath: /srv/hdd/backup/Trakt
+  containerPath: /data

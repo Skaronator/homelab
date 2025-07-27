@@ -1,19 +1,23 @@
 image:
   repository: "tomsquest/docker-radicale"
   tag: "3.5.4.0@sha256:99a1145aafab55f211389a303a553109d06ff2c00f634847a52b8561bd01f172"
+
 hostPaths:
-  - name: config
-    hostPath: /srv/nvme/container-data/radicale-config
-    containerPath: /config
-  - name: data
-    hostPath: /srv/nvme/container-data/radicale-data
-    containerPath: /data
-ports:
-  - name: main
-    containerPort: 5232
+- name: config
+  hostPath: /srv/nvme/container-data/radicale-config
+  containerPath: /config
+- name: data
+  hostPath: /srv/nvme/container-data/radicale-data
+  containerPath: /data
+
+ports: 
+- name: main
+  containerPort: 5232
+
 ingress:
   host: radicale.wagner.gg
   public: true
+
 homepage:
   name: Radicale
   group: Organization

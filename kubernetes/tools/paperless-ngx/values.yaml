@@ -1,69 +1,78 @@
 image:
   repository: "ghcr.io/paperless-ngx/paperless-ngx"
   tag: "2.17.1@sha256:ab72a0ab42a792228cdbe83342b99a48acd49f7890ae54b1ae8e04401fba24ee"
+
 hostPaths:
-  - name: data
-    hostPath: /srv/nvme/container-data/paperless-ngx-data
-    containerPath: /usr/src/paperless/data
-  - name: media
-    hostPath: /srv/nvme/container-data/paperless-ngx-media
-    containerPath: /usr/src/paperless/media
-  - name: consume
-    hostPath: /srv/nvme/niklas/Paperless-Import
-    subPath: Paperless-Import
-    containerPath: /usr/src/paperless/consume
-ports:
-  - name: main
-    containerPort: 8000
+- name: data
+  hostPath: /srv/nvme/container-data/paperless-ngx-data
+  containerPath: /usr/src/paperless/data
+- name: media
+  hostPath: /srv/nvme/container-data/paperless-ngx-media
+  containerPath: /usr/src/paperless/media
+- name: consume
+  hostPath: /srv/nvme/niklas/Paperless-Import
+  subPath: Paperless-Import
+  containerPath: /usr/src/paperless/consume
+
+ports: 
+- name: main
+  containerPort: 8000
+
 health:
   startupProbeFailureThreshold: 90
+
 ingress:
   host: paperless.wagner.gg
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 64m
+
 envs:
-  # services
-  - PAPERLESS_DBENGINE: mariadb
-  - PAPERLESS_DBHOST: $(TEMPLATE_DB_HOST)
-  - PAPERLESS_DBPORT: $(TEMPLATE_DB_PORT)
-  - PAPERLESS_DBNAME: $(TEMPLATE_DB_DATABASE)
-  - PAPERLESS_DBUSER: $(TEMPLATE_DB_USERNAME)
-  - PAPERLESS_DBPASS: $(TEMPLATE_DB_PASSWORD)
-  - PAPERLESS_REDIS: redis://paperless-redis:6379
-  - PAPERLESS_TIKA_ENABLED: 1
-  - PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://paperless-gotenberg:3000
-  - PAPERLESS_TIKA_ENDPOINT: http://paperless-tika:9998
-  # config
-  - PAPERLESS_URL: https://paperless.wagner.gg
-  - PAPERLESS_OCR_LANGUAGE: deu+eng
-  - PAPERLESS_OCR_OUTPUT_TYPE: pdfa-3
-  - PAPERLESS_PRE_CONSUME_SCRIPT: /scripts/ocr-decrypt.sh
-  - PAPERLESS_CONSUMER_DELETE_DUPLICATES: true
-  - PAPERLESS_CONSUMER_RECURSIVE: true
-  - PAPERLESS_CONSUMER_SUBDIRS_AS_TAGS: true
-  - PAPERLESS_TIME_ZONE: $(TZ)
-  - PAPERLESS_FILENAME_FORMAT: "{created_year}/{created_month}/{correspondent}/{title}"
-  - USERMAP_UID: 5000
-  - USERMAP_GID: 5000
+# services
+- PAPERLESS_DBENGINE: mariadb
+- PAPERLESS_DBHOST: $(TEMPLATE_DB_HOST)
+- PAPERLESS_DBPORT: $(TEMPLATE_DB_PORT)
+- PAPERLESS_DBNAME: $(TEMPLATE_DB_DATABASE)
+- PAPERLESS_DBUSER: $(TEMPLATE_DB_USERNAME)
+- PAPERLESS_DBPASS: $(TEMPLATE_DB_PASSWORD)
+- PAPERLESS_REDIS: redis://paperless-redis:6379
+- PAPERLESS_TIKA_ENABLED: 1
+- PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://paperless-gotenberg:3000
+- PAPERLESS_TIKA_ENDPOINT: http://paperless-tika:9998
+# config
+- PAPERLESS_URL: https://paperless.wagner.gg
+- PAPERLESS_OCR_LANGUAGE: deu+eng
+- PAPERLESS_OCR_OUTPUT_TYPE: pdfa-3
+- PAPERLESS_PRE_CONSUME_SCRIPT: /scripts/ocr-decrypt.sh
+- PAPERLESS_CONSUMER_DELETE_DUPLICATES: true
+- PAPERLESS_CONSUMER_RECURSIVE: true
+- PAPERLESS_CONSUMER_SUBDIRS_AS_TAGS: true
+- PAPERLESS_TIME_ZONE: $(TZ)
+- PAPERLESS_FILENAME_FORMAT: "{created_year}/{created_month}/{correspondent}/{title}"
+- USERMAP_UID: 5000
+- USERMAP_GID: 5000
+
 secretEnvs:
-  - PAPERLESS_SECRET_KEY: AgCB5pmOJbkGTctx+KsiJ3QMoRqcfPnROl95xLAqBM552h8u02x0sb3vbQtGj8ls3/fl2U4IbOq9By3BXQUtUp989l+AMLDNuyECKmXVdtVBypt2foxzOPlLOdp5SjZ/IonLMylhP9Rwbg9z/cyNywocdCXqsXkvuh6BIheJhVARQglrU9j1GV+UKZ2o5dzc0OpDZ161bdwWF/KOkttNXcdNRPqqnZBsTWBo16Cm/FxYB9QUv99whFxNgn4DKKiU7rJjSy91fO4TYKMXUKRBZaXXlY0WcxhaRxQFK1dBIRH7lw1FOqUbejSF2VvwblevU/HiLDWwd/ZEF0vLFjs9bOPLFSekuBmeZFqD6Rfx72HMeZ9Uf6/7WOdR1R59HOpEgX0CKFANADi9Hm0KOtZaNnlH1vp9YISPdotTrS4c4Wfg3yPgkfs9vzHH9v3sLMFMLBXiuY+7l1v0gA/kq6gn6760rSadS2PHoTFS6qGUpBQN/G0w9yVAdmIgOtx+ubNB4W5dRm+4pS9rF5ZBTSCD4SuTf/F26gxgYeQOKk4jfhKy5ZDMF4DZ4oQz0qJvSp8mm5gmOM/rU1nLTEVmd2Sh7hI7PPtlEZ0cVywPNKAlR8abxn+s5Ckj+bCaqjnsBgopK672eT1lv/xh0qzicOhVkKpmPBzZIqcyTTAASQFfndUN+HWHW4bo4+Tdb+rLpPcd/eSrgzLcigI4Q1XPaha5Lyx5nmLc9B6oIUZiM6UG6FNTtCr5MOPvxU9KOR7uJxG6Yvx/7t40JlLaU23DhxiBhqo3
+- PAPERLESS_SECRET_KEY: AgCB5pmOJbkGTctx+KsiJ3QMoRqcfPnROl95xLAqBM552h8u02x0sb3vbQtGj8ls3/fl2U4IbOq9By3BXQUtUp989l+AMLDNuyECKmXVdtVBypt2foxzOPlLOdp5SjZ/IonLMylhP9Rwbg9z/cyNywocdCXqsXkvuh6BIheJhVARQglrU9j1GV+UKZ2o5dzc0OpDZ161bdwWF/KOkttNXcdNRPqqnZBsTWBo16Cm/FxYB9QUv99whFxNgn4DKKiU7rJjSy91fO4TYKMXUKRBZaXXlY0WcxhaRxQFK1dBIRH7lw1FOqUbejSF2VvwblevU/HiLDWwd/ZEF0vLFjs9bOPLFSekuBmeZFqD6Rfx72HMeZ9Uf6/7WOdR1R59HOpEgX0CKFANADi9Hm0KOtZaNnlH1vp9YISPdotTrS4c4Wfg3yPgkfs9vzHH9v3sLMFMLBXiuY+7l1v0gA/kq6gn6760rSadS2PHoTFS6qGUpBQN/G0w9yVAdmIgOtx+ubNB4W5dRm+4pS9rF5ZBTSCD4SuTf/F26gxgYeQOKk4jfhKy5ZDMF4DZ4oQz0qJvSp8mm5gmOM/rU1nLTEVmd2Sh7hI7PPtlEZ0cVywPNKAlR8abxn+s5Ckj+bCaqjnsBgopK672eT1lv/xh0qzicOhVkKpmPBzZIqcyTTAASQFfndUN+HWHW4bo4+Tdb+rLpPcd/eSrgzLcigI4Q1XPaha5Lyx5nmLc9B6oIUZiM6UG6FNTtCr5MOPvxU9KOR7uJxG6Yvx/7t40JlLaU23DhxiBhqo3
+
 database:
   enabled: true
   hostPath: /srv/nvme/container-data/paperless-ngx-db
   rootPassword: AgBoHmk+Ytg8chxL+jLoko4HSPIw4vj7BUeuHOgbpgIn9kDm5T5ERB/rmouSOHU/w1QBPTPvqaTIApLS78JDac/yO60HZ+Dvo9TK4tAlu1j0h1f/YKPwGIY8NO2kX6NJ0Fe1ATfikNlTSksGQyjjH9Y0GvJtYh5m4LRenOAFKt/v1T+yAUvjgppbbZhPLnOMZW8KRmL9NJDtglRPwk5gEz66oomUb/Rab9npXuhlITzIlK9NYxxcTL41XKDh3u+E9ty1gKyk8GP+8eMgh/q6WUm+YmOStZEiC+JxZLmWz5q1vcWgRwdRGEfVICxJO444x/YSsSqZPlaO+RRcEzBH1W+gwQ3LHGr6BBLuSEGeBpL2ZZGsuvJ8NP6icYZ/wpkPcr5msJNjMt80Stx/THy0bzU97MYa8ZRiTTbhcoBXVIFntcfCXctkvt7NkieL/kLqkJG6f3lwvMNGMIGdCgB8EOZXaHKJco0ICiotTEuFHFCl2CjOg6Ij4FjsiTGyGSK/9gRoeQn1E53f0/7E66oAX1L+Ul58NbwVuQ/pzYlcRkzPYl6V2QDkdl/+HX5n2N0Ur1QuKs2884naBP0fBTRsA2eMcdz8ivgh2UeiW3rJqkT4RMZaPQChyr82l/G3PqDKBJE2jwzMCWWJr41qNgy20PwIvyiHR218TrKRn4LLdp41tZC5ggjXUu1t57jEzsYvP6D44GZA+nYqIuPQoJqY8nzG61Bnt7SDxhzgO7TT4GTlbrXhWTxe03D0qCmvdNyOnNPfik+8mdX3yrXAstPdESKp
   userPassword: AgAKWv1aaQI5G5tZiq0qbXI8OPYiGpcPJ+Iz30163bMYLGekvdcGcPIdny9blgiwhHgoCHge/l5G1hXd9hX4thyJGQqK7PT9WNmSBazUHQYJTTZ3BePcmZLT/gREEzpwj4GFyjsi604QDXkJEr5IOm7IsGKNWkOVSaUoSRfK4AbfgzZIrfUY75O/CLmUva8RRnguJz/m7eOhGZINWFYLKY/aolwyD2JVRCskHMTX5bvs7+U/iuGUmTXfdZ/1DhF2fIxnprDPuqdWB6Jju1WRu8ol2iAUoLu0p1HeYbTRieWc9ezI71qqel5x7bC01mVAJrqzvfb08dav19HgniUeRrCEYKpmUz9+9m4a2GD0mE3/O8VkmldA3SrxSQn5l2zmT/cpwI8jY4PZ9+Cr8FZQ2ZtqD16RXQLTl6RQy5uBttyoPBM7SzVYn4PuToh+RLtUoJlGX1+9a/vM9/aU+6l9TLG298QTvulXGIFySlogdlq3CuE6QAyTu84HSKuWSU168VgRapaHmcUCxSzRrDechMSatPSXfDHsiGARp5YQx/Ykk+ti+pVLREq+zin6UfLxFWc5EL969Qil+ERp6c0QDFbsIGofuQ7U7pkY1Uw5Mdn6xAOGCsuwp15m5ZVh/RMf57WFGlEdBEeGB2usU7YfB6E0hDzCiglkmGJpTRs+9zuC53/ZXe3fuRYUUazPeqkN4KHL/plPNYP+pfHxm/YShNqorDR1QJ7cTZcYhVMmiFouhv7ouMZT0UamC8pULutAh0afqjS9hiNGxw1kQdPYj0gK
+
 configMaps:
-  - name: ocr-decrypt
-    defaultMode: 0777
-    mountPath: /scripts
-    subPath: ocr-decrypt.sh
-    content: |
-      #!/usr/bin/env bash
-      if [[ "${DOCUMENT_WORKING_PATH}" != *.pdf ]]; then
-        echo "The file is not a PDF. Skipping."
-        exit 0
-      fi
-      qpdf --show-encryption "${DOCUMENT_WORKING_PATH}" | grep 'File is not encrypted' || qpdf --decrypt --replace-input "${DOCUMENT_WORKING_PATH}"
+- name: ocr-decrypt
+  defaultMode: 0777
+  mountPath: /scripts
+  subPath: ocr-decrypt.sh
+  content: |
+    #!/usr/bin/env bash
+    if [[ "${DOCUMENT_WORKING_PATH}" != *.pdf ]]; then
+      echo "The file is not a PDF. Skipping."
+      exit 0
+    fi
+    qpdf --show-encryption "${DOCUMENT_WORKING_PATH}" | grep 'File is not encrypted' || qpdf --decrypt --replace-input "${DOCUMENT_WORKING_PATH}"
+
 homepage:
   name: Paperless
   group: Organization

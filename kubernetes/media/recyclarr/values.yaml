@@ -1,64 +1,69 @@
 image:
   repository: "ghcr.io/recyclarr/recyclarr"
   tag: "7.4.1@sha256:759540877f95453eca8a26c1a93593e783a7a824c324fbd57523deffb67f48e1"
+
 schedule: "0 3 * * *"
+
 args:
-  - sync
-  - --config=/envsubst/config.yaml
+- sync
+- --config=/envsubst/config.yaml
+
 secretEnvs:
-  - RADARR_API_KEY: AgA4a5EIL968zJAd+RTmT43BsugebVPGrvaAdz3jgTr4zrTI7sYwwQzNCRnEtxMEcTy4tBbj+m/imhtYvpMxacidj8KFwtUpE0QIYlLFETt5JtXvx66AQtzUJM8cfaEDLHqEIdPJ1wZ+BnPtQiCF2b3/SqWCBvSemOVFs/yX4KUIT5bT9//w1faeU26fClO0QXW1k+oNDqDUi+pkcm/2ecgYf+ey87GWJEKtNgZ6wiN0cyYJsdfq3b5x6vodxNPcFZw0DFW53skwPlY1AV9b/pP1+6bwjmkbHHW86FLJrsA+pAtgej2CPtSaZKn+q5qEw8W9BceTAU0q/c5LJBeYK5jG+R3N0i7zdPj5gBTooKBubffos6Zy/ZbILUpB7qvLqBr4aiR408scD119uqiwwLV6+QPylb5w/EBH2vC0fOEfYX4rO76yLl4/JVSe9kDPGhjfMnjPDCav1iJQJkbKiUpeJ3DAv17hCYjfnqrEMVroeqLrpDitDSAPdjqtA5UGOBv2EWtqN5ISWgH8ZCpzKQY5PWKOgN2VkjZ+2JF5kY7GM9T9PkrC7tIbalks8/qUFTa1hmZEzKECYjPjlQbwixpPkDoLCuQEcXVh7N58KbDZHvqGCkO1gFrVxgo9iAodknLuYSdW40sbgbgCbxn9JVJBnK0Zv17Gzv0mEUM97wDXOhCplLRgNVXxn2qrsvhdqKUXQPSf7HmSIY+gnq2fdXfLR8XKQy1TR3hskIOoAXj3gg==
-  - SONARR_API_KEY: AgCvm+xjgCX0ODt5l9pYqE6TFItRLsYH2/6FH6PTHuNkwRM7oIJi1DKvoqQSHrTbejgpsrDxmsDx1WLcB4v9BWqd51f+z5FxeDF7zeVy0Hk+qNSbuQ7cK26FEL7puIR7NRRymQT88FtxKfV5aTN0arsRzvUuOcIxf6MsiEhWiTJ3GJf7dtluNKoPtaxgD5XZK7YkvxtXLzdWnbyr6NS8Y7DG5JtX/JxX4z/TUz5jT1HpR2FtfyOmE7k95l0G5v4Fmi+agLffKdFmL5qlHTDSPK30DP47fmsp6ZbSKX2Fqwa+Iws7LZ5iPRoCwHtiMapKmURCEeGOw/bYTPulP+Ct35p4Bp2CdQs36uAnzqo1V4N0Ip/EdQ3BrlOPcrK+VpXBERqWMyt9R5Po8Ud5Fo/y9dde5z2MKgQ8+Lt+DVDJOP0s0S+Tb0TfMQP4z7Xpb2XanM2pMxV9qk180sbPDejAev2R/TKBBNySZIkaJwxd8VvIyLQ7rjeRuIMR2eGzrv+2z9fdYzpY3WZEb1zCk/sUJX2LaCNTpCsPy41CxOnwq8IqTaGzoV8iip+G0rnHdfZ/RqE4FXkdz+N3wpqrlqF65CVPrIC0YhfAKP6+kFESA3JdyXdkmFvRjd8Lf2CINE6KVdV8rw+Oy8eOC/9XC3JNt7Ju4z7Jxxxnu5r67w0WqP3k2K+rNZoISSCZLHz6pCTajso4gbQbeb7KSIwpiP7WTp2jd1QJrA+qGLVzJZaeHlUjKQ==
+- RADARR_API_KEY: AgA4a5EIL968zJAd+RTmT43BsugebVPGrvaAdz3jgTr4zrTI7sYwwQzNCRnEtxMEcTy4tBbj+m/imhtYvpMxacidj8KFwtUpE0QIYlLFETt5JtXvx66AQtzUJM8cfaEDLHqEIdPJ1wZ+BnPtQiCF2b3/SqWCBvSemOVFs/yX4KUIT5bT9//w1faeU26fClO0QXW1k+oNDqDUi+pkcm/2ecgYf+ey87GWJEKtNgZ6wiN0cyYJsdfq3b5x6vodxNPcFZw0DFW53skwPlY1AV9b/pP1+6bwjmkbHHW86FLJrsA+pAtgej2CPtSaZKn+q5qEw8W9BceTAU0q/c5LJBeYK5jG+R3N0i7zdPj5gBTooKBubffos6Zy/ZbILUpB7qvLqBr4aiR408scD119uqiwwLV6+QPylb5w/EBH2vC0fOEfYX4rO76yLl4/JVSe9kDPGhjfMnjPDCav1iJQJkbKiUpeJ3DAv17hCYjfnqrEMVroeqLrpDitDSAPdjqtA5UGOBv2EWtqN5ISWgH8ZCpzKQY5PWKOgN2VkjZ+2JF5kY7GM9T9PkrC7tIbalks8/qUFTa1hmZEzKECYjPjlQbwixpPkDoLCuQEcXVh7N58KbDZHvqGCkO1gFrVxgo9iAodknLuYSdW40sbgbgCbxn9JVJBnK0Zv17Gzv0mEUM97wDXOhCplLRgNVXxn2qrsvhdqKUXQPSf7HmSIY+gnq2fdXfLR8XKQy1TR3hskIOoAXj3gg==
+- SONARR_API_KEY: AgCvm+xjgCX0ODt5l9pYqE6TFItRLsYH2/6FH6PTHuNkwRM7oIJi1DKvoqQSHrTbejgpsrDxmsDx1WLcB4v9BWqd51f+z5FxeDF7zeVy0Hk+qNSbuQ7cK26FEL7puIR7NRRymQT88FtxKfV5aTN0arsRzvUuOcIxf6MsiEhWiTJ3GJf7dtluNKoPtaxgD5XZK7YkvxtXLzdWnbyr6NS8Y7DG5JtX/JxX4z/TUz5jT1HpR2FtfyOmE7k95l0G5v4Fmi+agLffKdFmL5qlHTDSPK30DP47fmsp6ZbSKX2Fqwa+Iws7LZ5iPRoCwHtiMapKmURCEeGOw/bYTPulP+Ct35p4Bp2CdQs36uAnzqo1V4N0Ip/EdQ3BrlOPcrK+VpXBERqWMyt9R5Po8Ud5Fo/y9dde5z2MKgQ8+Lt+DVDJOP0s0S+Tb0TfMQP4z7Xpb2XanM2pMxV9qk180sbPDejAev2R/TKBBNySZIkaJwxd8VvIyLQ7rjeRuIMR2eGzrv+2z9fdYzpY3WZEb1zCk/sUJX2LaCNTpCsPy41CxOnwq8IqTaGzoV8iip+G0rnHdfZ/RqE4FXkdz+N3wpqrlqF65CVPrIC0YhfAKP6+kFESA3JdyXdkmFvRjd8Lf2CINE6KVdV8rw+Oy8eOC/9XC3JNt7Ju4z7Jxxxnu5r67w0WqP3k2K+rNZoISSCZLHz6pCTajso4gbQbeb7KSIwpiP7WTp2jd1QJrA+qGLVzJZaeHlUjKQ==
+
 envsubst:
   files:
-    - src: /config/config.yaml
-      dest: /envsubst/config.yaml
+  - src: /config/config.yaml
+    dest: /envsubst/config.yaml
+
 configMaps:
-  - name: config
-    mountPath: /config
-    subPath: config.yaml
-    content:
-      radarr:
-        movies:
-          base_url: http://radarr:7878
-          api_key: $RADARR_API_KEY
-          delete_old_custom_formats: true
-          replace_existing_custom_formats: true
-          custom_formats:
-            - trash_ids:
-                # HDR
-                - c53085ddbd027d9624b320627748612f # DV HDR10Plus
-                - e23edd2482476e595fb990b12e7c609c # DV HDR10
-                - 58d6a88f13e2db7f5059c41047876f00 # DV
-                - 55d53828b9d81cbe20b02efd00aa0efd # DV HLG
-                - a3e19f8f627608af0211acd02bf89735 # DV SDR
-                - b974a6cd08c1066250f1f177d7aa1225 # HDR10Plus
-                - dfb86d5941bc9075d6af23b09c2aeecd # HDR10
-                - e61e28db95d22bedcadf030b8f156d96 # HDR
-                - 2a4d9069cc1fe3242ff9bdaebed239bb # HDR (undefined)
-                - 08d6d8834ad9ec87b1dc7ec8148e7a1f # PQ
-                - 9364dd386c9b4a1100dde8264690add7 # HLG
-                # repacks
-                - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
-                - ae43b294509409a6a13919dedd4764c4 # Repack2
-      sonarr:
-        series:
-          base_url: http://sonarr:8989
-          api_key: $SONARR_API_KEY
-          replace_existing_custom_formats: true
-          custom_formats:
-            - trash_ids:
-                - 2b239ed870daba8126a53bd5dc8dc1c8 # DV HDR10Plus
-                - 7878c33f1963fefb3d6c8657d46c2f0a # DV HDR10
-                - 6d0d8de7b57e35518ac0308b0ddf404e # DV
-                - 1f733af03141f068a540eec352589a89 # DV HLG
-                - 27954b0a80aab882522a88a4d9eae1cd # DV SDR
-                - a3d82cbef5039f8d295478d28a887159 # HDR10Plus
-                - 3497799d29a085e2ac2df9d468413c94 # HDR10
-                - 3e2c4e748b64a1a1118e0ea3f4cf6875 # HDR
-                - bb019e1cd00f304f80971c965de064dc # HDR (undefined)
-                - 2a7e3be05d3861d6df7171ec74cad727 # PQ
-                - 17e889ce13117940092308f48b48b45b # HLG
-                # repacks
-                - ec8fa7296b64e8cd390a1600981f3923 # Repack/Proper
-                - eb3d5cc0a2be0db205fb823640db6a3c # Repack v2
-                - 44e7c4de10ae50265753082e5dc76047 # Repack v2
+- name: config
+  mountPath: /config
+  subPath: config.yaml
+  content:
+    radarr:
+      movies:
+        base_url: http://radarr:7878
+        api_key: $RADARR_API_KEY
+        delete_old_custom_formats: true
+        replace_existing_custom_formats: true
+        custom_formats:
+        - trash_ids:
+          # HDR
+          - c53085ddbd027d9624b320627748612f # DV HDR10Plus
+          - e23edd2482476e595fb990b12e7c609c # DV HDR10
+          - 58d6a88f13e2db7f5059c41047876f00 # DV
+          - 55d53828b9d81cbe20b02efd00aa0efd # DV HLG
+          - a3e19f8f627608af0211acd02bf89735 # DV SDR
+          - b974a6cd08c1066250f1f177d7aa1225 # HDR10Plus
+          - dfb86d5941bc9075d6af23b09c2aeecd # HDR10
+          - e61e28db95d22bedcadf030b8f156d96 # HDR
+          - 2a4d9069cc1fe3242ff9bdaebed239bb # HDR (undefined)
+          - 08d6d8834ad9ec87b1dc7ec8148e7a1f # PQ
+          - 9364dd386c9b4a1100dde8264690add7 # HLG
+          # repacks
+          - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
+          - ae43b294509409a6a13919dedd4764c4 # Repack2
+    sonarr:
+      series:
+        base_url: http://sonarr:8989
+        api_key: $SONARR_API_KEY
+        replace_existing_custom_formats: true
+        custom_formats:
+        - trash_ids:
+          - 2b239ed870daba8126a53bd5dc8dc1c8 # DV HDR10Plus
+          - 7878c33f1963fefb3d6c8657d46c2f0a # DV HDR10
+          - 6d0d8de7b57e35518ac0308b0ddf404e # DV
+          - 1f733af03141f068a540eec352589a89 # DV HLG
+          - 27954b0a80aab882522a88a4d9eae1cd # DV SDR
+          - a3d82cbef5039f8d295478d28a887159 # HDR10Plus
+          - 3497799d29a085e2ac2df9d468413c94 # HDR10
+          - 3e2c4e748b64a1a1118e0ea3f4cf6875 # HDR
+          - bb019e1cd00f304f80971c965de064dc # HDR (undefined)
+          - 2a7e3be05d3861d6df7171ec74cad727 # PQ
+          - 17e889ce13117940092308f48b48b45b # HLG
+          # repacks
+          - ec8fa7296b64e8cd390a1600981f3923 # Repack/Proper
+          - eb3d5cc0a2be0db205fb823640db6a3c # Repack v2
+          - 44e7c4de10ae50265753082e5dc76047 # Repack v2

@@ -24,11 +24,11 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-acme-key
     solvers:
-      - dns01:
-          cloudflare:
-            apiTokenSecretRef:
-              key: apitoken
-              name: cert-manager-cloudflare
+    - dns01:
+        cloudflare:
+          apiTokenSecretRef:
+            key: apitoken
+            name: cert-manager-cloudflare
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -37,8 +37,8 @@ metadata:
 spec:
   secretName: wildcard-wagner.gg
   dnsNames:
-    - wagner.gg
-    - '*.wagner.gg'
+  - wagner.gg
+  - '*.wagner.gg'
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer

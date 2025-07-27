@@ -1,21 +1,26 @@
 image:
   repository: "ghcr.io/sethforprivacy/simple-monerod"
   tag: "v0.18.4.1@sha256:11810da93d3a92721421e7aa5f6e1763e12752d5398b84659d864cccc3ebe989"
+
 args:
-  - --rpc-restricted-bind-ip=0.0.0.0
-  - --rpc-restricted-bind-port=18089
-  - --no-igd
-  - --no-zmq
+- --rpc-restricted-bind-ip=0.0.0.0
+- --rpc-restricted-bind-port=18089
+- --no-igd
+- --no-zmq
+
 hostPaths:
-  - name: data
-    hostPath: /srv/nvme/scrap-data/monero
-    containerPath: /home/monero/.bitmonero
+- name: data
+  hostPath: /srv/nvme/scrap-data/monero
+  containerPath: /home/monero/.bitmonero
+
 ports:
-  - name: main
-    containerPort: 18089
-  - name: p2p
-    containerPort: 18080
+- name: main
+  containerPort: 18089
+- name: p2p
+  containerPort: 18080
+
 ingress:
   host: monero.wagner.gg
+
 health:
   path: /get_height

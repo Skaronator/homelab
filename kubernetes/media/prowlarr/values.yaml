@@ -1,18 +1,23 @@
 image:
   repository: "ghcr.io/hotio/prowlarr"
   tag: "release-1.37.0.5076@sha256:37c1e95c5015db2b22fa0beafc53c3bf60d57c6cf8e27b7626f067e8a2f09941"
-ports:
-  - name: main
-    containerPort: 9696
+
+ports: 
+- name: main
+  containerPort: 9696
+
 ingress:
   host: prowlarr.wagner.gg
+
 envs:
-  - PUID: 5000
-  - PGID: 5000
+- PUID: 5000
+- PGID: 5000
+
 volumes:
   - name: config
     storageClass: container-data
     containerPath: /config
+
 homepage:
   name: Prowlarr
   group: Indexer

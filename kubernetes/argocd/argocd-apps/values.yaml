@@ -2,45 +2,45 @@ applicationsets:
   main:
     name: main
     generators:
-      - git:
-          repoURL: https://github.com/Skaronator/homelab.git
-          revision: main
-          directories:
-            - path: "kubernetes/**/*"
-            - path: "kubernetes/download/**"
-              exclude: true
-            - path: "kubernetes/storage/minio"
-              exclude: true
-            - path: "kubernetes/storage/restic"
-              exclude: true
-            - path: "kubernetes/storage/syncthing"
-              exclude: true
-            - path: "kubernetes/storage/velero"
-              exclude: true
-            - path: "kubernetes/tools/atuin"
-              exclude: true
-            - path: "kubernetes/tools/firefly"
-              exclude: true
-            - path: "kubernetes/tools/monero-node"
-              exclude: true
-            - path: "kubernetes/tools/reactive-resume"
-              exclude: true
-            - path: "kubernetes/media/lidarr"
-              exclude: true
-            - path: "kubernetes/media/prowlarr"
-              exclude: true
-            - path: "kubernetes/media/radarr"
-              exclude: true
-            - path: "kubernetes/media/recyclarr"
-              exclude: true
-            - path: "kubernetes/media/sonarr"
-              exclude: true
-            - path: "kubernetes/media/stash"
-              exclude: true
-            - path: "kubernetes/media/tautulli"
-              exclude: true
-            - path: "kubernetes/media/tdarr"
-              exclude: true
+    - git:
+        repoURL: https://github.com/Skaronator/homelab.git
+        revision: main
+        directories:
+        - path: "kubernetes/**/*"
+        - path: "kubernetes/download/**"
+          exclude: true
+        - path: "kubernetes/storage/minio"
+          exclude: true
+        - path: "kubernetes/storage/restic"
+          exclude: true
+        - path: "kubernetes/storage/syncthing"
+          exclude: true
+        - path: "kubernetes/storage/velero"
+          exclude: true
+        - path: "kubernetes/tools/atuin"
+          exclude: true
+        - path: "kubernetes/tools/firefly"
+          exclude: true
+        - path: "kubernetes/tools/monero-node"
+          exclude: true
+        - path: "kubernetes/tools/reactive-resume"
+          exclude: true
+        - path: "kubernetes/media/lidarr"
+          exclude: true
+        - path: "kubernetes/media/prowlarr"
+          exclude: true
+        - path: "kubernetes/media/radarr"
+          exclude: true
+        - path: "kubernetes/media/recyclarr"
+          exclude: true
+        - path: "kubernetes/media/sonarr"
+          exclude: true
+        - path: "kubernetes/media/stash"
+          exclude: true
+        - path: "kubernetes/media/tautulli"
+          exclude: true
+        - path: "kubernetes/media/tdarr"
+          exclude: true
     template:
       metadata:
         name: '{{path[1]}}-{{path.basenameNormalized}}'
@@ -57,13 +57,13 @@ applicationsets:
                 string: '{{path[1]}}'
         destination:
           name: in-cluster
-          namespace: '{{path[1]}}'
-        syncPolicy:
+          namespace: '{{path[1]}}'	
+        syncPolicy:	
           automated:
-            selfHeal: true
-            prune: true
+            selfHeal: true	
+            prune: true	
           syncOptions:
-            - FailOnSharedResource=true
+          - FailOnSharedResource=true
         ignoreDifferences:
           - group: apiextensions.k8s.io
             kind: CustomResourceDefinition

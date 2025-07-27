@@ -1,36 +1,42 @@
 image:
   repository: "ghcr.io/hotio/radarr"
   tag: "release-5.26.2.10099@sha256:79c751100d1398305f05290068cef7367dc8cf1c3d7642db1da70a10da9dfa6e"
+
 podLabels:
   zfs-encryption: "true"
-ports:
-  - name: main
-    containerPort: 7878
+
+ports: 
+- name: main
+  containerPort: 7878
+
 ingress:
   host: radarr.wagner.gg
+
 envs:
-  - PUID: 5000
-  - PGID: 5000
+- PUID: 5000
+- PGID: 5000
+
 volumes:
-  - name: config
-    storageClass: container-data
-    containerPath: /config
-  - name: downloads-torrent
-    storageClass: downloads
-    subPath: Torrent
-    containerPath: /downloads/torrent
-  - name: downloads-usenet
-    storageClass: downloads
-    subPath: Usenet
-    containerPath: /downloads/usenet
-  - name: movies
-    storageClass: multimedia
-    subPath: Filme-Radarr
-    containerPath: /movies
-  - name: live-music
-    storageClass: multimedia
-    subPath: Live-Konzerte
-    containerPath: /live-music
+- name: config
+  storageClass: container-data
+  containerPath: /config
+- name: downloads-torrent
+  storageClass: downloads
+  subPath: Torrent
+  containerPath: /downloads/torrent
+- name: downloads-usenet
+  storageClass: downloads
+  subPath: Usenet
+  containerPath: /downloads/usenet
+- name: movies
+  storageClass: multimedia
+  subPath: Filme-Radarr
+  containerPath: /movies
+- name: live-music
+  storageClass: multimedia
+  subPath: Live-Konzerte
+  containerPath: /live-music
+
 homepage:
   name: Radarr
   group: Indexer

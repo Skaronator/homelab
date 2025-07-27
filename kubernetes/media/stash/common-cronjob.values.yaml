@@ -1,12 +1,19 @@
 image:
   repository: "ghcr.io/curl/curl-container/curl-multi"
   tag: "8.15.0@sha256:60f706e22d08217a29aba419095752d7def798567cc6c4005af2793e43b94d12"
+
 command:
-  - "/bin/sh"
+- "/bin/sh"
+
 args:
-  - -c
-  - >
-    echo "{\"query\":\"$GRAPHQL_QUERY\"}" | tr '\n' ' ' | curl -v --silent "http://stash:9999/graphql" -H "ApiKey: $API_TOKEN" -H "Content-Type: application/json" --compressed --data-binary @-
+- -c
+- >
+  echo "{\"query\":\"$GRAPHQL_QUERY\"}" | tr '\n' ' ' | curl -v
+  --silent "http://stash:9999/graphql"
+  -H "ApiKey: $API_TOKEN"
+  -H "Content-Type: application/json"
+  --compressed
+  --data-binary @-
 
 secretEnvs:
-  - API_TOKEN: AgAHtqV20D+snyUkDReP55pJPyLA64U5MEyCeYH8f8sC05GO5EY/M4qFausQ55XPUl6HYL2KXJqDp7jCyxt8W4uIQQdFS0LS8BWfUazWHKzjx01MD6lhqEuztd9VaGtrNmyAGr2gYB0P62akNyiQJmI4P/jeVyP+tcVMbOo6RExDGKpW/+LoTRn+R7CUjZPxxgxdockVn3y+Ryx5XdH9nGTNkxWQjsLT1E8pjKd0++qrrR7LWtCWcqUnADK4YjWKVoH5CIYDBlFoh8LzPzRfaQeigvKrKDDuKPqOgAqxktV5RrRY7eI602WzYDDXxHpC1VE9UxDVOv9evGeETRZi7rIyh8RPn2ZG2pa14mF7fAjqF9UrekCmvlH9W3gJx0ot1GdkjivRBNVYFnHDdCoL7JOJAC5UEUFXBzB5D4CmkGg5pnnnZUiSoWPOWxdZ/M1KsD5NVk12lIapMVcG8P/1r23q0XslSbQNWyTRKDCwl6n5kWr29EJPzzlev46rgNbuuquimxy8DwCiGLb2Zd4daLYfuRhV/wZhbfWTXpJu/wbskWoj5jrH4K8IFkhne7uZ8j39oMprvZUDjW3xdT6YbSGCI6Iv2S09SoTziMhK3qZ5oMvF+C8j1quFTFNqAjqsfr7xoKhk3hmSXHZsGmumM3ZekvRHPc4PYsTiGNgD66qQ/Q6c5ZlZ00zfzBSqFf/rAlArhp5FMZQch5s4keZwMoFqrBK3ROFzG/EgKBIhNztiwOOXcbNVwCLIqH9R4ZydRILhY7eX/cr4vaxD4juBJ9Z6/rrUfLlshur4zvsGLs5fBSN7KTZMeR71RifOx1hC4DjfCpLO8yzt+9ostVvO4QftkQznEFtb0fc86JKZ6qB75p1/pwcjLxHLlwfGUv6eVXHT
+- API_TOKEN: AgAHtqV20D+snyUkDReP55pJPyLA64U5MEyCeYH8f8sC05GO5EY/M4qFausQ55XPUl6HYL2KXJqDp7jCyxt8W4uIQQdFS0LS8BWfUazWHKzjx01MD6lhqEuztd9VaGtrNmyAGr2gYB0P62akNyiQJmI4P/jeVyP+tcVMbOo6RExDGKpW/+LoTRn+R7CUjZPxxgxdockVn3y+Ryx5XdH9nGTNkxWQjsLT1E8pjKd0++qrrR7LWtCWcqUnADK4YjWKVoH5CIYDBlFoh8LzPzRfaQeigvKrKDDuKPqOgAqxktV5RrRY7eI602WzYDDXxHpC1VE9UxDVOv9evGeETRZi7rIyh8RPn2ZG2pa14mF7fAjqF9UrekCmvlH9W3gJx0ot1GdkjivRBNVYFnHDdCoL7JOJAC5UEUFXBzB5D4CmkGg5pnnnZUiSoWPOWxdZ/M1KsD5NVk12lIapMVcG8P/1r23q0XslSbQNWyTRKDCwl6n5kWr29EJPzzlev46rgNbuuquimxy8DwCiGLb2Zd4daLYfuRhV/wZhbfWTXpJu/wbskWoj5jrH4K8IFkhne7uZ8j39oMprvZUDjW3xdT6YbSGCI6Iv2S09SoTziMhK3qZ5oMvF+C8j1quFTFNqAjqsfr7xoKhk3hmSXHZsGmumM3ZekvRHPc4PYsTiGNgD66qQ/Q6c5ZlZ00zfzBSqFf/rAlArhp5FMZQch5s4keZwMoFqrBK3ROFzG/EgKBIhNztiwOOXcbNVwCLIqH9R4ZydRILhY7eX/cr4vaxD4juBJ9Z6/rrUfLlshur4zvsGLs5fBSN7KTZMeR71RifOx1hC4DjfCpLO8yzt+9ostVvO4QftkQznEFtb0fc86JKZ6qB75p1/pwcjLxHLlwfGUv6eVXHT
