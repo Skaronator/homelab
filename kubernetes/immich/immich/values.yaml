@@ -45,7 +45,7 @@ database:
   postgresql:
     image:
       repository: ghcr.io/immich-app/postgres
-      tag: "14-vectorchord0.4.3-pgvectors0.2.0@sha256:5f6a838e4e44c8e0e019d0ebfe3ee8952b69afc2809b2c25f7b0119641978e91"
+      tag: "16-vectorchord0.4.3-pgvectors0.2.0@sha256:af09302781b4bf30d7868093c9d483c74f90b1199b8fdfc7fee4eb69d8408f7d"
 
 envsubst:
   files:
