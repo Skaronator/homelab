@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-service
-    releaseName: plex
+    releaseName: immich-power-tools
     valuesFile: values.yaml
     namespace: immich
