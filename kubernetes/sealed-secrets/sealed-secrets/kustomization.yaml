@@ -1,10 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 helmCharts:
-- name: sealed-secrets
-  version: 2.17.3
-  releaseName: sealed-secrets
-  repo: https://bitnami-labs.github.io/sealed-secrets
-  includeCRDs: true
-  valuesFile: values.yaml
+  - name: sealed-secrets
+    version: 2.17.3
+    releaseName: sealed-secrets
+    repo: https://bitnami-labs.github.io/sealed-secrets
+    includeCRDs: true
+    valuesFile: values.yaml

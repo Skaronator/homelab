@@ -1,22 +1,18 @@
 image:
   repository: "docker.io/openspeedtest/latest"
   tag: "v2.0.6@sha256:a6a7e3b3e9e93cfe7b9b2eb49c60b2a93644149a0a600845d4df57148b193ff6"
-
-ports: 
-- name: main
-  containerPort: 3000
-
+ports:
+  - name: main
+    containerPort: 3000
 ingress:
   host: speedtest.wagner.gg
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 64m
-
 homepage:
   name: Speedtest
   group: Cloud
   description: Local Speedtest
   icon: openspeedtest.png
   weight: 55
-
 envs:
-- MODE: standalone
+  - MODE: standalone

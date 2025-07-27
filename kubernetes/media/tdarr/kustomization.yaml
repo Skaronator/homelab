@@ -1,11 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 helmGlobals:
   chartHome: ../../../helm-charts
-
 helmCharts:
-- name: generic-service
-  releaseName: tdarr
-  valuesFile: values.yaml
-  namespace: media
+  - name: generic-service
+    releaseName: tdarr
+    valuesFile: values.yaml
+    namespace: media

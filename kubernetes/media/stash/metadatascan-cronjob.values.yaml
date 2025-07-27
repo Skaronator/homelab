@@ -1,28 +1,29 @@
 schedule: "0 6 * * *"
-
 envs:
-- GRAPHQL_QUERY: >
-    mutation {
-      metadataScan(input: {
-        scanGenerateClipPreviews: false,
-        scanGenerateCovers: true,
-        scanGenerateImagePreviews: false,
-        scanGeneratePhashes: true,
-        scanGeneratePreviews: true,
-        scanGenerateSprites: true,
-        scanGenerateThumbnails: true
-      }),
-      metadataGenerate(input: {
-        covers: true,
-        sprites: true,
-        previews: true,
-        imagePreviews: false,
-        markers: true,
-        markerImagePreviews: false,
-        markerScreenshots: false,
-        transcodes: false,
-        phashes: true,
-        interactiveHeatmapsSpeeds: true,
-        clipPreviews: false
-      })
-    }
+  - GRAPHQL_QUERY: >
+      mutation {
+
+        metadataScan(input: {
+          scanGenerateClipPreviews: false,
+          scanGenerateCovers: true,
+          scanGenerateImagePreviews: false,
+          scanGeneratePhashes: true,
+          scanGeneratePreviews: true,
+          scanGenerateSprites: true,
+          scanGenerateThumbnails: true
+        }),
+        metadataGenerate(input: {
+          covers: true,
+          sprites: true,
+          previews: true,
+          imagePreviews: false,
+          markers: true,
+          markerImagePreviews: false,
+          markerScreenshots: false,
+          transcodes: false,
+          phashes: true,
+          interactiveHeatmapsSpeeds: true,
+          clipPreviews: false
+        })
+      }
+

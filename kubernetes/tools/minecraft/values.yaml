@@ -1,33 +1,27 @@
 image:
   repository: "ghcr.io/itzg/minecraft-server"
   tag: "2025.6.2@sha256:262e2309f7cc6b2ff0ac1458ac52c91e9bc778989543feec6588501f6dad31ef"
-
 replicas: 0
-
-ports: 
-- name: main
-  containerPort: 25565
-  hostPort: 25565
-
+ports:
+  - name: main
+    containerPort: 25565
+    hostPort: 25565
 health:
   type: TCP
-
 envs:
-- EULA: "TRUE"
-- TYPE: "AUTO_CURSEFORGE"
-- CF_PAGE_URL: "https://www.curseforge.com/minecraft/modpacks/better-mc-fabric/files/4509639"
-- SERVER_NAME: "for Natalie"
-- DIFFICULTY: "normal"
-- MOTD: "Premium Server hosted in der Abstellkammer."
-- MAX_WORLD_SIZE: "10000"
-- MAX_PLAYERS: "1337"
-- VIEW_DISTANCE: "16"
-- WHITELIST: "Skaronator"
-
+  - EULA: "TRUE"
+  - TYPE: "AUTO_CURSEFORGE"
+  - CF_PAGE_URL: "https://www.curseforge.com/minecraft/modpacks/better-mc-fabric/files/4509639"
+  - SERVER_NAME: "for Natalie"
+  - DIFFICULTY: "normal"
+  - MOTD: "Premium Server hosted in der Abstellkammer."
+  - MAX_WORLD_SIZE: "10000"
+  - MAX_PLAYERS: "1337"
+  - VIEW_DISTANCE: "16"
+  - WHITELIST: "Skaronator"
 secretEnvs:
-- CF_API_KEY: AgBvkDke2vlHbVY+PP8lCKt9elTsU9Vk6yLM91PQ8rhFV8xspYbH0tj9ubw8ogDwpMCACeVJYnkBN/QY/lzLuR6CoaTcj5kIK5Jg1oDG8ZAgN4Xx1a9l21hqBoCz2eqXHThX6bIju54AxQjDBeNij0yzCUuwMKqCqS+/V1Efws1WCD3zg6EWMzhuf77Jz38785+MDmJaFVss3yZeFLjcVMK0qP8r7f4JUz9r4P3jyKWl3TnF4oMD94iWnbaxAScWoeSYyXH1scUFXXt+4d9SnS5cLFknv+q6q56cGmJDrHKXZvBRWV6+KsQb3mZYsj89arm+cxLwnBu74P+AjdvmKCcCL5HQWxtUCYP/uKB32rPrQIocCaPKIesLcfZKqIvtytGmuQBrs81aT2WBjzCTp4MM6kZzzPr6Hxor2vabR/wcoYkNLOHlMKxSrY2aRvxI5RuikC1SNIAKb/yTOy49yimpBiSKyTcl6eazEm7vGOCJkaMq1qu4MWFcHmjd5EDsYdjMZDfV4J/KGiYgFVlDBhzx1NfaTeMwfw0aIY5AW5UhQoruDvvGdldYjhOsb8weLUP5GuHcZNK/Z8Vj9EoDsViL4NjVjc3TWn37T4XhljPwPf+BJFAkfIWBbLKjrSYXLPlHCzj7rncBNpMvbMH5vAsRZYS8vFuMbrqqAEIQxqC/ULCGIr32oGvH8JooOrxHq9nbsHf8rmxGs295szDWRgsMq9lCCiiqlmvIEvI42vanvEj4NrNw3Xufs+YKd8hXzApg0IU4oEAp4JsToO0=
-
+  - CF_API_KEY: AgBvkDke2vlHbVY+PP8lCKt9elTsU9Vk6yLM91PQ8rhFV8xspYbH0tj9ubw8ogDwpMCACeVJYnkBN/QY/lzLuR6CoaTcj5kIK5Jg1oDG8ZAgN4Xx1a9l21hqBoCz2eqXHThX6bIju54AxQjDBeNij0yzCUuwMKqCqS+/V1Efws1WCD3zg6EWMzhuf77Jz38785+MDmJaFVss3yZeFLjcVMK0qP8r7f4JUz9r4P3jyKWl3TnF4oMD94iWnbaxAScWoeSYyXH1scUFXXt+4d9SnS5cLFknv+q6q56cGmJDrHKXZvBRWV6+KsQb3mZYsj89arm+cxLwnBu74P+AjdvmKCcCL5HQWxtUCYP/uKB32rPrQIocCaPKIesLcfZKqIvtytGmuQBrs81aT2WBjzCTp4MM6kZzzPr6Hxor2vabR/wcoYkNLOHlMKxSrY2aRvxI5RuikC1SNIAKb/yTOy49yimpBiSKyTcl6eazEm7vGOCJkaMq1qu4MWFcHmjd5EDsYdjMZDfV4J/KGiYgFVlDBhzx1NfaTeMwfw0aIY5AW5UhQoruDvvGdldYjhOsb8weLUP5GuHcZNK/Z8Vj9EoDsViL4NjVjc3TWn37T4XhljPwPf+BJFAkfIWBbLKjrSYXLPlHCzj7rncBNpMvbMH5vAsRZYS8vFuMbrqqAEIQxqC/ULCGIr32oGvH8JooOrxHq9nbsHf8rmxGs295szDWRgsMq9lCCiiqlmvIEvI42vanvEj4NrNw3Xufs+YKd8hXzApg0IU4oEAp4JsToO0=
 hostPaths:
-- name: data
-  hostPath: /srv/nvme/container-data/minecraft
-  containerPath: /data
+  - name: data
+    hostPath: /srv/nvme/container-data/minecraft
+    containerPath: /data

@@ -1,58 +1,56 @@
 image:
   repository: "ghcr.io/skaronator/zrepl"
   tag: "main@sha256:e7d3286c726469e8064eae576d4212ef1ecf251aa7adc118346e2ca2dae1fcb0"
-
 securityContext:
   privileged: true
   capabilities:
     add:
-    - SYS_ADMIN
-
+      - SYS_ADMIN
 configMaps:
-- name: config
-  mountPath: /etc/zrepl
-  subPath: zrepl.yml
-  content:
-    global:
-      logging:
-      - format: human
-        level: info
-        type: stdout
-    jobs:
-    - filesystems:
-        # backup everything from hdd
-        hdd: false
-        # except root and backup
-        hdd/backup: false
-        hdd<: true
-        # backup everything from nvme
-        nvme: false
-        # except root and scrap-data
-        nvme<: true
-        nvme/scrap-data: false
-      name: longterm
-      pruning:
-        keep:
-        - grid: 1x24h(keep=all) | 14x1d | 6x30d
-          regex: ^longterm_.*$
-          type: grid
-      snapshotting:
-        cron: 0 * * * *
-        prefix: longterm_
-        type: cron
-      type: snap
-    - filesystems:
-        downloads: true
-        hdd/backup: true
-        nvme/scrap-data: true
-      name: shortterm
-      pruning:
-        keep:
-        - grid: 1x24h(keep=all) | 3x1d
-          regex: ^shortterm_.*$
-          type: grid
-      snapshotting:
-        cron: 0 * * * *
-        prefix: shortterm_
-        type: cron
-      type: snap
+  - name: config
+    mountPath: /etc/zrepl
+    subPath: zrepl.yml
+    content:
+      global:
+        logging:
+          - format: human
+            level: info
+            type: stdout
+      jobs:
+        - filesystems:
+            # backup everything from hdd
+            hdd: false
+            # except root and backup
+            hdd/backup: false
+            hdd<: true
+            # backup everything from nvme
+            nvme: false
+            # except root and scrap-data
+            nvme<: true
+            nvme/scrap-data: false
+          name: longterm
+          pruning:
+            keep:
+              - grid: 1x24h(keep=all) | 14x1d | 6x30d
+                regex: ^longterm_.*$
+                type: grid
+          snapshotting:
+            cron: 0 * * * *
+            prefix: longterm_
+            type: cron
+          type: snap
+        - filesystems:
+            downloads: true
+            hdd/backup: true
+            nvme/scrap-data: true
+          name: shortterm
+          pruning:
+            keep:
+              - grid: 1x24h(keep=all) | 3x1d
+                regex: ^shortterm_.*$
+                type: grid
+          snapshotting:
+            cron: 0 * * * *
+            prefix: shortterm_
+            type: cron
+          type: snap

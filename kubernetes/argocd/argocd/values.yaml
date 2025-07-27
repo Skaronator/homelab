@@ -72,7 +72,6 @@ configs:
         generate:
           command: ["bash", "-c"]
           args: ["kustomize edit set namespace -- \"$PARAM_NAMESPACE\" && kustomize build --enable-helm --helm-command '/home/argocd/cmp-server/config/command.sh'"]
-
 repoServer:
   extraContainers:
     - name: cmp-kustomize-helm
@@ -83,7 +82,7 @@ repoServer:
         allowPrivilegeEscalation: false
         capabilities:
           drop:
-          - ALL
+            - ALL
         runAsNonRoot: true
         runAsUser: 999
       volumeMounts:
@@ -105,10 +104,8 @@ repoServer:
     - name: argocd-cmp-cm
       configMap:
         name: argocd-cmp-cm
-
 global:
   domain: argocd.wagner.gg
-
 server:
   ingress:
     enabled: true
@@ -123,6 +120,6 @@ server:
       gethomepage.dev/icon: argo-cd.svg
       gethomepage.dev/weight: "1"
     extraTls:
-    - secretName: argocd.wagner.gg
-      hosts:
-      - argocd.wagner.gg
+      - secretName: argocd.wagner.gg
+        hosts:
+          - argocd.wagner.gg

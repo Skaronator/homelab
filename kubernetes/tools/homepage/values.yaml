@@ -1,96 +1,91 @@
 image:
   repository: "ghcr.io/gethomepage/homepage"
   tag: "v1.4.0@sha256:63434aafeb3d49be1f21ebd3c5d777fe5b7794c31342daad4e96f09b72a57188"
-
 config:
   bookmarks: {}
   kubernetes:
     mode: cluster
   services:
-  - "Smart Home":
-    - "Home Assistant":
-        description: Smart Home
-        href: http://192.168.0.11
-        icon: home-assistant.svg
-        weight: 5
-    - Valetudo:
-        description: Robotic Vacuum
-        href: http://192.168.0.11
-        icon: valetudo.svg
-        weight: 5
-  - Network:
-    - Unifi Gateway:
-        description: Firewall
-        href: https://192.168.0.1/network/default/dashboard
-        icon: unifi.svg
-        weight: 1
-    - AdGuard Home:
-        description: DNS Server
-        href: http://192.168.0.2
-        icon: adguard-home.svg
-        weight: 2
-  - Server:
-    - Unraid:
-        description: Unraid Server
-        href: https://192.168.0.5:8443
-        icon: unraid.svg
-        weight: 10
-    - Portainer:
-        description: Pi Container Management
-        href: https://192.168.0.2:9443
-        icon: portainer.svg
-        weight: 30
-  - Media:
-    - Plex:
-        app: plex
-        description: Media Center
-        href: https://app.plex.tv/desktop
-        icon: plex.svg
-        namespace: media
-        weight: 1
+    - "Smart Home":
+        - "Home Assistant":
+            description: Smart Home
+            href: http://192.168.0.11
+            icon: home-assistant.svg
+            weight: 5
+        - Valetudo:
+            description: Robotic Vacuum
+            href: http://192.168.0.11
+            icon: valetudo.svg
+            weight: 5
+    - Network:
+        - Unifi Gateway:
+            description: Firewall
+            href: https://192.168.0.1/network/default/dashboard
+            icon: unifi.svg
+            weight: 1
+        - AdGuard Home:
+            description: DNS Server
+            href: http://192.168.0.2
+            icon: adguard-home.svg
+            weight: 2
+    - Server:
+        - Unraid:
+            description: Unraid Server
+            href: https://192.168.0.5:8443
+            icon: unraid.svg
+            weight: 10
+        - Portainer:
+            description: Pi Container Management
+            href: https://192.168.0.2:9443
+            icon: portainer.svg
+            weight: 30
+    - Media:
+        - Plex:
+            app: plex
+            description: Media Center
+            href: https://app.plex.tv/desktop
+            icon: plex.svg
+            namespace: media
+            weight: 1
   settings:
     color: neutral
     hideVersion: true
     iconStyle: theme
     layout:
-    - Cloud:
-        icon: mdi-cloud
-    - Organization:
-        icon: mdi-file-document-multiple-outline
-    - Smart Home:
-        icon: mdi-home-outline
-    - Network:
-        icon: mdi-lan
-    - Media:
-        icon: mdi-filmstrip-box
-    - Indexer:
-        icon: mdi-download-multiple
-    - Downloader:
-        icon: mdi-download-outline
-    - Server:
-        icon: mdi-server
+      - Cloud:
+          icon: mdi-cloud
+      - Organization:
+          icon: mdi-file-document-multiple-outline
+      - Smart Home:
+          icon: mdi-home-outline
+      - Network:
+          icon: mdi-lan
+      - Media:
+          icon: mdi-filmstrip-box
+      - Indexer:
+          icon: mdi-download-multiple
+      - Downloader:
+          icon: mdi-download-outline
+      - Server:
+          icon: mdi-server
     target: _self
     theme: dark
     title: Homelab
   widgets:
-  - search:
-      provider: google
-      target: _blank
-
+    - search:
+        provider: google
+        target: _blank
 ingress:
   main:
     enabled: true
     hosts:
-    - host: home.wagner.gg
-      paths:
-      - path: /
+      - host: home.wagner.gg
+        paths:
+          - path: /
     ingressClassName: nginx-private
-
 enableRbac: true
-
 serviceAccount:
   create: true
-
 env:
   - name: HOMEPAGE_ALLOWED_HOSTS
     value: home.wagner.gg

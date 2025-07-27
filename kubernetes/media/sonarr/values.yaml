@@ -1,35 +1,30 @@
 image:
   repository: "ghcr.io/hotio/sonarr"
   tag: "release-4.0.15.2941@sha256:6a8f771b42a96683af146aff683122102193767c12f3fb9b5c1c90e42a111896"
-
-ports: 
-- name: main
-  containerPort: 8989
-
+ports:
+  - name: main
+    containerPort: 8989
 ingress:
   host: sonarr.wagner.gg
-
 envs:
-- PUID: 5000
-- PGID: 5000
-
+  - PUID: 5000
+  - PGID: 5000
 volumes:
-- name: config
-  storageClass: container-data
-  containerPath: /config
-- name: downloads-torrent
-  storageClass: downloads
-  subPath: Torrent
-  containerPath: /downloads/torrent
-- name: downloads-usenet
-  storageClass: downloads
-  subPath: Usenet
-  containerPath: /downloads/usenet
-- name: series
-  storageClass: multimedia
-  subPath: Serien-Sonarr
-  containerPath: /series
-
+  - name: config
+    storageClass: container-data
+    containerPath: /config
+  - name: downloads-torrent
+    storageClass: downloads
+    subPath: Torrent
+    containerPath: /downloads/torrent
+  - name: downloads-usenet
+    storageClass: downloads
+    subPath: Usenet
+    containerPath: /downloads/usenet
+  - name: series
+    storageClass: multimedia
+    subPath: Serien-Sonarr
+    containerPath: /series
 homepage:
   name: Sonarr
   group: Indexer

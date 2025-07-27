@@ -1,21 +1,17 @@
 image:
   repository: "ghcr.io/stirling-tools/s-pdf"
   tag: "1.1.0@sha256:55731f2b4f2a7988613df5fbe1137b439627bc25f42c6cc89e753572a04950d1"
-
 hostPaths:
-- name: configs
-  hostPath: /srv/nvme/container-data/stirling
-  containerPath: /configs
-
-ports: 
-- name: main
-  containerPort: 8080
-
+  - name: configs
+    hostPath: /srv/nvme/container-data/stirling
+    containerPath: /configs
+ports:
+  - name: main
+    containerPort: 8080
 ingress:
   host: stirling.wagner.gg
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 64m
-
 homepage:
   name: Stirling PDF
   group: Organization

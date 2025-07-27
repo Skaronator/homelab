@@ -1,42 +1,35 @@
 image:
   repository: "ghcr.io/immich-app/immich-server"
   tag: "v1.136.0@sha256:8c9633b96ca5b748b10875a99c498ee6f1e5d7f7d1df2bf341909cacb88ad672"
-
 hostPaths:
-- name: data
-  hostPath: /srv/nvme/container-data/immich-data
-  containerPath: /usr/src/app/upload
-
+  - name: data
+    hostPath: /srv/nvme/container-data/immich-data
+    containerPath: /usr/src/app/upload
 ports:
-- name: main
-  containerPort: 2283
-
+  - name: main
+    containerPort: 2283
 ingress:
   host: immich.wagner.gg
   public: true
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 2048m
-
 health:
   path: /
-
 homepage:
   name: Immich
   group: Organization
   description: Image Server
   icon: immich
   weight: 1
-
 envs:
-- DB_HOSTNAME: $(TEMPLATE_DB_HOST)
-- DB_PORT: $(TEMPLATE_DB_PORT)
-- DB_DATABASE_NAME: $(TEMPLATE_DB_DATABASE)
-- DB_USERNAME: $(TEMPLATE_DB_USERNAME)
-- DB_PASSWORD: $(TEMPLATE_DB_PASSWORD)
-- REDIS_HOSTNAME: immich-redis
-- REDIS_PORT: 6379
-- IMMICH_CONFIG_FILE: /envsubst/config.yaml
-
+  - DB_HOSTNAME: $(TEMPLATE_DB_HOST)
+  - DB_PORT: $(TEMPLATE_DB_PORT)
+  - DB_DATABASE_NAME: $(TEMPLATE_DB_DATABASE)
+  - DB_USERNAME: $(TEMPLATE_DB_USERNAME)
+  - DB_PASSWORD: $(TEMPLATE_DB_PASSWORD)
+  - REDIS_HOSTNAME: immich-redis
+  - REDIS_PORT: 6379
+  - IMMICH_CONFIG_FILE: /envsubst/config.yaml
 database:
   enabled: true
   hostPath: /srv/nvme/container-data/immich-db
@@ -46,188 +39,184 @@ database:
     image:
       repository: ghcr.io/immich-app/postgres
       tag: "14-vectorchord0.4.3-pgvectors0.2.0@sha256:5f6a838e4e44c8e0e019d0ebfe3ee8952b69afc2809b2c25f7b0119641978e91"
-
 envsubst:
   files:
-  - src: /config/config.yaml
-    dest: /envsubst/config.yaml
-
+    - src: /config/config.yaml
+      dest: /envsubst/config.yaml
 secretEnvs:
   - MAIL_FROM: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
   - MAIL_USERNAME: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
   - MAIL_PASSWORD: AgCzzndqBjY2iJ746hwzJXiJ5vMOU43ubyIOICoV1k4VUZq/sdblc5t5jcYPIWwa2VC1NzRp5Xvaqq0PjcTjr/RDAwyVZ+9lwtJBI2E8/M9Zd99MjihcY1zVjB0uKRwIvDiIKieZ6WQfPiE4lPbGX7cHQzJTu8wItYZ246IzbKvZXi2oGANdWK6AOWb1M8lC2DTo7UJ6N+AjQZblk0T/Imw3kpnRTi3Z1pZOl6BbBNBHBx1zzGX2Bgk7uic1CoUNR0Np+rEF8Ji7lmBFczosjSpbf64jSLm6E8Uy+89HhijQgFqCqaxU0DMlNe617pmHQVWqI6BfWGvEJ+mMk0L7p9cRNx8NNlKVUAnu8zkRdZjp5ccbnIhjMEtGznS4+Z3Qcw8mHYaD3aaY30Wy/4RpfofUttHGp7YObS8IIEMBVF9otZkmFFjM2cFrZ4IG2Zzuat+T+hIsRv+YnD2rOOw/Q3PvvtvRdrGi5UrhdMDrfjO+SQfVDd3Bu+JUGzAWBkWR67ZXvpwZDTUzcFgUYrqfsDAYj4FEycvTfbVKRy65GxLdJWZxD1FvticZphWaWy+z3wuhbLjWacu+GHV86fl8q1dy+3JNwlAa2F1nF3wIVq3Q+VwZHC7RB2u+juJt0YsGc+3myFyYojIwq43xojDP3NztuQQOr73EpUUUrejA4DBWfwYuG5XVlb9OvhR7es9aPbJV4manNwWOjfiuPiOGpaAgxQWIZvQskGsW68U0jIpQnW1Fjm95D6BEMztLBQ==
-
 configMaps:
-- name: config
-  mountPath: /config
-  subPath: config.yaml
-  content:
-    backup:
-      database:
-        cronExpression: 0 02 * * *
-        enabled: true
-        keepLastAmount: 14
-    ffmpeg:
-      accel: disabled
-      accelDecode: false
-      acceptedAudioCodecs:
-      - aac
-      - mp3
-      - libopus
-      - pcm_s16le
-      acceptedContainers:
-      - mov
-      - ogg
-      - webm
-      acceptedVideoCodecs:
-      - h264
-      bframes: -1
-      cqMode: auto
-      crf: 23
-      gopSize: 0
-      maxBitrate: '0'
-      preferredHwDevice: auto
-      preset: ultrafast
-      refs: 0
-      targetAudioCodec: aac
-      targetResolution: '720'
-      targetVideoCodec: h264
-      temporalAQ: false
-      threads: 0
-      tonemap: hable
-      transcode: required
-      twoPass: false
-    image:
-      colorspace: p3
-      extractEmbedded: false
-      fullsize:
-        enabled: false
-        format: jpeg
-        quality: 80
-      preview:
-        format: jpeg
-        quality: 80
-        size: 1440
-      thumbnail:
-        format: webp
-        quality: 80
-        size: 250
-    job:
-      backgroundTask:
-        concurrency: 5
-      faceDetection:
-        concurrency: 2
+  - name: config
+    mountPath: /config
+    subPath: config.yaml
+    content:
+      backup:
+        database:
+          cronExpression: 0 02 * * *
+          enabled: true
+          keepLastAmount: 14
+      ffmpeg:
+        accel: disabled
+        accelDecode: false
+        acceptedAudioCodecs:
+          - aac
+          - mp3
+          - libopus
+          - pcm_s16le
+        acceptedContainers:
+          - mov
+          - ogg
+          - webm
+        acceptedVideoCodecs:
+          - h264
+        bframes: -1
+        cqMode: auto
+        crf: 23
+        gopSize: 0
+        maxBitrate: '0'
+        preferredHwDevice: auto
+        preset: ultrafast
+        refs: 0
+        targetAudioCodec: aac
+        targetResolution: '720'
+        targetVideoCodec: h264
+        temporalAQ: false
+        threads: 0
+        tonemap: hable
+        transcode: required
+        twoPass: false
+      image:
+        colorspace: p3
+        extractEmbedded: false
+        fullsize:
+          enabled: false
+          format: jpeg
+          quality: 80
+        preview:
+          format: jpeg
+          quality: 80
+          size: 1440
+        thumbnail:
+          format: webp
+          quality: 80
+          size: 250
+      job:
+        backgroundTask:
+          concurrency: 5
+        faceDetection:
+          concurrency: 2
+        library:
+          concurrency: 5
+        metadataExtraction:
+          concurrency: 5
+        migration:
+          concurrency: 5
+        notifications:
+          concurrency: 5
+        search:
+          concurrency: 5
+        sidecar:
+          concurrency: 5
+        smartSearch:
+          concurrency: 2
+        thumbnailGeneration:
+          concurrency: 3
+        videoConversion:
+          concurrency: 1
       library:
-        concurrency: 5
-      metadataExtraction:
-        concurrency: 5
-      migration:
-        concurrency: 5
+        scan:
+          cronExpression: 0 0 * * *
+          enabled: true
+        watch:
+          enabled: false
+      logging:
+        enabled: true
+        level: log
+      machineLearning:
+        clip:
+          enabled: true
+          modelName: ViT-SO400M-16-SigLIP2-512__webli
+        duplicateDetection:
+          enabled: true
+          maxDistance: 0.01
+        enabled: true
+        facialRecognition:
+          enabled: true
+          maxDistance: 0.5
+          minFaces: 3
+          minScore: 0.7
+          modelName: buffalo_l
+        urls:
+          - http://immich-machine-learning:3003
+      map:
+        darkStyle: https://tiles.immich.cloud/v1/style/dark.json
+        enabled: true
+        lightStyle: https://tiles.immich.cloud/v1/style/light.json
+      metadata:
+        faces:
+          import: false
+      newVersionCheck:
+        enabled: true
+      nightlyTasks:
+        clusterNewFaces: true
+        databaseCleanup: true
+        generateMemories: true
+        missingThumbnails: true
+        startTime: '00:00'
+        syncQuotaUsage: true
       notifications:
-        concurrency: 5
-      search:
-        concurrency: 5
-      sidecar:
-        concurrency: 5
-      smartSearch:
-        concurrency: 2
-      thumbnailGeneration:
-        concurrency: 3
-      videoConversion:
-        concurrency: 1
-    library:
-      scan:
-        cronExpression: 0 0 * * *
-        enabled: true
-      watch:
+        smtp:
+          enabled: true
+          from: $MAIL_FROM
+          replyTo: ''
+          transport:
+            host: smtp.migadu.com
+            port: 587
+            ignoreCert: false
+            password: $MAIL_PASSWORD
+            username: $MAIL_USERNAME
+      oauth:
+        autoLaunch: false
+        autoRegister: true
+        buttonText: Login with OAuth
+        clientId: ''
+        clientSecret: ''
+        defaultStorageQuota:
         enabled: false
-    logging:
-      enabled: true
-      level: log
-    machineLearning:
-      clip:
+        issuerUrl: ''
+        mobileOverrideEnabled: false
+        mobileRedirectUri: ''
+        profileSigningAlgorithm: none
+        roleClaim: immich_role
+        scope: openid email profile
+        signingAlgorithm: RS256
+        storageLabelClaim: preferred_username
+        storageQuotaClaim: immich_quota
+        timeout: 30000
+        tokenEndpointAuthMethod: client_secret_post
+      passwordLogin:
         enabled: true
-        modelName: ViT-SO400M-16-SigLIP2-512__webli
-      duplicateDetection:
+      reverseGeocoding:
         enabled: true
-        maxDistance: 0.01
-      enabled: true
-      facialRecognition:
+      server:
+        externalDomain: https://immich.wagner.gg
+        loginPageMessage: ''
+        publicUsers: true
+      storageTemplate:
         enabled: true
-        maxDistance: 0.5
-        minFaces: 3
-        minScore: 0.7
-        modelName: buffalo_l
-      urls:
-        - http://immich-machine-learning:3003
-    map:
-      darkStyle: https://tiles.immich.cloud/v1/style/dark.json
-      enabled: true
-      lightStyle: https://tiles.immich.cloud/v1/style/light.json
-    metadata:
-      faces:
-        import: false
-    newVersionCheck:
-      enabled: true
-    nightlyTasks:
-      clusterNewFaces: true
-      databaseCleanup: true
-      generateMemories: true
-      missingThumbnails: true
-      startTime: '00:00'
-      syncQuotaUsage: true
-    notifications:
-      smtp:
+        hashVerificationEnabled: true
+        template: "{{album}}/{{filename}}"
+      templates:
+        email:
+          albumInviteTemplate: ''
+          albumUpdateTemplate: ''
+          welcomeTemplate: ''
+      theme:
+        customCss: ''
+      trash:
+        days: 30
         enabled: true
-        from: $MAIL_FROM
-        replyTo: ''
-        transport:
-          host: smtp.migadu.com
-          port: 587
-          ignoreCert: false
-          password: $MAIL_PASSWORD
-          username: $MAIL_USERNAME
-    oauth:
-      autoLaunch: false
-      autoRegister: true
-      buttonText: Login with OAuth
-      clientId: ''
-      clientSecret: ''
-      defaultStorageQuota: 
-      enabled: false
-      issuerUrl: ''
-      mobileOverrideEnabled: false
-      mobileRedirectUri: ''
-      profileSigningAlgorithm: none
-      roleClaim: immich_role
-      scope: openid email profile
-      signingAlgorithm: RS256
-      storageLabelClaim: preferred_username
-      storageQuotaClaim: immich_quota
-      timeout: 30000
-      tokenEndpointAuthMethod: client_secret_post
-    passwordLogin:
-      enabled: true
-    reverseGeocoding:
-      enabled: true
-    server:
-      externalDomain: https://immich.wagner.gg
-      loginPageMessage: ''
-      publicUsers: true
-    storageTemplate:
-      enabled: true
-      hashVerificationEnabled: true
-      template: "{{album}}/{{filename}}"
-    templates:
-      email:
-        albumInviteTemplate: ''
-        albumUpdateTemplate: ''
-        welcomeTemplate: ''
-    theme:
-      customCss: ''
-    trash:
-      days: 30
-      enabled: true
-    user:
-      deleteDelay: 7
-
+      user:
+        deleteDelay: 7

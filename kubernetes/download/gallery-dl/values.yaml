@@ -1,59 +1,50 @@
 image:
   repository: "ghcr.io/skaronator/gallery-dl"
   tag: "1.30.1@sha256:12a8f4cc5ab833931400188e4e3387c76e20076f0ed46c34d0f705406938673d"
-
 schedule: "0 2 * * *"
-
 securityContext:
   runAsUser: 1000
   runAsGroup: 100
-
 restartPolicy: Never
-
 command:
-- /bin/sh
-
+  - /bin/sh
 args:
-- -c
-- gallery-dl --config-yaml /envsubst/config.yaml $HOST --verbose
-
+  - -c
+  - gallery-dl --config-yaml /envsubst/config.yaml $HOST --verbose
 envsubst:
   files:
-  - src: /config/config.yaml
-    dest: /envsubst/config.yaml
-
+    - src: /config/config.yaml
+      dest: /envsubst/config.yaml
 configMaps:
-- name: config
-  mountPath: /config
-  subPath: config.yaml
-  content:
-    extractor:
-      base-directory: /downloads/Person
-      archive: /downloads/Person/.gallery-dl/{username}_{service}.db
-      archive-event: ["file", "skip"]
-      retries: 30
-      sleep-429: 120
-      coomerparty:
-        username: $USERNAME
-        password: $PASSWORD
-        directory: $DIRECTORY
-        image-filter: "extension not in ('jpg','jpeg','png','txt','gif')"
-        metadata: true
-        filename: "{date:%Y-%m-%d} - {title[b:150]|empty|content[b:150]|empty|id} - {num:>02}.{extension}"
-    downloader:
-      retries: 30
-      rate: 20M
-      videolength-min: 4m30s
-    output: {}
-    postprocessor: {}
-
+  - name: config
+    mountPath: /config
+    subPath: config.yaml
+    content:
+      extractor:
+        base-directory: /downloads/Person
+        archive: /downloads/Person/.gallery-dl/{username}_{service}.db
+        archive-event: ["file", "skip"]
+        retries: 30
+        sleep-429: 120
+        coomerparty:
+          username: $USERNAME
+          password: $PASSWORD
+          directory: $DIRECTORY
+          image-filter: "extension not in ('jpg','jpeg','png','txt','gif')"
+          metadata: true
+          filename: "{date:%Y-%m-%d} - {title[b:150]|empty|content[b:150]|empty|id} - {num:>02}.{extension}"
+      downloader:
+        retries: 30
+        rate: 20M
+        videolength-min: 4m30s
+      output: {}
+      postprocessor: {}
 volumes:
-- name: downloads
-  storageClass: pp
-  containerPath: /downloads
-
+  - name: downloads
+    storageClass: pp
+    containerPath: /downloads
 secretEnvs:
-- HOST: AgC1m5Dw4soWDAXyDjGor3AtMht8VSfxVv+lB/m3mgoyx80BGibUstaBO3H8/YclJxbHUlHv6Wxw7+ZQDhuEs+cwkCiKcVCJhHrcicj8bf2RZaUiRmc1FRELFkVtamrxqPl5KpeOUTmL3yKcDsx3m4p9spR26o5L+YcGHKD8O1Mim++uORPLfXWlYz5hDEsX1XDdMKbImGLE1yB17NSvhPAomhAOjOg07PF94DGa60XAsVivZilITIXA4Sxg0D++ubVg5Z/rbC6fFurts2MA4xMriI3z1Uv74QwKOIvYtq9gfYit71EL/QLEwx1XjMS+lEqF6VbWj+WT8OWPTSec1cLUeIBF1HWURHB5cvwNc5jkfr1ZzIbuWPPPwCwWIc9x8/H0sGtAx243rVa8D0NpTlpqo8p1DHGi3WVS3eTxaMRHlYCFc5tITJ2aoy6WlsM4R3679t0a/nIUTeBpwc9xz7InFMZ36Q6vm/vEeQ7t1tqnumxgBvewXXRL/YPseaal1dftbmF8IkHpJbHMKDVek8SLOeKBbj+n6VBsKwRmPF7JvNJw3OMS8N6L/i+3frf5OC9ajtfN3s83bM8wWeIIa8MZTjP3sw690ZvwqlQRFBuxOQq0AO0h1v67ZWo/QxLsaOtyQGntaDFH+UH0u/exrJL7iooNDaJ8xi12YvCBfqL3y6QwhSCiF/+ZyV+A5Eh2q9xAP7jgyClxHGY/zx0hwMr54DyIoM7FUNgOeC0=
-- USERNAME: AgAebfes/uiL630SJlt2FstBKb3izWiKGbU0iRxHQpplZZt1CF6mAwcFErNtr+SJqxQ63p+UEkIzL79OdNIrnm+1jcX+1VcoS46hQMaT3UxL9EWnYvdP1wKCAQLqHe0tswlP1UJGtOW8m3TwVypwxh6BryKkXGB6dxDsoR7slrzyh60zSCpGCtlyVZg3Gw2XPUdVupq95dYn4wkn2aFHl1h/PkUFaB9WHSN9i5bsrqq6IZ4H/M6jU8kkFk/hvxSOiVQn30V24lTcKk1y/g/BRnOQvUC/XXP5wntPPYtql3q6CzCrZY9QBnx3ppt3Nxt2hAC3L4AlaPD+SJKVbG46uEgJ3vV91dSjB+p7/+oLon969ulc10aBYQsbdYVS8jnB3zH4+Mc25ifaheScA7gWaJZu9CvkoQCJnHXPAiZB2QWjff9d7Qw4axxLa1JxHSIk7XLbD0B3IknBYhg0at40uLJyfJzta5CHZYKs4K0UGF5is5qUTZoZR8EnkoUXwfFZNKqZzH1S2xxAemujpcgIENODnSRhQWyZci54pYmvKsQqWb4pXShe0EKX2ZvE71O5iwvWhjYrTysyrUS3Pvl4eYdWuQ86FIGTT+lpck0lI0XulhQiBXDrjlqMNW01TcYfqrBXP8lw7LrXYL+6PJeIPxW01jgsiUK3Vwk451IPHey5iGl0XY/zrPJvRu55UgUP9x5YnlPTO0Yq6w==
-- PASSWORD: AgBEFwwybN0HwWr1a7/5c+yG4kKsGn+FuW0ygBTf42cO0JLBhx0FlPbQLBwPCY+xV1hkAqRMdiIW7YH2YVIiQlHT2gKNTBz2PWuRrmjm8MGJpg520Y8btF5WT62OVu+qQrXozYa/iF2iHKj4cnEixxDVdIHXnGruDOlyMXgTbVvVzlVk6Rxxjbh+XFOKuoQ9eCzIo3CPugv3nHSUd2lUtakulrpGnKQBGgpQYfVeBj+zEKKefH2bAxhAgnHRrVpgaINVe35ICtC8hHvKKu+TSfEW6VrRFRFlKZqdZcpsTIeLuomJpy/ogY3WnOqGBWkxbkIoB4bm+JmgIsxgcuyCOswdXVwOCkwIIPJelCFo2til00Vn+MoCP+rVx+j5O1Zl6fn9+JCqnMxiARYNf4eJsM9OMuGiEdqNW2EdTa7PD63nokoPczK/vDCSLN6wzAmHXRwh55wKrn7ZfG8VI4ULRdPL0BVFvjRlr8YYTwf2NtFZ/asfYFeTurXaZBYHrZ+0W5Ym6eEhlEgx2HlAKoPLuYNzwHsWM3QxAG5gtyR4GOMrueFrYiJuZshge93X/ZbzzzedVx8cpw3wvO1TEmWJFXSXpbQ7cOgWV9FCpGQG2BqVydLETQbkWYp3dkbFiWxEIzk3IimGOchlpdFDE3EivGcLuckroWoHdFdsJlKuql2zIspDPxjHwgH7V+zDwWvwwVsgd2KW55qGCMj+Ph/uJFvxtHvVYi6u
-- DIRECTORY: AgCjxf7eAXvNyF9s5+qhBVqnyY+M0u3hzW8X/+pSE90lJEoSJl7iQyM4Em/4wBY0ewhovIhyOAM6o/XLqHqIQ+ji+wd3IXiMElukdv/P8j3wAlIE38Dxfbhq8zgAlH+3+3HrMaYBpOfp/Isg+iG0G8gBV2qtWNOpm3u1moM3kQt5PowVMqKtXOlq4ZIOKTEEsdjcOzdFf3zm7ol77mrWlD8qAuFNRGPrqXhCnPU8sCSCgKIxrFWzgJcWlVcCiYoRJBEZu8FtY+/VckR4FCOoBz08AJmpyTi6yres29el90u+acFKB0/C5h7d1BoQ52qUsNdv1EsjMp7oLL9qMF3cU38K4RGIkV4huAJWg5EFq3QQT+FKp/sNVcsNRnKXJc1cmY3xsRNa4OqCg5Vlcbyxhvnko+YOCH5mDIv8+DsoouawSyYPT62J+2TbAPYUnI9QCAPY4dpVSzRO1QBRueGH3s4lxelJpYvEN2SQfIBbjmItKwf8efnHxrp9HP/Vo1wy3UiP3rSnTCwkUGpCTWz0YowB/TvgGlK3ZatoHPemRsVhr7WHrlWDYGXSesANW1sCjye2kbjFCmdt7/sYDMdF4UVTg4umjEwXjIubo9LotO8zny9uSfx+LqyIYyL0w1mczxUE/gcSa/HYWrne3J5RDvFw7bUTl/WykADqDbeS6r3azWMDHMBaafijelsDMmQXo3XD7JuSEf2SVI8m1GpkJWBwCkqbXc33zHP57nQzBAaNE2N6PZcPSyw9E7bymzqkqyTEz+c2eh8amldMGBlM7QVLnHBT2IkJJmYXGlXBlLHGi5JYuZxIDI3cEA9y/ajtHKwx9OMW7A3svOPpfpHeCwxQI4chUnE42gK7tkbPLIXK/65bqzW7NTwjV4o++MUlJUDQFU+qd2ct1/sF3ST2BU1V7BayHWWtlr/KTR3mcWp2GmBf69PAxOlD+VdBy1mgdJcs0MpCoBd4CAemWKg2rvHX+Q7bKZM/i0iduha5Fk+q4tdvA4bVGnzHjWA/nfMj3AqHR10lGVf2oNsBdEw2tin3Ko5QYQ4/s75svbVcjo9KqRnuEJaNCi1fBhA9VypcsfmmSPxOVxEsMqzPuiIsnx2XwjgmQLpvJS3qEeUXlN4CZ/y0EyuFHV5T7eQNNRjCZmpfoCzStgOK/LfDCa2+OLKW+cFKi4bzTqWSyQ7l6nrt82VZ35o9mVyadNFp2mq5r9cYHSuZdhJcOMmjHsWXKlaF7bJ8k6U8U6iXSR+5wSQwHdfFfJG2mlWXSMgUD6zYPy/8xtuTsSfUI1Pjng+FDp6d9pp0hxYW6GsrQ7y+4fgI93LqfDDy7m4Eh3FT9czQVdq71E7CA9qYorlwv8uUzJW5x5v+Mfh2OsKArUD0BKeGguW5jzc04qSjcddQmS3YgKmjFyJgVNAWiBvyIGsejH2AMVA44cKWh2wwHT8CgrykvfX4SnQL4rcepCysOd4OWP3xiWm2TGPTKGXQwmaP1CxUeFw4r/dwUrKjS2oCB4lGwoqxu7pzR8Ks8B3WbbEj0VEe5A+BzpGAufFLWslzUiSMuS2O059w/HfdDemsmokU8LYywNI=
+  - HOST: AgC1m5Dw4soWDAXyDjGor3AtMht8VSfxVv+lB/m3mgoyx80BGibUstaBO3H8/YclJxbHUlHv6Wxw7+ZQDhuEs+cwkCiKcVCJhHrcicj8bf2RZaUiRmc1FRELFkVtamrxqPl5KpeOUTmL3yKcDsx3m4p9spR26o5L+YcGHKD8O1Mim++uORPLfXWlYz5hDEsX1XDdMKbImGLE1yB17NSvhPAomhAOjOg07PF94DGa60XAsVivZilITIXA4Sxg0D++ubVg5Z/rbC6fFurts2MA4xMriI3z1Uv74QwKOIvYtq9gfYit71EL/QLEwx1XjMS+lEqF6VbWj+WT8OWPTSec1cLUeIBF1HWURHB5cvwNc5jkfr1ZzIbuWPPPwCwWIc9x8/H0sGtAx243rVa8D0NpTlpqo8p1DHGi3WVS3eTxaMRHlYCFc5tITJ2aoy6WlsM4R3679t0a/nIUTeBpwc9xz7InFMZ36Q6vm/vEeQ7t1tqnumxgBvewXXRL/YPseaal1dftbmF8IkHpJbHMKDVek8SLOeKBbj+n6VBsKwRmPF7JvNJw3OMS8N6L/i+3frf5OC9ajtfN3s83bM8wWeIIa8MZTjP3sw690ZvwqlQRFBuxOQq0AO0h1v67ZWo/QxLsaOtyQGntaDFH+UH0u/exrJL7iooNDaJ8xi12YvCBfqL3y6QwhSCiF/+ZyV+A5Eh2q9xAP7jgyClxHGY/zx0hwMr54DyIoM7FUNgOeC0=
+  - USERNAME: AgAebfes/uiL630SJlt2FstBKb3izWiKGbU0iRxHQpplZZt1CF6mAwcFErNtr+SJqxQ63p+UEkIzL79OdNIrnm+1jcX+1VcoS46hQMaT3UxL9EWnYvdP1wKCAQLqHe0tswlP1UJGtOW8m3TwVypwxh6BryKkXGB6dxDsoR7slrzyh60zSCpGCtlyVZg3Gw2XPUdVupq95dYn4wkn2aFHl1h/PkUFaB9WHSN9i5bsrqq6IZ4H/M6jU8kkFk/hvxSOiVQn30V24lTcKk1y/g/BRnOQvUC/XXP5wntPPYtql3q6CzCrZY9QBnx3ppt3Nxt2hAC3L4AlaPD+SJKVbG46uEgJ3vV91dSjB+p7/+oLon969ulc10aBYQsbdYVS8jnB3zH4+Mc25ifaheScA7gWaJZu9CvkoQCJnHXPAiZB2QWjff9d7Qw4axxLa1JxHSIk7XLbD0B3IknBYhg0at40uLJyfJzta5CHZYKs4K0UGF5is5qUTZoZR8EnkoUXwfFZNKqZzH1S2xxAemujpcgIENODnSRhQWyZci54pYmvKsQqWb4pXShe0EKX2ZvE71O5iwvWhjYrTysyrUS3Pvl4eYdWuQ86FIGTT+lpck0lI0XulhQiBXDrjlqMNW01TcYfqrBXP8lw7LrXYL+6PJeIPxW01jgsiUK3Vwk451IPHey5iGl0XY/zrPJvRu55UgUP9x5YnlPTO0Yq6w==
+  - PASSWORD: AgBEFwwybN0HwWr1a7/5c+yG4kKsGn+FuW0ygBTf42cO0JLBhx0FlPbQLBwPCY+xV1hkAqRMdiIW7YH2YVIiQlHT2gKNTBz2PWuRrmjm8MGJpg520Y8btF5WT62OVu+qQrXozYa/iF2iHKj4cnEixxDVdIHXnGruDOlyMXgTbVvVzlVk6Rxxjbh+XFOKuoQ9eCzIo3CPugv3nHSUd2lUtakulrpGnKQBGgpQYfVeBj+zEKKefH2bAxhAgnHRrVpgaINVe35ICtC8hHvKKu+TSfEW6VrRFRFlKZqdZcpsTIeLuomJpy/ogY3WnOqGBWkxbkIoB4bm+JmgIsxgcuyCOswdXVwOCkwIIPJelCFo2til00Vn+MoCP+rVx+j5O1Zl6fn9+JCqnMxiARYNf4eJsM9OMuGiEdqNW2EdTa7PD63nokoPczK/vDCSLN6wzAmHXRwh55wKrn7ZfG8VI4ULRdPL0BVFvjRlr8YYTwf2NtFZ/asfYFeTurXaZBYHrZ+0W5Ym6eEhlEgx2HlAKoPLuYNzwHsWM3QxAG5gtyR4GOMrueFrYiJuZshge93X/ZbzzzedVx8cpw3wvO1TEmWJFXSXpbQ7cOgWV9FCpGQG2BqVydLETQbkWYp3dkbFiWxEIzk3IimGOchlpdFDE3EivGcLuckroWoHdFdsJlKuql2zIspDPxjHwgH7V+zDwWvwwVsgd2KW55qGCMj+Ph/uJFvxtHvVYi6u
+  - DIRECTORY: AgCjxf7eAXvNyF9s5+qhBVqnyY+M0u3hzW8X/+pSE90lJEoSJl7iQyM4Em/4wBY0ewhovIhyOAM6o/XLqHqIQ+ji+wd3IXiMElukdv/P8j3wAlIE38Dxfbhq8zgAlH+3+3HrMaYBpOfp/Isg+iG0G8gBV2qtWNOpm3u1moM3kQt5PowVMqKtXOlq4ZIOKTEEsdjcOzdFf3zm7ol77mrWlD8qAuFNRGPrqXhCnPU8sCSCgKIxrFWzgJcWlVcCiYoRJBEZu8FtY+/VckR4FCOoBz08AJmpyTi6yres29el90u+acFKB0/C5h7d1BoQ52qUsNdv1EsjMp7oLL9qMF3cU38K4RGIkV4huAJWg5EFq3QQT+FKp/sNVcsNRnKXJc1cmY3xsRNa4OqCg5Vlcbyxhvnko+YOCH5mDIv8+DsoouawSyYPT62J+2TbAPYUnI9QCAPY4dpVSzRO1QBRueGH3s4lxelJpYvEN2SQfIBbjmItKwf8efnHxrp9HP/Vo1wy3UiP3rSnTCwkUGpCTWz0YowB/TvgGlK3ZatoHPemRsVhr7WHrlWDYGXSesANW1sCjye2kbjFCmdt7/sYDMdF4UVTg4umjEwXjIubo9LotO8zny9uSfx+LqyIYyL0w1mczxUE/gcSa/HYWrne3J5RDvFw7bUTl/WykADqDbeS6r3azWMDHMBaafijelsDMmQXo3XD7JuSEf2SVI8m1GpkJWBwCkqbXc33zHP57nQzBAaNE2N6PZcPSyw9E7bymzqkqyTEz+c2eh8amldMGBlM7QVLnHBT2IkJJmYXGlXBlLHGi5JYuZxIDI3cEA9y/ajtHKwx9OMW7A3svOPpfpHeCwxQI4chUnE42gK7tkbPLIXK/65bqzW7NTwjV4o++MUlJUDQFU+qd2ct1/sF3ST2BU1V7BayHWWtlr/KTR3mcWp2GmBf69PAxOlD+VdBy1mgdJcs0MpCoBd4CAemWKg2rvHX+Q7bKZM/i0iduha5Fk+q4tdvA4bVGnzHjWA/nfMj3AqHR10lGVf2oNsBdEw2tin3Ko5QYQ4/s75svbVcjo9KqRnuEJaNCi1fBhA9VypcsfmmSPxOVxEsMqzPuiIsnx2XwjgmQLpvJS3qEeUXlN4CZ/y0EyuFHV5T7eQNNRjCZmpfoCzStgOK/LfDCa2+OLKW+cFKi4bzTqWSyQ7l6nrt82VZ35o9mVyadNFp2mq5r9cYHSuZdhJcOMmjHsWXKlaF7bJ8k6U8U6iXSR+5wSQwHdfFfJG2mlWXSMgUD6zYPy/8xtuTsSfUI1Pjng+FDp6d9pp0hxYW6GsrQ7y+4fgI93LqfDDy7m4Eh3FT9czQVdq71E7CA9qYorlwv8uUzJW5x5v+Mfh2OsKArUD0BKeGguW5jzc04qSjcddQmS3YgKmjFyJgVNAWiBvyIGsejH2AMVA44cKWh2wwHT8CgrykvfX4SnQL4rcepCysOd4OWP3xiWm2TGPTKGXQwmaP1CxUeFw4r/dwUrKjS2oCB4lGwoqxu7pzR8Ks8B3WbbEj0VEe5A+BzpGAufFLWslzUiSMuS2O059w/HfdDemsmokU8LYywNI=

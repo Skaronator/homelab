@@ -1,59 +1,54 @@
 image:
   repository: "plexinc/pms-docker"
   tag: "1.41.9.9961-46083195d@sha256:498445d9d65499916a4da7941279cc58d751f4196a159c75b4d2c1b5c664660a"
-
 ports:
-- name: main
-  containerPort: 32400
-  hostPort: 32400
-- name: roku
-  containerPort: 8324
-  hostPort: 8324
-- name: gdm-32410
-  containerPort: 32410
-  hostPort: 32410
-  protocol: UDP
-- name: gdm-32412
-  containerPort: 32412
-  hostPort: 32412
-  protocol: UDP
-- name: gdm-32413
-  containerPort: 32413
-  hostPort: 32413
-  protocol: UDP
-- name: gdm-32414
-  containerPort: 32414
-  hostPort: 32414
-  protocol: UDP
-
+  - name: main
+    containerPort: 32400
+    hostPort: 32400
+  - name: roku
+    containerPort: 8324
+    hostPort: 8324
+  - name: gdm-32410
+    containerPort: 32410
+    hostPort: 32410
+    protocol: UDP
+  - name: gdm-32412
+    containerPort: 32412
+    hostPort: 32412
+    protocol: UDP
+  - name: gdm-32413
+    containerPort: 32413
+    hostPort: 32413
+    protocol: UDP
+  - name: gdm-32414
+    containerPort: 32414
+    hostPort: 32414
+    protocol: UDP
 health:
   path: /identity
   type: HTTPS
-
 envs:
-- PLEX_UID: 5000
-- PLEX_GID: 5000
-
+  - PLEX_UID: 5000
+  - PLEX_GID: 5000
 resources:
   limits:
     gpu.intel.com/i915: "1"
-
 hostPaths:
-- name: config
-  hostPath: /srv/nvme/container-data/plex
-  containerPath: /config
-- name: transcode
-  hostPath: /srv/nvme/scrap-data/plex-transcode-cache
-  containerPath: /transcode
-- name: multimedia
-  hostPath: /srv/hdd/multimedia
-  containerPath: /srv/multimedia
-  readOnly: true
-- name: pictures
-  hostPath: /srv/nvme/pictures
-  containerPath: /srv/pictures
-  readOnly: true
-- name: music
-  hostPath: /srv/nvme/music
-  containerPath: /srv/music
-  readOnly: true
+  - name: config
+    hostPath: /srv/nvme/container-data/plex
+    containerPath: /config
+  - name: transcode
+    hostPath: /srv/nvme/scrap-data/plex-transcode-cache
+    containerPath: /transcode
+  - name: multimedia
+    hostPath: /srv/hdd/multimedia
+    containerPath: /srv/multimedia
+    readOnly: true
+  - name: pictures
+    hostPath: /srv/nvme/pictures
+    containerPath: /srv/pictures
+    readOnly: true
+  - name: music
+    hostPath: /srv/nvme/music
+    containerPath: /srv/music
+    readOnly: true

@@ -1,58 +1,51 @@
 image:
   repository: "haugene/transmission-openvpn"
   tag: "5.3.2@sha256:ecc30da79114d801295fd10a5dbaf8640b19707d012fb55be0671ddbe0503037"
-
 volumes:
-- name: config
-  storageClass: container-data
-  containerPath: /config/transmission-home
-- name: vpn
-  storageClass: container-data
-  containerPath: /etc/openvpn/custom
-- name: downloads
-  storageClass: downloads
-  subPath: Torrent
-  containerPath: /downloads/torrent
-
-ports: 
-- name: main
-  containerPort: 9091
-
+  - name: config
+    storageClass: container-data
+    containerPath: /config/transmission-home
+  - name: vpn
+    storageClass: container-data
+    containerPath: /etc/openvpn/custom
+  - name: downloads
+    storageClass: downloads
+    subPath: Torrent
+    containerPath: /downloads/torrent
+ports:
+  - name: main
+    containerPort: 9091
 ingress:
   host: transmission.wagner.gg
   basicAuth: Skaro:$apr1$qem8v099$1vDi1OojVYWKl5XwIBjaY0
-
 securityContext:
   capabilities:
     add:
-    - NET_ADMIN
-
+      - NET_ADMIN
 homepage:
   name: Transmission
   group: Downloader
   description: Torrent Downloader
   icon: transmission.svg
   weight: 2
-
 envs:
-- PUID: 5000
-- PGID: 5000
-- GLOBAL_APPLY_PERMISSIONS: false
-- OPENVPN_PROVIDER: custom
-- TRANSMISSION_PEER_PORT: 29619
-- LOCAL_NETWORK: 192.168.0.0/24
-- TRANSMISSION_SPEED_LIMIT_DOWN: 20000
-- TRANSMISSION_SPEED_LIMIT_DOWN_ENABLED: true
-- TRANSMISSION_SPEED_LIMIT_UP: 1500
-- TRANSMISSION_SPEED_LIMIT_UP_ENABLED: true
-- TRANSMISSION_DOWNLOAD_QUEUE_SIZE: 100
-- TRANSMISSION_WEB_UI: transmission-web-control
-- TRANSMISSION_HOME: /config/transmission-home
-- TRANSMISSION_DOWNLOAD_DIR: /downloads/torrent/completed
-- TRANSMISSION_INCOMPLETE_DIR: /downloads/torrent/incomplete
-- TRANSMISSION_WATCH_DIR: /downloads/torrent/watch
-
+  - PUID: 5000
+  - PGID: 5000
+  - GLOBAL_APPLY_PERMISSIONS: false
+  - OPENVPN_PROVIDER: custom
+  - TRANSMISSION_PEER_PORT: 29619
+  - LOCAL_NETWORK: 192.168.0.0/24
+  - TRANSMISSION_SPEED_LIMIT_DOWN: 20000
+  - TRANSMISSION_SPEED_LIMIT_DOWN_ENABLED: true
+  - TRANSMISSION_SPEED_LIMIT_UP: 1500
+  - TRANSMISSION_SPEED_LIMIT_UP_ENABLED: true
+  - TRANSMISSION_DOWNLOAD_QUEUE_SIZE: 100
+  - TRANSMISSION_WEB_UI: transmission-web-control
+  - TRANSMISSION_HOME: /config/transmission-home
+  - TRANSMISSION_DOWNLOAD_DIR: /downloads/torrent/completed
+  - TRANSMISSION_INCOMPLETE_DIR: /downloads/torrent/incomplete
+  - TRANSMISSION_WATCH_DIR: /downloads/torrent/watch
 secretEnvs:
-- OPENVPN_CONFIG: AgAWfp+6oinUtp9CC2YQVPeYR1ytuQwNfkZXlTeNfcmonKYzcvITUaugbDhdzV4rS5RRT56hk4K5PM27YcwSw2kPirA9goqKEE8STGTYmnkvyF4Kw5YekfU+dK9BKlgrkA6WP874dHX+/CNvRStb5V0jnEIRqMmr9rXv3omyWFOC/JDPIvP6Vdwns4hFR8XIthHk3M3pDVKjMPfIqUjlvRS4nO3ZdOQ9dEfD+dFKKTDPWYz1VNUbUmi0qtUj293SNdXsCvvkEKiJjnFekr/B5tHI08QSaHz1DNK6hvqrC1hX1YJhAbjpe8T+p7NmVuLdomoMW+lVfM5YoawJL6zxjlN8HOKpGvNjwKtM06YGZ9P3bjNV0N0/Boty3C8kre/b1QSsl2u5e/8Sjz18GD+KtAerYH+BmxGg6AeDSs8xwYLUsivMdCYoWTmubUhB8SoS02d8aXfxdnW5Eyv1olaEleuje9V6RSi7sIb+uK50LkkW0NbtnhpjJAehTXtNMlUMBfIazXn7K8XofWd6L9TjFMA6HYHoOJGQ+0j1t/6pfMCSEvq1IXBLnEaADRhXr9jyuQwBxZD7tiMYIHMrrJ4wDGPz8/NiTdOxUc/UMkB4jBfJSOZVAFOIfF33vEzjp7Ga7W8f+D7i5wKVuzEjWi3MzjceYlFUbHkZJtE6eg+gJV9t5+uHpvQEQ37ZJB1oOFz9w5Y9LU18Mp8=
-- OPENVPN_USERNAME: AgCW4qfYmrShg2A8sP8nowZxoPa5FyAhvSVC5QZwDxOut3DxKvyU4j8oBInKR6Wnb4Z44RajjIc+CawgQGRyFNeKMIEV43J2KuI2Iwe2n4POaQ6PBp1YOD7L1Bwnvc8fPv1o2BRNwiApJzzUsoi6GMh+BnIZKWHEOk0gkOQa8Qgnme7337AhGd1qhLGOwtVS6J7nvPhz9J7V6nCbZhugrOQOagqjD7ik3qPFEGTWDeaHk7ZPwFND0e8dOzmBO4/nS8IF7+XOaxFcP6QgpNp7Kxt2EQMbrV9QajxLZvmVs2uTnr6IcRsRQ20EJMgmhl2YAlylnN888uta93v84OMusRFcW7k6Kcj25YR07/LvueJ+o0xGSfZnIDgwa1pEJtQDvnLnVPLHeV5WHSdKOG44y2n3DmwhmBy2Sf/GkKgy2mSVGFANrM8j4UbJBNQdcLQQC5TuknR/66Nih5t9K8gQKKuEtgFt5sUZgwo2KX8PJM5fHrYzsKOKAIHbYd3AtpTch4dh2HrLHrGbLkTDsr4U8cl+TSTtqV4f1rEKyaHIexc/4uOKI9ihhJGhc04cgFmFc06FR+qG5DcaPxX7O+YKMwz8bFmEBfj/sTqJVokGnYsTueF0t88bR62FvlHe5zYbeY4nx1JXMRaP5ZzqGTdzwKB+7HxdY+zGhIPe5z/zcN9q2HmwjkGnxXyHT1KShXH934+ys0wNeofCLlF5aRs=
-- OPENVPN_PASSWORD: AgB4iAvsUvh30PNpH5J9u0MjAGB275GcjcK83o32wQyZnbmKEgbJiDKtCZLLKMrYDq1rWsLolr//JOGgBRLBYTJr2fHhSyJXivOfmXgAg5Neb65+EAKVLNB4cx9E00XfYGxUSq+c5CNRAjhSspNkW+YdwDOU0kzhrZ77faZZQsiPjMyWz+iG9MybHzlptYAX898fJLv/nZGXIltoAWJym5E5MFbGOeJHKLigMiQyC0HxQ+5zLg+xilJUVUbFQTUXdPhlJQjxAPL5ya+crDHM8wOyVbJXAplszsRf0i4NyghYke0edy4tYxM3CC/728/Q2bZGgjKNqSoX+UE8Cbc2UldRQMWwJwe8kIvxagn3mHNVmuVqLRxbjXl7RQdZDrbD2A1hXwtJkFPEwhizRni3QspdGUz2OscKylP0gjZyaEIRN+gchyRr8+Zj8xWCwTD5lbD1DBHATt/LlYRCIWWtbIlTot/88OcF9ieicAZvR+1OWZy/aF4dD1Lr8jf1LfAXkBvY3ItspKMkcWUR4Sl0QeQQhdZR30jCh2TQqFLaE24DNq919uhSH9guWh2v3Cwja4l9gkl8y+2PXd/tOVr6UenBEiRYB/SrCQnTU/bWwbZJDOgc/1gP10rddRgN2cST3FQ6UmU2D0KF7qqZtj1258hs9FdHkN/RfqcAycsaz3/ozPfTm1/HQTXbjKA5ebKrejSiDBeAbBj95dj3aiLFkb4zWoWs1c3xYpe6bzhRtawinr5DhKm8/JvMb8aec6gx7+1bjNc9zB9onkydwUWJClFc+Ne0i4TqLkQ8QA==
+  - OPENVPN_CONFIG: AgAWfp+6oinUtp9CC2YQVPeYR1ytuQwNfkZXlTeNfcmonKYzcvITUaugbDhdzV4rS5RRT56hk4K5PM27YcwSw2kPirA9goqKEE8STGTYmnkvyF4Kw5YekfU+dK9BKlgrkA6WP874dHX+/CNvRStb5V0jnEIRqMmr9rXv3omyWFOC/JDPIvP6Vdwns4hFR8XIthHk3M3pDVKjMPfIqUjlvRS4nO3ZdOQ9dEfD+dFKKTDPWYz1VNUbUmi0qtUj293SNdXsCvvkEKiJjnFekr/B5tHI08QSaHz1DNK6hvqrC1hX1YJhAbjpe8T+p7NmVuLdomoMW+lVfM5YoawJL6zxjlN8HOKpGvNjwKtM06YGZ9P3bjNV0N0/Boty3C8kre/b1QSsl2u5e/8Sjz18GD+KtAerYH+BmxGg6AeDSs8xwYLUsivMdCYoWTmubUhB8SoS02d8aXfxdnW5Eyv1olaEleuje9V6RSi7sIb+uK50LkkW0NbtnhpjJAehTXtNMlUMBfIazXn7K8XofWd6L9TjFMA6HYHoOJGQ+0j1t/6pfMCSEvq1IXBLnEaADRhXr9jyuQwBxZD7tiMYIHMrrJ4wDGPz8/NiTdOxUc/UMkB4jBfJSOZVAFOIfF33vEzjp7Ga7W8f+D7i5wKVuzEjWi3MzjceYlFUbHkZJtE6eg+gJV9t5+uHpvQEQ37ZJB1oOFz9w5Y9LU18Mp8=
+  - OPENVPN_USERNAME: AgCW4qfYmrShg2A8sP8nowZxoPa5FyAhvSVC5QZwDxOut3DxKvyU4j8oBInKR6Wnb4Z44RajjIc+CawgQGRyFNeKMIEV43J2KuI2Iwe2n4POaQ6PBp1YOD7L1Bwnvc8fPv1o2BRNwiApJzzUsoi6GMh+BnIZKWHEOk0gkOQa8Qgnme7337AhGd1qhLGOwtVS6J7nvPhz9J7V6nCbZhugrOQOagqjD7ik3qPFEGTWDeaHk7ZPwFND0e8dOzmBO4/nS8IF7+XOaxFcP6QgpNp7Kxt2EQMbrV9QajxLZvmVs2uTnr6IcRsRQ20EJMgmhl2YAlylnN888uta93v84OMusRFcW7k6Kcj25YR07/LvueJ+o0xGSfZnIDgwa1pEJtQDvnLnVPLHeV5WHSdKOG44y2n3DmwhmBy2Sf/GkKgy2mSVGFANrM8j4UbJBNQdcLQQC5TuknR/66Nih5t9K8gQKKuEtgFt5sUZgwo2KX8PJM5fHrYzsKOKAIHbYd3AtpTch4dh2HrLHrGbLkTDsr4U8cl+TSTtqV4f1rEKyaHIexc/4uOKI9ihhJGhc04cgFmFc06FR+qG5DcaPxX7O+YKMwz8bFmEBfj/sTqJVokGnYsTueF0t88bR62FvlHe5zYbeY4nx1JXMRaP5ZzqGTdzwKB+7HxdY+zGhIPe5z/zcN9q2HmwjkGnxXyHT1KShXH934+ys0wNeofCLlF5aRs=
+  - OPENVPN_PASSWORD: AgB4iAvsUvh30PNpH5J9u0MjAGB275GcjcK83o32wQyZnbmKEgbJiDKtCZLLKMrYDq1rWsLolr//JOGgBRLBYTJr2fHhSyJXivOfmXgAg5Neb65+EAKVLNB4cx9E00XfYGxUSq+c5CNRAjhSspNkW+YdwDOU0kzhrZ77faZZQsiPjMyWz+iG9MybHzlptYAX898fJLv/nZGXIltoAWJym5E5MFbGOeJHKLigMiQyC0HxQ+5zLg+xilJUVUbFQTUXdPhlJQjxAPL5ya+crDHM8wOyVbJXAplszsRf0i4NyghYke0edy4tYxM3CC/728/Q2bZGgjKNqSoX+UE8Cbc2UldRQMWwJwe8kIvxagn3mHNVmuVqLRxbjXl7RQdZDrbD2A1hXwtJkFPEwhizRni3QspdGUz2OscKylP0gjZyaEIRN+gchyRr8+Zj8xWCwTD5lbD1DBHATt/LlYRCIWWtbIlTot/88OcF9ieicAZvR+1OWZy/aF4dD1Lr8jf1LfAXkBvY3ItspKMkcWUR4Sl0QeQQhdZR30jCh2TQqFLaE24DNq919uhSH9guWh2v3Cwja4l9gkl8y+2PXd/tOVr6UenBEiRYB/SrCQnTU/bWwbZJDOgc/1gP10rddRgN2cST3FQ6UmU2D0KF7qqZtj1258hs9FdHkN/RfqcAycsaz3/ozPfTm1/HQTXbjKA5ebKrejSiDBeAbBj95dj3aiLFkb4zWoWs1c3xYpe6bzhRtawinr5DhKm8/JvMb8aec6gx7+1bjNc9zB9onkydwUWJClFc+Ne0i4TqLkQ8QA==

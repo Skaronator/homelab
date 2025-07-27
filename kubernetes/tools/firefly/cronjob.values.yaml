@@ -1,15 +1,11 @@
 image:
   repository: "ghcr.io/curl/curl-container/curl-multi"
   tag: "8.15.0@sha256:60f706e22d08217a29aba419095752d7def798567cc6c4005af2793e43b94d12"
-
 schedule: "0 * * * *"
-
 command:
-- "/bin/sh"
-
+  - "/bin/sh"
 args:
-- -c
-- curl -v --silent "firefly:8080/api/v1/cron/$STATIC_CRON_TOKEN"
-
+  - -c
+  - curl -v --silent "firefly:8080/api/v1/cron/$STATIC_CRON_TOKEN"
 secretEnvs:
-- STATIC_CRON_TOKEN: AgAcCyrWcAoh8Z8Zu8VlvJn+I7iqAspSriCRd2BYdFgr2fO94kvsk///HfVc0bubuSR5Zt55/qhx171RMWNYfMK1l1Njj5rGw5PpJRoKB0zlYoRdhl1cYl79YpCoFm4q2eDF5568iTc6BkXjYObkptAb++IOLPnYIS4nVD4z/6B5zPafTzXMmsyNPhma3igoYlfjRiA6JQG4kHtfnaT0xLx/6DKqA+1+AnhxBFGcX5NKv/uJBLvCSn5f/lyp9W1Mqs4D4+Q7vxs3WLTDte/aJ06Hp2155ZG5YsV5d4SN8J3SwGkBEghTeGgENrZ/f76DXR76KaycLpx/LZTSRyYibvxxutBI1+uSwXWlRBLpt6Cz8bXBw/Zmmb4QKqVqNzImv8z09001KdgaFTFQ3fZenc/k/zADbVoifCaxinvPVdmSJC7hi6vP9RvxfjTXX7SwI/+R/Js7wG3U7tcjbMvAm2X1870BOjvkquynxOCGldKkU/UgtZcWgvZL7kdRictxwldt6YH54fDcgpAz7Bfk11Nhp/+iYY9QMssy9C2KPZqPypjXd2wiDsh8F2ffVUhzmQlw+7HyIiZPWZ29XMK7+P1NcXS/83LuIqdcyb1jCIkiv92Fs5MByHBDK09fzw3BrYvz3Jl11tRIA5OEObqfhcpwXmfeyn63YKPIB2tldFKPglmhZ2VcHoAXp6/dKBL5xGcbkAOU1RKetI5uxf7Z+yOVSBOuVV9ozK/G4bJKwBoMAQ==
+  - STATIC_CRON_TOKEN: AgAcCyrWcAoh8Z8Zu8VlvJn+I7iqAspSriCRd2BYdFgr2fO94kvsk///HfVc0bubuSR5Zt55/qhx171RMWNYfMK1l1Njj5rGw5PpJRoKB0zlYoRdhl1cYl79YpCoFm4q2eDF5568iTc6BkXjYObkptAb++IOLPnYIS4nVD4z/6B5zPafTzXMmsyNPhma3igoYlfjRiA6JQG4kHtfnaT0xLx/6DKqA+1+AnhxBFGcX5NKv/uJBLvCSn5f/lyp9W1Mqs4D4+Q7vxs3WLTDte/aJ06Hp2155ZG5YsV5d4SN8J3SwGkBEghTeGgENrZ/f76DXR76KaycLpx/LZTSRyYibvxxutBI1+uSwXWlRBLpt6Cz8bXBw/Zmmb4QKqVqNzImv8z09001KdgaFTFQ3fZenc/k/zADbVoifCaxinvPVdmSJC7hi6vP9RvxfjTXX7SwI/+R/Js7wG3U7tcjbMvAm2X1870BOjvkquynxOCGldKkU/UgtZcWgvZL7kdRictxwldt6YH54fDcgpAz7Bfk11Nhp/+iYY9QMssy9C2KPZqPypjXd2wiDsh8F2ffVUhzmQlw+7HyIiZPWZ29XMK7+P1NcXS/83LuIqdcyb1jCIkiv92Fs5MByHBDK09fzw3BrYvz3Jl11tRIA5OEObqfhcpwXmfeyn63YKPIB2tldFKPglmhZ2VcHoAXp6/dKBL5xGcbkAOU1RKetI5uxf7Z+yOVSBOuVV9ozK/G4bJKwBoMAQ==

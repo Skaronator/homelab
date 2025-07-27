@@ -1,37 +1,31 @@
 image:
   repository: "ghcr.io/hotio/lidarr"
   tag: "release-2.12.4.4658@sha256:9ac29f5c3cb7e1e1ab5d694d63fdf92e3bb506e46904ff508961af5ba7dc1ef5"
-
 podLabels:
   zfs-encryption: "true"
-
-ports: 
-- name: main
-  containerPort: 8686
-
+ports:
+  - name: main
+    containerPort: 8686
 ingress:
   host: lidarr.wagner.gg
-
 envs:
-- PUID: 5000
-- PGID: 5000
-
+  - PUID: 5000
+  - PGID: 5000
 volumes:
-- name: config
-  storageClass: container-data
-  containerPath: /config
-- name: downloads-torrent
-  storageClass: downloads
-  subPath: Torrent
-  containerPath: /downloads/torrent
-- name: downloads-usenet
-  storageClass: downloads
-  subPath: Usenet
-  containerPath: /downloads/usenet
-- name: music
-  storageClass: music
-  containerPath: /music
-
+  - name: config
+    storageClass: container-data
+    containerPath: /config
+  - name: downloads-torrent
+    storageClass: downloads
+    subPath: Torrent
+    containerPath: /downloads/torrent
+  - name: downloads-usenet
+    storageClass: downloads
+    subPath: Usenet
+    containerPath: /downloads/usenet
+  - name: music
+    storageClass: music
+    containerPath: /music
 homepage:
   name: Lidarr
   group: Indexer

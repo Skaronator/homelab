@@ -1,44 +1,39 @@
 image:
   repository: "syncthing/syncthing"
   tag: "1.30.0@sha256:74eeedb08d4912763055594f8bd98bfc039f3bc504b6cd2c2adc8294111c1251"
-
 ports:
-- name: main
-  containerPort: 8384
-- name: tcp-transfer
-  containerPort: 22000
-  hostPort: 22000
-  protocol: TCP
-- name: udp-transfer
-  containerPort: 22000
-  hostPort: 22000
-  protocol: UDP
-- name: discovery
-  containerPort: 21027
-  hostPort: 21027
-  protocol: UDP
-
+  - name: main
+    containerPort: 8384
+  - name: tcp-transfer
+    containerPort: 22000
+    hostPort: 22000
+    protocol: TCP
+  - name: udp-transfer
+    containerPort: 22000
+    hostPort: 22000
+    protocol: UDP
+  - name: discovery
+    containerPort: 21027
+    hostPort: 21027
+    protocol: UDP
 ingress:
   host: syncthing.wagner.gg
-
 envs:
-- PUID: 5000
-- PGID: 5000
-
+  - PUID: 5000
+  - PGID: 5000
 homepage:
   name: Syncthing
   group: Cloud
   description: Syncing files
   icon: syncthing.svg
   weight: 40
-
 hostPaths:
-- name: config
-  hostPath: /srv/nvme/container-data/syncthing
-  containerPath: /var/syncthing
-- name: data
-  hostPath: /srv/nvme/niklas/Sync
-  containerPath: /data/sync
-- name: pictures
-  hostPath: /srv/nvme/pictures
-  containerPath: /data/pictures
+  - name: config
+    hostPath: /srv/nvme/container-data/syncthing
+    containerPath: /var/syncthing
+  - name: data
+    hostPath: /srv/nvme/niklas/Sync
+    containerPath: /data/sync
+  - name: pictures
+    hostPath: /srv/nvme/pictures
+    containerPath: /data/pictures

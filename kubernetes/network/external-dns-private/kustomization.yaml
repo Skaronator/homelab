@@ -1,14 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
-- base/sealedsecret.yaml
-
+  - base/sealedsecret.yaml
 helmCharts:
-- repo: https://kubernetes-sigs.github.io/external-dns
-  name: external-dns
-  version: 1.18.0
-  releaseName: external-dns-private
-  valuesFile: values.yaml
-  namespace: network
-  includeCRDs: true
+  - repo: https://kubernetes-sigs.github.io/external-dns
+    name: external-dns
+    version: 1.18.0
+    releaseName: external-dns-private
+    valuesFile: values.yaml
+    namespace: network
+    includeCRDs: true
