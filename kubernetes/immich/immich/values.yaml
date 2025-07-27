@@ -18,7 +18,7 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-body-size: 2048m
 
 health:
-  path: /
+  path: /api/server/ping
 
 homepage:
   name: Immich
