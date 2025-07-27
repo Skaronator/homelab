@@ -84,7 +84,7 @@ spec:
               mountPath: /mnt/cache
             - name: backup
               mountPath: /mnt/backup
-              readOnly: true
+              readOnly: {{ ne .Values.restic.mode "restore" }}
           volumes:
           - name: cache
             hostPath:
