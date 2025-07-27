@@ -9,19 +9,19 @@ helmCharts:
     releaseName: restic-container-data
     valuesFile: container-data.values.yaml
     namespace: storage
-  - name: restic-backup
-    releaseName: restic-pictures
-    valuesFile: pictures.values.yaml
-    namespace: storage
-  - name: restic-backup
-    releaseName: restic-music
-    valuesFile: music.values.yaml
-    namespace: storage
-  - name: restic-backup
-    releaseName: restic-niklas
-    valuesFile: niklas.values.yaml
-    namespace: storage
-  - name: restic-backup
-    releaseName: restic-bb
-    valuesFile: bb.values.yaml
-    namespace: storage
+  # - name: restic-backup
+  #   releaseName: restic-pictures
+  #   valuesFile: pictures.values.yaml
+  #   namespace: storage
+  # - name: restic-backup
+  #   releaseName: restic-music
+  #   valuesFile: music.values.yaml
+  #   namespace: storage
+  # - name: restic-backup
+  #   releaseName: restic-niklas
+  #   valuesFile: niklas.values.yaml
+  #   namespace: storage
+  # - name: restic-backup
+  #   releaseName: restic-bb
+  #   valuesFile: bb.values.yaml
+  #   namespace: storage

@@ -46,8 +46,10 @@ spec:
             imagePullPolicy: {{ .Values.image.pullPolicy }}
             args:
             - -c
-            {{ if .Values.restic.runInit }}
+            {{ if eq .Values.restic.mode "init" }}
             - restic init
+            {{ else if eq .Values.restic.mode "restore" }}
+            - sleep 365d
             {{ else }}
             - >
               restic snapshots

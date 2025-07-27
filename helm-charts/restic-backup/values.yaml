@@ -47,7 +47,7 @@ restartPolicy: OnFailure
 backoffLimit: 1
 
 restic:
-  runInit: false
+  mode: backup # init or restore
   uploadSpeed: 4000
   path:
   exclude: []
