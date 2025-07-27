@@ -4,7 +4,7 @@ txtPrefix: _external-dns-
 txtOwnerId: homelab
 
 extraArgs:
-  - "--ingress-class=nginx-public"
+  - --ingress-class=nginx-public
 
 provider:
   name: cloudflare
