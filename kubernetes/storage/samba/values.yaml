@@ -3,123 +3,123 @@ image:
   tag: "4.21.4@sha256:75f5037770eab774b82f298268305af8a18a01a1daad679f8d2d17c54059c847"
 
 ports:
-- name: main
-  containerPort: 445
-  hostPort: 445
+  - name: main
+    containerPort: 445
+    hostPort: 445
 
 health:
   type: TCP
 
 envs:
-- SAMBA_SERVER_STRING: "Samba"
+  - SAMBA_SERVER_STRING: "Samba"
 
 secretEnvs:
-- PASSWORD_NIKLAS: AgBOm6I8n4Atd+Zk5raeTrWiregnSX1wPzjPw9/+IOWnxmU5ik3WJOjOYh7Uq/ood7DohmV2c6zx6YZ+dprT5d+qn44a0Mpz7bAgKNHs073YSKE2V8ztBvtncVXfXu8Qg39/yli5gdclHKe+s+QYGTHk/pE25MSaVh2YLE86isKaO2LATwxwqcXML6s+ygkEQq8v7HVtAJaXfGSnMwz5pByrjfSDYIsjW6nIQ6CCS72P+QGnPdEyLBL9iaFwRanEXtPblMGAU+12yJ4KWycDKkj47dJl1bmNW62W0G0N8lAwI+DxXlALySHwDRHNAy3OryWyfdP3Hkv9bBEEXlyq4dBae640fUd00rS4WUy+BXW97g273iSkRRiI4lY53KEVRcr9NbwbfuAAWkuUgTnlQHQ9rjQ7MlNzPq8fLlNxlENx7nHLrIruVsxiTP8YD2LFwW2cJmsJ22cGopyX9dQaGvjbxvNs9K3D81Aey8QBs1p6klA/WucmbgGWplr+kp/I7+Ut05Odp7S5iKNFVsqlJmA+NSbEsx0u+Cc2YynJvaddQCjrARz404gnz7NVY20sCl5bzpAf32Zh59Usk6RDdvbUUVygGNDAGDrkovBtt+V82eqTK3iYlbo1fdFsllyGFzXSHiUL06c7rowjy5dVyHiL11HlSDAkWvDu6M0plraisNf3yOg9vbcgRuju8XJN5tFpHit+rhiqcP3b/odOiN/5oQS2iP3M
+  - PASSWORD_NIKLAS: AgBOm6I8n4Atd+Zk5raeTrWiregnSX1wPzjPw9/+IOWnxmU5ik3WJOjOYh7Uq/ood7DohmV2c6zx6YZ+dprT5d+qn44a0Mpz7bAgKNHs073YSKE2V8ztBvtncVXfXu8Qg39/yli5gdclHKe+s+QYGTHk/pE25MSaVh2YLE86isKaO2LATwxwqcXML6s+ygkEQq8v7HVtAJaXfGSnMwz5pByrjfSDYIsjW6nIQ6CCS72P+QGnPdEyLBL9iaFwRanEXtPblMGAU+12yJ4KWycDKkj47dJl1bmNW62W0G0N8lAwI+DxXlALySHwDRHNAy3OryWyfdP3Hkv9bBEEXlyq4dBae640fUd00rS4WUy+BXW97g273iSkRRiI4lY53KEVRcr9NbwbfuAAWkuUgTnlQHQ9rjQ7MlNzPq8fLlNxlENx7nHLrIruVsxiTP8YD2LFwW2cJmsJ22cGopyX9dQaGvjbxvNs9K3D81Aey8QBs1p6klA/WucmbgGWplr+kp/I7+Ut05Odp7S5iKNFVsqlJmA+NSbEsx0u+Cc2YynJvaddQCjrARz404gnz7NVY20sCl5bzpAf32Zh59Usk6RDdvbUUVygGNDAGDrkovBtt+V82eqTK3iYlbo1fdFsllyGFzXSHiUL06c7rowjy5dVyHiL11HlSDAkWvDu6M0plraisNf3yOg9vbcgRuju8XJN5tFpHit+rhiqcP3b/odOiN/5oQS2iP3M
 
 configMaps:
-- name: config
-  mountPath: /data
-  subPath: config.yml
-  content:
-    global:
-    # allow running exe https://unix.stackexchange.com/a/200130
-    - "acl allow execute always = yes"
-    - "min protocol = SMB3"
-    # Fix broken filenames https://superuser.com/a/459011
-    - "mangled names = no"
-    # https://www.truenas.com/community/threads/cifs-directory-browsing-slow-try-this.27751/
-    # https://old.reddit.com/r/PleX/comments/14kqixq/media_files_zfs_samba_windows_explorer_the_magic/
-    - "store dos attributes = no"
-    - "ea support = no"
-    - "map archive = no"
-    - "map hidden = no"
-    - "map system = no"
-    - "map readonly = no"
-    auth:
-    - user: niklas
-      password: ${PASSWORD_NIKLAS}
-      gid: 5000
-      uid: 5000
-      group: users
-    share:
-    - name: Urlaubsbilder
-      path: /mnt/pictures
-      readonly: "no"
-      guestok: "no"
-    - name: Musik
-      path: /mnt/music
-      readonly: "no"
-      guestok: "no"
-    - name: Multimedia
-      path: /mnt/multimedia
-      readonly: "no"
-      guestok: "no"
-    - name: Clips
-      path: /mnt/clips
-      readonly: "no"
-      guestok: "no"
-      validusers: "niklas"
-    - name: Backup
-      path: /mnt/backup
-      readonly: "no"
-      guestok: "no"
-      validusers: "niklas"
-    # - name: Downloads
-    #   path: /mnt/downloads
-    #   readonly: "no"
-    #   guestok: "no"
-    #   validusers: "niklas"
-    - name: Niklas
-      path: /mnt/niklas
-      readonly: "no"
-      guestok: "no"
-      validusers: "niklas"
-    - name: pp
-      path: /mnt/pp
-      readonly: "no"
-      guestok: "no"
-      browsable: "no"
-      validusers: "niklas"
-    - name: bb
-      path: /mnt/bb
-      readonly: "no"
-      guestok: "no"
-      browsable: "no"
-      validusers: "niklas"
+  - name: config
+    mountPath: /data
+    subPath: config.yml
+    content:
+      global:
+        # allow running exe https://unix.stackexchange.com/a/200130
+        - "acl allow execute always = yes"
+        - "min protocol = SMB3"
+        # Fix broken filenames https://superuser.com/a/459011
+        - "mangled names = no"
+        # https://www.truenas.com/community/threads/cifs-directory-browsing-slow-try-this.27751/
+        # https://old.reddit.com/r/PleX/comments/14kqixq/media_files_zfs_samba_windows_explorer_the_magic/
+        - "store dos attributes = no"
+        - "ea support = no"
+        - "map archive = no"
+        - "map hidden = no"
+        - "map system = no"
+        - "map readonly = no"
+      auth:
+        - user: niklas
+          password: ${PASSWORD_NIKLAS}
+          gid: 5000
+          uid: 5000
+          group: users
+      share:
+        - name: Urlaubsbilder
+          path: /mnt/pictures
+          readonly: "no"
+          guestok: "no"
+        - name: Musik
+          path: /mnt/music
+          readonly: "no"
+          guestok: "no"
+        - name: Multimedia
+          path: /mnt/multimedia
+          readonly: "no"
+          guestok: "no"
+        - name: Clips
+          path: /mnt/clips
+          readonly: "no"
+          guestok: "no"
+          validusers: "niklas"
+        - name: Backup
+          path: /mnt/backup
+          readonly: "no"
+          guestok: "no"
+          validusers: "niklas"
+        # - name: Downloads
+        #   path: /mnt/downloads
+        #   readonly: "no"
+        #   guestok: "no"
+        #   validusers: "niklas"
+        - name: Niklas
+          path: /mnt/niklas
+          readonly: "no"
+          guestok: "no"
+          validusers: "niklas"
+        - name: pp
+          path: /mnt/pp
+          readonly: "no"
+          guestok: "no"
+          browsable: "no"
+          validusers: "niklas"
+        - name: bb
+          path: /mnt/bb
+          readonly: "no"
+          guestok: "no"
+          browsable: "no"
+          validusers: "niklas"
 
 hostPaths:
-- name: pictures
-  hostPath: /srv/nvme/pictures
-  containerPath: /mnt/pictures
-  type: Directory
-- name: music
-  hostPath: /srv/nvme/music
-  containerPath: /mnt/music
-  type: Directory
-- name: niklas
-  hostPath: /srv/nvme/niklas
-  containerPath: /mnt/niklas
-  type: Directory
-- name: multimedia
-  hostPath: /srv/hdd/multimedia
-  containerPath: /mnt/multimedia
-  type: Directory
-- name: clips
-  hostPath: /srv/hdd/clips
-  containerPath: /mnt/clips
-  type: Directory
-- name: backup
-  hostPath: /srv/hdd/backup
-  containerPath: /mnt/backup
-  type: Directory
-- name: pp
-  hostPath: /srv/hdd/pp
-  containerPath: /mnt/pp
-  type: Directory
-- name: bb
-  hostPath: /srv/hdd/bb
-  containerPath: /mnt/bb
-  type: Directory
+  - name: pictures
+    hostPath: /srv/nvme/pictures
+    containerPath: /mnt/pictures
+    type: Directory
+  - name: music
+    hostPath: /srv/nvme/music
+    containerPath: /mnt/music
+    type: Directory
+  - name: niklas
+    hostPath: /srv/nvme/niklas
+    containerPath: /mnt/niklas
+    type: Directory
+  - name: multimedia
+    hostPath: /srv/hdd/multimedia
+    containerPath: /mnt/multimedia
+    type: Directory
+  - name: clips
+    hostPath: /srv/hdd/clips
+    containerPath: /mnt/clips
+    type: Directory
+  - name: backup
+    hostPath: /srv/hdd/backup
+    containerPath: /mnt/backup
+    type: Directory
+  - name: pp
+    hostPath: /srv/hdd/pp
+    containerPath: /mnt/pp
+    type: Directory
+  - name: bb
+    hostPath: /srv/hdd/bb
+    containerPath: /mnt/bb
+    type: Directory
 # - name: downloads
 #   hostPath: /srv/downloads
 #   containerPath: /mnt/downloads

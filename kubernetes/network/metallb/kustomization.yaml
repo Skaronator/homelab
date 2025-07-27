@@ -5,9 +5,9 @@ resources:
   - base/addresspool.yaml
 
 helmCharts:
-- repo: https://metallb.github.io/metallb
-  name: metallb
-  version: 0.15.2
-  releaseName: metallb
-  valuesFile: values.yaml
-  namespace: network
+  - repo: https://metallb.github.io/metallb
+    name: metallb
+    version: 0.15.2
+    releaseName: metallb
+    valuesFile: values.yaml
+    namespace: network

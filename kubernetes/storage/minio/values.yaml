@@ -3,18 +3,18 @@ image:
   tag: "RELEASE.2024-06-26T01-06-18Z@sha256:337d6f0e90b1992759b832ede340a170cc8ca5cd5db097898b15a3ed121351f7"
 
 ports:
-- name: main
-  containerPort: 9001
-- name: api
-  containerPort: 9000
+  - name: main
+    containerPort: 9001
+  - name: api
+    containerPort: 9000
 
 ingress:
   host: minio.wagner.gg
 
 args:
-- server
-- /data
-- --console-address=:9001
+  - server
+  - /data
+  - --console-address=:9001
 
 homepage:
   name: MinIO
@@ -24,10 +24,10 @@ homepage:
   weight: 60
 
 envs:
-- MINIO_ROOT_USER: niklas
+  - MINIO_ROOT_USER: niklas
 
 secretEnvs:
-- MINIO_ROOT_PASSWORD: AgAeFknTdT95U3nVuEU+bsjjna76RsHNcxajPsmzYgprrXzpMFbJQ68pGT/QiJ0YXOlMNLbTiZKnD9XibnLWPd28y3lV1PYe/7OtjhPfXCjrzv1B3w48DtIDnu70onLwJpEQQXT33pVNleIH3J9k/FlXGPmCorhJ5DT9NBHAneHDMs2rhgsNgvf4KKrO5ljfmgm+BtvB+5QSa/sfuxaO0vZ4IYakxDJIhYGgGfE+PeMVc72EvEHx/KdZ8gkH+LSJoeOfimxuq0SvdIiyQNg4mOWDlEFd6UpJsCWdqXVnlM8HhKJxCjM2/zd3/XzEJejVluRhWiwvR6k58qOPrXUb73+Vn0Af/ebEJERvbg1JKtseP76tosm4Tih4iiylaG83oGKooA0nbZEoQc8LLlCe7j/6fS7RzyjEDmN4OXu/m0MxkcdHCWXWBTSEtDBw4zQVWKmh3EIO/0td2J+PIcFF/J4ShCWasPSnAkxgq625c+6dgnodFigpT4XR2lH84Gr4bvSG55iWiKBgBPGyA527xacLOv3OoeCQjTcMnKySWenZAL85Y6Ny+hOGe88xhl1LdXNLYnAzOa/IeoQLeJuAKMD33fZAJcWnhX5n2aZl4QSdcARXTgoWnoNRye2gTmhbwk6X87BknevvQzdqxr08F6IqMh6YYlJsE7RIOSjmPB8HKWwV49ZsNbslvioQruP7sVHWXtJBDkMGimRf1AA5+7xOneSsh8/9KcMa3M/2GVUs41ogag==
+  - MINIO_ROOT_PASSWORD: AgAeFknTdT95U3nVuEU+bsjjna76RsHNcxajPsmzYgprrXzpMFbJQ68pGT/QiJ0YXOlMNLbTiZKnD9XibnLWPd28y3lV1PYe/7OtjhPfXCjrzv1B3w48DtIDnu70onLwJpEQQXT33pVNleIH3J9k/FlXGPmCorhJ5DT9NBHAneHDMs2rhgsNgvf4KKrO5ljfmgm+BtvB+5QSa/sfuxaO0vZ4IYakxDJIhYGgGfE+PeMVc72EvEHx/KdZ8gkH+LSJoeOfimxuq0SvdIiyQNg4mOWDlEFd6UpJsCWdqXVnlM8HhKJxCjM2/zd3/XzEJejVluRhWiwvR6k58qOPrXUb73+Vn0Af/ebEJERvbg1JKtseP76tosm4Tih4iiylaG83oGKooA0nbZEoQc8LLlCe7j/6fS7RzyjEDmN4OXu/m0MxkcdHCWXWBTSEtDBw4zQVWKmh3EIO/0td2J+PIcFF/J4ShCWasPSnAkxgq625c+6dgnodFigpT4XR2lH84Gr4bvSG55iWiKBgBPGyA527xacLOv3OoeCQjTcMnKySWenZAL85Y6Ny+hOGe88xhl1LdXNLYnAzOa/IeoQLeJuAKMD33fZAJcWnhX5n2aZl4QSdcARXTgoWnoNRye2gTmhbwk6X87BknevvQzdqxr08F6IqMh6YYlJsE7RIOSjmPB8HKWwV49ZsNbslvioQruP7sVHWXtJBDkMGimRf1AA5+7xOneSsh8/9KcMa3M/2GVUs41ogag==
 
 volumes:
   - name: data

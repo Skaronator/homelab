@@ -5,7 +5,7 @@ helmGlobals:
   chartHome: ../../../helm-charts
 
 helmCharts:
-- name: generic-service
-  releaseName: flexget
-  valuesFile: values.yaml
-  namespace: download
+  - name: generic-service
+    releaseName: flexget
+    valuesFile: values.yaml
+    namespace: download

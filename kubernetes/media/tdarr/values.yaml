@@ -8,8 +8,8 @@ podLabels:
 replicas: 0
 
 ports:
-- name: main
-  containerPort: 8265
+  - name: main
+    containerPort: 8265
 
 ingress:
   host: tdarr.wagner.gg
@@ -22,31 +22,31 @@ homepage:
   weight: 45
 
 envs:
-- PUID: 5000
-- PGID: 5000
-- UMASK_SET: 002
-- serverIP: 0.0.0.0
-- serverPort: 8266
-- webUIPort: 8265
-- internalNode: true
-- inContainer: true
-- ffmpegVersion: 6
-- nodeName: main
+  - PUID: 5000
+  - PGID: 5000
+  - UMASK_SET: 002
+  - serverIP: 0.0.0.0
+  - serverPort: 8266
+  - webUIPort: 8265
+  - internalNode: true
+  - inContainer: true
+  - ffmpegVersion: 6
+  - nodeName: main
 
 resources:
   limits:
     gpu.intel.com/i915: "1"
 
 hostPaths:
-- name: configs
-  hostPath: /srv/nvme/container-data/tdarr/configs
-  containerPath: /app/configs
-- name: server
-  hostPath: /srv/nvme/container-data/tdarr/server
-  containerPath: /app/server
-- name: cache
-  hostPath: /srv/nvme/scrap-data/tdarr-cache
-  containerPath: /temp 
-- name: pp
-  hostPath: /srv/hdd/pp
-  containerPath: /mnt/pp
+  - name: configs
+    hostPath: /srv/nvme/container-data/tdarr/configs
+    containerPath: /app/configs
+  - name: server
+    hostPath: /srv/nvme/container-data/tdarr/server
+    containerPath: /app/server
+  - name: cache
+    hostPath: /srv/nvme/scrap-data/tdarr-cache
+    containerPath: /temp
+  - name: pp
+    hostPath: /srv/hdd/pp
+    containerPath: /mnt/pp

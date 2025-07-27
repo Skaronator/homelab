@@ -2,13 +2,13 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- base/ingress.yaml
+  - base/ingress.yaml
 
 helmGlobals:
   chartHome: ../../../helm-charts
 
 helmCharts:
-- name: generic-service
-  releaseName: minio
-  valuesFile: values.yaml
-  namespace: storage
+  - name: generic-service
+    releaseName: minio
+    valuesFile: values.yaml
+    namespace: storage

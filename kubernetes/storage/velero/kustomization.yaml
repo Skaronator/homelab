@@ -7,9 +7,9 @@ resources:
   - base/volume-policies.yaml
 
 helmCharts:
-- repo: https://vmware-tanzu.github.io/helm-charts
-  name: velero
-  version: 10.0.10
-  includeCRDs: true
-  releaseName: velero
-  valuesFile: values.yaml
+  - repo: https://vmware-tanzu.github.io/helm-charts
+    name: velero
+    version: 10.0.10
+    includeCRDs: true
+    releaseName: velero
+    valuesFile: values.yaml

@@ -5,6 +5,6 @@ helmGlobals:
   chartHome: ../../../helm-charts
 
 helmCharts:
-- name: namespace
-  releaseName: namespace
-  valuesFile: values.yaml
+  - name: namespace
+    releaseName: namespace
+    valuesFile: values.yaml

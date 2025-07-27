@@ -1,29 +1,29 @@
 schedule: "0 4 * * *"
 
 envs:
-- GRAPHQL_QUERY: >
-    mutation {
-      metadataIdentify(
-        input: {
-          sources: [
-            { source: { stash_box_endpoint: \"https://stashdb.org/graphql\" } }
-            {
-              source: { scraper_id: \"builtin_autotag\" }
-              options: {
-                setCoverImage: null
-                setOrganized: false
-                includeMalePerformers: null
-                skipMultipleMatchTag: null
-                skipSingleNamePerformerTag: null
+  - GRAPHQL_QUERY: >
+      mutation {
+        metadataIdentify(
+          input: {
+            sources: [
+              { source: { stash_box_endpoint: \"https://stashdb.org/graphql\" } }
+              {
+                source: { scraper_id: \"builtin_autotag\" }
+                options: {
+                  setCoverImage: null
+                  setOrganized: false
+                  includeMalePerformers: null
+                  skipMultipleMatchTag: null
+                  skipSingleNamePerformerTag: null
+                }
               }
+            ]
+            options: {
+              setOrganized: false
+              skipMultipleMatches: true
+              skipMultipleMatchTag: null
+              skipSingleNamePerformerTag: null
             }
-          ]
-          options: {
-            setOrganized: false
-            skipMultipleMatches: true
-            skipMultipleMatchTag: null
-            skipSingleNamePerformerTag: null
           }
-        }
-      )
-    }
+        )
+      }

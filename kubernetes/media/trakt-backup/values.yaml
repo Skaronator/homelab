@@ -5,15 +5,15 @@ image:
 schedule: "0 3 * * *"
 
 args:
-- -v
-- --silent
-- --remote-header-name
-- --remote-name
-- --output-dir
-- /data
-- https://darekkay.com/service/trakt/trakt.php?username=Skaronator
+  - -v
+  - --silent
+  - --remote-header-name
+  - --remote-name
+  - --output-dir
+  - /data
+  - https://darekkay.com/service/trakt/trakt.php?username=Skaronator
 
 hostPaths:
-- name: data
-  hostPath: /srv/hdd/backup/Trakt
-  containerPath: /data
+  - name: data
+    hostPath: /srv/hdd/backup/Trakt
+    containerPath: /data

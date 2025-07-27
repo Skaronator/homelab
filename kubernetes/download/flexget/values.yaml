@@ -2,18 +2,17 @@ image:
   repository: "ghcr.io/flexget/flexget"
   tag: "3.17.0@sha256:e2dc686308f117fa67828171f1e31f87320e6cae16ec5931279dac09390ec818"
 
-ports: 
-- name: main
-  containerPort: 5050
+ports:
+  - name: main
+    containerPort: 5050
 
 ingress:
   host: flexget.wagner.gg
 
-
 volumes:
-- name: config
-  storageClass: container-data
-  containerPath: /config
+  - name: config
+    storageClass: container-data
+    containerPath: /config
 
 homepage:
   name: Flexget
@@ -23,44 +22,43 @@ homepage:
   weight: 25
 
 secretEnvs:
-- FG_WEBUI_PASSWD: AgBmH4uzR3f75l/1j6CB0OfFt+TZUEdxZOHyNpEfW3NqjEGogXc9KtkFiAMVXZjNGufj3qtdWehlrBjFknpSolFwpl1ZwYkctrVOykzeEjZFXZTssI5wyK7rS35ag+OJoQH1Tpx8G/E4lDbbpJy9m7PDPh3zOvqR1jBD0qaETOa3CgrJY9+Nq8yb1OYluXzIKaH3oTD3YoYh1BnFnbeR35tRCW5yDtAM8ut8RwsfRa9x2WdPSJyXo8mWOEGXNnn2v0hWZeDktACXf5lA3I13zXgNTRlhjoaOPuvtyRZUW+F/tlKir5YLgY6dExtC/Y07BPgQlZKqkvkPuyoEqrTZnKRpYHMdZRrFgMXFszg59rCnY7FMCZNWTCfGQ0mavKNJRW7wqqdMqLv7NRF6g7eDoa2zYd3AAWkiJ7axgIQj0pdsV3lwRHCwVk1pS+5B2q/WRZEdNpimDjXjvSxixAEVjJ0ZXhRAE/Pu/g0mGafJ6UnmfsGq7rrqR2QHJ5FwkziLb8FxrJ5r00K4gt1rVQZrIVmUAJ+CjRjJBCw3K9ToVWbxqmPlJoz4iQccNpjQdjSWU33EjChWgkOlvocnRC0SYupP1V+uhric8EfYTdeTDm0gQlnOb90Ek/+f12yDDgPYyJCOJIDQRXTsPB2cAkfDN9X0WKveBrw5YyOIhfh3llGcRENUkd8TQId/QPzJi0A5auNNRE+u7EOuYk84L0er/NsCL6iRqvfIoGSUrI5qpsISXd0VQA6vv9WMlA9DRdqi
-- RSS_FEED: AgBVbulPbm+XdzxuLEqwQcslSBtbWjiOQx2F04xCqRnbUJWU4uUWpUp7q/Ma/dfsV07Xvqo+zVPZ5G846cTZhM9cQeSLwnqlC4XVN814sQf6XZnc2MAajTLvABzYJWOca7yv7TDzcKrMJrovd4/YuIIoTHTyOSVxZO4qRj6dHy1/X73lCLBUviUistTvGXE474fFPwbJPHLmibE7paY9mI8VDzj9jyUr/4AjxNLyaF6f8Wh67io2rOI2iYizvco1BBFbsXx/+ndnHeO3p6DJ5Fna5dGmynX6rZC8EVoU1U0Rtk2p+/k7A8dZz0dFEQPpw19Pj8t9x/lgGpiqUuYLehsQ54LnBwgA15zoTDV65kufMmoJjiZfcETEWmW3kV42gHn54OJxhpYJuXoWtFljXxSLidrV0K8MOQLFdlA+phYhwQ099outssBZCex/Nt3ivn4T9i4QFubn0kzQDVaWUnyfECJLLUdFStWu2clm2ktMbHUFsJKGD7OD57GFxM07fON93ZStkkaXcbGbHQ29YeJEfT56uhl4XpkyMaB5EDpMzFhawlBQ20oIav7/YExvzhMCMNQbQ95i+yUOU0LasW0VAPQV09aYBlD8+0EtN4yFaQ+W/D9hSamEgW40hvIbh0IlLfvzBE9O3fYkbAIQWJn+0GsBuu7f12Yv0vXQ5qTrl1EHISe3mWjptn6vzO28AQBbie3FLgk9HAsDUXODcj4cFF+fnwEOGIUIlCg47Ja9rt7GOqeiv0WZ7AlV6KUADeAJOlFQTJRd/U7djMO5dtS7HsTRemnFAnRLTL+nQOTeXXyIzjPWrttGyZAnZv+1nQ==
+  - FG_WEBUI_PASSWD: AgBmH4uzR3f75l/1j6CB0OfFt+TZUEdxZOHyNpEfW3NqjEGogXc9KtkFiAMVXZjNGufj3qtdWehlrBjFknpSolFwpl1ZwYkctrVOykzeEjZFXZTssI5wyK7rS35ag+OJoQH1Tpx8G/E4lDbbpJy9m7PDPh3zOvqR1jBD0qaETOa3CgrJY9+Nq8yb1OYluXzIKaH3oTD3YoYh1BnFnbeR35tRCW5yDtAM8ut8RwsfRa9x2WdPSJyXo8mWOEGXNnn2v0hWZeDktACXf5lA3I13zXgNTRlhjoaOPuvtyRZUW+F/tlKir5YLgY6dExtC/Y07BPgQlZKqkvkPuyoEqrTZnKRpYHMdZRrFgMXFszg59rCnY7FMCZNWTCfGQ0mavKNJRW7wqqdMqLv7NRF6g7eDoa2zYd3AAWkiJ7axgIQj0pdsV3lwRHCwVk1pS+5B2q/WRZEdNpimDjXjvSxixAEVjJ0ZXhRAE/Pu/g0mGafJ6UnmfsGq7rrqR2QHJ5FwkziLb8FxrJ5r00K4gt1rVQZrIVmUAJ+CjRjJBCw3K9ToVWbxqmPlJoz4iQccNpjQdjSWU33EjChWgkOlvocnRC0SYupP1V+uhric8EfYTdeTDm0gQlnOb90Ek/+f12yDDgPYyJCOJIDQRXTsPB2cAkfDN9X0WKveBrw5YyOIhfh3llGcRENUkd8TQId/QPzJi0A5auNNRE+u7EOuYk84L0er/NsCL6iRqvfIoGSUrI5qpsISXd0VQA6vv9WMlA9DRdqi
+  - RSS_FEED: AgBVbulPbm+XdzxuLEqwQcslSBtbWjiOQx2F04xCqRnbUJWU4uUWpUp7q/Ma/dfsV07Xvqo+zVPZ5G846cTZhM9cQeSLwnqlC4XVN814sQf6XZnc2MAajTLvABzYJWOca7yv7TDzcKrMJrovd4/YuIIoTHTyOSVxZO4qRj6dHy1/X73lCLBUviUistTvGXE474fFPwbJPHLmibE7paY9mI8VDzj9jyUr/4AjxNLyaF6f8Wh67io2rOI2iYizvco1BBFbsXx/+ndnHeO3p6DJ5Fna5dGmynX6rZC8EVoU1U0Rtk2p+/k7A8dZz0dFEQPpw19Pj8t9x/lgGpiqUuYLehsQ54LnBwgA15zoTDV65kufMmoJjiZfcETEWmW3kV42gHn54OJxhpYJuXoWtFljXxSLidrV0K8MOQLFdlA+phYhwQ099outssBZCex/Nt3ivn4T9i4QFubn0kzQDVaWUnyfECJLLUdFStWu2clm2ktMbHUFsJKGD7OD57GFxM07fON93ZStkkaXcbGbHQ29YeJEfT56uhl4XpkyMaB5EDpMzFhawlBQ20oIav7/YExvzhMCMNQbQ95i+yUOU0LasW0VAPQV09aYBlD8+0EtN4yFaQ+W/D9hSamEgW40hvIbh0IlLfvzBE9O3fYkbAIQWJn+0GsBuu7f12Yv0vXQ5qTrl1EHISe3mWjptn6vzO28AQBbie3FLgk9HAsDUXODcj4cFF+fnwEOGIUIlCg47Ja9rt7GOqeiv0WZ7AlV6KUADeAJOlFQTJRd/U7djMO5dtS7HsTRemnFAnRLTL+nQOTeXXyIzjPWrttGyZAnZv+1nQ==
 
 envsubst:
   files:
-  - src: /tmp-config/config.yml
-    dest: /envsubst/config.yml
+    - src: /tmp-config/config.yml
+      dest: /envsubst/config.yml
 
 command:
-- /bin/sh
+  - /bin/sh
 
 args:
-- -c
-- >
-  cp /envsubst/config.yml /config/config.yml &&
-  flexget daemon start
+  - -c
+  - >
+    cp /envsubst/config.yml /config/config.yml && flexget daemon start
 
 configMaps:
-- name: config
-  mountPath: /tmp-config
-  subPath: config.yml
-  content:
-    schedules:
-    - interval:
-        jitter: 60
-        minutes: 10
+  - name: config
+    mountPath: /tmp-config
+    subPath: config.yml
+    content:
+      schedules:
+        - interval:
+            jitter: 60
+            minutes: 10
+          tasks:
+            - rss
       tasks:
-      - rss
-    tasks:
-      rss:
-        accept_all: true
         rss:
-          all_entries: false
-          url: $RSS_FEED
-        transmission:
-          host: transmission
-          port: 9091
-    web_server:
-      bind: 0.0.0.0
-      port: 5050
-      web_ui: true
+          accept_all: true
+          rss:
+            all_entries: false
+            url: $RSS_FEED
+          transmission:
+            host: transmission
+            port: 9091
+      web_server:
+        bind: 0.0.0.0
+        port: 5050
+        web_ui: true

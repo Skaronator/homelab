@@ -3,8 +3,8 @@ registry: txt
 txtPrefix: _external-dns-
 txtOwnerId: homelab
 
-extraArgs: 
-- "--ingress-class=nginx-public"
+extraArgs:
+  - "--ingress-class=nginx-public"
 
 provider:
   name: cloudflare
@@ -17,13 +17,13 @@ sources:
 triggerLoopOnEvent: true
 
 env:
-- name: CF_API_EMAIL
-  valueFrom:
-    secretKeyRef:
-      name: external-dns-cloudflare
-      key: email
-- name: CF_API_TOKEN
-  valueFrom:
-    secretKeyRef:
-      name: external-dns-cloudflare
-      key: apitoken
+  - name: CF_API_EMAIL
+    valueFrom:
+      secretKeyRef:
+        name: external-dns-cloudflare
+        key: email
+  - name: CF_API_TOKEN
+    valueFrom:
+      secretKeyRef:
+        name: external-dns-cloudflare
+        key: apitoken

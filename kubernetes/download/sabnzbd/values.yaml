@@ -2,25 +2,25 @@ image:
   repository: "ghcr.io/hotio/sabnzbd"
   tag: "release-4.1.0@sha256:2778bb56922f4df9bcdc1cc3e5ed108430d970ad5e9e87fb2208ccbc87cbda98"
 
-ports: 
-- name: main
-  containerPort: 8080
+ports:
+  - name: main
+    containerPort: 8080
 
 ingress:
   host: sabnzbd.wagner.gg
 
 envs:
-- PUID: 5000
-- PGID: 5000
+  - PUID: 5000
+  - PGID: 5000
 
 volumes:
-- name: config
-  storageClass: container-data
-  containerPath: /config
-- name: downloads
-  storageClass: downloads
-  subPath: Usenet
-  containerPath: /downloads/usenet
+  - name: config
+    storageClass: container-data
+    containerPath: /config
+  - name: downloads
+    storageClass: downloads
+    subPath: Usenet
+    containerPath: /downloads/usenet
 
 homepage:
   name: SABnzbd

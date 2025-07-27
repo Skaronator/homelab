@@ -3,5 +3,5 @@ image:
   tag: "2.9.1-minimal@sha256:20db3df89eaeb1b271dd840888fe909b88b12f4b86ef641ec07a1d45d4c5168f"
 
 ports:
-- name: main
-  containerPort: 9998
+  - name: main
+    containerPort: 9998

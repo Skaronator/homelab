@@ -2,8 +2,8 @@ policy: sync
 registry: noop
 interval: 15s
 
-extraArgs: 
-- "--ingress-class=nginx-private"
+extraArgs:
+  - "--ingress-class=nginx-private"
 
 sources:
   - service
@@ -19,15 +19,15 @@ provider:
       repository: ghcr.io/muhlba91/external-dns-provider-adguard
       tag: v9.0.1@sha256:08fc9f649dbab69bc3474b102b0098262ffbd2281509443d10a697dadb1eaa77
     env:
-    - name: ADGUARD_URL
-      value: http://192.168.0.2
-    - name: ADGUARD_USER
-      valueFrom:
-        secretKeyRef:
-          name: external-dns-adguard-home
-          key: username
-    - name: ADGUARD_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: external-dns-adguard-home
-          key: password
+      - name: ADGUARD_URL
+        value: http://192.168.0.2
+      - name: ADGUARD_USER
+        valueFrom:
+          secretKeyRef:
+            name: external-dns-adguard-home
+            key: username
+      - name: ADGUARD_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: external-dns-adguard-home
+            key: password

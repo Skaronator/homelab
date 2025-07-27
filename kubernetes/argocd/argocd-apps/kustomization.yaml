@@ -4,8 +4,8 @@ kind: Kustomization
 namespace: argocd
 
 helmCharts:
-- name: argocd-apps
-  version: 2.0.2
-  releaseName: argocd-apps
-  repo: https://argoproj.github.io/argo-helm
-  valuesFile: values.yaml
+  - name: argocd-apps
+    version: 2.0.2
+    releaseName: argocd-apps
+    repo: https://argoproj.github.io/argo-helm
+    valuesFile: values.yaml

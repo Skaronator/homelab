@@ -5,7 +5,7 @@ helmGlobals:
   chartHome: ../../../helm-charts
 
 helmCharts:
-- name: generic-service
-  releaseName: openspeedtest
-  valuesFile: values.yaml
-  namespace: tools
+  - name: generic-service
+    releaseName: openspeedtest
+    valuesFile: values.yaml
+    namespace: tools

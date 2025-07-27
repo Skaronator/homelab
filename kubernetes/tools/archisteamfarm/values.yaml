@@ -3,13 +3,13 @@ image:
   tag: "6.2.0.4@sha256:b4b85933609abaaf17f4c942fd8b6892e7f99d57d9cb182aa8c38c513ed490f3"
 
 hostPaths:
-- name: data
-  hostPath: /srv/nvme/container-data/archisteamfarm
-  containerPath: /app/config
+  - name: data
+    hostPath: /srv/nvme/container-data/archisteamfarm
+    containerPath: /app/config
 
-ports: 
-- name: main
-  containerPort: 1242
+ports:
+  - name: main
+    containerPort: 1242
 
 ingress:
   host: asf.wagner.gg

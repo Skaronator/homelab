@@ -5,7 +5,7 @@ helmGlobals:
   chartHome: ../../../helm-charts
 
 helmCharts:
-- name: generic-cronjob
-  releaseName: gallery-dl
-  valuesFile: values.yaml
-  namespace: download
+  - name: generic-cronjob
+    releaseName: gallery-dl
+    valuesFile: values.yaml
+    namespace: download
