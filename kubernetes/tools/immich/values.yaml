@@ -14,6 +14,8 @@ ports:
 ingress:
   host: immich.wagner.gg
   public: true
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 2048m
 
 health:
   path: /
