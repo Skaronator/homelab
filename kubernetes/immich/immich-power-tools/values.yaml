@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/varun-raj/immich-power-tools"
-  tag: "0.17.0"
+  tag: "0.17.0@sha256:53eb4e43afe7fc5384b8a572bc2cd016d54a046c5f2e93afa9e6ea1198a6ff93"
 
 ports:
   - name: main
