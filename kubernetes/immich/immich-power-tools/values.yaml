@@ -1,0 +1,33 @@
+image:
+  repository: "ghcr.io/varun-raj/immich-power-tools"
+  tag: "0.17.0"
+
+ports:
+  - name: main
+    containerPort: 3000
+
+ingress:
+  host: immich-powertools.wagner.gg
+
+health:
+  path: /
+
+homepage:
+  name: Immich Power Tools
+  group: Organization
+  description: Advanced Immich Features
+  icon: https://raw.githubusercontent.com/varun-raj/immich-power-tools/refs/heads/main/public/android-chrome-192x192.png
+  weight: 5
+
+envs:
+  - IMMICH_URL: http://immich-server:2283
+  - EXTERNAL_IMMICH_URL: https://immich.wagner.gg
+  - DB_USERNAME: immich-server
+  - DB_PASSWORD: ""
+  - DB_HOST: immich-server-db
+  - DB_PORT: 5432
+  - DB_DATABASE_NAME: immich-server
+
+secretEnvs:
+  - IMMICH_API_KEY: AgBHRW7plrQrpGYGgUC1Mi8bvlaI2o9rUBeWe7QZA/CdXUuROvGXQyh2g+64N5+dRXHenbIFgW7SFXNAwkhIYOxcHqA0EeizlB1D4LCwiDCBuSo2LswuxMpUjz00q4PWUwBbxVYmnDC/ZDziZTPEGy1s49vgmXmfS3h2ckgVklydqiKXyhAZevubWmRdM7C0Gqo/QOCPKVptnR9QncOOLkPYmmRrPkmtkDY44aa3FRwUYAk+VW1m89bIqQi8PgNpyRavvKyENvmCqwr2VBZgl9Sk80xqsiOIDl9Bd0NgcMbYSu5y19PR3N3b2Z+LALsgFdTBDR+Lgnnarytz0jalRHy7+Us9jknHFKVl59kNU3CE0ahE5DwCvw2GglEohLxTHR2GakDdvNeXqlRQoy01ivBOQibUNAZTJBlH0oyKOGeYr+NtOiWXJHThHYl+CCtKhg3WPPJOUlN+vgee7J6gn82ESZVbJD062MPDVABIeFNJHXaVKErEcZM4KrMy8OwB06vmUGra1MT8Qyk6jvwgf+YjlsDZ7SLuylez5HKvmHALDrpz9d49WWM0oVv/C5mKWE2iLMQKsCzWM4GCtn11Gh3k0LD3Dq3MS6Q+K6US0wfurOsLRK612DOYOmTVMWKKQ03vwh+9Vvrq+HeqRqseTKL04EmRRzveAESAWKoC7HAitRc1N1P4sdu0P5xTyJ6goS+SVL1gMpg/NHKK+64gbICxK5UEGMjqgdy4U9VPqYCdOHEHFr79WqImN3g=
+  - DB_PASSWORD: AgAfWvyaKizdPTpf8ldjbZbwPSemeNP/ADsd33sUAtez/12UKkQ2KI476glST72mo18QzlHTDrE1lQCBJjUPOXrfKLuBc0b7z/4zFLK1pMggIxBBpxrEr142uNStgJGRgTjr3v+E2YSdiHaNuVyXczjzOIrWT0G4WWS9nY/do6ZRDnI4nKq5uelNeUECJ0H6tgv7SX2WpFn67BhNeahksCAmzWkCwwRWONgGPmS5+grQZeZqrozU90ikyulbry+qRR62J3job0zoY/a0c5duZbI5yJKYY5pHqrkdnYF3RvGrjg/aYTbU/UyY0fIrbAmJqMvGcygyiMlEYEX+VmoHyi3IQ+EFxVh/vQi2Bc6nTdyfhw1rWSVz7a5A3Ts2GBoJZ1pOFsJUXP1wzcgs3VVWjx8MtswZu8+Ubje3oftc/CU+s4xGQfzWPSAnAYQIfzHzzipgbwpulZWRsRezuBPutJxrf5Py84hzmSd3YxQp1+aYGvPkxptV3aQo3t79RW2FVkqkmBJeBm7W5oploxkCw4kML8p0CS57IP/YeOfH052SKCYR1v60vgT2GSZTrYvNY4BRf7Lge71cdioE6qLwbdAWPkpAL/AKfhM/CQ9aZZ/hCZ+VUwXRwznRDxMVatjd2NwmKEM/AE4TlZJ3xNnmlOtnCSDnwQnhjdSozZMv7KX5+KKpDAW+NclkesJzMJuzY/YeC7YlajwJq68bPn3OOXbwtgL8ohU08LFti8jJHAs=
