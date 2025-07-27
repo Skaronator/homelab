@@ -8,4 +8,4 @@ helmCharts:
   - name: generic-cronjob
     releaseName: trakt-backup
     valuesFile: values.yaml
-    namespace: media
+    namespace: plex
