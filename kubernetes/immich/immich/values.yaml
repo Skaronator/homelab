@@ -27,8 +27,6 @@ homepage:
   icon: immich
   weight: 1
 
-replicas: 0
-
 envs:
   - DB_HOSTNAME: $(TEMPLATE_DB_HOST)
   - DB_PORT: $(TEMPLATE_DB_PORT)
