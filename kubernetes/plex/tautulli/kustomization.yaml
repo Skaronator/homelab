@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-service
-    releaseName: plex
+    releaseName: tautulli
     valuesFile: values.yaml
-    namespace: media
+    namespace: plex
