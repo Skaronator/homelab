@@ -23,7 +23,6 @@ envs:
   - IMMICH_URL: http://immich-server:2283
   - EXTERNAL_IMMICH_URL: https://immich.wagner.gg
   - DB_USERNAME: immich-server
-  - DB_PASSWORD: ""
   - DB_HOST: immich-server-db
   - DB_PORT: 5432
   - DB_DATABASE_NAME: immich-server
