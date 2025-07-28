@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-cronjob
-    releaseName: kometa
+    releaseName: recyclarr
     valuesFile: values.yaml
-    namespace: plex
+    namespace: arr-stack

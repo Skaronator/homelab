@@ -106,7 +106,7 @@ configMaps:
         optimize: true
         # empty_trash: true
       radarr:
-        url: http://radarr:7878
+        url: http://radarr.arr-stack.svc:7878
         token: <<SECRET_RADAR_TOKEN>>
         root_folder_path: /movies
         quality_profile: main

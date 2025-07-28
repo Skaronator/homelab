@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-cronjob
-    releaseName: trakt-backup
+    releaseName: kometa
     valuesFile: values.yaml
-    namespace: plex
+    namespace: media

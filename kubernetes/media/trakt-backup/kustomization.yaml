@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-cronjob
-    releaseName: recyclarr
+    releaseName: trakt-backup
     valuesFile: values.yaml
     namespace: media

@@ -8,12 +8,12 @@ helmCharts:
   - name: generic-service
     releaseName: immich-server
     valuesFile: values.yaml
-    namespace: immich
+    namespace: media
   - name: generic-service
     releaseName: immich-redis
     valuesFile: redis.values.yaml
-    namespace: immich
+    namespace: media
   - name: generic-service
     releaseName: immich-machine-learning
     valuesFile: machine-learning.values.yaml
-    namespace: immich
+    namespace: media

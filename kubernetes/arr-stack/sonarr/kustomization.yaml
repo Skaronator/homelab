@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-service
-    releaseName: immich-power-tools
+    releaseName: sonarr
     valuesFile: values.yaml
-    namespace: immich
+    namespace: arr-stack

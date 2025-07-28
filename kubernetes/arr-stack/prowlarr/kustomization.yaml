@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-service
-    releaseName: sonarr
+    releaseName: prowlarr
     valuesFile: values.yaml
-    namespace: media
+    namespace: arr-stack

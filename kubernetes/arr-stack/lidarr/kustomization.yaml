@@ -8,4 +8,4 @@ helmCharts:
   - name: generic-service
     releaseName: lidarr
     valuesFile: values.yaml
-    namespace: media
+    namespace: arr-stack

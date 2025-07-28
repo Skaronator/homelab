@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-service
-    releaseName: tautulli
+    releaseName: radarr
     valuesFile: values.yaml
-    namespace: plex
+    namespace: arr-stack

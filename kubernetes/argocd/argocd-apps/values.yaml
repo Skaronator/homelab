@@ -19,21 +19,17 @@ applicationsets:
               exclude: true
             - path: "kubernetes/tools/reactive-resume"
               exclude: true
-            - path: "kubernetes/media/lidarr"
+            - path: "kubernetes/arr-stack/lidarr"
               exclude: true
-            - path: "kubernetes/media/prowlarr"
+            - path: "kubernetes/arr-stack/prowlarr"
               exclude: true
-            - path: "kubernetes/media/radarr"
+            - path: "kubernetes/arr-stack/radarr"
               exclude: true
-            - path: "kubernetes/media/recyclarr"
+            - path: "kubernetes/arr-stack/recyclarr"
               exclude: true
-            - path: "kubernetes/media/sonarr"
+            - path: "kubernetes/arr-stack/sonarr"
               exclude: true
             - path: "kubernetes/media/stash"
-              exclude: true
-            - path: "kubernetes/media/tautulli"
-              exclude: true
-            - path: "kubernetes/media/tdarr"
               exclude: true
     template:
       metadata:

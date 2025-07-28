@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-service
-    releaseName: radarr
+    releaseName: plex
     valuesFile: values.yaml
     namespace: media
