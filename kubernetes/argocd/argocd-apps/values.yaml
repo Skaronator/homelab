@@ -11,8 +11,6 @@ applicationsets:
               exclude: true
             - path: "kubernetes/download/gallery-dl"
               exclude: true
-            - path: "kubernetes/download/flexget"
-              exclude: true
             - path: "kubernetes/storage/minio"
               exclude: true
             - path: "kubernetes/storage/syncthing"
