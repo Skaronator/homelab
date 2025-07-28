@@ -21,4 +21,6 @@ restic:
     - sonarr/MediaCover
     - stash/generated
     - stash/blobs
+    - immich-data/thumbs
+    - immich-data/encoded-video
     - Plex\ Media\ Server/Cache/PhotoTranscoder
