@@ -4,7 +4,7 @@ image:
 
 hostPaths:
   - name: data
-    hostPath: /srv/nvme/container-data/transmission-config
+    hostPath: /srv/nvme/container-data/transmission-data
     containerPath: /config/transmission-home
   - name: vpn
     hostPath: /srv/nvme/container-data/transmission-vpn
