@@ -7,8 +7,6 @@ applicationsets:
           revision: main
           directories:
             - path: "kubernetes/**/*"
-            - path: "kubernetes/download/flexget"
-              exclude: true
             - path: "kubernetes/download/gallery-dl"
               exclude: true
             - path: "kubernetes/storage/minio"
