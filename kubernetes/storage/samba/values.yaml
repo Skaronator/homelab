@@ -64,11 +64,16 @@ configMaps:
           readonly: "no"
           guestok: "no"
           validusers: "niklas"
-        # - name: Downloads
-        #   path: /mnt/downloads
-        #   readonly: "no"
-        #   guestok: "no"
-        #   validusers: "niklas"
+        - name: Torrent
+          path: /mnt/torrent
+          readonly: "no"
+          guestok: "no"
+          validusers: "niklas"
+        - name: Usenet
+          path: /mnt/usenet
+          readonly: "no"
+          guestok: "no"
+          validusers: "niklas"
         - name: Niklas
           path: /mnt/niklas
           readonly: "no"
@@ -120,7 +125,11 @@ hostPaths:
     hostPath: /srv/hdd/bb
     containerPath: /mnt/bb
     type: Directory
-# - name: downloads
-#   hostPath: /srv/downloads
-#   containerPath: /mnt/downloads
-#   type: Directory
+  - name: torrent
+    hostPath: /srv/downloads/torrent
+    containerPath: /mnt/torrent
+    type: Directory
+  - name: usenet
+    hostPath: /srv/downloads/usenet
+    containerPath: /mnt/usenet
+    type: Directory
