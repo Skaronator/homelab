@@ -56,6 +56,9 @@ plugins:
 
 nav:
   - Home: index.md
+  - Initial Setup:
+    - Debian (Host OS):  initial-setup/debian.md
+    - K0s Server:  initial-setup/k0s.md
 
 validation:
   omitted_files: warn
