@@ -15,10 +15,6 @@ applicationsets:
               exclude: true
             - path: "kubernetes/storage/velero"
               exclude: true
-            - path: "kubernetes/tools/atuin"
-              exclude: true
-            - path: "kubernetes/tools/firefly"
-              exclude: true
             - path: "kubernetes/tools/monero-node"
               exclude: true
             - path: "kubernetes/tools/reactive-resume"
