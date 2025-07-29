@@ -147,7 +147,7 @@ configMaps:
       machineLearning:
         clip:
           enabled: true
-          modelName: ViT-SO400M-16-SigLIP2-512__webli
+          modelName: XLM-Roberta-Large-ViT-H-14__frozen_laion5b_s13b_b90k
         duplicateDetection:
           enabled: true
           maxDistance: 0.01
@@ -155,7 +155,7 @@ configMaps:
         facialRecognition:
           enabled: true
           maxDistance: 0.5
-          minFaces: 3
+          minFaces: 5
           minScore: 0.7
           modelName: buffalo_l
         urls:
