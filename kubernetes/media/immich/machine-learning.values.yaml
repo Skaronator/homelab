@@ -8,3 +8,12 @@ ports:
 
 health:
   path: /
+
+hostPaths:
+  - name: cache
+    hostPath: /srv/nvme/scrap-data/immich-machine-learning
+    containerPath: /cache
+
+resources:
+  limits:
+    gpu.intel.com/i915: "1"
