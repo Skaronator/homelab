@@ -19,6 +19,18 @@
   },
   "packageRules": [
     {
+      "matchPackagePatterns": ["^ghcr\\.io/immich-app/"],
+      "matchUpdateTypes": [
+        "major",
+        "minor"
+      ],
+      "groupName": "immich",
+      "assignees": [
+        "Skaronator"
+      ],
+      "automerge": false
+    },
+    {
       "matchPackageNames": [
         "nixery.dev/shell/envsubst"
       ],
