@@ -19,7 +19,7 @@
   },
   "packageRules": [
     {
-      "matchPackagePatterns": ["^ghcr\\.io/immich-app/"],
+      "matchPackageNames": ["ghcr.io/immich-app/**"],
       "matchUpdateTypes": [
         "major",
         "minor"
