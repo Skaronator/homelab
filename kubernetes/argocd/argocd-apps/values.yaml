@@ -15,8 +15,6 @@ applicationsets:
               exclude: true
             - path: "kubernetes/storage/velero"
               exclude: true
-            - path: "kubernetes/tools/monero-node"
-              exclude: true
             - path: "kubernetes/tools/reactive-resume"
               exclude: true
             - path: "kubernetes/arr-stack/lidarr"
