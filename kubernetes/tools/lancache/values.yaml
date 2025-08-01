@@ -1,6 +1,6 @@
 image:
   repository: "lancachenet/monolithic"
-  tag: "latest"
+  tag: "latest@sha256:2f0d6332a492cc95ad5d186bcd9607f9f807610611c9b018008a4cdb0d715497"
 
 hostPaths:
   - name: data
