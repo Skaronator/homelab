@@ -10,7 +10,7 @@ body = """
 {% if group is starting_with("<!-- 9") %}
 <details>
 <summary>View all changes</summary>
-{%- for commit in commits | unique(attribute="message") | sort(attribute="scope") %}
+{% for commit in commits | unique(attribute="message") | sort(attribute="scope") %}
 - {{ commit.message | upper_first }} [{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})
 {%- endfor %}
 </details>
