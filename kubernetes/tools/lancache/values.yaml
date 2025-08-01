@@ -1,0 +1,24 @@
+image:
+  repository: "lancachenet/monolithic"
+  tag: "latest"
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/scrap-data/lancache
+    containerPath: /data/cache
+
+ports:
+  - name: main
+    containerPort: 80
+  - name: https
+    containerPort: 443
+
+service:
+  type: LoadBalancer
+  loadBalancerIP: 192.168.0.252
+
+envs:
+  - CACHE_MAX_AGE: 365d
+  - CACHE_INDEX_SIZE: 500m
+  - MIN_FREE_DISK: 100g
+  - CACHE_DISK_SIZE: 1000g
