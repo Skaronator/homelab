@@ -46,6 +46,8 @@ ingress:
   publicPath: /
   port: main
   annotations: {}
+  annotationsPublic: {}
+  annotationsPrivate: {}
 
 replicas: 1
 strategyType: Recreate
