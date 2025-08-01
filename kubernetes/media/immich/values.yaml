@@ -15,7 +15,7 @@ ingress:
   host: immich.wagner.gg
   public: true
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 2048m
+    nginx.ingress.kubernetes.io/proxy-body-size: 4096m
 
 health:
   path: /api/server/ping
