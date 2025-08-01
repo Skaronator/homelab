@@ -24,7 +24,7 @@
         "major",
         "minor"
       ],
-      "groupName": "immich",
+      "groupName": "immich docker tag",
       "assignees": [
         "Skaronator"
       ],
