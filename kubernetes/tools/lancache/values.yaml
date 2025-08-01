@@ -22,3 +22,7 @@ envs:
   - CACHE_INDEX_SIZE: 500m
   - MIN_FREE_DISK: 100g
   - CACHE_DISK_SIZE: 1000g
+  - UPSTREAM_DNS: 192.168.0.2
+
+health:
+  type: TCP
