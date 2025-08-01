@@ -49,11 +49,11 @@ commit_preprocessors = [
 ]
 # regex for parsing and grouping commits
 commit_parsers = [
-  { message = "^chore\\(deps\\)\\: update dependency (.*) to.*", scope="${1}", group = "<!-- 99 --> Updates - Dependencies"  },
-  { message = "^chore\\(deps\\)\\: update helm release (.*) to.*", scope="${1}", group = "<!-- 98 --> Updates - Helm Charts"  },
+  { message = "^chore\\(deps\\)\\: update dependency (.*) to.*", scope="${1}", group = "<!-- 95 --> Updates - Dependencies"  },
+  { message = "^chore\\(deps\\)\\: update helm release (.*) to.*", scope="${1}", group = "<!-- 96 --> Updates - Helm Charts"  },
   { message = "^chore\\(deps\\)\\: update (.*) docker tag.*", scope="${1}", group = "<!-- 97 --> Updates - Container Tags"  },
-  { message = "^chore\\(deps\\)\\: update (.*) docker digest.*", scope="${1}", group = "<!-- 96 --> Updates - Container Digest"  },
-  { message = "^chore\\(deps\\)\\: pin (.*) docker tag.*", scope="${1}", group = "<!-- 95 --> Updates - Container Digest"  },
+  { message = "^chore\\(deps\\)\\: update (.*) docker digest.*", scope="${1}", group = "<!-- 98 --> Updates - Container Digest"  },
+  { message = "^chore\\(deps\\)\\: pin (.*) docker tag.*", scope="${1}", group = "<!-- 99 --> Pin - Container Digest"  },
   { message = ".*", group = "<!-- 0 --> What's Changed" },
 ]
 # filter out the commits that are not matched by commit parsers
