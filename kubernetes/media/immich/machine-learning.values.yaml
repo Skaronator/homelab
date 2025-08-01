@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/immich-app/immich-machine-learning"
-  tag: "v1.137.1@sha256:591a7aef2a9ae087beb5aa24901ecffd441c8dc85db2a5addc6e08f4dbcddee3"
+  tag: "v1.137.3@sha256:ef517c041fa4a6a84a6c3c4f88a1124058e686c9c92bf09a973e7e60c3c3ea1e"
 
 ports:
   - name: main
