@@ -21,6 +21,8 @@ ports:
 ingress:
   host: syncthing.wagner.gg
 
+replicas: 0
+
 envs:
   - PUID: 5000
   - PGID: 5000
