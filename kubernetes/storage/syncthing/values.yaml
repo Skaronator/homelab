@@ -1,5 +1,5 @@
 image:
-  repository: "syncthing/syncthing"
+  repository: "ghcr.io/syncthing/syncthing"
   tag: "1.30.0@sha256:74eeedb08d4912763055594f8bd98bfc039f3bc504b6cd2c2adc8294111c1251"
 
 ports:
