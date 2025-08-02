@@ -5,7 +5,7 @@ image:
 hostPaths:
   - name: data
     hostPath: /srv/nvme/container-data/immich-data
-    containerPath: /usr/src/app/upload
+    containerPath: /data
 
 ports:
   - name: main
