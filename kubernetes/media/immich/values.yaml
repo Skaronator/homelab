@@ -29,16 +29,6 @@ homepage:
   icon: immich
   weight: 1
 
-envs:
-  - DB_HOSTNAME: $(TEMPLATE_DB_HOST)
-  - DB_PORT: $(TEMPLATE_DB_PORT)
-  - DB_DATABASE_NAME: $(TEMPLATE_DB_DATABASE)
-  - DB_USERNAME: $(TEMPLATE_DB_USERNAME)
-  - DB_PASSWORD: $(TEMPLATE_DB_PASSWORD)
-  - REDIS_HOSTNAME: immich-redis
-  - REDIS_PORT: 6379
-  - IMMICH_CONFIG_FILE: /envsubst/config.yaml
-
 database:
   enabled: true
   hostPath: /srv/nvme/container-data/immich-db
@@ -54,6 +44,16 @@ envsubst:
     - src: /config/config.yaml
       dest: /envsubst/config.yaml
 
+envs:
+  - DB_HOSTNAME: $(TEMPLATE_DB_HOST)
+  - DB_PORT: $(TEMPLATE_DB_PORT)
+  - DB_DATABASE_NAME: $(TEMPLATE_DB_DATABASE)
+  - DB_USERNAME: $(TEMPLATE_DB_USERNAME)
+  - DB_PASSWORD: $(TEMPLATE_DB_PASSWORD)
+  - REDIS_HOSTNAME: immich-redis
+  - REDIS_PORT: 6379
+  - IMMICH_CONFIG_FILE: /envsubst/config.yaml
+
 secretEnvs:
   - MAIL_FROM: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
   - MAIL_USERNAME: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
@@ -66,7 +66,7 @@ configMaps:
     content:
       backup:
         database:
-          cronExpression: 0 02 * * *
+          cronExpression: 0 2 * * *
           enabled: true
           keepLastAmount: 14
       ffmpeg:
@@ -89,7 +89,7 @@ configMaps:
         gopSize: 0
         maxBitrate: '0'
         preferredHwDevice: auto
-        preset: ultrafast
+        preset: medium
         refs: 0
         targetAudioCodec: aac
         targetResolution: '720'
@@ -139,8 +139,8 @@ configMaps:
           concurrency: 1
       library:
         scan:
-          cronExpression: 0 0 * * *
           enabled: true
+          cronExpression: 0 0 * * *
         watch:
           enabled: false
       logging:
@@ -163,20 +163,20 @@ configMaps:
         urls:
           - http://immich-machine-learning:3003
       map:
-        darkStyle: https://tiles.immich.cloud/v1/style/dark.json
         enabled: true
+        darkStyle: https://tiles.immich.cloud/v1/style/dark.json
         lightStyle: https://tiles.immich.cloud/v1/style/light.json
       metadata:
         faces:
           import: false
       newVersionCheck:
-        enabled: true
+        enabled: false
       nightlyTasks:
+        startTime: '02:00'
         clusterNewFaces: true
         databaseCleanup: true
         generateMemories: true
         missingThumbnails: true
-        startTime: '00:00'
         syncQuotaUsage: true
       notifications:
         smtp:
@@ -228,8 +228,7 @@ configMaps:
       theme:
         customCss: ''
       trash:
-        days: 30
         enabled: true
+        days: 30
       user:
         deleteDelay: 7
-
