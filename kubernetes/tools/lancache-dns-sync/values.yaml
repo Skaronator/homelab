@@ -6,7 +6,7 @@ schedule: "0 * * * *"
 
 envs:
 - ADGUARD_API: http://192.168.0.2
-- SERVICE_NAMES: steam
+- SERVICE_NAMES: '*'
 - RUN_ONCE: true
 # Must match with Service.Loadbalancer IP in lancache deployment
 - LANCACHE_SERVER: 192.168.0.252
