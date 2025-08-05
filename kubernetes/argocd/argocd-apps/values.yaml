@@ -15,15 +15,9 @@ applicationsets:
               exclude: true
             - path: "kubernetes/tools/reactive-resume"
               exclude: true
-            - path: "kubernetes/arr-stack/lidarr"
-              exclude: true
             - path: "kubernetes/arr-stack/prowlarr"
               exclude: true
-            - path: "kubernetes/arr-stack/radarr"
-              exclude: true
             - path: "kubernetes/arr-stack/recyclarr"
-              exclude: true
-            - path: "kubernetes/arr-stack/sonarr"
               exclude: true
     template:
       metadata:

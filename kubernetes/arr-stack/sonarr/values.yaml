@@ -13,21 +13,18 @@ envs:
   - PUID: 5000
   - PGID: 5000
 
-volumes:
+hostPaths:
   - name: config
-    storageClass: container-data
+    hostPath: /srv/nvme/container-data/sonarr
     containerPath: /config
   - name: downloads-torrent
-    storageClass: downloads
-    subPath: Torrent
+    hostPath: /srv/downloads/torrent
     containerPath: /downloads/torrent
   - name: downloads-usenet
-    storageClass: downloads
-    subPath: Usenet
+    hostPath: /srv/downloads/usenet
     containerPath: /downloads/usenet
   - name: series
-    storageClass: multimedia
-    subPath: Serien-Sonarr
+    hostPath: /srv/hdd/multimedia/Serien-Sonarr
     containerPath: /series
 
 homepage:
