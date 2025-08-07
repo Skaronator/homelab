@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-service
-    releaseName: flaresolverr
+    releaseName: byparr
     valuesFile: values.yaml
-    namespace: download
+    namespace: arr-stack
