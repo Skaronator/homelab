@@ -1,0 +1,25 @@
+image:
+  repository: "tannermiddleton/recommendarr"
+  tag: "v1.4.4"
+
+ports:
+  - name: main
+    containerPort: 3000
+
+ingress:
+  host: recommendarr.wagner.gg
+
+envs:
+  - PUID: 5000
+  - PGID: 5000
+
+hostPaths:
+  - name: config
+    hostPath: /srv/nvme/container-data/recommendarr
+    containerPath: /app/server/data
+
+homepage:
+  name: Recommendarr
+  group: Indexer
+  description: Music Manager
+  weight: 15
