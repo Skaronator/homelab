@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/thephaseless/byparr"
-  tag: "1.2.1"
+  tag: "1.2.1@sha256:2f444712578eae74508dc1e100900114b08e4421e708cb13b07f3dce76a7d956"
 
 ports:
   - name: main
