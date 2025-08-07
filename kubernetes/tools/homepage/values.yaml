@@ -10,9 +10,9 @@ config:
     - "Smart Home":
         - "Home Assistant":
             description: Smart Home
-            href: http://192.168.0.11
+            href: http://ha.wagner.gg
             icon: home-assistant.svg
-            weight: 5
+            weight: 1
         - Valetudo:
             description: Robotic Vacuum
             href: http://192.168.0.11
