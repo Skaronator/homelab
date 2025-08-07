@@ -33,6 +33,8 @@ health:
 envs:
   - PLEX_UID: 5000
   - PLEX_GID: 5000
+  - ADVERTISE_IP: https://192.168.0.5:32400/
+  - ALLOWED_NETWORKS: 192.168.0.0/16,10.244.0.0/16,10.96.0.0/12
 
 resources:
   limits:
