@@ -21,5 +21,6 @@ hostPaths:
 homepage:
   name: Recommendarr
   group: Indexer
-  description: Music Manager
+  description: Recommendation Manager
+  icon: sh-recommendarr.png
   weight: 15
