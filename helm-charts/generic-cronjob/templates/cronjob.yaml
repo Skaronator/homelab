@@ -31,6 +31,7 @@ spec:
           labels:
             {{- include "generic-cronjob.selectorLabels" . | nindent 12 }}
         spec:
+          enableServiceLinks: false
           serviceAccountName: {{ include "generic-cronjob.name" . }}
           terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
           securityContext: {{- toYaml .Values.podSecurityContext | nindent 12 }}

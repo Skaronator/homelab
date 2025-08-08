@@ -36,6 +36,7 @@ spec:
         {{- include "generic-service.selectorLabels" . | nindent 8 }}
     spec:
       serviceAccountName: {{ include "generic-service.name" . }}
+      enableServiceLinks: false
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
       hostNetwork: {{ .Values.hostNetwork }}

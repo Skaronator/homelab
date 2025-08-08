@@ -32,6 +32,7 @@ spec:
           labels:
             {{- include "restic-backup.selectorLabels" . | nindent 12 }}
         spec:
+          enableServiceLinks: false
           serviceAccountName: {{ include "restic-backup.name" . }}
           terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
           securityContext: {{- toYaml .Values.podSecurityContext | nindent 12 }}
