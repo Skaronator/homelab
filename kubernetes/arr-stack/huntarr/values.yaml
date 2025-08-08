@@ -1,0 +1,26 @@
+image:
+  repository: "ghcr.io/plexguide/huntarr"
+  tag: "8.1.15"
+
+ports:
+  - name: main
+    containerPort: 9705
+
+ingress:
+  host: huntarr.wagner.gg
+
+envs:
+  - PUID: 5000
+  - PGID: 5000
+
+hostPaths:
+  - name: config
+    hostPath: /srv/nvme/container-data/huntarr
+    containerPath: /config
+
+homepage:
+  name: Huntarr
+  group: Indexer
+  description: Hunt for missing Media
+  icon: sh-huntarr.png
+  weight: 20
