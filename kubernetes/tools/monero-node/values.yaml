@@ -24,3 +24,6 @@ ingress:
 
 health:
   path: /get_height
+
+securityContext:
+  runAsUser: 5000
