@@ -13,7 +13,6 @@ envs:
 secretEnvs:
   - KOMETA_SECRET_PLEX_TOKEN: AgA1GYDOQc4koi3jJS2B1GipUbUet3tnotWjgXQ5TRVdo1ADyG7i0xp6dx/mxS1e9qoK5ETWpFK4zTWmF5XXqZ4kEErfLrDscgpvOKl/YYe1p0Xsi8p3Dh8xn74wMjGsmlakQorbcHwdFGuvNqU57Vs9Vu7Og2Rbq07FzNi3qSaJ0rN4CGlcpiUt2dTgUmneUZzJMo9+n8YazAdKwh5cAm1HEeCYK70hxJVgY4L8ARyGqNAfLTSiPMAP9rp3VMwlt5vBt0R64KTwd5+wE+Vs9OfDWOY+fmSZsKcu+g4ohM2pZh4BUriss3NTpYPvN7Kx5bV9hk38UqYlgtK901IFdcD1cUAeegfWnxHby1JtuHDYv/yLQkTOp9meGvoE40neRspimoHLNhc361uVet0J332tqkQGkqxO224p7FMfrnsvAh04n78C3DmUcX1/z2N46dj2TQOwCPi0QBCNn03LtbJkJRZ+40fVSRPR06f/ytEeZEM7eYmNoXRr2gh+VfyKiBcjzxXIEiWJWJNcrzyAYYG9TWwAChPGR8czQAFgZ1OBze+Vp9C9LKxvWEqRpp/bphCjOOzBoO0BV9PREDTCGKFNCoGGHvu+ZAVtJtDU7ndkuCt4318QUXxw8oZkVKkY0hxSFwTb8hRODpr3GZPQa7vtIKqeT4m6qHsCXfvhr2xKBU+j3l+evcSEYV2UQmgB5uWoBEyNIRpS2uSh2/gdKTuPztpIIw==
   - KOMETA_SECRET_TMDB_API_KEY: AgBoSroEUo97+DHbaYdw5h7oySTOVJtVcXWoIuf7OvkMHNWu0o/0ch+6zjIjjjgYnLl05x+N1v9t364PflZPa9/HI8xbzCqBKQ/3+SajreXjZq/jKQGbCPdAdAPedU+4+wl3+zBmUKREH+FSNWw4ycqbPa143QYtY0SqXGHT6MIB+zlsCopFi3o1X+O0QMsh66tJl7lexVQPRGEHPcLAVXDdQd0orugB+Px+yWQMtnvt9E258M7pESCL1Y65u+uLnYgfT2oyMvrQZHtWXI+Miutr+BlAJJ0dr0rNTRQ/cTAhl44y6PPnoPnZB2/+dRdrMg3D9yCdOvoEiuQaDUeyvm6VewIr+tu2iQtOfbZxWhbxa1t0TtI18nmh5Bwqr9b22QX6UxUrpxnGX36RvT3ZZyAqRmRp6qUhUzA3Nw17oTrmBTBHyAER0Y8ELfxX+bvW4FGzO+EdSZy8E1WZVWpmaXRRpOZ8SeVoq8oko1iiVbiQuTu53vfduLImqCkupGsSgBthf+gOM5gX2AaPoZpslK1HpHqLzmW/3wSzH+Mw9KgdPeXaJ0BMyMEbVArpXD/DPuQqJ5tn8cjX44hTf/ryZMsJY7y0WMDXpUbYiD3G22vtcs+8yyleFRy76oQ5AnT9PxIj7nQ3CCKk0Zcfx5PK/xY0dTaJS63luGQSZEo68s75lWojqRzMZvBflADlqKx4wMDGJuads7oJBZvifoLQ0lZfU5E5qQKRnlbjhzFoMfQ+EA==
-  - KOMETA_SECRET_RADAR_TOKEN: AgA4a5EIL968zJAd+RTmT43BsugebVPGrvaAdz3jgTr4zrTI7sYwwQzNCRnEtxMEcTy4tBbj+m/imhtYvpMxacidj8KFwtUpE0QIYlLFETt5JtXvx66AQtzUJM8cfaEDLHqEIdPJ1wZ+BnPtQiCF2b3/SqWCBvSemOVFs/yX4KUIT5bT9//w1faeU26fClO0QXW1k+oNDqDUi+pkcm/2ecgYf+ey87GWJEKtNgZ6wiN0cyYJsdfq3b5x6vodxNPcFZw0DFW53skwPlY1AV9b/pP1+6bwjmkbHHW86FLJrsA+pAtgej2CPtSaZKn+q5qEw8W9BceTAU0q/c5LJBeYK5jG+R3N0i7zdPj5gBTooKBubffos6Zy/ZbILUpB7qvLqBr4aiR408scD119uqiwwLV6+QPylb5w/EBH2vC0fOEfYX4rO76yLl4/JVSe9kDPGhjfMnjPDCav1iJQJkbKiUpeJ3DAv17hCYjfnqrEMVroeqLrpDitDSAPdjqtA5UGOBv2EWtqN5ISWgH8ZCpzKQY5PWKOgN2VkjZ+2JF5kY7GM9T9PkrC7tIbalks8/qUFTa1hmZEzKECYjPjlQbwixpPkDoLCuQEcXVh7N58KbDZHvqGCkO1gFrVxgo9iAodknLuYSdW40sbgbgCbxn9JVJBnK0Zv17Gzv0mEUM97wDXOhCplLRgNVXxn2qrsvhdqKUXQPSf7HmSIY+gnq2fdXfLR8XKQy1TR3hskIOoAXj3gg==
   # TODO: Fix trakt tokens
   - KOMETA_SECRET_TRAKT_CLIENT_ID: AgCZvuTtU8QnU6Srv0dK6u/CxxEZ8EFDo6yu9bsJ7W4tnJL0znAorHUWn+X8lnAd3/QmzTzsRdC8YNogFldvtF1THRVU4hmkKUVQ2bH/gi4JQos1GgbH2wIJOq6keiG3/u9YjrczHAnqANKfBEJYZjCHu9Oy093XJ8GP/aNbJuz6Xw2E4n/aAwwIgN4k7o5dpLHYGHYwfRUDK6h+2dpSjnVSLGTPnvhpmTlmyTjYZmHufxrpN+MonK3GN9aFnSWgBNJK4hi1EbueXZqwEzm/aLUeDHUKpNGGcEEarhSAo97mL0IGxvn7/H5WvvJtf9L4bS7ktKquTePHo6uGYnZx8LBjdRslyPQPbXlOg5Nr/gJvDg+jZ7i8Co6hnjej0L9gznZVpBj4s5CowbwRxX5sACf3eUK3mRx4fEenJrQx9oYs557OkvWyNEtfPAbj6g0i2vUnzU2D8LJXeDmAYEcm1cccHMiNZLtCHWFeysmHwyYD/Gd/Ij8HW6LSp1owQYbVw4tHDgUBBfRC3FH6rIdiw8bBCBF1+stimm/Skx8PaTaOP1gIJ9CvKGXHlpHhgymAmtEhBdp8x1TzbRVx4ucMdX3mS1zGh8bYX1Afyj53IeFrA0tTFHkdZIFasx+1j3GX5L6ivHdplI6Avni8Orhy8Wc1JSsSW3hE20Y3r2EKuFkaFBGneP3BM3oJ42eV/ZdxpK3eunVyF/QIHk4yQUL/fZXL0/gyzRd6/JL+N2pHnCD7RyFWNtECoqL/1SNkPbQHLIOZhpK1pjK4SORwsXwmg+22
   - KOMETA_SECRET_TRAKT_CLIENT_SECRET: AgBBrXBzPIMN+/WxcDcfYORlMHzjHNx2xKbHJL3ABOpLWaAdnon0mNZA/SxlpCogXcHUrMcAfekTOkGPczURa6YF3TJhVaYqL3EzYGw587wQC3YRGm+k9gGs6hU8ftrmoqucGGRhUBkKInIiWtC2WjWzMTCkSi657tVkOlPznlSyBd+3HNjb6LDsC2nxJiy9f9V8e2sJUEjRghL6P6YEKvgH0/UIHxcZlQJnEDKOs27xKLYzxJvnw26ob8A3v3WmDCYQa5M3nPiPEiNmSFXjHftvhhpKkUjaOkNQ8POkL2We1Th8KhNW8u8HcMlylFIzvPdkfnoal9UlBoRXbi+6rtiAYIFK9Iw/XR1hgmGyHWBMKBLJKveHUG5WxO1+idkI/an/v+hH+PIukg4vorxoQ9vI+oex6CG3V7lKDuan9/mlcGW3Pfu2L9mO00+Hb0e/e3t2okLX+7ctJXUz2vBGpPYrp47GQFhIZWU3WI66VfAP3ckEQHmP4CYvojNRjUF90u/7zGEArqf2XfJkoUXIgBBun8cwlLsRXFSvtVhH21Ks3lFIpHma794+JNWHefOUuIQbShZwQleFJ6BG4qOFGpmNslBl7UVzKgZ/wdyHLf1Q4MugbPVaXmAjL/rg8Z7YY1X0iZeVdrbi4jcgTR8TlIFfpuVfNV2/ewrhDOgveOYbUkJkaXO2YwOfJiy8KL+lEHb4xO8m/S34BdMWnuQ2zc/l5sY4GbpngwxUz3AvxLoNyQ0N1uXG63KyoetikqOBOZ7vZ+e0h3BZhN65VSTRJk73
@@ -89,8 +88,6 @@ configMaps:
               template_variables:
                 language: de
                 use_year_collections: true
-                # radarr_add_missing: true
-                # item_radarr_tag: oscars-winners
                 visible_library_popular: true
                 visible_home_popular: true
                 visible_shared_popular: true
@@ -104,14 +101,7 @@ configMaps:
         token: <<SECRET_PLEX_TOKEN>>
         clean_bundles: true
         optimize: true
-        # empty_trash: true
-      radarr:
-        url: http://radarr.arr-stack.svc:7878
-        token: <<SECRET_RADAR_TOKEN>>
-        root_folder_path: /movies
-        quality_profile: main
-        availability: cinemas
-        tag: pmm
+        empty_trash: true
       trakt:
         client_id: <<SECRET_TRAKT_CLIENT_ID>>
         client_secret: <<SECRET_TRAKT_CLIENT_SECRET>>
