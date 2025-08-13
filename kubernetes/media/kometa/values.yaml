@@ -26,6 +26,10 @@ configMaps:
     content:
       libraries:
         Filme:
+          operations:
+            delete_collections:
+              configured: false
+              managed: true
           collection_files:
             - file: /config/movies.yaml
             - pmm: trakt
