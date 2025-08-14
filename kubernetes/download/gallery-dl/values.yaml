@@ -5,8 +5,8 @@ image:
 schedule: "0 2 * * *"
 
 securityContext:
-  runAsUser: 1000
-  runAsGroup: 100
+  runAsUser: 5000
+  runAsGroup: 5000
 
 restartPolicy: Never
 
@@ -28,12 +28,12 @@ configMaps:
     subPath: config.yaml
     content:
       extractor:
-        base-directory: /downloads/Person
-        archive: /downloads/Person/.gallery-dl/{username}_{service}.db
+        base-directory: /downloads
+        archive: /downloads/.gallery-dl/{username}_{service}.db
         archive-event: ["file", "skip"]
         retries: 30
         sleep-429: 120
-        coomerparty:
+        coomer:
           username: $USERNAME
           password: $PASSWORD
           directory: $DIRECTORY
@@ -47,9 +47,9 @@ configMaps:
       output: {}
       postprocessor: {}
 
-volumes:
+hostPaths:
   - name: downloads
-    storageClass: pp
+    hostPath: /srv/hdd/pp/Person
     containerPath: /downloads
 
 secretEnvs:
