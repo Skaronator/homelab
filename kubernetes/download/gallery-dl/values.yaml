@@ -16,7 +16,7 @@ command:
 
 args:
   - -c
-  - gallery-dl --config-yaml /envsubst/config.yaml $HOST --verbose
+  - gallery-dl --config-yaml /envsubst/config.yaml -o headers.Accept=text/css $HOST --verbose
 
 envsubst:
   files:
