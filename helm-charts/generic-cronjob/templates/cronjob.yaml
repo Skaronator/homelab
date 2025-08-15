@@ -78,7 +78,7 @@ spec:
             {{- include "generic-cronjob.envs" . | nindent 12 }}
             resources:
               {{- toYaml .Values.resources | nindent 14 }}
-            {{- if or .Values.configMaps .Values.volumes .Values.envsubst.files }}
+            {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files }}
             volumeMounts:
             {{- if .Values.envsubst.files }}
             - name: envsubst
@@ -89,13 +89,13 @@ spec:
               mountPath: {{ printf "%s/%s" .mountPath .subPath | quote }}
               subPath: {{ .subPath | quote }}
             {{- end }}
-            {{- range .Values.volumes }}
-            - name: pvc-{{ .name }}
+            {{- range .Values.hostPaths }}
+            - name: {{ .name }}
               mountPath: {{ .containerPath | quote }}
               readOnly: {{ .readOnly | default false }}
             {{- end }}
             {{- end -}}
-          {{- if or .Values.configMaps .Values.volumes .Values.envsubst.files }}
+          {{- if or .Values.configMaps .Values.hostPaths .Values.envsubst.files }}
           volumes:
           {{- if .Values.envsubst.files }}
           - name: envsubst
@@ -107,10 +107,11 @@ spec:
               name: {{ include "generic-cronjob.name" $ }}
               defaultMode: {{ .defaultMode | default 0644 }}
           {{- end }}
-          {{- range .Values.volumes }}
-          - name: pvc-{{ .name }}
-            persistentVolumeClaim:
-              claimName: {{ include "generic-cronjob.name" $ }}-{{ .name }}
+          {{- range .Values.hostPaths }}
+          - name: {{ .name }}
+            hostPath:
+              path: {{ .hostPath | quote }}
+              type: {{ .type | default "DirectoryOrCreate" }}
           {{- end }}
           {{- end }}
           {{- with .Values.nodeSelector }}

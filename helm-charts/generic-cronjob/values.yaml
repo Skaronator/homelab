@@ -44,11 +44,12 @@ configMaps: []
 #   subPath: ""
 #   content: ""
 
-volumes: []
-  # - name: ""
-  #   storageClass: ""
-  #   containerPath: ""
-  #   readOnly: false
+hostPaths: []
+# - name: ""
+#   hostPath: ""
+#   containerPath: ""
+#   readOnly: false
+#   type: "DirectoryOrCreate"
 
 envsubst:
   image:
