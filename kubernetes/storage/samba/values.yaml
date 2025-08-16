@@ -70,11 +70,11 @@ configMaps:
           readonly: "no"
           guestok: "no"
           validusers: "niklas"
-        - name: Backup Home Assistant
+        - name: Backup-Home-Assistant
           path: /mnt/backup-home-assistant
           readonly: "no"
           guestok: "no"
-          validusers: "niklas"
+          validusers: "home-assistant"
         - name: Torrent
           path: /mnt/torrent
           readonly: "no"
