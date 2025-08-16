@@ -28,6 +28,8 @@ configMaps:
         - "min protocol = SMB3"
         # Fix broken filenames https://superuser.com/a/459011
         - "mangled names = no"
+        # Allow access by IP address
+        - "host msdfs = no"
         # https://www.truenas.com/community/threads/cifs-directory-browsing-slow-try-this.27751/
         # https://old.reddit.com/r/PleX/comments/14kqixq/media_files_zfs_samba_windows_explorer_the_magic/
         - "store dos attributes = no"
