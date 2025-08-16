@@ -33,7 +33,7 @@ configMaps:
         archive: /downloads/.gallery-dl/{username}_{service}.db
         archive-event: ["file", "skip"]
         retries: 30
-        sleep-429: 120
+        sleep-429: 30
         coomer:
           username: $USERNAME
           password: $PASSWORD
@@ -42,7 +42,7 @@ configMaps:
           metadata: true
           filename: "{date:%Y-%m-%d} - {title[b:150]|empty|content[b:150]|empty|id} - {num:>02}.{extension}"
       downloader:
-        retries: 30
+        retries: 3
         rate: 20M
         videolength-min: 4m30s
       output: {}
