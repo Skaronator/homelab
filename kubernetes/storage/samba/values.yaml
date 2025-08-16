@@ -40,12 +40,12 @@ configMaps:
       auth:
         - user: niklas
           password: ${PASSWORD_NIKLAS}
-          gid: 5000
           uid: 5000
+          gid: 5000
         - user: home-assistant
           password: ${PASSWORD_HOME_ASSISTANT}
+          uid: 5001
           gid: 5000
-          uid: 5000
       share:
         - name: Urlaubsbilder
           path: /mnt/pictures
