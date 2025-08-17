@@ -1,6 +1,6 @@
 policy: sync
 registry: noop
-interval: 15s
+interval: 3600s
 
 extraArgs:
   - --ingress-class=nginx-private
