@@ -24,11 +24,14 @@
         "major",
         "minor"
       ],
-      "groupName": "immich docker tag",
       "assignees": [
         "Skaronator"
       ],
       "automerge": false
+    },
+    {
+      "matchPackageNames": ["ghcr.io/immich-app/**"],
+      "groupName": "immich docker tag"
     },
     {
       "matchPackageNames": [
@@ -124,8 +127,7 @@
     },
     {
       "matchPackageNames": [
-        "k0sproject/k0s",
-        "siderolabs/talos"
+        "k0sproject/k0s"
       ],
       "assignees": [
         "Skaronator"
@@ -170,17 +172,6 @@
         "\\s+image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\n"
       ],
       "datasourceTemplate": "docker"
-    },
-    {   
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/^talos/talconfig.yaml$/"
-      ],
-      "matchStrings": [
-        "\\s+talosVersion\\:(!?\\s)(?<currentValue>.*)\\n"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "siderolabs/talos"
     }
   ]
 }
