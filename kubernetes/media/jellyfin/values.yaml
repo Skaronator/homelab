@@ -1,0 +1,39 @@
+image:
+  repository: "ghcr.io/jellyfin/jellyfin"
+  tag: "10.10.7"
+
+ports:
+  - name: main
+    containerPort: 8096
+
+ingress:
+  host: jellyfin.wagner.gg
+
+health:
+  path: /
+
+envs:
+  - JELLYFIN_PublishedServerUrl: https://jellyfin.wagner.gg
+
+resources:
+  limits:
+    gpu.intel.com/i915: "1"
+
+hostPaths:
+  - name: config
+    hostPath: /srv/nvme/container-data/jellyfin
+    containerPath: /config
+  - name: cache
+    hostPath: /srv/nvme/scrap-data/jellyfin-cache
+    containerPath: /cache
+  - name: multimedia
+    hostPath: /srv/hdd/multimedia
+    containerPath: /srv/multimedia
+    readOnly: true
+
+homepage:
+  name: Jellyfin
+  group: Media
+  description: Media Center
+  icon: jellyfin.svg
+  weight: 10
