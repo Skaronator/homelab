@@ -9,8 +9,6 @@ applicationsets:
             - path: "kubernetes/**/*"
             - path: "kubernetes/storage/minio"
               exclude: true
-            - path: "kubernetes/storage/velero"
-              exclude: true
             - path: "kubernetes/tools/reactive-resume"
               exclude: true
     template:
