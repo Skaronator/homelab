@@ -12,6 +12,7 @@ ports:
 
 health:
   port: admin
+  path: /health
 
 ingress:
   host: s3.wagner.gg
