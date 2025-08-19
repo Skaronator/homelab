@@ -51,26 +51,31 @@ configMaps:
           path: /mnt/pictures
           readonly: "no"
           guestok: "no"
+          browsable: "no"
           validusers: "niklas"
         - name: Musik
           path: /mnt/music
           readonly: "no"
           guestok: "no"
+          browsable: "no"
           validusers: "niklas"
         - name: Multimedia
           path: /mnt/multimedia
           readonly: "no"
           guestok: "no"
+          browsable: "no"
           validusers: "niklas"
         - name: Clips
           path: /mnt/clips
           readonly: "no"
           guestok: "no"
+          browsable: "no"
           validusers: "niklas"
         - name: Backup
           path: /mnt/backup
           readonly: "no"
           guestok: "no"
+          browsable: "no"
           validusers: "niklas"
         - name: Backup-Home-Assistant
           path: /mnt/backup-home-assistant
