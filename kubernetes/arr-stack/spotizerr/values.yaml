@@ -22,7 +22,11 @@ envs:
   - REDIS_PORT: 6379
   - PUID: 5000
   - PGID: 5000
+  - ENABLE_AUTH: true
   - DISABLE_REGISTRATION: false
+
+secretEnvs:
+  - JWT_SECRET: AgBGumNQ6uuPRvElGnV3CeN+rlmJ5JfHgC6zeuzlPywVk6kzWAXIP8tuSFn0dRXMTmzwuAZnP52bk4wniHsCBmYgmaz7sR567DNp146NvhhtzZ0A7zyrN1cgU/u5tDszFIpo8VJRFQxhVaUdWMWax3FqLe9Hbkx4MQW9PlRixh8sB5yYIfpjEKWTj1U/zg6EvLUVQbJs/bxwbuwsdOyTlugmbDxKwDxk8jNpiyzYVP6tiuIBPcCkNxJ4J1xfsENV+MwoKxnhd7fLkRZ8amJvsDoF2r1zD/2qWy+i8R8ABO3IAJHXQPlItp6NDqBjtww4M4uQO5pbCHM4Wv5t2emulrZ4He87KzzC5fYF3x/6z9LC2LDUQoHZZshkscikcOUSJbo0SLGkizQQme4OCf3QnCk3W08MCUhvYImluivxp48IJFZF7AfdB0o/Fjhmmvo8wJdK/trvJNsOlOBEMmqZ6InNPimpKSRMYG0OE4x/+chs1qH/LQ6Glf4weGgDdh+UDaE2YrIFNTnr58D5iKBQBL/e0uYS6luKpwCi/iN7ggEsxKK21byd+VpevLM0hurBSsuppjxjow+jRDpsADpjJBdfmnevn4noxLsD0YA6+6z/PYzwesWTuv5fHex93OdPgblOG88NCY/fV5gXKVmA4ce5wYOu5WiesixTjW2GuYhyOgdZFrvQYQ2+zHhnrKt14kGSnmZqSmw6IaM0A3zKQBTeaRKrzE8Cf+rMtMRQOfeUQENu0c1IsWC+eapvuhChGDERbq/dijBAW2NUfJMZvnro
 
 homepage:
   name: Spotizerr
