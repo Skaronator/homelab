@@ -1,6 +1,6 @@
 image:
   repository: "dxflrs/garage"
-  tag: "v2.0.0"
+  tag: "v2.0.0@sha256:15b40e0dddd2e611aa746ff6f7c3bfe9f22735e4a2cc29e0abd89c268e9b79d9"
 
 ports:
   - name: main
