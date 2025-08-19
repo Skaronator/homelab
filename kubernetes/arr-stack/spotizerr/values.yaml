@@ -1,6 +1,6 @@
 image:
   repository: "cooldockerizer93/spotizerr"
-  tag: "3.1.2"
+  tag: "3.1.2@sha256:6b789e37d4ed3de92aa46785d3db03d80be065b227b8a6159b216305fdb8142e"
 
 hostPaths:
   - name: data
