@@ -15,6 +15,8 @@ ingress:
 
 secretEnvs:
   - GARAGE_ADMIN_TOKEN: AgDCMFf/jtc26n6Q0kewFCfDPEXEO0gT4dz3N3TnS1ejeJGLHFlSt+oVC4LNlct89tdBXPw/VgwmtdPSEIz4ksuHtw6DPEWv4zfQhohDr19J+jJ6cildQYOyaDcT9XQMgPO+CGWUiu5VJuYi/lsKVzzz+X+BLmljjwmLObsW7IleyDjYZibbpSUDhs5D05eWSeMtoud3MvtDov5RoZfKc49elXEtujuE6/0GwUqdUfst9kDF6R8smUBzeKI3FfqtxaLtvPbuKWCEE3sVy/H743Jj31Zdg8/btgTODLIXhPGGYO7Icn6p4VjpD+bObZ0SlPJlQN+m5I5eDvtIgi2p2N2dNbM5yXcrsSeT40PYhqJra2zbmbz4CDeM+iUHw7UED+pXtkNRkqWYelS7D1Ip80iEKSM9QTZbHpgWoGPi4gKXFM1Aphg3QV2sQS3ZIegRK8Wz9w1d0r3CNo25N64Bz7YLVU0HkFoXeN3PpLRD3bQRqo2Iav/5GZm3uCoCREQTrWvBY2yhD5tJ1wGLZwXztlOg820HDcFVSxd90shkCzCk1xU/bDRt7tj3qx5CyEKzUS/kcjGKCPz69tdGSxkHiRxfszN4kECfZ5B1Od17SBxwe+pEGjB+CvVtA9SOnNfwm6iwso03nSM189e6aNRM577GxMKi+0ciEleDyRiVYAOLSPn4N6WvkFLrEUEzPYAEq4oIT5WSBDM0V793vtLfpgSJXFSGT4edmLlQrfcFylz/jr1anCFvyBEedM3X7WBMhdfg9tRTuLYhHsrGLiQ+ma8x
+  - GARAGE_RPC_SECRET: AgBE15DSI9vmHKLP/EU9qXldH5MxgFVdYtVgmcKm+PrSIJRvCk9PljDt+4TK0LMBRQeJvWyaTscvFWq4Bnj++BZ7h9WAq0uySFB2e7lrXQ012bnrzGqaB9Yje5sQuAhsi7m59WANE91STCTyXdkaFuHFZXtpx7TogDXbU5CAIiZtuQLDSarzOJr6rp0WaF50Cvmg3vipr6yhGEJjC0LerPKGNcITqwr9p+0bzM9luIbtybRb9iHEUrg91KzgzSSJZi28uDpc0GR1YZr57WTCJCw3moWKAnIOuSFPQBkd8flsaaQuW+XgNUsmBDo6GE/cgAxGqnNbIoPpcczTS8DmFq4IOcrhuncPV/jPXHtEMfNHdNLQiGUjJVHyYELicZSlD0M6oXV7M5E+MLQk6pSUg+JxR4P5X850PDUAqaX45JNYxQ3NFkTtPJLAyj0j+L0BCkLtKIRCvq+ep5d9hdA3UBOuCcfYhnnhUpUYCqiXjdGnXWb7Wo5KgAHghYmRvHtjqSs7zvr16bTpK99MNyusEa48iQPYS1st0N1xMq8Gh/onKoveSzivse9EO3PiCi7B6OOhXb9+i8ay/BOyJOYjqDV6inpl3pvUxfhYcpcKNXp+4wIGwBG+ApOpHDHtJzrd0kKUTwdURPE1McRLSoQ/qRrNfTz2wS+aSPA/BSIdVm0Ur2p2bNYEt2v4o4R/kQSpCUy7Ma2mP7eMBcvLKMUVr7F8L9lEgbs2mapIu7MeOTyJFj7wMSthQYPu/cq0TMQ6xO0Y3n1xXeZQAtW+83WRHyLA
+
 
 configMaps:
   - name: config
@@ -25,14 +27,12 @@ configMaps:
       data_dir = "/var/lib/garage/data"
       db_engine = "lmdb"
 
-      replication_mode = "none"
+      replication_factor = 1
+      consistency_mode = "consistent"
       compression_level = "none"
 
-      # RPC fields are required but not used since replication_mode = "none"
+      # RPC fields are required but not used since replication_factor = 1
       rpc_bind_addr = "127.0.0.1:3901"
-      rpc_public_addr = "127.0.0.1:3901"
-      rpc_secret = "8bd093a4a43cbf70e73f10b5c4e97899e36d6e42b3e733a89498dab3935a5c88"
-
 
       [s3_api]
       s3_region = "garage"
