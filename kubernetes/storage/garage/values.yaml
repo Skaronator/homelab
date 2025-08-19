@@ -10,6 +10,9 @@ ports:
   - name: admin
     containerPort: 3903
 
+health:
+  port: admin
+
 ingress:
   host: s3.wagner.gg
 
