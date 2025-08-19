@@ -1,0 +1,32 @@
+image:
+  repository: "cooldockerizer93/spotizerr"
+  tag: "2.18.1@sha256:2dbee2d7fea624af8f12877936f6d728f351d2b8f4ddb34bdc06d933f0f47200"
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/spotizerr
+    containerPath: /app/data
+  - name: media
+    hostPath: /srv/nvme/music/spotizerr
+    containerPath: /app/downloads
+
+ports:
+  - name: main
+    containerPort: 7171
+
+ingress:
+  host: spotizerr.wagner.gg
+
+envs:
+  - REDIS_HOST: spotizerr-redis
+  - REDIS_PORT: 6379
+  - PUID: 5000
+  - PGID: 5000
+  - DISABLE_REGISTRATION: false
+
+homepage:
+  name: Spotizerr
+  group: Indexer
+  description: Music Manager
+  icon: spotizerr
+  weight: 14
