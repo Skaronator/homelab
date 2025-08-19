@@ -1,0 +1,44 @@
+image:
+  repository: "dxflrs/garage"
+  tag: "v2.0.0"
+
+ports:
+  - name: main
+    containerPort: 3900
+  - name: web
+    containerPort: 3902
+  - name: admin
+    containerPort: 3903
+
+ingress:
+  host: s3.wagner.gg
+
+secretEnvs:
+  - GARAGE_ADMIN_TOKEN: AgDCMFf/jtc26n6Q0kewFCfDPEXEO0gT4dz3N3TnS1ejeJGLHFlSt+oVC4LNlct89tdBXPw/VgwmtdPSEIz4ksuHtw6DPEWv4zfQhohDr19J+jJ6cildQYOyaDcT9XQMgPO+CGWUiu5VJuYi/lsKVzzz+X+BLmljjwmLObsW7IleyDjYZibbpSUDhs5D05eWSeMtoud3MvtDov5RoZfKc49elXEtujuE6/0GwUqdUfst9kDF6R8smUBzeKI3FfqtxaLtvPbuKWCEE3sVy/H743Jj31Zdg8/btgTODLIXhPGGYO7Icn6p4VjpD+bObZ0SlPJlQN+m5I5eDvtIgi2p2N2dNbM5yXcrsSeT40PYhqJra2zbmbz4CDeM+iUHw7UED+pXtkNRkqWYelS7D1Ip80iEKSM9QTZbHpgWoGPi4gKXFM1Aphg3QV2sQS3ZIegRK8Wz9w1d0r3CNo25N64Bz7YLVU0HkFoXeN3PpLRD3bQRqo2Iav/5GZm3uCoCREQTrWvBY2yhD5tJ1wGLZwXztlOg820HDcFVSxd90shkCzCk1xU/bDRt7tj3qx5CyEKzUS/kcjGKCPz69tdGSxkHiRxfszN4kECfZ5B1Od17SBxwe+pEGjB+CvVtA9SOnNfwm6iwso03nSM189e6aNRM577GxMKi+0ciEleDyRiVYAOLSPn4N6WvkFLrEUEzPYAEq4oIT5WSBDM0V793vtLfpgSJXFSGT4edmLlQrfcFylz/jr1anCFvyBEedM3X7WBMhdfg9tRTuLYhHsrGLiQ+ma8x
+
+configMaps:
+  - name: config
+    mountPath: /etc
+    subPath: garage.toml
+    content: |
+      metadata_dir = "/var/lib/garage/meta"
+      data_dir = "/var/lib/garage/data"
+      db_engine = "lmdb"
+
+      replication_mode = "none"
+      compression_level = "none"
+
+      [s3_api]
+      s3_region = "garage"
+      api_bind_addr = "[::]:3900"
+
+      [s3_web]
+      bind_addr = "[::]:3902"
+
+      [admin]
+      api_bind_addr = "0.0.0.0:3903"
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/garage
+    containerPath: /var/lib/garage
