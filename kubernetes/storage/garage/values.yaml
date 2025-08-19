@@ -28,10 +28,10 @@ configMaps:
       replication_mode = "none"
       compression_level = "none"
 
-      # Reqired field but not used
+      # RPC fields are required but not used since replication_mode = "none"
       rpc_bind_addr = "127.0.0.1:3901"
       rpc_public_addr = "127.0.0.1:3901"
-      rpc_secret = "this-can-be-whatever-we-do-not-expose-it"
+      rpc_secret = "8bd093a4a43cbf70e73f10b5c4e97899e36d6e42b3e733a89498dab3935a5c88"
 
 
       [s3_api]
