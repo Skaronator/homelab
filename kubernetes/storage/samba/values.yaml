@@ -51,14 +51,17 @@ configMaps:
           path: /mnt/pictures
           readonly: "no"
           guestok: "no"
+          validusers: "niklas"
         - name: Musik
           path: /mnt/music
           readonly: "no"
           guestok: "no"
+          validusers: "niklas"
         - name: Multimedia
           path: /mnt/multimedia
           readonly: "no"
           guestok: "no"
+          validusers: "niklas"
         - name: Clips
           path: /mnt/clips
           readonly: "no"
