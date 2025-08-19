@@ -1,6 +1,6 @@
 image:
   repository: "cooldockerizer93/spotizerr"
-  tag: "2.18.1@sha256:2dbee2d7fea624af8f12877936f6d728f351d2b8f4ddb34bdc06d933f0f47200"
+  tag: "3.1.2"
 
 hostPaths:
   - name: data
@@ -28,5 +28,5 @@ homepage:
   name: Spotizerr
   group: Indexer
   description: Music Manager
-  icon: spotizerr
+  icon: sh-spotizerr-dark.svg
   weight: 14
