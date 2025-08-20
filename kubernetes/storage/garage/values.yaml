@@ -5,6 +5,8 @@ image:
 ports:
   - name: main
     containerPort: 3900
+  - name: rpc
+    containerPort: 3901
   - name: web
     containerPort: 3902
   - name: admin
@@ -34,8 +36,7 @@ configMaps:
       consistency_mode = "consistent"
       compression_level = "none"
 
-      # RPC fields are required but not used since replication_factor = 1
-      rpc_bind_addr = "127.0.0.1:3901"
+      rpc_bind_addr = "[::]:3901"
 
       [s3_api]
       s3_region = "garage"
@@ -46,7 +47,7 @@ configMaps:
       root_domain = "web.s3.wagner.gg"
 
       [admin]
-      api_bind_addr = "0.0.0.0:3903"
+      api_bind_addr = "[::]:3903"
 
 hostPaths:
   - name: data
