@@ -7,8 +7,6 @@ applicationsets:
           revision: main
           directories:
             - path: "kubernetes/**/*"
-            - path: "kubernetes/storage/minio"
-              exclude: true
             - path: "kubernetes/tools/reactive-resume"
               exclude: true
     template:
