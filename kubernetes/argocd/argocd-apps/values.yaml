@@ -7,8 +7,6 @@ applicationsets:
           revision: main
           directories:
             - path: "kubernetes/**/*"
-            - path: "kubernetes/tools/reactive-resume"
-              exclude: true
     template:
       metadata:
         name: '{{path[1]}}-{{path.basenameNormalized}}'
