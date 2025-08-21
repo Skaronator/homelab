@@ -49,5 +49,3 @@ homepage:
   description: CV Management
   icon: reactive-resume.svg
   weight: 30
-
-replicas: 0
