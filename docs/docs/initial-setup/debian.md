@@ -58,6 +58,36 @@ After modifying this file make sure to regenerate the initramfs.
 $ update-initramfs -u -k all
 ```
 
+## Setup ZFS Key Autoload for Full Root Encryption
+
+I'm using [ZFSBootMenu](https://docs.zfsbootmenu.org) with full root encryption. This will protect against leaking secrets or data that is stored within Kubernetes etcd Database.
+
+All my ZFS datasets are encrypted with a different key. In order to autoload that key we have to set up a systemd service that loads them.
+
+```txt title="/etc/systemd/system/zfs-load-keys.service"
+[Unit]
+Description=Load ZFS encryption keys
+DefaultDependencies=no
+After=zfs-import.target
+Before=zfs-mount.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/zfs load-key -a
+StandardInput=tty-force
+
+[Install]
+WantedBy=zfs-mount.service
+```
+
+```bash
+chmod 644 /etc/systemd/system/zfs-load-keys.service
+systemctl daemon-reload
+systemctl enable zfs-load-keys.service
+systemctl status zfs-load-keys.service
+```
+
 ## Setting up Kubernetes
 
 ### Install the cluster
