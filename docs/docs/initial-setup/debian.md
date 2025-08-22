@@ -52,7 +52,7 @@ options zfs zfs_arc_max=85899345920
 options zfs zfs_arc_min=68719476736
 ```
 
-After modifing this file make sure to regenerate the initramfs.
+After modifying this file make sure to regenerate the initramfs.
 
 ```bash
 $ update-initramfs -u -k all
