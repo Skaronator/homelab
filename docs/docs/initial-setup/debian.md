@@ -26,6 +26,8 @@ fs.inotify.max_user_instances = 1280
 fs.inotify.max_user_watches = 10028400
 ```
 
+Run this command after adjusting the config: `sysctl -p`
+
 **Not sure if I need to modify the following**:
 
 ```txt title="/etc/systemd/system.conf"
@@ -36,6 +38,24 @@ DefaultLimitNOFILE=1048576
 ```txt title="/etc/systemd/user.conf"
 # Below [manager] block!
 DefaultLimitNOFILE=1048576
+```
+
+## Increase ZFS Arc Size
+
+By default Arc size is quite small for my system. I'm on 128 GB and would like to have at least half of that for ZFS.
+
+```txt title="/etc/modprobe.d/zfs.conf"
+# Set Max ARC size => 80 == 85899345920 Bytes
+options zfs zfs_arc_max=85899345920
+
+# Set Min ARC size => 64GB == 68719476736
+options zfs zfs_arc_min=68719476736
+```
+
+After modifing this file make sure to regenerate the initramfs.
+
+```bash
+$ update-initramfs -u -k all
 ```
 
 ## Setting up Kubernetes
