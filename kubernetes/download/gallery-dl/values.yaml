@@ -32,8 +32,9 @@ configMaps:
         base-directory: /downloads
         archive: /downloads/.gallery-dl/{username}_{service}.db
         archive-event: ["file", "skip"]
-        retries: 30
-        sleep-429: 30
+        retries: 15
+        sleep-429: 60
+        timeout: 90
         coomer:
           username: $USERNAME
           password: $PASSWORD
@@ -45,9 +46,12 @@ configMaps:
           headers:
             Accept: text/css
       downloader:
-        retries: 3
-        rate: 20M
+        retries: 15
+        rate: ["15M", "20M"]
         videolength-min: 4m30s
+        http:
+          consume-content: true
+          chunk-size: 4194304
       output: {}
       postprocessor: {}
 
