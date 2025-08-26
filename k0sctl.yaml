@@ -11,7 +11,7 @@ spec:
           podCIDR: 10.244.0.0/16
           serviceCIDR: 10.96.0.0/12
           dualStack:
-            enabled: true
+            enabled: false
             IPv6podCIDR: fd00::/108
             IPv6serviceCIDR: fd01::/108
         telemetry:
