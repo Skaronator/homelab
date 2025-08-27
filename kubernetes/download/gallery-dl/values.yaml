@@ -16,7 +16,7 @@ command:
 
 args:
   - -c
-  - gallery-dl --config-yaml /envsubst/config.yaml $HOST --verbose
+  - gallery-dl --config-yaml /envsubst/config.yaml $HOST --verbose --print-traffic
 
 envsubst:
   files:
@@ -32,7 +32,10 @@ configMaps:
         base-directory: /downloads
         archive: /downloads/.gallery-dl/{username}_{service}.db
         archive-event: ["file", "skip"]
+        user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
         retries: 15
+        sleep: 1
+        sleep-extractor: 1
         sleep-429: 60
         timeout: 90
         coomer:
@@ -42,9 +45,6 @@ configMaps:
           image-filter: "extension not in ('jpg','jpeg','png','txt','gif')"
           metadata: true
           filename: "{date:%Y-%m-%d} - {title[b:150]|empty|content[b:150]|empty|id} - {num:>02}.{extension}"
-          # Workaround https://github.com/mikf/gallery-dl/issues/8047#issuecomment-3191811836
-          headers:
-            Accept: text/css
       downloader:
         retries: 15
         rate: ["15M", "20M"]
