@@ -21,12 +21,10 @@ root    soft    nofile          1048576
 root    hard    nofile          1048576
 ```
 
-```txt title="/etc/sysctl.conf"
+```txt title="/etc/sysctl.d/99-inotify.conf"
 fs.inotify.max_user_instances = 1280
 fs.inotify.max_user_watches = 10028400
 ```
-
-Run this command after adjusting the config: `sysctl -p`
 
 **Not sure if I need to modify the following**:
 
