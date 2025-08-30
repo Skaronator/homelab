@@ -2,11 +2,6 @@ configs:
   params:
     controller.diff.server.side: "true"
   cm:
-    resource.customizations: |
-      apiextensions.k8s.io/CustomResourceDefinition:
-        syncPolicy:
-          syncOptions:
-            - ServerSideApply=true
     # This is default MINUS ENdpoints
     resource.exclusions: |
       ### Network resources created by the Kubernetes control plane and excluded to reduce the number of watched events and UI clutter
