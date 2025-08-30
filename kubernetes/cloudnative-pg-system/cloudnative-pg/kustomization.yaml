@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+helmCharts:
+  - name: cloudnative-pg
+    version: 0.26.0
+    releaseName: cloudnative-pg
+    repo: https://cloudnative-pg.github.io/charts
+    includeCRDs: true
+    valuesFile: values.yaml
