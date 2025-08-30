@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: {{ include "namespace.name" . }}
+  annotations:
+    argocd.argoproj.io/sync-options: Delete=confirm
   labels:
     {{- include "namespace.labels" . | nindent 4 }}
     {{- if .Values.enforce }}
