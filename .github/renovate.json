@@ -1,176 +1,85 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "mergeConfidence:all-badges",
-    "config:recommended",
-    ":disableRateLimiting"
-  ],
+  "extends": ["mergeConfidence:all-badges", "config:recommended", ":disableRateLimiting"],
   "timezone": "Europe/Berlin",
-  "automergeSchedule": [
-    "after 3am",
-    "before 6am"
-  ],
+  "automergeSchedule": ["after 3am", "before 6am"],
   "rebaseWhen": "conflicted",
   "helm-values": {
-    "managerFilePatterns": [
-      "/(^|/|\\w+\\.)values\\.ya?ml$/"
-    ],
+    "managerFilePatterns": ["/(^|/|\\w+\\.)values\\.ya?ml$/"],
     "pinDigests": true
   },
   "packageRules": [
     {
-      "matchPackageNames": ["ghcr.io/immich-app/**"],
-      "matchUpdateTypes": [
-        "major",
-        "minor"
-      ],
-      "assignees": [
-        "Skaronator"
-      ],
-      "automerge": false
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["digest", "pin", "minor", "patch"],
+      "automerge": true,
+      "pinDigests": true
+    },
+    {
+      "matchDatasources": ["docker", "helm"],
+      "matchUpdateTypes": ["digest"],
+      "schedule": ["on monday"],
+      "automerge": true
+    },
+    {
+      "matchDatasources": ["docker", "helm", "Kustomization"],
+      "matchUpdateTypes": ["pinDigest", "pin", "minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchDatasources": ["docker", "helm",  "Kustomization"],
+      "matchUpdateTypes": ["major"],
+      "assignees": ["Skaronator"]
     },
     {
       "matchPackageNames": ["ghcr.io/immich-app/**"],
       "groupName": "immich docker tag"
     },
     {
-      "matchPackageNames": [
-        "nixery.dev/shell/envsubst"
-      ],
+      "matchPackageNames": ["ghcr.io/immich-app/**"],
+      "matchUpdateTypes": ["major", "minor"],
+      "assignees": ["Skaronator"],
+      "automerge": false
+    },
+    {
+      "matchPackageNames": ["nixery.dev/shell/envsubst"],
       "pinDigests": false
     },
     {
-      "matchManagers": [
-        "github-actions"
-      ],
-      "matchUpdateTypes": [
-        "digest",
-        "pin",
-        "minor",
-        "patch"
-      ],
-      "automerge": true,
-      "pinDigests": true
-    },
-    {
-      "matchDatasources": [
-        "docker",
-        "helm"
-      ],
-      "matchUpdateTypes": [
-        "digest"
-      ],
-      "schedule": [
-        "on monday"
-      ],
-      "automerge": true
-    },
-    {
-      "matchDatasources": [
-        "docker",
-        "helm"
-      ],
-      "matchUpdateTypes": [
-        "pinDigest",
-        "pin",
-        "minor",
-        "patch"
-      ],
-      "automerge": true
-    },
-    {
-      "matchDepTypes": [
-        "Kustomization"
-      ],
-      "matchUpdateTypes": [
-        "pinDigest",
-        "pin",
-        "minor",
-        "patch"
-      ],
-      "automerge": true
-    },
-    {
-      "matchDatasources": [
-        "docker",
-        "helm"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "assignees": [
-        "Skaronator"
-      ]
-    },
-    {
-      "matchDepTypes": [
-        "Kustomization"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "assignees": [
-        "Skaronator"
-      ]
-    },
-    {
-      "matchPackageNames": [
-        "plexinc/pms-docker"
-      ],
+      "matchPackageNames": ["plexinc/pms-docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)\\-(?<revision>\\w+)$"
     },
     {
-      "matchPackageNames": [
-        "fireflyiii/core"
-      ],
+      "matchPackageNames": ["fireflyiii/core"],
       "versioning": "regex:^version\\-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     },
     {
-      "matchPackageNames": [
-        "k0sproject/k0s"
-      ],
-      "assignees": [
-        "Skaronator"
-      ],
+      "matchPackageNames": ["k0sproject/k0s"],
+      "assignees": ["Skaronator"],
       "versioning": "loose"
     },
     {
-      "versioning": "regex:^release\\-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$",
-      "matchPackageNames": [
-        "ghcr.io/hotio{/,}**"
-      ]
+      "matchPackageNames": ["ghcr.io/hotio{/,}**"],
+      "versioning": "regex:^release\\-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$"
     },
     {
       "description": "Wait for stable release. Updating this instantly will cause issues since amd64 builds always take a tiny bit more",
-      "matchPackageNames": [
-        "redis",
-        "mariadb",
-        "postgres",
-        "csi-driver-nfs"
-      ],
-      "minimumReleaseAge": "4 hours"
+      "matchPackageNames": ["redis", "mariadb", "postgres", "csi-driver-nfs"],
+      "minimumReleaseAge": "6 hours"
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^k0sctl.yaml$/"
-      ],
-      "matchStrings": [
-        "\\s+version\\:(!?\\s)(?<currentValue>.*)\\n"
-      ],
+      "managerFilePatterns": ["/^k0sctl.yaml$/"],
+      "matchStrings": ["\\s+version\\:(!?\\s)(?<currentValue>.*)\\n"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "k0sproject/k0s"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^kubernetes/intel-quicksync/intel-quicksync/base/gpu-device.yaml$/"
-      ],
-      "matchStrings": [
-        "\\s+image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\n"
-      ],
+      "managerFilePatterns": ["/^kubernetes/intel-quicksync/intel-quicksync/base/gpu-device.yaml$/"],
+      "matchStrings": ["\\s+image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\n"],
       "datasourceTemplate": "docker"
     }
   ]
