@@ -22,6 +22,14 @@ app.kubernetes.io/version: {{ include "extractLatest" .Values.image.tag }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
+{{- define "generic-service.httpRoutePort" -}}
+{{- $ingressPortName := $.Values.ingress.port -}}
+{{- range $ports := $.Values.ports  }}
+{{- if eq $ports.name $ingressPortName }}
+{{- $ports.containerPort -}}
+{{- end }}
+{{- end }}
+{{- end }}
 
 {{- define "generic-service.podHealthCheck" -}}
 {{- with .Values.health }}

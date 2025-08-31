@@ -47,5 +47,5 @@ spec:
           value: {{ .Values.ingress.path }}
       backendRefs:
         - name: {{ include "generic-service.name" . }}
-          port: {{ .Values.ingress.port }}
+          port: {{ include "generic-service.httpRoutePort" . }}
 {{- end }}
