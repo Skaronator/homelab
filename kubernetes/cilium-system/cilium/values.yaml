@@ -29,5 +29,5 @@ gatewayAPI:
   secretsNamespace: *secretsNamespace
 
 nodePort:
-  # Disable port check since it breaks plex
-  autoProtectPortRange: false
+  # Reduce range so it doesn't collide with plex
+  range: "30000,32399"
