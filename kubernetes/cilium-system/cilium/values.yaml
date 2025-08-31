@@ -11,3 +11,8 @@ k8s:
 
 k8sServiceHost: 192.168.0.5
 k8sServicePort: 6443
+
+tls:
+  secretsNamespace:
+    create: false
+    name: network
