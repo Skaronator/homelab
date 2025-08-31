@@ -16,9 +16,15 @@ spec:
     - name: http
       port: 80
       protocol: HTTP
+      allowedRoutes:
+        namespaces:
+          from: All
     - name: https
       port: 443
       protocol: HTTPS
+      allowedRoutes:
+        namespaces:
+          from: Same
       tls:
         mode: Terminate
         certificateRefs:
