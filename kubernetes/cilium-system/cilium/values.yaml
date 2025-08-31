@@ -13,7 +13,7 @@ k8sServiceHost: 192.168.0.5
 k8sServicePort: 6443
 
 tls:
-  secretsNamespace:
+  secretsNamespace: &secretsNamespace
     create: false
     name: cilium-system
 
@@ -23,3 +23,4 @@ operator:
 
 gatewayAPI:
   enabled: true
+  secretsNamespace: *secretsNamespace
