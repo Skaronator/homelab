@@ -1,0 +1,51 @@
+{{- if and .Values.ports .Values.ingress.host -}}
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ include "generic-service.name" . }}
+  labels:
+    {{- include "generic-service.labels" . | nindent 4 }}
+  annotations:
+    {{- with .Values.homepage }}
+    {{- if .name }}
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: {{ .name | quote }}
+    {{- end }}
+    {{- if .description }}
+    gethomepage.dev/description: {{ .description | quote }}
+    {{- end }}
+    {{- if .group }}
+    gethomepage.dev/group: {{ .group | quote }}
+    {{- end }}
+    {{- if .icon }}
+    gethomepage.dev/icon: {{ .icon | quote }}
+    {{- end }}
+    {{- if .weight }}
+    gethomepage.dev/weight: {{ .weight | quote }}
+    {{- end }}
+    {{- if .widgetType }}
+    gethomepage.dev/widget.type: {{ .widgetType | quote }}
+    {{- end }}
+    {{- end }}
+  {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.ingress.annotationsPrivate }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  parentRefs:
+    - name: private
+      namespace: network
+      kind: Gateway
+  hostnames:
+    - {{ .Values.ingress.host }}
+  rules:
+    - matches:
+      - path:
+          type: PathPrefix
+          value: {{ .Values.ingress.path }}
+      backendRefs:
+        - name: {{ include "generic-service.name" . }}
+          port: {{ .Values.ingress.port }}
+{{- end }}
