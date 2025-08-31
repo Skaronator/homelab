@@ -19,6 +19,10 @@ spec:
     - name: https
       port: 443
       protocol: HTTPS
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: wildcard-wagner.gg
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
