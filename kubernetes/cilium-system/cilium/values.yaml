@@ -20,3 +20,6 @@ tls:
 # We only have a single node
 operator:
   replicas: 1
+
+gatewayAPI:
+  enabled: true

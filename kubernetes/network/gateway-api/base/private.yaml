@@ -4,4 +4,4 @@ metadata:
   name: private
 spec:
   controllerName: io.cilium/gateway-controller
-  description: Only reachable from private (home) network
+  description: Only reachable from home network
