@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.3.0/standard-install.yaml
+  - base/private.yaml
