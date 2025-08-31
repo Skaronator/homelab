@@ -25,7 +25,7 @@ gatewayAPI:
   enabled: true
   gatewayClass:
     # we create our own gatewayclasses
-    create: false
+    create: 'false'
   secretsNamespace: *secretsNamespace
 
 nodePort:
