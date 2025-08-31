@@ -41,11 +41,7 @@ spec:
   hostnames:
     - {{ .Values.ingress.host }}
   rules:
-    - matches:
-      - path:
-          type: PathPrefix
-          value: {{ .Values.ingress.path }}
-      backendRefs:
+    - backendRefs:
         - name: {{ include "generic-service.name" . }}
           port: {{ include "generic-service.httpRoutePort" . }}
 {{- end }}
