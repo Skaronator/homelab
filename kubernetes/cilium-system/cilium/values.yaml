@@ -1,0 +1,13 @@
+ipam:
+  mode: kubernetes
+  operator:
+    # Must match with k0s config
+    clusterPoolIPv4PodCIDRList: 10.244.0.0/16
+
+kubeProxyReplacement: true
+
+k8s:
+  requireIPv4PodCIDR: true
+
+k8sServiceHost: 192.168.0.5
+k8sServicePort: 6443

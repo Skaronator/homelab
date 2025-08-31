@@ -8,12 +8,13 @@ spec:
     config:
       spec:
         network:
-          podCIDR: 10.244.0.0/16
           serviceCIDR: 10.96.0.0/12
-          dualStack:
-            enabled: false
-            IPv6podCIDR: fd00::/108
-            IPv6serviceCIDR: fd01::/108
+          # Must match with Cilium config
+          podCIDR: 10.244.0.0/16
+          # We use cilium as CNI and kubeProxy replacement
+          provider: custom
+          kubeProxy:
+            disabled: true
         telemetry:
           enabled: false
   hosts:
