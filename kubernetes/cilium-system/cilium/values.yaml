@@ -16,3 +16,7 @@ tls:
   secretsNamespace:
     create: false
     name: network
+
+# We only have a single node
+operator:
+  replicas: 1
