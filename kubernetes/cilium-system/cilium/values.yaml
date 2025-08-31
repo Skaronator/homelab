@@ -23,4 +23,7 @@ operator:
 
 gatewayAPI:
   enabled: true
+  gatewayClass:
+    # we create our own gatewayclasses
+    create: false
   secretsNamespace: *secretsNamespace

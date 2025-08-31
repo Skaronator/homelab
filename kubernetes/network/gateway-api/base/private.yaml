@@ -5,3 +5,17 @@ metadata:
 spec:
   controllerName: io.cilium/gateway-controller
   description: Only reachable from home network
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: private
+spec:
+  gatewayClassName: private
+  listeners:
+    - name: http
+      port: 80
+      protocol: HTTP
+    - name: https
+      port: 443
+      protocol: HTTPS
