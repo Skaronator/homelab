@@ -3,11 +3,10 @@ registry: noop
 interval: 15s
 
 extraArgs:
-  - --ingress-class=nginx-private
+  - --gateway-name=private
 
 sources:
-  - service
-  - ingress
+  - gateway-httproute
   - crd
 
 triggerLoopOnEvent: true
