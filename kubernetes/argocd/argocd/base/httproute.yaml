@@ -17,6 +17,7 @@ spec:
       kind: Gateway
       name: private
       namespace: network
+      sectionName: https
   rules:
   - backendRefs:
     - kind: Service
