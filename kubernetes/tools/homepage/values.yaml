@@ -83,6 +83,16 @@ ingress:
 
 enableRbac: true
 
+extraClusterRoles:
+  - apiGroups:
+      - gateway.networking.k8s.io
+    resources:
+      - httproutes
+      - gateways
+    verbs:
+      - get
+      - list
+
 serviceAccount:
   create: true
 
