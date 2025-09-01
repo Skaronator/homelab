@@ -73,15 +73,6 @@ config:
         provider: google
         target: _blank
 
-ingress:
-  main:
-    enabled: true
-    hosts:
-      - host: home.wagner.gg
-        paths:
-          - path: /
-    ingressClassName: nginx-private
-
 enableRbac: true
 
 extraClusterRoles:
