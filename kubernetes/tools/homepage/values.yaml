@@ -6,6 +6,7 @@ config:
   bookmarks: {}
   kubernetes:
     mode: cluster
+    route: gateway
   services:
     - "Smart Home":
         - "Home Assistant":
