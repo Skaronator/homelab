@@ -18,13 +18,13 @@ spec:
       protocol: HTTP
       allowedRoutes:
         namespaces:
-          from: All
+          from: Same
     - name: https
       port: 443
       protocol: HTTPS
       allowedRoutes:
         namespaces:
-          from: Same
+          from: All
       tls:
         mode: Terminate
         certificateRefs:
