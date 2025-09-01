@@ -5,6 +5,7 @@ image:
 config:
   bookmarks: {}
   kubernetes:
+    mode: cluster
     gateway: true
   services:
     - "Smart Home":
