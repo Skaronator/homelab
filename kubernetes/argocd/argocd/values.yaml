@@ -1,6 +1,8 @@
 configs:
   params:
     controller.diff.server.side: "true"
+    # "Temporary" until BackendTLSPolicy is implemented https://github.com/cilium/cilium/issues/31352
+    server.insecure: "true"
   cm:
     # This is default MINUS ENdpoints
     resource.exclusions: |
@@ -115,7 +117,6 @@ server:
     ingressClassName: nginx-private
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
-      nginx.ingress.kubernetes.io/backend-protocol: HTTPS
       gethomepage.dev/enabled: "true"
       gethomepage.dev/group: Server
       gethomepage.dev/name: ArgoCD

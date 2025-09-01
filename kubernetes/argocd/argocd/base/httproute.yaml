@@ -21,4 +21,4 @@ spec:
   - backendRefs:
     - kind: Service
       name: argocd-server
-      port: 443
+      port: 80
