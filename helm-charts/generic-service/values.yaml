@@ -92,7 +92,7 @@ emptyDirs: []
 
 envsubst:
   image:
-    repository: nixery.dev/shell/envsubst
+    repository: ghcr.io/skaronator/envsubst
     tag: "latest"
   files: []
   # - src:
