@@ -93,7 +93,7 @@ emptyDirs: []
 envsubst:
   image:
     repository: ghcr.io/skaronator/envsubst
-    tag: "latest"
+    tag: "latest@sha256:372cf36d3d7c7ac06517aa4012fe7c19836e9c62ee3a4fe8e39e7423c49a4b15"
   files: []
   # - src:
   #   dest:
