@@ -12,7 +12,6 @@ ingress:
 envs:
   - PUID: 5000
   - PGID: 5000
-  - BASE_URL: https://huntarr.wagner.gg
 
 hostPaths:
   - name: config
