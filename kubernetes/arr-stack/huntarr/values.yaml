@@ -12,6 +12,7 @@ ingress:
 envs:
   - PUID: 5000
   - PGID: 5000
+  - BASE_URL: /
 
 hostPaths:
   - name: config
