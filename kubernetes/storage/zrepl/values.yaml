@@ -20,20 +20,21 @@ configMaps:
             type: stdout
       jobs:
         - filesystems:
+            zroot<: true
             # backup everything from hdd
-            hdd: false
-            # except root and backup
-            hdd/backup: false
             hdd<: true
+            # except root and backup
+            hdd: false
+            hdd/backup: false
             # backup everything from nvme
-            nvme: false
-            # except root and scrap-data
             nvme<: true
+            # except root and scrap-data
+            nvme: false
             nvme/scrap-data: false
           name: longterm
           pruning:
             keep:
-              - grid: 1x24h(keep=all) | 14x1d | 6x30d
+              - grid: 1x24h(keep=all) | 14x1d | 3x30d
                 regex: ^longterm_.*$
                 type: grid
           snapshotting:
@@ -42,7 +43,10 @@ configMaps:
             type: cron
           type: snap
         - filesystems:
-            downloads: true
+            # Backup everything from downloads
+            downloads<: true
+            # except root volume
+            downloads: false
             hdd/backup: true
             nvme/scrap-data: true
           name: shortterm
