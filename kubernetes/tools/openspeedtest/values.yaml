@@ -6,10 +6,8 @@ ports:
   - name: main
     containerPort: 3000
 
-ingress:
+gateway:
   host: speedtest.wagner.gg
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 64m
 
 homepage:
   name: Speedtest

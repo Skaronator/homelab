@@ -11,13 +11,9 @@ ports:
   - name: main
     containerPort: 2283
 
-ingress:
+gateway:
   host: immich.wagner.gg
   public: true
-  annotationsPublic:
-    nginx.ingress.kubernetes.io/proxy-body-size: 2048m
-  annotationsPrivate:
-    nginx.ingress.kubernetes.io/proxy-body-size: 8192m
 
 health:
   path: /api/server/ping

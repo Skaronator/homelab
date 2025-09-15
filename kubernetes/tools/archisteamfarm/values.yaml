@@ -11,7 +11,7 @@ ports:
   - name: main
     containerPort: 1242
 
-ingress:
+gateway:
   host: asf.wagner.gg
 
 homepage:

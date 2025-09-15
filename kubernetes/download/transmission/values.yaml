@@ -17,7 +17,7 @@ ports:
   - name: main
     containerPort: 9091
 
-ingress:
+gateway:
   host: transmission.wagner.gg
   basicAuth: Skaro:{SHA}FaSWczOGS7xp1+eO3Skb1eAqXSo=
 

@@ -6,7 +6,7 @@ ports:
   - name: main
     containerPort: 9999
 
-ingress:
+gateway:
   host: stash.wagner.gg
 
 resources:

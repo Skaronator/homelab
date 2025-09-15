@@ -13,7 +13,7 @@ ports:
   - name: main
     containerPort: 8080
 
-ingress:
+gateway:
   host: scrutiny.wagner.gg
 
 health:

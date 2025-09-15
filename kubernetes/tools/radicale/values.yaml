@@ -14,7 +14,7 @@ ports:
   - name: main
     containerPort: 5232
 
-ingress:
+gateway:
   host: radicale.wagner.gg
   public: true
 

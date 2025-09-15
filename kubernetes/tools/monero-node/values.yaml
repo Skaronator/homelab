@@ -19,7 +19,7 @@ ports:
   - name: p2p
     containerPort: 18080
 
-ingress:
+gateway:
   host: monero.wagner.gg
 
 health:

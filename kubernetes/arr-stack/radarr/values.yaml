@@ -6,7 +6,7 @@ ports:
   - name: main
     containerPort: 7878
 
-ingress:
+gateway:
   host: radarr.wagner.gg
 
 envs:

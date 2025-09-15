@@ -11,12 +11,9 @@ ports:
   - name: main
     containerPort: 80
 
-ingress:
+gateway:
   host: vault.wagner.gg
   public: true
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
 
 homepage:
   name: Vaultwarden

@@ -6,7 +6,7 @@ ports:
   - name: main
     containerPort: 9696
 
-ingress:
+gateway:
   host: prowlarr.wagner.gg
 
 envs:

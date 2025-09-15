@@ -6,7 +6,7 @@ ports:
   - name: main
     containerPort: 8181
 
-ingress:
+gateway:
   host: tautulli.wagner.gg
 
 homepage:

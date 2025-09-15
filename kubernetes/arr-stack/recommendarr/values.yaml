@@ -6,7 +6,7 @@ ports:
   - name: main
     containerPort: 3000
 
-ingress:
+gateway:
   host: recommendarr.wagner.gg
 
 envs:

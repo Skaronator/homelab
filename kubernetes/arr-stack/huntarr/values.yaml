@@ -6,7 +6,7 @@ ports:
   - name: main
     containerPort: 9705
 
-ingress:
+gateway:
   host: huntarr.wagner.gg
 
 envs:

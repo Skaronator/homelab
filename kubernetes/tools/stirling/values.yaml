@@ -11,10 +11,8 @@ ports:
   - name: main
     containerPort: 8080
 
-ingress:
+gateway:
   host: stirling.wagner.gg
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 64m
 
 homepage:
   name: Stirling PDF

@@ -21,10 +21,8 @@ ports:
 health:
   startupProbeFailureThreshold: 90
 
-ingress:
+gateway:
   host: paperless.wagner.gg
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 64m
 
 envs:
   # services

@@ -23,9 +23,9 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{- define "generic-service.httpRoutePort" -}}
-{{- $ingressPortName := $.Values.ingress.port -}}
+{{- $gatewayPortName := $.Values.gateway.port -}}
 {{- range $ports := $.Values.ports  }}
-{{- if eq $ports.name $ingressPortName }}
+{{- if eq $ports.name $gatewayPortName }}
 {{- $ports.containerPort -}}
 {{- end }}
 {{- end }}

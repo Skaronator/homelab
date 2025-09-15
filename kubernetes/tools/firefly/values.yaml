@@ -11,7 +11,7 @@ ports:
   - name: main
     containerPort: 8080
 
-ingress:
+gateway:
   host: firefly.wagner.gg
 
 health:

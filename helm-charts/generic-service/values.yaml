@@ -39,16 +39,13 @@ health:
   type: HTTP
   path: /
 
-ingress:
+gateway:
   host: ""
   path: /
   basicAuth: ""
   public: false
   publicPath: /
   port: main
-  annotations: {}
-  annotationsPublic: {}
-  annotationsPrivate: {}
 
 replicas: 1
 strategyType: Recreate

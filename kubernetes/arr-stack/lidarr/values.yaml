@@ -6,7 +6,7 @@ ports:
   - name: main
     containerPort: 8686
 
-ingress:
+gateway:
   host: lidarr.wagner.gg
 
 envs:

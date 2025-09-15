@@ -6,7 +6,7 @@ ports:
   - name: main
     containerPort: 8096
 
-ingress:
+gateway:
   host: jellyfin.wagner.gg
 
 health:

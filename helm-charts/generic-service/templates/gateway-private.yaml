@@ -1,4 +1,4 @@
-{{- if and .Values.ports .Values.ingress.host -}}
+{{- if and .Values.ports .Values.gateway.host -}}
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
@@ -27,12 +27,6 @@ metadata:
     gethomepage.dev/widget.type: {{ .widgetType | quote }}
     {{- end }}
     {{- end }}
-  {{- with .Values.ingress.annotations }}
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
-  {{- with .Values.ingress.annotationsPrivate }}
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
 spec:
   parentRefs:
     - name: private
@@ -40,7 +34,7 @@ spec:
       kind: Gateway
       sectionName: https
   hostnames:
-    - {{ .Values.ingress.host }}
+    - {{ .Values.gateway.host }}
   rules:
     - backendRefs:
         - name: {{ include "generic-service.name" . }}

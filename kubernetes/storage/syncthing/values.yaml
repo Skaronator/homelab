@@ -18,7 +18,7 @@ ports:
     hostPort: 21027
     protocol: UDP
 
-ingress:
+gateway:
   host: syncthing.wagner.gg
 
 envs:

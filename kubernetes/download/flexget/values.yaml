@@ -6,7 +6,7 @@ ports:
   - name: main
     containerPort: 5050
 
-ingress:
+gateway:
   host: flexget.wagner.gg
 
 hostPaths:
