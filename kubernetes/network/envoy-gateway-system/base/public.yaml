@@ -21,6 +21,8 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: public
+  annotations:
+    external-dns.alpha.kubernetes.io/target: vps.wagner.gg
 spec:
   gatewayClassName: public
   infrastructure:

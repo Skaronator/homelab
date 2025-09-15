@@ -6,8 +6,6 @@ metadata:
   labels:
     {{- include "generic-service.labels" . | nindent 4 }}
   annotations:
-    external-dns.alpha.kubernetes.io/target: vps.wagner.gg
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
   {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
