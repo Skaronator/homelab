@@ -45,3 +45,24 @@ spec:
         mode: Terminate
         certificateRefs:
           - name: wildcard-wagner.gg
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy 
+metadata:
+  name: public-gateway
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: public
+  rateLimit:
+    type: Local
+    local:
+      rules:
+        - clientSelectors:
+            - sourceCIDR:
+                value: 0.0.0.0/0
+                type: Distinct
+          limit:
+            requests: 15
+            unit: Second
