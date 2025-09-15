@@ -14,6 +14,13 @@ ports:
 gateway:
   host: vault.wagner.gg
   public: true
+  publicRules:
+    # Avoid access to /admin on public gateway
+    # No backendRefs and no redirect => controller returns 404
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /admin
 
 homepage:
   name: Vaultwarden

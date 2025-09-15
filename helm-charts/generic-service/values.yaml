@@ -46,6 +46,7 @@ gateway:
   public: false
   publicPath: /
   port: main
+  publicRules: {}
 
 replicas: 1
 strategyType: Recreate
