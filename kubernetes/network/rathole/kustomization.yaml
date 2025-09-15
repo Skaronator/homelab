@@ -4,6 +4,9 @@ kind: Kustomization
 helmGlobals:
   chartHome: ../../../helm-charts
 
+resources:
+  - base/service.yaml
+
 helmCharts:
   - name: generic-service
     releaseName: rathole

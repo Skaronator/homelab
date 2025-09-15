@@ -32,10 +32,10 @@ configMaps:
       remote_public_key = "$REMOTE_PRIVATE_KEY"
 
       [client.services.http]
-      local_addr = "nginx-public-ingress-nginx-controller:80"
+      local_addr = "rathole-to-envoy-network-public:80"
 
       [client.services.https]
-      local_addr = "nginx-public-ingress-nginx-controller:443"
+      local_addr = "rathole-to-envoy-network-public:443"
 
 secretEnvs:
   - DEFAULT_TOKEN: AgAqsTx0QI91eO3rdJbgxv8YDSdWe37SA9l1tPR4p42IEYe7u9ihVg183WkgH9pfK0lgUahv6wGiK82/J/RGrJqmp9qwDH6sbSrZSu28ZK19KoCdbyJZpcvWrlK9XdqDTHeIMzBM85hWv/TsU18E0oPVusqZczOKHXkuIpZNzSYbPXzl0rptN9pViFhrJZZR1waI0ukAV61U1N+6zh5geGmhx9sKdOFEYdD1GHCd4WQBTWozS/J59aOZvsNLR2L3JxgsKi0T6nJ+TCjk2AHCthE0xgLw8OsogGNkZ9hHq3W0e/5flQVLcDl+76Pe2YHB1m55GSiAbGKWMUQ4wTfD0ZgLUoQhzA6z7M78N73qysYei7DRWLjfHxlEAI/7hXYsKxk5rZSOC2XgpVREUvRFmAcmaFxlF/eA5Eb8LFhk4LA7Aj+8gOXpqXEImrs23Vy7UdXpFqyiSLMtE2MoGaTs8Hmr4QYUYcWe39xsOa8R5yYDi3KpShinRVCDyQvakWfB1hKVxinrbUAet4DPimBHgIpccMLSPbJTLRNXj/FmiOglByBYhpO/yPLawUuuTAUVDbcSVQNqhOwmcV2aT5BTW8C1+j6VnYsQNZbFm9dXiUTG/y4ye8N7mNbAI3xLPVYFq7VsHnNvn4izHDN12fGKUqXSQHdg/irzfgDuRH5PoM3xep3SOSJW9r2U/HGtaYK5b7HuL8U9If0HLIPcCQR8JHSijcZl3R12iaLuxTapwmwwGikuLzi/HvgRaxtCnz6mF+mJSTh7rDrus1xPOY9Hw7hXzzEjjUFLY10pfiqx2NnG4sLT7LXl19iMMCbuDGZnFHN/Z++DBi/4ZHP6kgiSteKSegQKu0P1AerSi5V5h6bEqA==
