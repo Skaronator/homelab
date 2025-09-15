@@ -19,7 +19,7 @@ ports:
 
 ingress:
   host: transmission.wagner.gg
-  basicAuth: Skaro:$apr1$qem8v099$1vDi1OojVYWKl5XwIBjaY0
+  basicAuth: Skaro:{SHA}FaSWczOGS7xp1+eO3Skb1eAqXSo=
 
 securityContext:
   capabilities:
