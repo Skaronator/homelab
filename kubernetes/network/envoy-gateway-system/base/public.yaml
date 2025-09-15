@@ -68,3 +68,6 @@ spec:
           limit:
             requests: 15
             unit: Second
+  circuitBreaker:
+    maxPendingRequests: 20
+    maxParallelRequests: 40
