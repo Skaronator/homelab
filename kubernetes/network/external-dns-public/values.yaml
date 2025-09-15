@@ -4,17 +4,16 @@ txtPrefix: _external-dns-
 txtOwnerId: homelab
 
 extraArgs:
-  - --ingress-class=nginx-public
-
-provider:
-  name: cloudflare
+  - --gateway-name=public
 
 sources:
-  - service
-  - ingress
+  - gateway-httproute
   - crd
 
 triggerLoopOnEvent: true
+
+provider:
+  name: cloudflare
 
 env:
   - name: CF_API_EMAIL
