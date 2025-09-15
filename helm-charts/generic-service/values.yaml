@@ -42,6 +42,7 @@ health:
 ingress:
   host: ""
   path: /
+  basicAuth: ""
   public: false
   publicPath: /
   port: main
