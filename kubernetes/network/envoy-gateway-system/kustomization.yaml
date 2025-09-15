@@ -6,6 +6,6 @@ helmCharts:
     name: gateway-helm
     version: 1.5.0
     includeCRDs: true
-    releaseName: envoy-gateway
+    releaseName: envoy-gateway-system
     valuesFile: values.yaml
-    namespace: envoy-gateway-system
+    namespace: network
