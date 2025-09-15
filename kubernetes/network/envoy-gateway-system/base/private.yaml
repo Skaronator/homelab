@@ -3,7 +3,7 @@ kind: GatewayClass
 metadata:
   name: private
 spec:
-  controllerName: io.cilium/gateway-controller
+  controllerName: gateway.envoyproxy.io/gatewayclass-controller
   description: Only reachable from home network
 ---
 apiVersion: gateway.networking.k8s.io/v1
