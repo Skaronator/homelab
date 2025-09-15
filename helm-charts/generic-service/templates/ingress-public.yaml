@@ -23,7 +23,6 @@ metadata:
   {{- end }}
 spec:
   ingressClassName: nginx-public
-  
   rules:
   - host: {{ .Values.ingress.host }}
     http:
