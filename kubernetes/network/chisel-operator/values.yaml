@@ -1,0 +1,3 @@
+image:
+  repository: ghcr.io/skaronator/chisel-operator
+  tag: main

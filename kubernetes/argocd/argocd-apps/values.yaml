@@ -6,9 +6,7 @@ applicationsets:
           repoURL: https://github.com/Skaronator/homelab.git
           revision: main
           directories:
-            - path: "kubernetes/**/*"
-            - path: "kubernetes/network/chisel-operator"
-              exclude: true
+            - path: kubernetes/**/*
     template:
       metadata:
         name: '{{path[1]}}-{{path.basenameNormalized}}'
