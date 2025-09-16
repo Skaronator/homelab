@@ -3,6 +3,7 @@ k0s_backup_*.tar.gz
 *.log
 secrets.txt
 tt.yaml
+sealed-secret-backup.yaml
 .claude
 
 # OpenTF
