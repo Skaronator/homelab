@@ -78,15 +78,15 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": ["/^.+/intel-quicksync/base/gpu-device.yaml$/"],
-      "matchStrings": ["\\s+image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\n"],
-      "datasourceTemplate": "docker"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["/.+/chisel-operator/base/exitnode.yaml$/"],
-      "matchStrings": ["\\s+chisel_image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\n"],
-      "datasourceTemplate": "docker"
+      "managerFilePatterns": [
+        "/gpu-device.yaml$/",
+        "/exitnode.yaml$/"
+      ],
+      "matchStrings": [
+        "\\n(?<key>.+image:\\s+)(?<packageName>[^\\s:]+):(?<currentValue>[-a-zA-Z0-9.]+)(?:@(?<currentDigest>sha256:[a-zA-Z0-9]+))?\\n"
+      ],
+      "datasourceTemplate": "docker",
+      "autoReplaceStringTemplate": "{{{key}}}{{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}\\n"
     }
   ]
 }
