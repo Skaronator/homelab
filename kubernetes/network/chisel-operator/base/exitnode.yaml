@@ -1,0 +1,23 @@
+
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+  name: vps-exit-node-auth
+spec:
+  encryptedData:
+    auth: AgBephi5chywpj3gs7GRZ74E9AoYNKJ85v+ljUyG/E7MYE3CsTliWo10i69q0VGqCZjCkVz8BxHjcmorXgaBUo+LzLElEHi8PlxH4LMzcUojnq2QEJWTZm6I7SYb7LpkvAoMhH2ZToG7YWjlDndT59eAhXlxsnqaXfAfq97KTUpafRaZXd+uElh0betysro2H8eLPPalARpK9aRQlzlOrXn2pWZRS4ekC093eELk6MAcoBrfHpZ6z1IfklASQT206dkIb4l7ujDngWTF6E5ftg0esmHnN8M7ZjxWtNd9cBLXxbGGnhyLUvKWzNxwmzGawi4J2t1TP164Y/9int96bnv3aYEUBteJbHccm1xZEnYzyrfcOWkUPcXccpXeD/yL1G7GUdhlPxK+BrzEWlKhgR60/QrO7tMKesrm3/0p94htW6bPWsHyrHvBBhbUt0epZeMPfhE91Dq5UbP0CZdSa3VI9r0s77dYObjDZtYVaQTVOP7YqseKu4CfnKOub9+8/sUd0Ae6yEQEwl3SHBVf5Prv4QpmxVoNqJzYrQJYms+oRR/zZ7xiiOKSGuoO/Rj4gBk76DrJg8kvneSLH7a9UWIWOwXWKcr34l9f/E55UieSAV5K1oew6tCbeP1OMe9PvgE+UpL/biXwzyZAOS5Rvrm2Vlhc9K0pd3r+6mvdnaIUVG5IMvDkLV/IuDGD6cyQaeuJ8itsCaA45bm1tW0jCTkWfd19Y845obPF0pn1aaj6MoAm5HUG8qSUer4LGXXVOb/txqHEa0+9xQkWyCc5BT55sXXTp47S5tU=
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
+---
+apiVersion: chisel-operator.io/v1
+kind: ExitNode
+metadata:
+  name: vps
+spec:
+  host: vps.wagner.gg
+  port: 9090
+  auth: vps-exit-node-auth

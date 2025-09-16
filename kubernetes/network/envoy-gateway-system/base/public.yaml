@@ -16,6 +16,8 @@ spec:
     kubernetes:
       envoyService:
         type: ClusterIP
+        annotations:
+          chisel-operator.io/exit-node-provisioner: vps
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
