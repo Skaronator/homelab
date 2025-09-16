@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/immich-app/immich-server"
-  tag: "v1.142.0@sha256:29f12a20fd1975c9df06d99a65658cec40bf2357fb597499c32ee50a75f250ea"
+  tag: "v1.142.1@sha256:06bc7715fa4c4a1641bd0b566c949cd7327f420632b480389fd4d1e70665d046"
 
 hostPaths:
   - name: data
@@ -33,7 +33,7 @@ database:
   postgresql:
     image:
       repository: ghcr.io/immich-app/postgres
-      tag: "17-vectorchord0.4.3-pgvectors0.3.0@sha256:0519d8c369b6359da2dc4dbe5e1836eeebb5d5e46bed49d02e4c947a4df0123b"
+      tag: "17-vectorchord0.4.3-pgvectors0.3.0@sha256:69bbf29d20c8de255c5a5b16ffb05133065ecfd21dd90e54d07977e7f16bedf3"
 
 envsubst:
   files:
