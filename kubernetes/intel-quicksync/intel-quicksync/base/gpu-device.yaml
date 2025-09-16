@@ -7,6 +7,6 @@ spec:
   enableMonitoring: true
   logLevel: 2
   nodeSelector:
-    intel.feature.node.kubernetes.io/gpu: "true"
+    kubernetes.io/arch: amd64
   preferredAllocationPolicy: none
   sharedDevNum: 32
