@@ -1,0 +1,43 @@
+image:
+  repository: "rapiz1/rathole"
+  tag: "v0.5.0@sha256:a31b9178e985d4a84f46d4c3af6aa200ee0c5e7f821c7075a1f6669fb77392b1"
+
+health:
+  enabled: false
+
+args:
+  - --client
+  - /envsubst/config.toml
+
+envsubst:
+  files:
+    - src: /config/config.toml
+      dest: /envsubst/config.toml
+
+configMaps:
+  - name: config
+    mountPath: /config
+    subPath: config.toml
+    content: |
+      [client]
+      remote_addr = "vps.wagner.gg:2333"
+      default_token = "$DEFAULT_TOKEN"
+
+      [client.transport]
+      type = "noise"
+
+      [client.transport.noise]
+      pattern = "Noise_KK_25519_ChaChaPoly_BLAKE2s"
+      local_private_key = "$LOCAL_PRIVATE_KEY"
+      remote_public_key = "$REMOTE_PRIVATE_KEY"
+
+      [client.services.http]
+      local_addr = "rathole-to-envoy-network-public:80"
+
+      [client.services.https]
+      local_addr = "rathole-to-envoy-network-public:443"
+
+secretEnvs:
+  - DEFAULT_TOKEN: AgAqsTx0QI91eO3rdJbgxv8YDSdWe37SA9l1tPR4p42IEYe7u9ihVg183WkgH9pfK0lgUahv6wGiK82/J/RGrJqmp9qwDH6sbSrZSu28ZK19KoCdbyJZpcvWrlK9XdqDTHeIMzBM85hWv/TsU18E0oPVusqZczOKHXkuIpZNzSYbPXzl0rptN9pViFhrJZZR1waI0ukAV61U1N+6zh5geGmhx9sKdOFEYdD1GHCd4WQBTWozS/J59aOZvsNLR2L3JxgsKi0T6nJ+TCjk2AHCthE0xgLw8OsogGNkZ9hHq3W0e/5flQVLcDl+76Pe2YHB1m55GSiAbGKWMUQ4wTfD0ZgLUoQhzA6z7M78N73qysYei7DRWLjfHxlEAI/7hXYsKxk5rZSOC2XgpVREUvRFmAcmaFxlF/eA5Eb8LFhk4LA7Aj+8gOXpqXEImrs23Vy7UdXpFqyiSLMtE2MoGaTs8Hmr4QYUYcWe39xsOa8R5yYDi3KpShinRVCDyQvakWfB1hKVxinrbUAet4DPimBHgIpccMLSPbJTLRNXj/FmiOglByBYhpO/yPLawUuuTAUVDbcSVQNqhOwmcV2aT5BTW8C1+j6VnYsQNZbFm9dXiUTG/y4ye8N7mNbAI3xLPVYFq7VsHnNvn4izHDN12fGKUqXSQHdg/irzfgDuRH5PoM3xep3SOSJW9r2U/HGtaYK5b7HuL8U9If0HLIPcCQR8JHSijcZl3R12iaLuxTapwmwwGikuLzi/HvgRaxtCnz6mF+mJSTh7rDrus1xPOY9Hw7hXzzEjjUFLY10pfiqx2NnG4sLT7LXl19iMMCbuDGZnFHN/Z++DBi/4ZHP6kgiSteKSegQKu0P1AerSi5V5h6bEqA==
+  - LOCAL_PRIVATE_KEY: AgCXHbu7cK/GsNHIvx1Mhct+e4CXaxE6Kvx2pV4YpNGSgsUloEUGQEQ0s5bV10qc1DxHv4f0EjVHq3H0o+FuaO79WYDcTa5/gsaDPvsGwA0LUEfbYcLh6DbCKBGEggyb+5JN9ODh7l/jiX96daNctvAABb0+3P7RYwBwsfvhUKUW/9kAp+mWR1XN/E97z2obaZ2r72nJ6v7PBxBArTdnzvK3pa79Yatu+w5LmpcyDkSrqICPLHk6Q2FoeoEPpTEyYJGFjsaKZN1bz5REwN69WzD2aYrR70rlWOFEhaopgpG4Q4qjQg2nZlTQIZI7peaYjsu+gfLBg7gJHAngjRzPOXviTifJ3TYmtFa+SiWjEtjvXbI/5vwHoxKe86odcmIe0TQloIOv/EK9nbim7C3OEfI2XZRF8LHf5KpHvDlEYWN1Pz2CyytmNQ80BlNGmdO+Q56fk33sMZpHy8OGOIe6MqWQTNMVrYzb6dCoS7n+DXQsg+gCKwhWSYv0o3RgkZ5F6TEkdKl61YY2WXai5aI9pftl5J36w+qGvLtHEvzrIuAUAMy/cQ4XtOwSwpSX0N4kNBnqJukafYritp1IGNnWgjLleOmgL6C0igx4rL7hi4jVOY7NJSq0qFVR53tA/nl1B/5Zie+b3Ae41qmcP5c7dnm5+AF6nkV7obmELnCWNxn1GfQTRmqTkmjn5jHK/sQJH2BsIXduwCb/xxxUFvct5uSMDZzEO+VvX/5VAerCnqP5IXDTEzQhl7ya30D66Q==
+  - REMOTE_PRIVATE_KEY: AgBup3y8124VSWs1EW27xg+JC6j22cyV9ygsNrEeIFo6lKmICBC5yngUNETmxSLcoBVvJiBoKnvF2XRP5BkIfF1HM6KDDgSG7Dyh2gtVH/YPZqZgvdZdpJ5k3a7GiXE+f0RVNUWWLFFtj36i/rqYhyJq1qaZHP4MlGAWVFVz2IHmT1Q0ISvGsmGrua4JvOQEBz3n1L73Dzk7Z8ze/luz04GuUi/GxTmLeJRQNySoGko9MPd0Pb7i3eiiufWfqs8tI1Mb0wzNR2kcIuP0UxJjcSN/d3kaywD4cDzfFQcEgpSYwxJgUbTYjZQINcOdmm/sWAUZcHeeXc2EXMeiOFENCc3wjCn4jBL9KNB3EaHvXzLNprIxhtNXug627XG+TzBoMTq77HOO88AKOneOtQHWJb9J3rM4xPgqZrmZrMaDmX83ZnEXL8hsDtEXu+oqIf7woibNLDE1/QCDmnVRe2FTOO2N9E+mAL82oaRmg/4w3qGkPtrTOBpXKnUUiq8t46zu5sQThxDMCW2CDIfWL0vzZyAzoy70G5Uy4LG+8qcXKZsiA+tKyV1KdBqlKg5Yla9PH0VrEFfvkvzh6fe4dmRuEB9wksa/UqHGi7h5C8f6g7j+GiVIFuc/qE0WtXz6/sAuW4K48GaspE+vl46L5bUiB0EUTt2CJ4vaULl6mn6V7mumEEA9qFQVq93G/okPoMcHHxatOnRFV+ixDugwU4rW/zh9jEl8KqbEt9AgSfAV8avlu39jKtWE4JZN6w1Y9g==
