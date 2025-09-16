@@ -16,6 +16,7 @@ ports:
 service:
   type: LoadBalancer
   loadBalancerIP: 192.168.0.252
+  loadBalancerClass: metallb
 
 envs:
   - CACHE_MAX_AGE: 365d
