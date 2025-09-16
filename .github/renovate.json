@@ -78,8 +78,14 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": ["/^kubernetes/intel-quicksync/intel-quicksync/base/gpu-device.yaml$/"],
+      "managerFilePatterns": ["/^.+/intel-quicksync/base/gpu-device.yaml$/"],
       "matchStrings": ["\\s+image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\n"],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/.+/chisel-operator/base/exitnode.yaml$/"],
+      "matchStrings": ["\\s+chisel_image:(!?\\s)(?<packageName>[^\\s:]+):(?<currentValue>[^\\s]+)\\n"],
       "datasourceTemplate": "docker"
     }
   ]

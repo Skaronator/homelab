@@ -18,6 +18,7 @@ kind: ExitNode
 metadata:
   name: vps
 spec:
-  host: vps.wagner.gg
+  host: 87.106.114.8
   port: 9090
   auth: vps-exit-node-auth
+  chisel_image: jpillora/chisel:1.11.3
