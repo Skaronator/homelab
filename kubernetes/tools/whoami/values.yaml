@@ -1,6 +1,6 @@
 image:
   repository: "traefik/whoami"
-  tag: "v1.11.0"
+  tag: "v1.11.0@sha256:200689790a0a0ea48ca45992e0450bc26ccab5307375b41c84dfc4f2475937ab"
 
 ports:
   - name: main
