@@ -22,4 +22,4 @@ spec:
   port: 9090
   default_route: true
   auth: vps-exit-node-auth
-  chisel_image: docker.io/jpillora/chisel:1.11.3@sha256:7f89450407b4b8f8aa601608343b0c87356aed6d6a74e4806dc004b76080613e
+  chisel_image: ghcr.io/skaronator/chisel:1.11.3-skn@sha256:f23a62a00d7d2f194acab4ba644eecfbabaf20a038049d8259554f5b99cd997c
