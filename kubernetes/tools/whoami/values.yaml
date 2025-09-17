@@ -1,0 +1,11 @@
+image:
+  repository: "traefik/whoami"
+  tag: "v1.11.0"
+
+ports:
+  - name: main
+    containerPort: 80
+
+gateway:
+  host: whoami.wagner.gg
+  public: true
