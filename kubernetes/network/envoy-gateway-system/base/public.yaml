@@ -49,6 +49,17 @@ spec:
           - name: wildcard-wagner.gg
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: ClientTrafficPolicy 
+metadata:
+  name: public-gateway
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: public
+  proxyProtocol: {}
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: BackendTrafficPolicy 
 metadata:
   name: public-gateway
@@ -57,8 +68,6 @@ spec:
     - group: gateway.networking.k8s.io
       kind: Gateway
       name: public
-  proxyProtocol:
-    version: V2
   rateLimit:
     type: Local
     local:
