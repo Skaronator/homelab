@@ -21,6 +21,7 @@ spec:
     email: letsencrypt@skaronator.com
     server: https://acme-v02.api.letsencrypt.org/directory
     preferredChain: ""
+    profile: tlsserver
     privateKeySecretRef:
       name: letsencrypt-acme-key
     solvers:
