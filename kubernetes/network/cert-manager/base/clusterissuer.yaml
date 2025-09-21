@@ -20,7 +20,6 @@ spec:
   acme:
     email: letsencrypt@skaronator.com
     server: https://acme-v02.api.letsencrypt.org/directory
-    profile: shortlived
     preferredChain: ""
     privateKeySecretRef:
       name: letsencrypt-acme-key
