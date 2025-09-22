@@ -1,3 +1,3 @@
 image:
   repository: ghcr.io/skaronator/chisel-operator
-  tag: main@sha256:a041705cb3268bf85dd6ab21979e41d7c3e2cbc266c04a52e09139fc7923316b
+  tag: main@sha256:f559d6bd1b1db453e125dc1d07d85bc05fcb256fcde4d6a94e8a85a26c22e8f3
