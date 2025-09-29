@@ -15,7 +15,7 @@ command:
 
 args:
   - -c
-  - gallery-dl --config-yaml /envsubst/config.yaml $HOST --verbose --print-traffic
+  - gallery-dl --config-yaml /envsubst/config.yaml $HOST --verbose
 
 envsubst:
   files:
@@ -33,9 +33,9 @@ configMaps:
         archive-event: ["file", "skip"]
         user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
         retries: 15
-        sleep: 1
-        sleep-extractor: 1
-        sleep-429: 60
+        sleep: 0
+        sleep-extractor: 0
+        sleep-429: 30
         timeout: 90
         coomer:
           username: $USERNAME
