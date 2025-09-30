@@ -10,6 +10,9 @@ ports:
 health:
   type: TCP
 
+envs:
+  - SAMBA_LOG_LEVEL: 2
+
 secretEnvs:
   - PASSWORD_NIKLAS: AgBOm6I8n4Atd+Zk5raeTrWiregnSX1wPzjPw9/+IOWnxmU5ik3WJOjOYh7Uq/ood7DohmV2c6zx6YZ+dprT5d+qn44a0Mpz7bAgKNHs073YSKE2V8ztBvtncVXfXu8Qg39/yli5gdclHKe+s+QYGTHk/pE25MSaVh2YLE86isKaO2LATwxwqcXML6s+ygkEQq8v7HVtAJaXfGSnMwz5pByrjfSDYIsjW6nIQ6CCS72P+QGnPdEyLBL9iaFwRanEXtPblMGAU+12yJ4KWycDKkj47dJl1bmNW62W0G0N8lAwI+DxXlALySHwDRHNAy3OryWyfdP3Hkv9bBEEXlyq4dBae640fUd00rS4WUy+BXW97g273iSkRRiI4lY53KEVRcr9NbwbfuAAWkuUgTnlQHQ9rjQ7MlNzPq8fLlNxlENx7nHLrIruVsxiTP8YD2LFwW2cJmsJ22cGopyX9dQaGvjbxvNs9K3D81Aey8QBs1p6klA/WucmbgGWplr+kp/I7+Ut05Odp7S5iKNFVsqlJmA+NSbEsx0u+Cc2YynJvaddQCjrARz404gnz7NVY20sCl5bzpAf32Zh59Usk6RDdvbUUVygGNDAGDrkovBtt+V82eqTK3iYlbo1fdFsllyGFzXSHiUL06c7rowjy5dVyHiL11HlSDAkWvDu6M0plraisNf3yOg9vbcgRuju8XJN5tFpHit+rhiqcP3b/odOiN/5oQS2iP3M
   - PASSWORD_HOME_ASSISTANT: AgCHU0xXjac6PNBpVLwxRiZBWAn+k+jCklJLODVfNGyQm4dPH+W+qSxlXLJtICiz/26svrcJCRvikObE6Tmzi0b/pSEc7SRqFhRM7Vqtt3oJasIr2tONL42mVPfq93Z4ihWpatfAFgJ0jfvsLdJQU1T1b8+Rqcs2j867Vbllh45swOwjaFO03lw/YDXpFp/xERLb78wtB8SSJxBXOB0KNp1PHhdsWX3lVCpAhwjr8hH4lsIQmBpU4aCFsQehdVeJkenr4qMxSLV/FCePPgUiIxCRhFgBc/T/zAwFTmEzgymh5G4W9PQnSgUW0Uj3Vn4Nu5CevId1C/d+mR0dgvC6j2Fok5DtOvCP0QkVzvmOHXk0wcnGpyIiGrgs+Ypp/glo8zwGBCZOjRdij1FjEis/emSQ6/6tk7w6PEU/+9YaaovkJYMVJtN7mF+ae34OUD4yq3zGSSfiuczdWl38XgfRksoVtKcDjhivZUygfVhWPFVWg1WSXMyMyiXdMkIzidnfyGJyqqAITi9NYPQqdewCQ0Hee1Z4/T57o1HRov5KirjuKobkCcaPvV2jl74/REZt6Rr8l8By7r+Xnybnc9cYfaUDR7cYi76OZ53lcge04da1j06YjdlWtMCnzfCUXp57eskcKJf4OTxs8oH8apZ3+ww1ysEnPvbdK0PJ13aa3gidnTDpcRMCyzUCuoUzp+5BFk9Kx9qYDTkZpHC4KXp++isLmUWtsOsCDCVg1ZDkRN34rWOs/5EuycNegvaGkI+yFFCxeG6T0859kYFWYgCWtg1i
@@ -20,6 +23,8 @@ configMaps:
     subPath: config.yml
     content:
       global:
+        - "create mask = 0660"
+        - "directory mask = 0770"
         # Overwrite dynamic name from kubernetes
         - "netbios name = Samba"
         # allow running exe https://unix.stackexchange.com/a/200130
