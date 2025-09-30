@@ -39,10 +39,12 @@ configMaps:
         - "map readonly = no"
       auth:
         - user: niklas
+          group: samba
           password: ${PASSWORD_NIKLAS}
           uid: 5000
           gid: 5000
         - user: home-assistant
+          group: samba
           password: ${PASSWORD_HOME_ASSISTANT}
           uid: 5001
           gid: 5000
