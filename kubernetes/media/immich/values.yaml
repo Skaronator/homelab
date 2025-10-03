@@ -54,6 +54,7 @@ secretEnvs:
   - MAIL_FROM: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
   - MAIL_USERNAME: AgAoKYtSwS9CKLbr7KgboHvcMhACYPRy5MgD2MkZFMxQeLOJEKIROmMhwtMD59ZI4/3INTTLOnpXJZBBuoLh6gJqajylcwgb+jV9dYphp7byFqhQALiAad5MtmRkHT6bkXolaeR27EGG/qVNOPDwFfvF42xibygm1Xzwqbuav/P9CHIhrpFeDUe1VMrLupSGIJfOOnw94GzJ9PE84wxTSJtEkwRNg4B+8gw2dLIebVKrs1aHGIqQnrLeBPexNscCdurxhqSZthwgiGZYDIidqHJK8Jx47LADENqmjG3PLKH4B8WTVbialWaSxfXBKRfgCNNSzpn2KA7GUdA0it6igqWvIWhK46C7cs2/a/9FEG0dDEYN3SLuQZXdHdAiXeJlmUTJ15Y5riJwrXRGjXUSyzZUCvz/S5jBuE9GE27ie0uuG8IbKRfmjbXBooJDkIB6rUDwVsbAVwFFGRQkY5ImmH38VyEpkpBM6vf2hT6RXWpopnFVmtjhTT8ATjQBz9E48nTKcWJ1Co+qMCi9t/hQJPcvScNVY34yVvvczxhbBrewbDpJzQRl/fNAq7Grx32PKZj/0iRIR6EkmDbubRZHO+ROH5u4HeT2Pm2Iw/PUpm7ZeFT+Ddbxl4Qn8od3MspwkFADgCYdDdM+XDndwApmxnVhOWr3l+WnPg5ms4zcqva2v9AJAkx9P7VeVrEZn3RDBHt/IVNxeAGX0LML+PGPr5HUcAc=
   - MAIL_PASSWORD: AgCzzndqBjY2iJ746hwzJXiJ5vMOU43ubyIOICoV1k4VUZq/sdblc5t5jcYPIWwa2VC1NzRp5Xvaqq0PjcTjr/RDAwyVZ+9lwtJBI2E8/M9Zd99MjihcY1zVjB0uKRwIvDiIKieZ6WQfPiE4lPbGX7cHQzJTu8wItYZ246IzbKvZXi2oGANdWK6AOWb1M8lC2DTo7UJ6N+AjQZblk0T/Imw3kpnRTi3Z1pZOl6BbBNBHBx1zzGX2Bgk7uic1CoUNR0Np+rEF8Ji7lmBFczosjSpbf64jSLm6E8Uy+89HhijQgFqCqaxU0DMlNe617pmHQVWqI6BfWGvEJ+mMk0L7p9cRNx8NNlKVUAnu8zkRdZjp5ccbnIhjMEtGznS4+Z3Qcw8mHYaD3aaY30Wy/4RpfofUttHGp7YObS8IIEMBVF9otZkmFFjM2cFrZ4IG2Zzuat+T+hIsRv+YnD2rOOw/Q3PvvtvRdrGi5UrhdMDrfjO+SQfVDd3Bu+JUGzAWBkWR67ZXvpwZDTUzcFgUYrqfsDAYj4FEycvTfbVKRy65GxLdJWZxD1FvticZphWaWy+z3wuhbLjWacu+GHV86fl8q1dy+3JNwlAa2F1nF3wIVq3Q+VwZHC7RB2u+juJt0YsGc+3myFyYojIwq43xojDP3NztuQQOr73EpUUUrejA4DBWfwYuG5XVlb9OvhR7es9aPbJV4manNwWOjfiuPiOGpaAgxQWIZvQskGsW68U0jIpQnW1Fjm95D6BEMztLBQ==
+  - OIDC_SECRET: AgCaZJ++Yboi5dJae3pqoJeY5TuVfwJi3iMou7v+EzANGVeKqeNrXPKCW/vhoGoLpCNX6BgY4nqJpYBluv70INotAJXf5q1jroaQ/mQk51gBwveKAbLnoRLfTzsYGXuPsb8XIDbm+wD7UssZtYq92hYPBV4akOCZBit90ZcQ+eQdFs8kUayNSOcDe7oNacYnmVaZLnOWm4RQOzMuNEi6cKJhKkNCtMWjFE99wX6yRNucUIteYkUKlnlY/U7zR+Y3xe8XP675WJzmm4CQJQURAEmwET34tESOaV/n1ABdHUC2PWlXRb5wt5JzyzU1dppw4mnfG9blzzdR4Hl8an/k08BhvXVVaX/53Y4oYEOkTiKKcXKcsVcHXwvO6YmZmopshEHoULgTifkcSkPpEtwF1XgmWqrgtsKepDhaer15xsEN1pVDLRAoTVmRD10g+i09wQ0vMvGpFzwllHaRVEZMRd/hgbE6ffDnEZNFW5+k0xdPJd0Qk+sXQrunh2iCYVP6Nnd3TgtzevydVt6s1qErh2TKUY0rmRkhigQkEZrCKXQahiVzFgNh+uhlUpVvEniou5D6Yuu8V93JjboPvy3jsI5g60mSoczLqWMBOjIhCJaBwMVlbxvxsNiXDoe758f+vrvXMohbUo4xN1ANxESGwkVlIjTQYTsgCVShggwXr2qm0ic+fPRw2lhpi4ehJX/tTAkuIHsiNXK182PpxhHQP2RjJJTY09GkZ7C1UyMXYJB+Rg==
 
 configMaps:
   - name: config
@@ -188,12 +189,12 @@ configMaps:
       oauth:
         autoLaunch: false
         autoRegister: true
-        buttonText: Login with OAuth
-        clientId: ''
-        clientSecret: ''
+        buttonText: Login with Pocket ID
+        clientId: ddf9d1f8-ae17-4a24-91c0-f1942a7f78d0
+        clientSecret: $OIDC_SECRET
         defaultStorageQuota:
-        enabled: false
-        issuerUrl: ''
+        enabled: true
+        issuerUrl: https://id.wagner.gg/.well-known/openid-configuration
         mobileOverrideEnabled: false
         mobileRedirectUri: ''
         profileSigningAlgorithm: none
@@ -205,7 +206,7 @@ configMaps:
         timeout: 30000
         tokenEndpointAuthMethod: client_secret_post
       passwordLogin:
-        enabled: true
+        enabled: false
       reverseGeocoding:
         enabled: true
       server:
