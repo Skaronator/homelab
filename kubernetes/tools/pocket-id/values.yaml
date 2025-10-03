@@ -1,0 +1,25 @@
+image:
+  repository: "ghcr.io/pocket-id/pocket-id"
+  tag: "v1.12.0-distroless"
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/pocket-id
+    containerPath: /app/data
+
+health:
+  path: /api/healthcheck
+
+ports:
+  - name: main
+    containerPort: 1411
+
+gateway:
+  host: id.wagner.gg
+
+homepage:
+  name: Pocket ID
+  group: Cloud
+  description: OIDC Provider
+  icon: pocket-id.svg
+  weight: 15
