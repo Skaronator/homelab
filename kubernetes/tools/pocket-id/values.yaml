@@ -10,6 +10,11 @@ hostPaths:
 health:
   path: /health
 
+envs:
+  - APP_URL: https://id.wagner.gg
+  - PUID: 5000
+  - PGID: 5000
+
 ports:
   - name: main
     containerPort: 1411
