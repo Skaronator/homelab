@@ -13,6 +13,7 @@ health:
 envs:
   - APP_URL: https://id.wagner.gg
   - TRUST_PROXY: true
+  - ANALYTICS_DISABLED: true
 
 ports:
   - name: main
