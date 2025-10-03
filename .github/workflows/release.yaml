@@ -58,7 +58,7 @@ jobs:
           args: --unreleased
 
       - name: Release
-        uses: softprops/action-gh-release@v2.3.3
+        uses: softprops/action-gh-release@v2.3.4
         with:
           tag_name: ${{ steps.release-tag.outputs.result }}
           body: ${{ steps.git-cliff.outputs.content }}
