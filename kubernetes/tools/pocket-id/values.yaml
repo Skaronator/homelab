@@ -9,6 +9,7 @@ hostPaths:
 
 health:
   path: /health
+  public: true
 
 envs:
   - APP_URL: https://id.wagner.gg
