@@ -8,7 +8,7 @@ hostPaths:
     containerPath: /app/data
 
 health:
-  path: /api/healthcheck
+  path: /health
 
 ports:
   - name: main
