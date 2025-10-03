@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/pocket-id/pocket-id"
-  tag: "v1.12.0-distroless"
+  tag: "v1.12.0-distroless@sha256:0c1ae051060157fdb05d71bca2a28efab5417fb6e0631898b7cdaa1745b3fe6d"
 
 hostPaths:
   - name: data
