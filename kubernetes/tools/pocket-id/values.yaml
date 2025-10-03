@@ -12,6 +12,7 @@ health:
 
 envs:
   - APP_URL: https://id.wagner.gg
+  - TRUST_PROXY: true
   - PUID: 5000
   - PGID: 5000
 
