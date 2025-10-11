@@ -1,0 +1,29 @@
+image:
+  repository: "fallenbagel/jellyseerr"
+  tag: "2.7.3"
+
+ports:
+  - name: main
+    containerPort: 5055
+
+gateway:
+  host: seerr.wagner.gg
+
+health:
+  path: /api/v1/status
+
+envs:
+  - PUID: 5000
+  - PGID: 5000
+
+hostPaths:
+  - name: config
+    hostPath: /srv/nvme/container-data/seerr
+    containerPath: /app/config
+
+homepage:
+  name: Seerr
+  group: Indexer
+  description: Media Requests from User
+  icon: overseerr.svg
+  weight: 35
