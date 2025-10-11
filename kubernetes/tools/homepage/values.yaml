@@ -43,7 +43,7 @@ config:
             href: https://app.plex.tv/desktop
             icon: plex.svg
             namespace: media
-            weight: 1
+            weight: 5
   settings:
     color: neutral
     hideVersion: true

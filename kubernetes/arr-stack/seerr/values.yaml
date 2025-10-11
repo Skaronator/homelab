@@ -23,7 +23,7 @@ hostPaths:
 
 homepage:
   name: Seerr
-  group: Indexer
+  group: Media
   description: Media Requests from User
   icon: overseerr.svg
-  weight: 35
+  weight: 1
