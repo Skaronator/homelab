@@ -8,6 +8,7 @@ ports:
 
 gateway:
   host: seerr.wagner.gg
+  public: true
 
 health:
   path: /api/v1/status
