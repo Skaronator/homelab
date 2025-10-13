@@ -1,7 +1,7 @@
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: SecurityPolicy
 metadata:
-  name: {{ include "generic-service.name" . }}-public
+  name: {{ include "generic-service.name" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "generic-service.labels" . | nindent 4 }}
@@ -19,7 +19,6 @@ spec:
     clientID: {{ .Values.oidc.clientId }}
     clientSecret:
       name: {{ include "generic-service.name" . }}-securitypolicy
-    redirectURL: https://{{ .Values.gateway.host }}
 ---
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
@@ -32,7 +31,7 @@ metadata:
     {{- include "generic-service.labels" . | nindent 4 }}
 spec:
   encryptedData:
-    clientSecret: {{ .Values.oidc.clientSecret }}
+    client-secret: {{ .Values.oidc.clientSecret }}
   template:
     metadata:
       annotations:
