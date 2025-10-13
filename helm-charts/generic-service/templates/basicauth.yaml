@@ -22,7 +22,6 @@ spec:
     - group: gateway.networking.k8s.io
       kind: HTTPRoute
       name: {{ include "generic-service.name" . }}
-      namespace: {{ .Release.Namespace }}
   basicAuth:
     users:
       name: {{ include "generic-service.name" . }}-basic-auth

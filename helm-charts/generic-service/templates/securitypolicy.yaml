@@ -10,11 +10,9 @@ spec:
     - group: gateway.networking.k8s.io
       kind: HTTPRoute
       name: {{ include "generic-service.name" . }}
-      namespace: {{ .Release.Namespace }}
     - group: gateway.networking.k8s.io
       kind: HTTPRoute
       name: {{ include "generic-service.name" . }}-public
-      namespace: {{ .Release.Namespace }}
   oidc:
     provider:
       issuer: https://id.wagner.gg
