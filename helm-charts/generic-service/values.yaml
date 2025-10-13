@@ -49,6 +49,10 @@ gateway:
   port: main
   publicRules: {}
 
+oidc:
+  clientId: ""
+  clientSecret: ""
+
 replicas: 1
 strategyType: Recreate
 
