@@ -33,7 +33,7 @@ database:
   postgresql:
     image:
       repository: ghcr.io/immich-app/postgres
-      tag: "17-vectorchord0.4.3-pgvectors0.3.0@sha256:69bbf29d20c8de255c5a5b16ffb05133065ecfd21dd90e54d07977e7f16bedf3"
+      tag: "17-vectorchord0.4.3-pgvectors0.3.0@sha256:6b725ce331a1db016c75ca13e4cfc35435718f3fe975ff75a9c11debebbe21d7"
 
 envsubst:
   files:
