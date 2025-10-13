@@ -1,3 +1,4 @@
+{{- if and .Values.oidc.clientId .Values.oidc.clientSecret }}
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: SecurityPolicy
 metadata:
@@ -36,3 +37,4 @@ spec:
     metadata:
       annotations:
         sealedsecrets.bitnami.com/cluster-wide: "true"
+{{- end }}
