@@ -12,16 +12,3 @@ helmCharts:
     releaseName: chisel-operator
     valuesFile: values.yaml
     namespace: network
-
-patches:
-  - target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: chisel-operator
-    patch: |-
-      - op: add
-        path: /spec/template/spec/containers/0/env
-        value:
-          - name: LOAD_BALANCER_CLASS
-            value: chisel

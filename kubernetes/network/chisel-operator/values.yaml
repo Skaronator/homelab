@@ -1,3 +1,5 @@
 image:
-  repository: ghcr.io/skaronator/chisel-operator
-  tag: main@sha256:3b634bbab9af9d4a417578bd0ccd099bc6fd673254c5cb8a56fe481dc53d7719
+  repository: "ghcr.io/fyralabs/chisel-operator"
+  tag: "v0.6.0"
+
+loadBalancerClass: chisel
