@@ -1,0 +1,18 @@
+image:
+  repository: "freikin/dawarich"
+  tag: "0.34.0"
+
+ports:
+  - name: main
+    containerPort: 6379
+
+health:
+  type: TCP
+
+command:
+  - sidekiq-entrypoint.sh
+
+args:
+  - bundle
+  - exec
+  - sidekiq
