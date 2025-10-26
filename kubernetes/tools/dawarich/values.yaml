@@ -50,7 +50,7 @@ args:
   - -p
   - 3000
   - -b
-  - ::
+  - "::"
 
 homepage:
   name: Dawarich
