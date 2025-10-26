@@ -109,10 +109,16 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         {{- with .Values.command }}
-        command: {{ toYaml . | nindent 8 }}
+        command:
+        {{- range . }}
+          - {{ . | quote }}
+        {{- end }}
         {{- end }}
         {{- with .Values.args }}
-        args: {{ toYaml . | nindent 8 }}
+        args:
+        {{- range . }}
+          - {{ . | quote }}
+        {{- end }}
         {{- end }}
         env:
         {{- include "generic-service.envs" . | nindent 8 }}
