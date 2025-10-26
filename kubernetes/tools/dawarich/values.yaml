@@ -14,6 +14,9 @@ ports:
   - name: main
     containerPort: 3000
 
+health:
+  path: /api/v1/health
+
 gateway:
   host: dawarich.wagner.gg
 

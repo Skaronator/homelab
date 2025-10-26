@@ -13,3 +13,7 @@ helmCharts:
     releaseName: dawarich-redis
     valuesFile: redis.values.yaml
     namespace: tools
+  - name: generic-service
+    releaseName: dawarich-sidekiq
+    valuesFile: sidekiq.values.yaml
+    namespace: tools
