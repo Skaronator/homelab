@@ -22,6 +22,10 @@ database:
   type: postgresql
   hostPath: /srv/nvme/container-data/dawarich-db
   rootPassword: AgAZmRa58W0TTagitYM/I5sWdHk2A64mlFlgNpg29OzJ9dam2qXaqlSEAPizBqhziWXgXPByDdQQA4LhTvmmgIt/tlYg2fT4Oqo5Sj6dsQqzul1aYLWUhxCv29GxUva+uGXAUDTpMEcq0KuJRltDzKwn1GrxZqQIWqCMZY/cXQGQd8VY2xkP7mdxJg9Z/mI5F0lRNIYKELI3Cx77vVuGdJf2Z9nMsirFXzBZRN4YsPwE4rs367ghcWtWQeAEGnVuWNnoD9/yNFpMMIpCP+DGZfL8sVAFMe0m8eboJUo13G1p931YVrbaB9wDREmzOvwy72pXcZyx2nIjF3TecHffnRrK9hvL7XbQMToH9T1s7HmxsrbLsKQg7TlUtrEZTF/Buwp94ZB4RWttPot1QbfAmhzvPE10lCHAGhKTgV1MDzqKIUCJ3rC1w8DliLORmjSdfs+MiKpUS3LUjiftzLcZs3V1rdzTz134QH7soSVWeGTWkuvkmU9i1ud8VP2Q6yA0BP8caw5fgpUknpwYJKDQKzfcm7AGd9p6b0d7jr8HeXJmIgdtpowH1egHKOZwBlpAZxRh3HQtEamtjWBwyKBhOZrm/BYCuzJpUdKLUm2cK6fRkR3vkof+c3F6vBxRjEiif3ajZ9Zqky7U6hzGB6q+qWmJjnxlba48uR8ayfNYdQpuYSc4VEGu+ORegsF0nZKzu5Nda3g33ScWpi3zE9onMvz8dkCYwLwBvjpMKwrr9SB3D4+86TSJiCgw/tzwxeB3NEsWe/UiZweHu86lZ1gxEgCG
+  postgresql:
+    image:
+      repository: "postgis/postgis"
+      tag: "17-3.5-alpine"
 
 envs:
   - RAILS_ENV: production
