@@ -14,6 +14,27 @@ ports:
 gateway:
   host: asf.wagner.gg
 
+emptyDirs:
+  - name: plugins
+    containerPath: /app/config/plugins/FreePackages
+
+initContainers:
+  - name: plugins
+    image: ghcr.io/curl/curl-container/curl-multi:8.17.0
+    envs:
+      - key: PLUGIN_URL
+        value: https://github.com/Citrinate/FreePackages/releases/download/1.6.1.0/FreePackages.zip
+    command:
+      - sh
+      - -c
+      - |
+        curl -L -o /tmp/FreePackages.zip ${PLUGIN_URL}
+        unzip /tmp/FreePackages.zip -d /plugins
+    volumeMounts:
+      - name: emptydir-plugins
+        mountPath: /plugins
+
+
 homepage:
   name: ArchiSteamFarm
   group: Cloud

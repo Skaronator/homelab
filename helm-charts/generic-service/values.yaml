@@ -94,6 +94,8 @@ emptyDirs: []
 # - name: ""
 #   containerPath: ""
 
+initContainers: []
+
 envsubst:
   image:
     repository: ghcr.io/skaronator/envsubst
