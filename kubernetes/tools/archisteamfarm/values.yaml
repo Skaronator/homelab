@@ -16,7 +16,7 @@ gateway:
 
 emptyDirs:
   - name: plugins
-    containerPath: /app/config/plugins/FreePackages
+    containerPath: /app/plugins/FreePackages
 
 initContainers:
   - name: plugins
