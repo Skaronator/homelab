@@ -50,7 +50,9 @@ spec:
           value: "1"
     {{- if or .Values.hostPaths .Values.database.enabled .Values.envsubst.files .Values.initContainers }}
       initContainers:
+      {{- if .Values.initContainers }}
       {{ toYaml .Values.initContainers | nindent 6 }}
+      {{- end }}
       {{- if .Values.hostPaths }}
       - name: prepare-storage
         image: "{{ .Values.helper.image.repository }}:{{ .Values.helper.image.tag }}"
