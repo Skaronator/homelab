@@ -20,7 +20,7 @@ emptyDirs:
 
 initContainers:
   - name: plugins
-    image: ghcr.io/curl/curl-container/curl-multi:8.17.0
+    image: ghcr.io/curl/curl-container/curl-multi:8.17.0@sha256:f6710cb71617689b9e3522bde531a1a59f3d39e848be4cb450c9f87c5d15c3a5
     envs:
       - key: PLUGIN_URL
         value: https://github.com/Citrinate/FreePackages/releases/download/1.6.1.0/FreePackages.zip
