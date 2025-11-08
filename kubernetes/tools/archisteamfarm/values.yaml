@@ -4,7 +4,7 @@ image:
 
 hostPaths:
   - name: config
-    hostPath: /srv/nvme/container-data/archisteamfarm
+    hostPath: /srv/nvme/container-data/archisteamfarm-config
     containerPath: /app/config
   - name: plugins
     hostPath: /srv/nvme/container-data/archisteamfarm-plugins
@@ -16,26 +16,6 @@ ports:
 
 gateway:
   host: asf.wagner.gg
-
-# emptyDirs:
-#   - name: plugins
-#     containerPath: /app/plugins/FreePackages
-
-# initContainers:
-#   - name: plugins
-#     image: ghcr.io/curl/curl-container/curl-multi:8.17.0@sha256:f6710cb71617689b9e3522bde531a1a59f3d39e848be4cb450c9f87c5d15c3a5
-#     env:
-#       - name: PLUGIN_URL
-#         value: https://github.com/Citrinate/FreePackages/releases/download/1.6.1.0/FreePackages.zip
-#     command:
-#       - sh
-#       - -c
-#       - |
-#         curl -L -o /tmp/FreePackages.zip ${PLUGIN_URL}
-#         unzip /tmp/FreePackages.zip -d /plugins
-#     volumeMounts:
-#       - name: emptydir-plugins
-#         mountPath: /plugins
 
 homepage:
   name: ArchiSteamFarm
