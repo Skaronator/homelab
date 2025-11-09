@@ -1,0 +1,17 @@
+image:
+  repository: "ghcr.io/alam00000/bentopdf-simple"
+  tag: "1.4.0"
+
+ports:
+  - name: main
+    containerPort: 8080
+
+gateway:
+  host: bentopdf.wagner.gg
+
+homepage:
+  name: BentoPDF
+  group: Organization
+  description: PDF Tools
+  icon: bentopdf.svg
+  weight: 40
