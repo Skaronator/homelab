@@ -1,6 +1,6 @@
 image:
   repository: "redis"
-  tag: "8.2.3@sha256:e78ce825e8a8015813e8626816b3831aace2c90fbba74fc554134799456528c4"
+  tag: "8.2.3@sha256:5c7c0445ed86918cb9efb96d95a6bfc03ed2059fe2c5f02b4d74f477ffe47915"
 
 ports:
   - name: main
