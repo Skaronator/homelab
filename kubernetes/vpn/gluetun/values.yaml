@@ -13,6 +13,7 @@ securityContext:
     add: ["NET_ADMIN"]
 
 envs:
+  - VPN_TYPE: wireguard
   - WIREGUARD_ADDRESSES: 10.130.7.37/32
   - SERVER_COUNTRIES: germany
   - HTTPPROXY: on
