@@ -12,9 +12,14 @@ securityContext:
   capabilities:
     add: ["NET_ADMIN"]
 
+# podSecurityContext:
+#   sysctls:
+#     - name: net.ipv6.conf.all.disable_ipv6
+#       value: "1"
+
 envs:
   - VPN_TYPE: wireguard
-  - WIREGUARD_ADDRESSES: 10.130.7.37/32
+  - WIREGUARD_ADDRESSES: 10.130.7.37/32,fd7d:76ee:e68f:a993::1
   - SERVER_COUNTRIES: germany
   - HTTPPROXY: on
   - HTTPPROXY_LOG: on
