@@ -1,0 +1,34 @@
+image:
+  repository: "qmcgaw/gluetun"
+  tag: "v3.40.0"
+
+hostPaths:
+  - name: config
+    hostPath: /srv/nvme/container-data/archisteamfarm-config
+    containerPath: /app/config
+  - name: plugins
+    hostPath: /srv/nvme/container-data/archisteamfarm-plugins
+    containerPath: /app/plugins
+
+ports:
+  - name: main
+    containerPort: 9999
+  - name: httpproxy
+    containerPort: 8888
+
+securityContext:
+  capabilities:
+    add: ["NET_ADMIN"]
+
+envs:
+  - WIREGUARD_ADDRESSES: 10.130.7.37/32
+  - SERVER_COUNTRIES: germany
+  - HTTPPROXY: on
+  - HTTPPROXY_LOG: on
+  - HTTPPROXY_STEALTH: on
+  - HEALTH_SERVER_ADDRESS: 0.0.0.0:9999
+
+secretEnvs:
+  - VPN_SERVICE_PROVIDER: AgAUUxWLF6nENMpY3AgrGOmAX+1czYYYVbda65cVUF1dlW8zbjAXJdpQpEJ4PUfROmvjumm69uu4RRXU72WxawC23kUGmh2Gx/kkGY/NBhlMVI3+KQ2xjVn9cPW2V95ItFdk1/se48HgtkShEsX/Xv3x7aJhOVz2nzimGKOaAu3ppQZg8AMUfS9N1TWJhNuXfH27xAHv9A69OXIcVt9+TJUtCzDclKcBu+6So0Vn7K1pUcrw90vzsoKSt7kTOZ78XNV5Kv5f0KLIai3dQoE+3cOY9z+Hyil+zQEER+XZmjfQvcjnAcXM6cNQGG7ucjn5wm4XvdrMwmzZ1KQx3OgsRc8QXjji/T4jfgy9Piwxa/ByfVrDKX3DTctmzx4xvexkK8HB3NoFo3sziTLWTsug4PUdsRx+rm1bZIe27QYSuSFILjIvZf7DBQpZX0YMYnVBPrAJ/6QlYRibfG7knDbYC+TdPdzq8NlTvRNUfimhzJbF2PXLrZ9TC/aKD+/jJmNouQ9z9tM96CzOqbi0exeWPFtDL1wgxbPd7Z0rr/yPGkWOn0S+or9Z4Ba/M9LqgolI4zWiSjd2itiAcc5VrbHTuoGdqpQ3j1jG4cbpz2+XX9iX+UHGh20SAoxqMf3BLvH2W6gvkviphw+87s1MPWOsv0IpbubwNy1ojr+qRBoNVNT8VXp62fvEYsEMQk+M5BX+QgEcp/61/k0=
+  - WIREGUARD_PRIVATE_KEY: AgB0QQZ/LnF/cdvIlke7nGxzNGjyMYkGfFWM1+Zc1GfpXHwRINeheW+kayH+p0QB9ub4p/A4BD+pq+R47mzSiFurJspNZjoAgAdSDkm1kXs4tqGcfT6u0rArKmyWxhgnAJiqytd6pb61ty1qvKRCkuqCI4hTCbxpztX6PCXa67sKCNowBBAfIuuMkp3ekwlytElUqS7yBNbd9eMh6q8VoeMWTDenxFo4RbSmQcsO/Zg8PFITs5lfWIo99Waj1KmSQJBDjR+w85tHvEc1Ope200iNSQA4alD8ErG1y04bFBS8QVjRBt8ODPgB84U6O79zwC4c45hojD0FmONqdPVCtE5P4RVK1OiPmK1qnmF7W1ltYenbHLQGCdUbD64YwkdFnP29A5H5HeX2LMLFtELhY0W/+KcflBOSLxNMxVWNMEvl54PNub2uYHYuPPaUy8HEltDkE3TYjTBw7PfB+oQkG9cUxWGx/BFKCKWfYTlvzQ7QkZNp6vMCBwX8OBinuvn+5/aABMMNxRuFodxck2vidf0ZSSme7mdGKdYMt9SinWIBvSpX4p4bZZVajJNItZ2GXlSr/2JOMm6yL4oYmauknAw7pFA3odIjR3S56FIsmE9EywHl/YTp8rwckW3RwJtnNRZWfLiaLjvn2bsOCtGd8CULbJSsvLNLsgUCGA2DQ99HX7/QRxZ89oxeMSilLKmTCRvnbHaoLdTO0SjQb0o0RRJhDlzFnpW3XpLnGK24h52BHUv7+NreGJ7muJ/uPg==
+  - WIREGUARD_PRESHARED_KEY: AgAQhnpL6LTApxWihjV9GCjLfOz8inpX1xEncdRzoC0BLsE+CXqBjsUIov0RhZlT5YFugkqq7DlcbyrPtFjF96niXvl4QquPzEaw/9bnOk9aXOYaOrexRhXl/O2ZBl4puIFu+mwCvwnqvRdVg77hXQOyCEHY2np7PJq9mME6MGwaU+v2a3ZueFoYPswWIr2fBnt3548kkWJY6zfmkJDIPp6iaG+du3duH5qqGBpEykY58J4bd0WKhn0yecJd7VmMe77pF/WsvNFdV+oi0EZnMu6XcOospTA4E0HwCgeQkSJxFp6p3gn9s0GmMEeetVD7eO5cHani20ucnaKnfYYC1wFCOu9pYKFyT0INxTMQAh2uW41R+Y5kjtT47WWdU+UUTsnt2EaJvU8iPG9MIo2Xp6x1dVBjlh1Ooqm6kwHHNjF5GnZ9ZG1j4uQDVAsthau/PUMldv9M20FBIpj1kH9+1zXcOl7sltogxkDTFWo9RMhWDl88fJYbf9DhJ28n0PoWJuXStmG+3G0VFIaAyffkjxvewHOqhgi+IdGvvS5XAfoc47VLT22/X1M4WxnPJgIJN7/p0ZYadd2ytkRdOcOgh9G9rddStJ2uOH0yXjggq/U7uq1rxee4/f5ykkFqVvooBG5+x9zfxlrCIg1Z3J9IGWqzId6nHbBYy6mZSn+6NAtfCkMAUp9+mJx4F7eHhz7hJhdyS9R8PrGSGj4ZIKbS5sHbcA5W2HlKjtcsbP96fRXbFWnXyTV1mIxoV6a6rQ==
