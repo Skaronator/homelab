@@ -2,14 +2,6 @@ image:
   repository: "qmcgaw/gluetun"
   tag: "v3.40.0"
 
-hostPaths:
-  - name: config
-    hostPath: /srv/nvme/container-data/archisteamfarm-config
-    containerPath: /app/config
-  - name: plugins
-    hostPath: /srv/nvme/container-data/archisteamfarm-plugins
-    containerPath: /app/plugins
-
 ports:
   - name: main
     containerPort: 9999
