@@ -32,7 +32,7 @@ configMaps:
         archive: /downloads/.gallery-dl/{username}_{service}.db
         archive-event: ["file", "skip"]
         user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
-        retries: 15
+        retries: 9
         sleep: 0
         sleep-extractor: 0
         sleep-429: 15
@@ -45,7 +45,7 @@ configMaps:
           metadata: true
           filename: "{date:%Y-%m-%d} - {title[b:150]|empty|content[b:150]|empty|id} - {num:>02}.{extension}"
       downloader:
-        retries: 5
+        retries: 2
         timeout: 10
         rate: ["15M", "20M"]
         videolength-min: 4m30s
