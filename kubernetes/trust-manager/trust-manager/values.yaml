@@ -1,0 +1,3 @@
+app:
+  trust:
+    namespace: trust-manager
