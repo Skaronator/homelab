@@ -35,7 +35,7 @@ configMaps:
         retries: 9
         sleep: 0
         sleep-extractor: 0
-        sleep-429: 15
+        sleep-429: 30
         timeout: 60
         coomer:
           username: $USERNAME
@@ -45,8 +45,8 @@ configMaps:
           metadata: true
           filename: "{date:%Y-%m-%d} - {title[b:150]|empty|content[b:150]|empty|id} - {num:>02}.{extension}"
       downloader:
-        retries: 2
-        timeout: 10
+        retries: 10
+        timeout: 60
         rate: ["15M", "20M"]
         videolength-min: 4m30s
       output: {}
