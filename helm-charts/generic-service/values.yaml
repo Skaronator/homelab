@@ -114,7 +114,7 @@ database:
   mariadb:
     image:
       repository: mariadb
-      tag: "12.0.2@sha256:5b6a1eac15b85b981a61afb89aea2a22bf76b5f58809d05f0bcc13ab6ec44cb8"
+      tag: "12.0.2@sha256:607835cd628b78e2876f6a586d0ec37b296c47683b31ef750002d3d17d3d8f7a"
     backup:
       schedule: "0 4 * * *"
       image:
@@ -123,7 +123,7 @@ database:
   postgresql:
     image:
       repository: postgres
-      tag: "17.7@sha256:5e3334661512bc0783dd748bec4419105ee6aa463d1604d13087c29c4894c83e"
+      tag: "17.7@sha256:2b6239f32680c308921cf212902f881355c31ae92da0795b4fef29d8f0033021"
     backup:
       schedule: "0 4 * * *"
       image:
