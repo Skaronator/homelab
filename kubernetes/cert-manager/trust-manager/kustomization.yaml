@@ -8,4 +8,4 @@ helmCharts:
     includeCRDs: true
     releaseName: trust-manager
     valuesFile: values.yaml
-    namespace: trust-manager
+    namespace: cert-manager

@@ -6,6 +6,6 @@ startupapicheck:
 # cannot use kube-system since kustomize overwrites kube-system namespace :/
 global:
   leaderElection:
-    namespace: "network"
+    namespace: cert-manager
 
 enableCertificateOwnerRef: true
