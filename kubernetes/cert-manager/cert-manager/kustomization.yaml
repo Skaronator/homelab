@@ -11,4 +11,4 @@ helmCharts:
     includeCRDs: true
     releaseName: cert-manager
     valuesFile: values.yaml
-    namespace: network
+    namespace: cert-manager
