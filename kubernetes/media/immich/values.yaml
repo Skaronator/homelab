@@ -115,7 +115,7 @@ configMaps:
         backgroundTask:
           concurrency: 5
         faceDetection:
-          concurrency: 2
+          concurrency: 3
         library:
           concurrency: 5
         metadataExtraction:
@@ -124,14 +124,16 @@ configMaps:
           concurrency: 5
         notifications:
           concurrency: 5
+        ocr:
+          concurrency: 5
         search:
           concurrency: 5
         sidecar:
           concurrency: 5
         smartSearch:
-          concurrency: 2
+          concurrency: 5
         thumbnailGeneration:
-          concurrency: 3
+          concurrency: 5
         videoConversion:
           concurrency: 1
       library:
@@ -144,6 +146,10 @@ configMaps:
         enabled: true
         level: log
       machineLearning:
+        availabilityChecks:
+          enabled: true
+          interval: 30000
+          timeout: 2000
         clip:
           enabled: true
           modelName: XLM-Roberta-Large-ViT-H-14__frozen_laion5b_s13b_b90k
@@ -157,6 +163,12 @@ configMaps:
           minFaces: 5
           minScore: 0.7
           modelName: buffalo_l
+        ocr:
+          enabled: true
+          maxResolution: 736
+          minDetectionScore: 0.5
+          minRecognitionScore: 0.8
+          modelName: PP-OCRv5_server
         urls:
           - http://immich-machine-learning:3003
       map:
@@ -182,9 +194,10 @@ configMaps:
           replyTo: ''
           transport:
             host: smtp.migadu.com
-            port: 587
             ignoreCert: false
             password: $MAIL_PASSWORD
+            port: 587
+            secure: false
             username: $MAIL_USERNAME
       oauth:
         autoLaunch: false
