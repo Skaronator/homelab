@@ -1,0 +1,15 @@
+schedule:
+  backup: "0 1 * * *"
+  # cleanup: "0 6 2 * *"
+
+envs:
+  - RESTIC_REPOSITORY: "rclone:pcloud:demo"
+  - RCLONE_CONFIG_PCLOUD_TYPE: pcloud
+  - RCLONE_PCLOUD_HOSTNAME: eapi.pcloud.com
+
+secretEnvs:
+  - RCLONE_PCLOUD_TOKEN: AgCbT/QLJO75umEb919cM0dE87uJd11NTByF+O2bNOHJ67b18mwBJsa/jcPoVC9hGxCEX8v1ODNXAWx+KVsxVNI/F2hST//munhsT4ZpN+r5eHJQRWdxOf5JtgaqFhMn/CSPE4sIVu8vZuqMv5s7bLZ1+zLxlmHEVmckJRnQd/p0AiHkTi5Rdsm90PUsqjiY+KWgswBM4TMP1mxSbcWSGsrC01Fbv7YHbQ073dva9FA6VP64LcHmKVYd55wTM0WHh6Qj9lNmNcN9bH+kd9VscYRJmipTMhaKUxPaABAF+QPUxO901oTGwSbXUL1cLk2t8OjMdHEq1wDMwlfKYBIKv+ezkst0cs74wc2mMXobWB2389UScqLeFNo04sNTDjAU4Ntq2kJxXI6lVlOYkF+410IJ0BbLqLum7tJYs+ZWejvE8h6rxovxRnHcdn0kk+anL5UvsaWhsT1IEv2aKbBjD6UCc/IxFklo2RCsyC1FYwbWu2u+xjlrpYYWcXMF+WofS3MmzfGYYFEulppq9j6S5JFd4yjeZYbyeIUpozPs4vupgaqLCRjPdm8422OMrjcmR1zOTdRymm6K4C2dqTUcc5NTJUZVxXdtB3R1EJKpQS1a08iwc5lrNNKwugZRgn/k8B8Xw+nZHzdXKSK1hmABoxVYfRhc+WBxbGLueDbXNnIwAcZ20aBdDaQmlX2f8ArIS6u9/Y6lknk21qC4vV89U0Aj6/3K/MCXoPhaZQXM3jC9yAz4/lg5LcKdF76Pv1zuJ8G2Iuj5ugm+7AUVzxR5iXNIFEo3sTokTvor6MYlDogcioD+SVm3gATauYfl6AOpCXSluY0TN5ievdzHVtmMAABtzE5AksDdMDH10A8q3Q==
+
+restic:
+  mode: init
+  path: /srv/nvme/container-data/flexget
