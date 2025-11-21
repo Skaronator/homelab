@@ -25,7 +25,3 @@ helmCharts:
     releaseName: restic-bb
     valuesFile: bb.values.yaml
     namespace: storage
-  - name: restic-backup
-    releaseName: restic-pcloud-demo
-    valuesFile: pcloud-demo.values.yaml
-    namespace: storage
