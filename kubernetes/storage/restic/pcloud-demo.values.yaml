@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/tofran/restic-rclone"
-  tag: "0.18.0_latest"
+  tag: "0.18.0_update@sha256:0e51d447ff8b6610f070be17e4ee05adca3afa2452f40284cc89143575d8c6b3"
 
 schedule:
   backup: "0 1 * * *"
