@@ -4,7 +4,7 @@ image:
 
 ports:
   - name: main
-    containerPort: 8080
+    containerPort: 51515
 
 homepage:
   name: Kopia
@@ -24,7 +24,7 @@ args:
   - server
   - start
   - --disable-csrf-token-checks
-  - --address=0.0.0.0:8080
+  - --address=0.0.0.0:51515
   - --insecure
   - --without-password
 
