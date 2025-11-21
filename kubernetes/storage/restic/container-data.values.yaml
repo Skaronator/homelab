@@ -19,6 +19,7 @@ restic:
     - radarr/MediaCover
     - lidarr/MediaCover
     - sonarr/MediaCover
+    - tautulli/cache
     - stash/generated
     - stash/blobs
     - immich-data/thumbs
