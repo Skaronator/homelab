@@ -20,7 +20,7 @@ oidc:
   clientId: 92e183c2-e3d2-4357-86ea-1d42e515aefd
   clientSecret: AgBLQCTZOqLH1BNK1bt4mSqw9NIo0ChgG8HwySrMZ8eaVhz+M9/ffGsBVBCDsFnhomvIBJWzkLz/eyxu2l7XCtJkX3xzTKRab0ZCLiq6SbS/dCcqPRmlBg8TH96pXveKKAhg0AUK+jRGAI6z3dRW+qfsjTQ/RMwisvRGAR/as/0N9R0tvK3c/2RSMrn+vzSo40k3jBczv7P8qj8BRIOySA5c9z3clSHi9TQZSAGTmWETQwIacgquYnuR2cm4Oq7w8mZ1J5/oHuEid/rLaBgSOYEI0iw6u/hsngQkoEOr7XJGevjcGTpmslkQ1LRjW9cJCGxnQogx1G5kzn9VP714fBD8I791I7aBYb/tTtH2HdInpXic4jO290bZrDS69GuvEU/gOKYlpQe0BKbsnCaD0oOLWOYXEKwt9RGGiZP8S9kzGe+jvDqqHHZ92djV+YOJCu/CPYPuYfvVGpgcJ82ScRfFIQ1RHl2DwmxNDbGiufbL3ck8Wagv7+WySNDm7R4yyhJO+nj0+nv0vTLrKnZnb1ZrgnCBvEDuqDf0D/tPEooLdclAX2WAOCSjhCjI9IlOLMlXZlsA4v9Ecueu+/b4J1jyfrn2sz943I7l8bBOHDEbdZ0HsN3utHvdmtQnrlUxhMAi/IYx4meQx2Kx3Aq7fnB9J3yUXfXZGQIRPSZ/id5s/6nmUalbpUuiad6e+G0JhqTcnuQe+dTOZPHCAWMkKnmIcR4O0Q62+bEsrN1SRRiGJg==
 
-commands:
+args:
   - server
   - start
   - --disable-csrf-token-checks

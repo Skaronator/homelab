@@ -36,16 +36,6 @@
       "groupName": "immich docker tag"
     },
     {
-      "matchPackageNames": ["ghcr.io/immich-app/**"],
-      "matchUpdateTypes": ["major", "minor"],
-      "assignees": ["Skaronator"],
-      "automerge": false
-    },
-    {
-      "matchPackageNames": ["nixery.dev/shell/envsubst"],
-      "pinDigests": false
-    },
-    {
       "matchPackageNames": ["plexinc/pms-docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)\\-(?<revision>\\w+)$"
     },
@@ -61,6 +51,11 @@
     {
       "matchPackageNames": ["ghcr.io/hotio{/,}**"],
       "versioning": "regex:^release\\-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$"
+    },
+    {
+      "description": "Avoid bumping kopia to unstable versions (20251122.0.x)",
+      "matchPackageNames": ["kopia/kopia"],
+      "allowedVersions": "/^[0-9]\\.[0-9]+\\.[0-9]+$/"
     },
     {
       "description": "Wait for stable release. Updating this instantly will cause issues since amd64 builds always take a tiny bit more",
