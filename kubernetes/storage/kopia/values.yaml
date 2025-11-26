@@ -1,6 +1,6 @@
 image:
   repository: "kopia/kopia"
-  tag: "0.22.0@sha256:f81d4f52543a936cf52a6757ed41849e8719db3d71569a040530624bcd772406"
+  tag: "0.22.2@sha256:883b0f357cafbf2d9ea828a1336951fa8998cf6b63ea55fdf57b1f22447e7f47"
 
 ports:
   - name: main
