@@ -28,6 +28,8 @@ args:
   - --insecure
   - --without-password
 
+replicas: 0
+
 envs:
   # disable warning about empty config
   - RCLONE_CONFIG: ""
