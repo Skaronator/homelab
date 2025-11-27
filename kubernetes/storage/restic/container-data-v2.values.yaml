@@ -3,6 +3,7 @@ schedule:
   # cleanup: "0 6 2 * *"
 
 restic:
+  mode: init
   path: /srv/nvme/container-data
   exclude:
     - "*.log"
