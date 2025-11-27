@@ -1,0 +1,28 @@
+image:
+  repository: "ghcr.io/tofran/restic-rclone"
+  pullPolicy: IfNotPresent
+  tag: "0.18.1_latest"
+
+terminationGracePeriodSeconds: 60
+
+concurrencyPolicy: Forbid
+parallelism: 1
+successfulJobsHistoryLimit: 1
+failedJobsHistoryLimit: 2
+restartPolicy: OnFailure
+backoffLimit: 1
+
+restic:
+  mode: backup # init or restore
+  uploadSpeed: 4000
+  path: ""
+  exclude: []
+  iexclude: []
+
+keep:
+  daily: 30
+  monthly: 3
+
+schedule:
+  backup: ""
+  cleanup: ""

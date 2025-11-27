@@ -1,0 +1,67 @@
+{{- if .Values.schedule.cleanup }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "restic-backup.name" . }}-cleanup
+  labels:
+    {{- include "restic-backup.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.schedule.cleanup | quote }}
+  timeZone: Europe/Berlin
+  suspend: {{ eq .Values.restic.mode "restore" }}
+  concurrencyPolicy: {{ .Values.concurrencyPolicy }}
+  failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
+  successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
+  jobTemplate:
+    metadata:
+      labels:
+        {{- include "restic-backup.selectorLabels" . | nindent 8 }}
+    spec:
+      backoffLimit: {{ .Values.backoffLimit }}
+      parallelism: {{ .Values.parallelism }}
+      template:
+        metadata:
+          {{- with .Values.podAnnotations }}
+          annotations:
+            {{- toYaml . | nindent 12 }}
+          {{- end}}
+          labels:
+            {{- include "restic-backup.selectorLabels" . | nindent 12 }}
+        spec:
+          enableServiceLinks: false
+          serviceAccountName: {{ include "restic-backup.name" . }}
+          terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+          restartPolicy: {{ .Values.restartPolicy }}
+          dnsConfig:
+            options:
+            - name: ndots
+              value: "1"
+          containers:
+          - name: {{ include "restic-backup.name" . }}
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            args:
+            - -c
+            - >
+              restic snapshots
+              &&
+              restic forget
+              --keep-daily={{ .Values.keep.daily }}
+              --keep-monthly={{ .Values.keep.monthly }}
+              --prune
+              &&
+              restic snapshots
+              &&
+              restic stats --mode raw-data latest
+            command:
+            - /bin/sh
+            env:
+            {{- include "restic-backup.envs" . | nindent 12 }}
+            volumeMounts:
+            - name: cache
+              mountPath: /mnt/cache
+          volumes:
+          - name: cache
+            hostPath:
+              path: /srv/nvme/scrap-data/restic-cache
+              type: DirectoryOrCreate
+{{- end }}
