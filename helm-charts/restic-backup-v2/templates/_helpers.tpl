@@ -44,6 +44,11 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
   value: eapi.pcloud.com
 - name: RCLONE_BWLIMIT
   value: {{ .Values.restic.uploadSpeed }}k:off
+- name: RCLONE_CONFIG_PCLOUD_TOKEN
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "restic-backup.name" $ }}
+      key: RCLONE_CONFIG_PCLOUD_TOKEN
 - name: RESTIC_PASSWORD
   valueFrom:
     secretKeyRef:
