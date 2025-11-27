@@ -32,7 +32,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 - name: RESTIC_PROGRESS_FPS
   value: "0.01666"
 - name: RESTIC_REPOSITORY
-  value: "pcloud:restic/{{ .Release.Name }}"
+  value: "rclone:pcloud:restic/{{ .Release.Name }}"
 - name: RESTIC_CACHE_DIR
   value: /mnt/cache
   # disable warning about empty config
