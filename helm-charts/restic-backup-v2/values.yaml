@@ -14,7 +14,7 @@ backoffLimit: 1
 
 restic:
   mode: backup # init or restore
-  uploadSpeed: 4000
+  uploadSpeed: 3000
   path: ""
   exclude: []
   iexclude: []
