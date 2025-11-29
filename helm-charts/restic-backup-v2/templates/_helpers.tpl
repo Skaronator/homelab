@@ -32,7 +32,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 - name: RESTIC_PROGRESS_FPS
   value: "0.01666"
 - name: RESTIC_REPOSITORY
-  value: "s3:eu.s5lu.com/{{ .Release.Name | trimSuffix "-v2" }}"
+  value: "s3:eu.s5lu.com/{{ .Release.Name | trimSuffix "-v2" | trimPrefix "restic-" }}"
 - name: RESTIC_CACHE_DIR
   value: /mnt/cache
 - name: RESTIC_PASSWORD
