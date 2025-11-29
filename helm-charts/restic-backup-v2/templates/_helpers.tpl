@@ -32,26 +32,22 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 - name: RESTIC_PROGRESS_FPS
   value: "0.01666"
 - name: RESTIC_REPOSITORY
-  value: "rclone:pcloud:{{ .Release.Name | trimSuffix "-v2" }}"
+  value: "s3:eu.s5lu.com/{{ .Release.Name | trimSuffix "-v2" }}"
 - name: RESTIC_CACHE_DIR
   value: /mnt/cache
-  # disable warning about empty config
-- name: RCLONE_CONFIG
-  value: ""
-- name: RCLONE_CONFIG_PCLOUD_TYPE
-  value: pcloud
-- name: RCLONE_CONFIG_PCLOUD_HOSTNAME
-  value: eapi.pcloud.com
-- name: RCLONE_BWLIMIT
-  value: {{ .Values.restic.uploadSpeed }}k:off
-- name: RCLONE_CONFIG_PCLOUD_TOKEN
-  valueFrom:
-    secretKeyRef:
-      name: {{ include "restic-backup.name" $ }}
-      key: RCLONE_CONFIG_PCLOUD_TOKEN
 - name: RESTIC_PASSWORD
   valueFrom:
     secretKeyRef:
       name: {{ include "restic-backup.name" $ }}
       key: RESTIC_PASSWORD
+- name: AWS_ACCESS_KEY_ID
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "restic-backup.name" $ }}
+      key: AWS_ACCESS_KEY_ID
+- name: AWS_SECRET_ACCESS_KEY
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "restic-backup.name" $ }}
+      key: AWS_SECRET_ACCESS_KEY
 {{- end }}
