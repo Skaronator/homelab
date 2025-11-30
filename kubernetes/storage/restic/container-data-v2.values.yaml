@@ -3,8 +3,8 @@ schedule:
   # cleanup: "0 6 2 * *"
 
 restic:
-  mode: backup
-  path: /srv/nvme/container-data/archisteamfarm-config
+  mode: init
+  path: /srv/nvme/container-data/archisteamfarm
   exclude:
     - "*.log"
   iexclude:
