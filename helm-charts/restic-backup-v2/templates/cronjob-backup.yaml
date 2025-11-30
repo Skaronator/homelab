@@ -74,13 +74,19 @@ spec:
             volumeMounts:
             - name: cache
               mountPath: /mnt/cache
+            - name: restore
+              mountPath: /mnt/restore
             - name: backup
               mountPath: /mnt/backup
-              readOnly: {{ ne .Values.restic.mode "restore" }}
+              readOnly: true
           volumes:
           - name: cache
             hostPath:
               path: /srv/nvme/scrap-data/restic-cache
+              type: DirectoryOrCreate
+          - name: restore
+            hostPath:
+              path: /srv/nvme/scrap-data/restic-restore
               type: DirectoryOrCreate
           - name: backup
             hostPath:
