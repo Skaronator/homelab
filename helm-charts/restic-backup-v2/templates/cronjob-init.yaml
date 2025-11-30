@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "restic-backup.labels" . | nindent 4 }}
 spec:
-  schedule: "0 0 0 0 0"
+  schedule: "0 0 * * *"
   timeZone: Europe/Berlin
   suspend: true
   jobTemplate:
