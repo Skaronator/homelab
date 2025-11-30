@@ -4,7 +4,7 @@ schedule:
 
 restic:
   mode: init
-  path: /srv/nvme/container-data/archisteamfarm
+  path: /srv/nvme/container-data
   exclude:
     - "*.log"
   iexclude:
