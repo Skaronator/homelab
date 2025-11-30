@@ -1,0 +1,40 @@
+{{- if eq .Values.restic.mode "init" }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "restic-backup.name" . }}-init
+  labels:
+    {{- include "restic-backup.labels" . | nindent 4 }}
+spec:
+  schedule: "0 0 0 0 0"
+  timeZone: Europe/Berlin
+  suspend: true
+  jobTemplate:
+    metadata:
+      labels:
+        {{- include "restic-backup.selectorLabels" . | nindent 8 }}
+    spec:
+      template:
+        metadata:
+          labels:
+            {{- include "restic-backup.selectorLabels" . | nindent 12 }}
+        spec:
+          enableServiceLinks: false
+          automountServiceAccountToken: false
+          terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+          restartPolicy: {{ .Values.restartPolicy }}
+          dnsConfig:
+            options:
+            - name: ndots
+              value: "1"
+          containers:
+          - name: {{ include "restic-backup.name" . }}
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            command:
+              - /bin/sh
+            args:
+              - -c
+              - restic init
+            env:
+            {{- include "restic-backup.envs" . | nindent 12 }}
+{{- end }}

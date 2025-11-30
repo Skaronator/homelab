@@ -1,24 +1,18 @@
-{{- if .Values.schedule.cleanup }}
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "restic-backup.name" . }}-cleanup
+  name: {{ include "restic-backup.name" . }}-restore
   labels:
     {{- include "restic-backup.labels" . | nindent 4 }}
 spec:
-  schedule: {{ .Values.schedule.cleanup | quote }}
+  schedule: "0 0 0 0 0"
   timeZone: Europe/Berlin
-  suspend: {{ ne .Values.restic.mode "backup" }}
-  concurrencyPolicy: {{ .Values.concurrencyPolicy }}
-  failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
-  successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
+  suspend: true
   jobTemplate:
     metadata:
       labels:
         {{- include "restic-backup.selectorLabels" . | nindent 8 }}
     spec:
-      backoffLimit: {{ .Values.backoffLimit }}
-      parallelism: {{ .Values.parallelism }}
       template:
         metadata:
           labels:
@@ -37,17 +31,7 @@ spec:
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
             args:
             - -c
-            - >
-              restic snapshots
-              &&
-              restic forget
-              --keep-daily={{ .Values.keep.daily }}
-              --keep-monthly={{ .Values.keep.monthly }}
-              --prune
-              &&
-              restic snapshots
-              &&
-              restic stats --mode raw-data latest
+            - sleep 365d
             command:
             - /bin/sh
             env:
@@ -55,9 +39,14 @@ spec:
             volumeMounts:
             - name: cache
               mountPath: /mnt/cache
+            - name: restore
+              mountPath: /mnt/restore
           volumes:
           - name: cache
             hostPath:
               path: /srv/nvme/scrap-data/restic-cache
               type: DirectoryOrCreate
-{{- end }}
+          - name: restore
+            hostPath:
+              path: /srv/nvme/scrap-data/restic-restore
+              type: DirectoryOrCreate

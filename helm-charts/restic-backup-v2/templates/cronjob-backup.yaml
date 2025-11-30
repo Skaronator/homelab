@@ -28,7 +28,7 @@ spec:
             {{- include "restic-backup.selectorLabels" . | nindent 12 }}
         spec:
           enableServiceLinks: false
-          serviceAccountName: {{ include "restic-backup.name" . }}
+          automountServiceAccountToken: false
           terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
           restartPolicy: {{ .Values.restartPolicy }}
           dnsConfig:
@@ -40,11 +40,6 @@ spec:
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
             args:
             - -c
-            {{ if eq .Values.restic.mode "init" }}
-            - restic init
-            {{ else if eq .Values.restic.mode "restore" }}
-            - sleep 365d
-            {{ else }}
             - >
               restic snapshots
               &&
@@ -66,7 +61,6 @@ spec:
               restic unlock --remove-all
               &&
               restic diff $(restic snapshots --json | jq -r '.[-2:][].id')
-            {{ end }}
             command:
             - /bin/sh
             env:
@@ -74,8 +68,6 @@ spec:
             volumeMounts:
             - name: cache
               mountPath: /mnt/cache
-            - name: restore
-              mountPath: /mnt/restore
             - name: backup
               mountPath: /mnt/backup
               readOnly: true
@@ -83,10 +75,6 @@ spec:
           - name: cache
             hostPath:
               path: /srv/nvme/scrap-data/restic-cache
-              type: DirectoryOrCreate
-          - name: restore
-            hostPath:
-              path: /srv/nvme/scrap-data/restic-restore
               type: DirectoryOrCreate
           - name: backup
             hostPath:
