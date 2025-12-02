@@ -1,5 +1,5 @@
 image:
   repository: "ghcr.io/fyralabs/chisel-operator"
-  tag: "v0.6.0"
+  tag: "v0.6.0@sha256:749f2fe102f876f0499436f6022fb84cd69629acb04e6ba1bba96a6482dc7a4d"
 
 loadBalancerClass: chisel
