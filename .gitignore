@@ -2,17 +2,7 @@ charts
 k0s_backup_*.tar.gz
 *.log
 secrets.txt
-tt.yaml
-sealed-secret-backup.yaml
-.claude
+/*.yaml
 
-# OpenTF
-*.tfvars
-.terraform
-proxmox/tofu
-
-# Talos
-talsecret.yaml
-kubeconfig
-talosconfig
-talos/clusterconfig
+!yamlfmt.yaml
+!k0sctl.yaml
