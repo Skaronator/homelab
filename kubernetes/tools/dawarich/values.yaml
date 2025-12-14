@@ -1,6 +1,6 @@
 image:
   repository: "freikin/dawarich"
-  tag: "0.36.1@sha256:c3225f42870d322d7a2fa5f2c60833de8860ffcb30c2c084ab8eb797bf5a3010"
+  tag: "0.36.2@sha256:c302b2bec65d8523a4b450b859d89ff348170551317254f9fdbbe22005f38d27"
 
 hostPaths:
   - name: public
@@ -28,7 +28,7 @@ database:
   postgresql:
     image:
       repository: "postgis/postgis"
-      tag: "17-3.5-alpine@sha256:5c37f065b662a82a113880662a5ef019109282c9a855435207a801e69036832e"
+      tag: "17-3.5-alpine@sha256:d2479a02791972a0210f271de539b69eeeedb5d225e7ff974c5661740d3ed598"
 
 envs:
   # TODO: Switch to prod once dawarich support this
