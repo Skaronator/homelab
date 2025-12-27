@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/alam00000/bentopdf-simple"
-  tag: "v1.11.2@sha256:36ff37a6cee580a912cba423090324a909f098ad5d5213cfafbd15846ee268ee"
+  tag: "v1.14.0@sha256:2f0979c9764bcb80d7da1278e86cf7c03c5ca1e149d6007c00e1f8ac6fa5bcde"
 
 ports:
   - name: main
