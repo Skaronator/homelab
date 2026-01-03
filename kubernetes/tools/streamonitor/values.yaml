@@ -17,7 +17,7 @@ hostPaths:
   - name: configs
     hostPath: /srv/nvme/container-data/streamonitor/config.json
     containerPath: /app/config.json
-  - name: configs
+  - name: keys
     hostPath: /srv/nvme/container-data/streamonitor/stripchat_mouflon_keys.json
     containerPath: /app/stripchat_mouflon_keys.json
   - name: downloads
