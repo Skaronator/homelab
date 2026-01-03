@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-service
-    releaseName: stirling
+    releaseName: bentopdf
     valuesFile: values.yaml
     namespace: tools
