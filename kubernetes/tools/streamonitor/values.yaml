@@ -13,6 +13,7 @@ envs:
   - STRMNTR_HOST: 0.0.0.0
   # - STRMNTR_PASSWORD: ""
   - STRMNTR_RESOLUTION: 99999
+  - STRMNTR_DEBUG: true
 
 hostPaths:
   - name: configs
