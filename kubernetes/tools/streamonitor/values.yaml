@@ -23,3 +23,9 @@ hostPaths:
   - name: downloads
     hostPath: /srv/downloads/torrent/streamonitor
     containerPath: /app/downloads
+
+configMaps:
+  - name: dummyfile
+    mountPath: /
+    subPath: .dockerenv
+    content: ""
