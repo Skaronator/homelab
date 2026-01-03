@@ -15,6 +15,10 @@ envs:
   - STRMNTR_RESOLUTION: 99999
   - STRMNTR_DEBUG: true
 
+securityContext:
+  runAsUser: 5000
+  runAsGroup: 5000
+
 hostPaths:
   - name: configs
     hostPath: /srv/nvme/container-data/streamonitor/config.json
