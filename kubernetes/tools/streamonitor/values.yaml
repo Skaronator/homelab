@@ -1,0 +1,25 @@
+image:
+  repository: "ghcr.io/lossless1024/streamonitor"
+  tag: "latest"
+
+ports:
+  - name: main
+    containerPort: 5000
+
+gateway:
+  host: streamonitor.wagner.gg
+
+envs:
+  - STRMNTR_HOST: 0.0.0.0
+  - STRMNTR_PASSWORD: ""
+
+hostPaths:
+  - name: configs
+    hostPath: /srv/nvme/container-data/streamonitor/config.json
+    containerPath: /app/config.json
+  - name: configs
+    hostPath: /srv/nvme/container-data/streamonitor/stripchat_mouflon_keys.json
+    containerPath: /app/stripchat_mouflon_keys.json
+  - name: downloads
+    hostPath: /srv/downloads/torrent/streamonitor
+    containerPath: /app/downloads
