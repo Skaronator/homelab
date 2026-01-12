@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/amruthpillai/reactive-resume"
-  tag: "v4.5.5@sha256:f1b27f567b2a1b57fb6b2a81f7b9cec0af577b6be945820c1599a0a8b6b91f8b"
+  tag: "v4.5.5@sha256:f26fd329f35b97bccdf5ee5a7b558df0ccf1e073a1d7a5787e433043e22b9296"
 
 ports:
   - name: main
