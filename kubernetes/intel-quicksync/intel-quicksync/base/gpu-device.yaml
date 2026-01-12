@@ -3,7 +3,7 @@ kind: GpuDevicePlugin
 metadata:
   name: main
 spec:
-  image: docker.io/intel/intel-gpu-plugin:0.34.0
+  image: docker.io/intel/intel-gpu-plugin:0.34.1
   enableMonitoring: true
   logLevel: 2
   nodeSelector:
