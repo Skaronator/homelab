@@ -81,7 +81,7 @@
         "\\n(?<key>.+image:\\s+)(?<packageName>[^\\s:]+):(?<currentValue>[-a-zA-Z0-9.]+)(?:@(?<currentDigest>sha256:[a-zA-Z0-9]+))?\\n"
       ],
       "datasourceTemplate": "docker",
-      "autoReplaceStringTemplate": "{{{key}}}{{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}\\n"
+      "autoReplaceStringTemplate": "\\n{{{key}}}{{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}\\n"
     }
   ]
 }
