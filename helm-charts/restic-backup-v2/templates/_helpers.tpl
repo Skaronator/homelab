@@ -41,7 +41,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
       name: {{ include "restic-backup.name" $ }}
       key: REPOSITORY_BASE_PATH
 - name: RESTIC_REPOSITORY
-  value: "$(REPOSITORY_BASE_PATH)-{{ .Release.Name | trimSuffix "-v2" }}"
+  value: "$(REPOSITORY_BASE_PATH)-{{ .Release.Name | trimSuffix "-v2" | trimPrefix "restic-" }}"
 - name: RESTIC_PASSWORD
   valueFrom:
     secretKeyRef:
