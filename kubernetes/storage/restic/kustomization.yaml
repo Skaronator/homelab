@@ -22,10 +22,6 @@ helmCharts:
     valuesFile: niklas.values.yaml
     namespace: storage
   - name: restic-backup-v2
-    releaseName: restic-container-data-v2
-    valuesFile: container-data-v2.values.yaml
-    namespace: storage
-  - name: restic-backup-v2
-    releaseName: restic-bb-v2
-    valuesFile: bb-v2.values.yaml
+    releaseName: restic-bb
+    valuesFile: bb.values.yaml
     namespace: storage

@@ -31,12 +31,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{ end }}
 - name: RESTIC_PROGRESS_FPS
   value: "0.01666"
-- name: RESTIC_REPOSITORY
-  value: "s3:eu.s5lu.com/{{ .Release.Name | trimSuffix "-v2" }}"
 - name: AWS_DEFAULT_REGION
   value: eu-central-1
 - name: RESTIC_CACHE_DIR
   value: /mnt/cache
+- name: REPOSITORY_BASE_PATH
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "restic-backup.name" $ }}
+      key: REPOSITORY_BASE_PATH
+- name: RESTIC_REPOSITORY
+  value: "$(REPOSITORY_BASE_PATH)-{{ .Release.Name | trimSuffix "-v2" }}"
 - name: RESTIC_PASSWORD
   valueFrom:
     secretKeyRef:
