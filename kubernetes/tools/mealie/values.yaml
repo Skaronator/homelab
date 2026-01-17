@@ -19,7 +19,6 @@ envs:
   - OIDC_AUTH_ENABLED: true
   - OIDC_CONFIGURATION_URL: https://id.wagner.gg/.well-known/openid-configuration
   - OIDC_CLIENT_ID: feb51284-6130-411d-a68d-99eb4f11260a
-  - OIDC_ADMIN_GROUP: 
   - OIDC_PROVIDER_NAME: Pocket ID
   - OIDC_ADMIN_GROUP: admin
   - OIDC_USER_GROUP: mealie
