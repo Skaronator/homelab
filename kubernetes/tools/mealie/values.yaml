@@ -1,0 +1,35 @@
+image:
+  repository: "ghcr.io/mealie-recipes/mealie"
+  tag: "v3.9.2"
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/mealie
+    containerPath: /app/data/
+
+ports:
+  - name: main
+    containerPort: 9000
+
+gateway:
+  host: mealie.wagner.gg
+
+envs:
+  - BASE_URL: https://mealie.wagner.gg
+  - OIDC_AUTH_ENABLED: true
+  - OIDC_CONFIGURATION_URL: https://id.wagner.gg/.well-known/openid-configuration
+  - OIDC_CLIENT_ID: feb51284-6130-411d-a68d-99eb4f11260a
+  - OIDC_ADMIN_GROUP: 
+  - OIDC_PROVIDER_NAME: Pocket ID
+  - OIDC_ADMIN_GROUP: admin
+  - OIDC_USER_GROUP: mealie
+
+secretEnvs:
+  - OIDC_CLIENT_SECRET: AgA/12/kgQqzVs3FETukTosMr0qCSzBh2b6xUuQSg0DNkM1PFJwxuhw6897PrTsWJGn4egPGyKZzGrbv3/gNR+9bq2V96CUQSyhLghSnnJxR2kv3mjnTMRzYkd3QnCQ6bv7tiImmGf9v9fBBQkfNw4lsBqXlNCGLFD5JTwOKgtOtwJ3jhaJOT9AI/Nc+VLdghFRGkARjcvoMnWcPz7+aeEF59R4lXe/Fo7kVOqCNC9WH4mjHGXUL07IEmQnkxZXseASPPycLAut123Q9W45MMXQHrEdVC1p+A+U6l2D8Fmaf4QjKeMiUHL8CkW9vbafJHN/Oz8t1MdUet3Ud3ruHEE/D/P4DybeHL98qRoh5uSIPvecUuRFFkWY1/SV54FbDqHHhC8YatoD27tZApRSv/4IT4FODwkZMSQFRO3YT29TLsdp4Vx9KnRJ8PizxhSI7UndPwaAAFY6H3//ghXqfJYa38DKv2a/AbhFtqgBEug1G0E+qfbCvbu8IK6R8W0NwH3z5DCyUp2jZSmvJY2qGk/stk42jnepRdKlB7sj0hybFMX2mxEowCANmrvEN6M3Y/vtm8yrX6QWU9wZXyijcaD6Z5I5ouj8POQhP+15y/GH6GKWRUu5vf3TIVQ1vS9a3CACCMGWrT8L5CIDQ90EtkgbFG0mj+mcq0tdVYxD7+CGnV+aRZyoYDWX7FnAHpVY3HdpJzbLXiZOF763ijFcoGHCyVIUgpYk4lGKrt/0r9gkm9Q==
+
+homepage:
+  name: Mealie
+  group: Organization
+  description: Rezept Manager
+  icon: mealie.svg
+  weight: 35
