@@ -3,4 +3,5 @@ schedule:
   cleanup: "0 6 1 * *"
 
 restic:
+  mode: backup
   path: /srv/hdd/bb

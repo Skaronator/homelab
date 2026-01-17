@@ -5,7 +5,7 @@ helmGlobals:
   chartHome: ../../../helm-charts
 
 helmCharts:
-  - name: restic-backup
+  - name: restic-backup-v2
     releaseName: restic-container-data
     valuesFile: container-data.values.yaml
     namespace: storage
