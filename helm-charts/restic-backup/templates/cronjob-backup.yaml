@@ -24,17 +24,12 @@ spec:
       parallelism: {{ .Values.parallelism }}
       template:
         metadata:
-          {{- with .Values.podAnnotations }}
-          annotations:
-            {{- toYaml . | nindent 12 }}
-          {{- end}}
           labels:
             {{- include "restic-backup.selectorLabels" . | nindent 12 }}
         spec:
           enableServiceLinks: false
-          serviceAccountName: {{ include "restic-backup.name" . }}
+          automountServiceAccountToken: false
           terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
-          securityContext: {{- toYaml .Values.podSecurityContext | nindent 12 }}
           restartPolicy: {{ .Values.restartPolicy }}
           dnsConfig:
             options:
@@ -42,16 +37,9 @@ spec:
               value: "1"
           containers:
           - name: {{ include "restic-backup.name" . }}
-            securityContext: {{- toYaml .Values.securityContext | nindent 14 }}
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-            imagePullPolicy: {{ .Values.image.pullPolicy }}
             args:
             - -c
-            {{ if eq .Values.restic.mode "init" }}
-            - restic init
-            {{ else if eq .Values.restic.mode "restore" }}
-            - sleep 365d
-            {{ else }}
             - >
               restic snapshots
               &&
@@ -73,19 +61,16 @@ spec:
               restic unlock --remove-all
               &&
               restic diff $(restic snapshots --json | jq -r '.[-2:][].id')
-            {{ end }}
             command:
             - /bin/sh
             env:
             {{- include "restic-backup.envs" . | nindent 12 }}
-            resources:
-              {{- toYaml .Values.resources | nindent 14 }}
             volumeMounts:
             - name: cache
               mountPath: /mnt/cache
             - name: backup
               mountPath: /mnt/backup
-              readOnly: {{ ne .Values.restic.mode "restore" }}
+              readOnly: true
           volumes:
           - name: cache
             hostPath:
@@ -95,7 +80,3 @@ spec:
             hostPath:
               path: {{ .Values.restic.path | quote | required "Path to backup is required!" }}
               type: Directory
-          {{- with .Values.nodeSelector }}
-          nodeSelector:
-            {{- toYaml . | nindent 8 }}
-          {{- end }}

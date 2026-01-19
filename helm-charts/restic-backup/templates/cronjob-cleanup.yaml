@@ -8,16 +8,12 @@ metadata:
 spec:
   schedule: {{ .Values.schedule.cleanup | quote }}
   timeZone: Europe/Berlin
-  suspend: {{ eq .Values.restic.mode "restore" }}
+  suspend: {{ ne .Values.restic.mode "backup" }}
   concurrencyPolicy: {{ .Values.concurrencyPolicy }}
   failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
   successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
   jobTemplate:
     metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end}}
       labels:
         {{- include "restic-backup.selectorLabels" . | nindent 8 }}
     spec:
@@ -25,17 +21,12 @@ spec:
       parallelism: {{ .Values.parallelism }}
       template:
         metadata:
-          {{- with .Values.podAnnotations }}
-          annotations:
-            {{- toYaml . | nindent 12 }}
-          {{- end}}
           labels:
             {{- include "restic-backup.selectorLabels" . | nindent 12 }}
         spec:
           enableServiceLinks: false
-          serviceAccountName: {{ include "restic-backup.name" . }}
+          automountServiceAccountToken: false
           terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
-          securityContext: {{- toYaml .Values.podSecurityContext | nindent 12 }}
           restartPolicy: {{ .Values.restartPolicy }}
           dnsConfig:
             options:
@@ -43,9 +34,7 @@ spec:
               value: "1"
           containers:
           - name: {{ include "restic-backup.name" . }}
-            securityContext: {{- toYaml .Values.securityContext | nindent 14 }}
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-            imagePullPolicy: {{ .Values.image.pullPolicy }}
             args:
             - -c
             - >
@@ -63,8 +52,6 @@ spec:
             - /bin/sh
             env:
             {{- include "restic-backup.envs" . | nindent 12 }}
-            resources:
-              {{- toYaml .Values.resources | nindent 14 }}
             volumeMounts:
             - name: cache
               mountPath: /mnt/cache
@@ -73,8 +60,4 @@ spec:
             hostPath:
               path: /srv/nvme/scrap-data/restic-cache
               type: DirectoryOrCreate
-          {{- with .Values.nodeSelector }}
-          nodeSelector:
-            {{- toYaml . | nindent 8 }}
-          {{- end }}
 {{- end }}

@@ -31,21 +31,30 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{ end }}
 - name: RESTIC_PROGRESS_FPS
   value: "0.01666"
+- name: AWS_DEFAULT_REGION
+  value: eu-central-1
 - name: RESTIC_CACHE_DIR
   value: /mnt/cache
-{{- range $k, $v := .Values.secretEnvs }}
-{{- range $kk, $vv := $v }}
-- name: {{ $kk | quote }}
+- name: REPOSITORY_BASE_PATH
   valueFrom:
     secretKeyRef:
       name: {{ include "restic-backup.name" $ }}
-      key: {{ $kk | quote }}
-{{- end }}
-{{- end }}
-{{- range $k, $v := .Values.envs }}
-{{- range $kk, $vv := $v }}
-- name: {{ $kk | quote }}
-  value: {{ $vv | quote }}
-{{- end }}
-{{- end }}
+      key: REPOSITORY_BASE_PATH
+- name: RESTIC_REPOSITORY
+  value: "$(REPOSITORY_BASE_PATH)-{{ .Release.Name | trimSuffix "-v2" | trimPrefix "restic-" }}"
+- name: RESTIC_PASSWORD
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "restic-backup.name" $ }}
+      key: RESTIC_PASSWORD
+- name: AWS_ACCESS_KEY_ID
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "restic-backup.name" $ }}
+      key: AWS_ACCESS_KEY_ID
+- name: AWS_SECRET_ACCESS_KEY
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "restic-backup.name" $ }}
+      key: AWS_SECRET_ACCESS_KEY
 {{- end }}
