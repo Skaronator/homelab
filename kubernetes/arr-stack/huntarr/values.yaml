@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/plexguide/huntarr"
-  tag: "9.0.1@sha256:b3043db18e4f3d8c06691a493e5c235121624c750284fea12ad0c0d38a7cde14"
+  tag: "9.0.3@sha256:0ebe90d606b796aa1af4608236b8f468ff623a931f86e2e019b9496e3399b46b"
 
 ports:
   - name: main
