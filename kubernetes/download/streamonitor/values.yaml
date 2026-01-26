@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/lossless1024/streamonitor"
-  tag: "latest@sha256:2cb984fd6ffdd0f0ed6d9bdececdf2ed942d9aeda1ed7956a24b3b9bffcbf15a"
+  tag: "latest@sha256:cb4f39608a684b8962a76459bd16b99e39af9581660993907bcf6d596c4b3f1e"
 
 ports:
   - name: main
