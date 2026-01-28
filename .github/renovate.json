@@ -8,9 +8,6 @@
     "managerFilePatterns": ["/(^|/|\\w+\\.)values\\.ya?ml$/"],
     "pinDigests": true
   },
-  "dependencyDashboardApproval": false,
-  "platformAutomerge": true,
-  "automergeType": "pr",
   "packageRules": [
     {
       "matchManagers": ["github-actions"],
@@ -19,13 +16,13 @@
       "pinDigests": true
     },
     {
-      "matchDatasources": ["docker", "helm"],
+      "matchDatasources": ["docker", "helm", "pypi"],
       "matchUpdateTypes": ["digest"],
       "schedule": ["on monday"],
       "automerge": true
     },
     {
-      "matchDatasources": ["docker", "helm", "Kustomization"],
+      "matchDatasources": ["docker", "helm", "Kustomization", "pypi"],
       "matchUpdateTypes": ["pinDigest", "pin", "minor", "patch"],
       "automerge": true
     },
