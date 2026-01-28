@@ -8,6 +8,9 @@
     "managerFilePatterns": ["/(^|/|\\w+\\.)values\\.ya?ml$/"],
     "pinDigests": true
   },
+  "dependencyDashboardApproval": false,
+  "platformAutomerge": true,
+  "automergeType": "pr",
   "packageRules": [
     {
       "matchManagers": ["github-actions"],
