@@ -41,13 +41,13 @@ secretEnvs:
 
 hostPaths:
   - name: data
-    hostPath: /srv/nvme/container-data/reactive-resume-v5
+    hostPath: /srv/nvme/container-data/reactive-resume
     containerPath: /app/data
 
 database:
   enabled: true
   type: postgresql
-  hostPath: /srv/nvme/container-data/reactive-resume-db-v5
+  hostPath: /srv/nvme/container-data/reactive-resume-db
   rootPassword: AgBktKzDeHu+KzMo/rJ4SUlvhoNaiOkO+UAhZb20qKHnWaRYd27wbzA1Su4MqQX99UQ8w5a6HZErNrHrA9c06X2xRNa+oO7xm9OwJfRxbDH7OppScElL98+f1d5/XPK5O3+koEWi9xh1rueQzYeaK36NZaj4Rn0G6HKlscyCxn/EctnoY+dDRZbHO1EIfNRunizcUmVwhv+wE+b3ttstjCXp6CH1eQfqK6LJGnFjXkMWIZjOJyI3MUwz6dQDEaCHQQ4/buQdypZetJki2/+4q+iNDlEZ5h/LuF+rVJwbtPWRds9xlLqEvWCupQCdSbc9iCLFAl/gdbZ15oKkFjbQxw32+lNuhaVAFqLPOtFWMuO8I9z0fVmFn88beRK+Jh+a9hdmkFtrC4DQ8JUO5lApaZ7qwf4hAl6irUoijCFRhHSbCvJlaOCj7WMVb4atcSTOgaNolH6WAtz89B9U86sv4Vyd+N5Gw3z0jhNeYrESI7ABmR7jtWFQqJqyZ5BS2p6ATvwaCy7EZyjwp7g61ZSPS/GtiUMtDTjTAfOO82xRuw1KJUMbOz4/6dW5b0Wl6EYXNvCOlmpfw+cBfNJefYODClZPvuTgLDmgoi2awFENKLE8GVyIjkboTf6QQimV3vERGL0bEITDUJLlhm5W0GGkE8UK8/U8/lc2YHWoaw/nrpq8sGzMwiWVgl6jDUOVWocbx3MQ+Wv1+PcgZvGTcGODP5pJTLvTT6TbuNqhqADgk3UoG+DJl6ZdGodJaCSv4WvA77X8oS1ungz/Ju4B2mgy+j7Y
 
 homepage:
