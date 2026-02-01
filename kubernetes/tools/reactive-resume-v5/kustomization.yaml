@@ -6,10 +6,10 @@ helmGlobals:
 
 helmCharts:
   - name: generic-service
-    releaseName: reactive-resume
+    releaseName: reactive-resume-v5
     valuesFile: values.yaml
     namespace: tools
   - name: generic-service
-    releaseName: reactive-resume-chrome
+    releaseName: reactive-resume-chrome-v5
     valuesFile: chrome.values.yaml
     namespace: tools
