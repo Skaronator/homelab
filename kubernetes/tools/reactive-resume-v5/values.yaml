@@ -17,7 +17,6 @@ envs:
   - SMTP_HOST: smtp.migadu.com
   - SMTP_PORT: 587
   # OIDC
-  - FLAG_DISABLE_SIGNUPS: true
   - FLAG_DISABLE_EMAIL_AUTH: true
   - OAUTH_PROVIDER_NAME: Pocket ID
   - OAUTH_AUTHORIZATION_URL: https://id.wagner.gg/authorize
