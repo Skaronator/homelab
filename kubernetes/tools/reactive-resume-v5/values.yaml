@@ -12,8 +12,7 @@ gateway:
 envs:
   - PORT: 3000
   - NODE_ENV: production
-  # TODO: switch to https once https://github.com/AmruthPillai/Reactive-Resume/issues/2153 is fixed
-  - PUBLIC_URL: http://rr.wagner.gg
+  - APP_URL: https://rr.wagner.gg
   - PRINTER_ENDPOINT: ws://reactive-resume-chrome:3000
   - DATABASE_URL: postgresql://$(TEMPLATE_DB_USERNAME):$(TEMPLATE_DB_PASSWORD)@$(TEMPLATE_DB_HOST):$(TEMPLATE_DB_PORT)/$(TEMPLATE_DB_DATABASE)
   - SMTP_URL: smtp://$(MAIL_USERNAME):$(MAIL_PASSWORD)@smtp.migadu.com:587
