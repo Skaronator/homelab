@@ -7,7 +7,7 @@ ports:
     containerPort: 3000
 
 gateway:
-  host: rr.wagner.gg
+  host: rr-old.wagner.gg
 
 envs:
   - PORT: 3000
