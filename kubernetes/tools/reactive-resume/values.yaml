@@ -13,7 +13,7 @@ envs:
   - PORT: 3000
   - NODE_ENV: production
   # TODO: switch to https once https://github.com/AmruthPillai/Reactive-Resume/issues/2153 is fixed
-  - PUBLIC_URL: http://rr.wagner.gg
+  - PUBLIC_URL: http://rr-old.wagner.gg
   - CHROME_URL: ws://reactive-resume-chrome:3000
   - DATABASE_URL: postgresql://$(TEMPLATE_DB_USERNAME):$(TEMPLATE_DB_PASSWORD)@$(TEMPLATE_DB_HOST):$(TEMPLATE_DB_PORT)/$(TEMPLATE_DB_DATABASE)
   - SMTP_URL: smtp://$(MAIL_USERNAME):$(MAIL_PASSWORD)@smtp.migadu.com:587
@@ -22,7 +22,7 @@ envs:
   - DISABLE_SIGNUPS: true
   - VITE_OPENID_NAME: Pocket ID
   - OPENID_AUTHORIZATION_URL: https://id.wagner.gg/authorize
-  - OPENID_CALLBACK_URL: https://rr.wagner.gg/api/auth/openid/callback
+  - OPENID_CALLBACK_URL: https://rr-old.wagner.gg/api/auth/openid/callback
   - OPENID_CLIENT_ID: 0709b434-5dec-4dd9-9147-06e2fd196cc4
   - OPENID_ISSUER: https://id.wagner.gg
   - OPENID_TOKEN_URL: https://id.wagner.gg/api/oidc/token
