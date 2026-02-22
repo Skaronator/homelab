@@ -1,6 +1,6 @@
 image:
-  repository: "fallenbagel/jellyseerr"
-  tag: "2.7.3@sha256:4538137bc5af902dece165f2bf73776d9cf4eafb6dd714670724af8f3eb77764"
+  repository: "ghcr.io/seerr-team/seerr"
+  tag: "v3.0.1"
 
 ports:
   - name: main
