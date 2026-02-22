@@ -26,5 +26,5 @@ homepage:
   name: Seerr
   group: Media
   description: Media Requests from User
-  icon: overseerr.svg
+  icon: seerr.svg
   weight: 1
