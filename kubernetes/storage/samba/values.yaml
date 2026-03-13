@@ -30,7 +30,7 @@ configMaps:
         - "netbios name = Samba"
         # allow running exe https://unix.stackexchange.com/a/200130
         - "acl allow execute always = yes"
-        - "min protocol = SMB3"
+        - "min protocol = SMB2"
         # Fix broken filenames https://superuser.com/a/459011
         - "mangled names = no"
         # Allow access by IP address
