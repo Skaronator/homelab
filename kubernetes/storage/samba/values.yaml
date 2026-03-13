@@ -16,6 +16,7 @@ envs:
 secretEnvs:
   - PASSWORD_NIKLAS: AgBOm6I8n4Atd+Zk5raeTrWiregnSX1wPzjPw9/+IOWnxmU5ik3WJOjOYh7Uq/ood7DohmV2c6zx6YZ+dprT5d+qn44a0Mpz7bAgKNHs073YSKE2V8ztBvtncVXfXu8Qg39/yli5gdclHKe+s+QYGTHk/pE25MSaVh2YLE86isKaO2LATwxwqcXML6s+ygkEQq8v7HVtAJaXfGSnMwz5pByrjfSDYIsjW6nIQ6CCS72P+QGnPdEyLBL9iaFwRanEXtPblMGAU+12yJ4KWycDKkj47dJl1bmNW62W0G0N8lAwI+DxXlALySHwDRHNAy3OryWyfdP3Hkv9bBEEXlyq4dBae640fUd00rS4WUy+BXW97g273iSkRRiI4lY53KEVRcr9NbwbfuAAWkuUgTnlQHQ9rjQ7MlNzPq8fLlNxlENx7nHLrIruVsxiTP8YD2LFwW2cJmsJ22cGopyX9dQaGvjbxvNs9K3D81Aey8QBs1p6klA/WucmbgGWplr+kp/I7+Ut05Odp7S5iKNFVsqlJmA+NSbEsx0u+Cc2YynJvaddQCjrARz404gnz7NVY20sCl5bzpAf32Zh59Usk6RDdvbUUVygGNDAGDrkovBtt+V82eqTK3iYlbo1fdFsllyGFzXSHiUL06c7rowjy5dVyHiL11HlSDAkWvDu6M0plraisNf3yOg9vbcgRuju8XJN5tFpHit+rhiqcP3b/odOiN/5oQS2iP3M
   - PASSWORD_HOME_ASSISTANT: AgCHU0xXjac6PNBpVLwxRiZBWAn+k+jCklJLODVfNGyQm4dPH+W+qSxlXLJtICiz/26svrcJCRvikObE6Tmzi0b/pSEc7SRqFhRM7Vqtt3oJasIr2tONL42mVPfq93Z4ihWpatfAFgJ0jfvsLdJQU1T1b8+Rqcs2j867Vbllh45swOwjaFO03lw/YDXpFp/xERLb78wtB8SSJxBXOB0KNp1PHhdsWX3lVCpAhwjr8hH4lsIQmBpU4aCFsQehdVeJkenr4qMxSLV/FCePPgUiIxCRhFgBc/T/zAwFTmEzgymh5G4W9PQnSgUW0Uj3Vn4Nu5CevId1C/d+mR0dgvC6j2Fok5DtOvCP0QkVzvmOHXk0wcnGpyIiGrgs+Ypp/glo8zwGBCZOjRdij1FjEis/emSQ6/6tk7w6PEU/+9YaaovkJYMVJtN7mF+ae34OUD4yq3zGSSfiuczdWl38XgfRksoVtKcDjhivZUygfVhWPFVWg1WSXMyMyiXdMkIzidnfyGJyqqAITi9NYPQqdewCQ0Hee1Z4/T57o1HRov5KirjuKobkCcaPvV2jl74/REZt6Rr8l8By7r+Xnybnc9cYfaUDR7cYi76OZ53lcge04da1j06YjdlWtMCnzfCUXp57eskcKJf4OTxs8oH8apZ3+ww1ysEnPvbdK0PJ13aa3gidnTDpcRMCyzUCuoUzp+5BFk9Kx9qYDTkZpHC4KXp++isLmUWtsOsCDCVg1ZDkRN34rWOs/5EuycNegvaGkI+yFFCxeG6T0859kYFWYgCWtg1i
+  - PASSWORD_SCANNER: AgDIQOG4aQz9Ai2PC0ErL9wxlx00N9chOS6ulY2YokCUn8g0C2zFNaiI51lSJM5axe6ivAqozUyLgbe1GTHY+sFA7tH3eqUWmwOrHILlMADaiQSKoCSIXKLbnECnfHEmt9fdz83+TDIPas6rN0G1ID+fowU+wAUaZI7+aw98txT8yyk+LRrUINTa4HMhLMxVdGREdjU1SYR1mi/xVGLxgJQZl7V4qntULcRP5GcQKwKOy6Zn70CEbLkohH7UlNrOhjlGoUUCCp1eJ9FSTaUkD3z7E45FONK8mL2mp79CBiw+2xEX/Ux4b2IG2VNb3MK+YA+Q9eZnQWp51FsO80F4s+/NNuiVOyuGukIafP0QvVF4IJGzjsRVV5jtqXZI1U10hx1tZp0xqBiBjy85uGKurzawizhl3iTZUFtwOzLwho3JUd9I1acxwpgB0wWkdW5LTKMDqAplUtSjrxUAH8AvV6zJpUk7BHPzxyMZoT5dbfzaA3855ECXad0Nn6PL144ko+l8P3YcPLU6e35obK+fB63TGaTn4cSP69q0FMx+bhqzWKI+Go0/QZYOchwczyH0CFlo+s/AtITtbBP3EzjEB2eK16RzueiDrvTuqTAcdHNe/L8XOaJhTFfS/LlC0/lu/3rPChYkh6//VLip8h9g21ds5nJXZDSZuAyGAwp8J4378PJK38S8lY0RLUwQ2XU7VrcDpWty83IQzBi4QW1YZX8bP9Q2dl7jIl5Vce9NQhzeiXIaRdTj5j9Q1C9X/r9Hi4KEhGGLAQ9f1mM47VE6HoKy
 
 configMaps:
   - name: config
@@ -52,6 +53,11 @@ configMaps:
           group: samba
           password: ${PASSWORD_HOME_ASSISTANT}
           uid: 5001
+          gid: 5000
+        - user: scanner
+          group: samba
+          password: ${PASSWORD_SCANNER}
+          uid: 5002
           gid: 5000
       share:
         - name: Urlaubsbilder
@@ -116,6 +122,12 @@ configMaps:
           guestok: "no"
           browsable: "no"
           validusers: "niklas"
+        - name: scanner
+          path: /mnt/scanner
+          readonly: "no"
+          guestok: "no"
+          browsable: "no"
+          validusers: "scanner"
 
 hostPaths:
   - name: pictures
@@ -160,4 +172,8 @@ hostPaths:
   - name: usenet
     hostPath: /srv/downloads/usenet
     containerPath: /mnt/usenet
+    type: Directory
+  - name: scanner
+    hostPath: /srv/nvme/container-data/paperless-ngx-consume
+    containerPath: /mnt/scanner
     type: Directory
