@@ -37,8 +37,6 @@ envs:
   - PAPERLESS_TIKA_ENDPOINT: http://paperless-tika:9998
   # config
   - PAPERLESS_URL: https://paperless.wagner.gg
-  - PAPERLESS_OCR_LANGUAGE: deu+eng
-  - PAPERLESS_OCR_OUTPUT_TYPE: pdfa-3
   - PAPERLESS_PRE_CONSUME_SCRIPT: /scripts/ocr-decrypt.sh
   - PAPERLESS_CONSUMER_DELETE_DUPLICATES: true
   - PAPERLESS_CONSUMER_RECURSIVE: true
@@ -47,8 +45,14 @@ envs:
   - PAPERLESS_FILENAME_FORMAT: "{{created_year}}/{{created_month}}/{{correspondent}}/{{title}}"
   - USERMAP_UID: 5002
   - USERMAP_GID: 5000
-  - PAPERLESS_APPS: allauth.socialaccount.providers.openid_connect
+  # OCR
+  - PAPERLESS_OCR_LANGUAGE: deu+eng
+  - PAPERLESS_OCR_OUTPUT_TYPE: pdfa-3
+  - PAPERLESS_OCR_ROTATE_PAGES: true
+  - PAPERLESS_OCR_ROTATE_PAGES_THRESHOLD: 10
+  - PAPERLESS_OCR_DESKEW: true
   # OIDC
+  - PAPERLESS_APPS: allauth.socialaccount.providers.openid_connect
   - PAPERLESS_DISABLE_REGULAR_LOGIN: true
   - POCKET_ID_CLIENT_ID: a0b1a6be-9b5c-47af-8991-3fde21f60d79 
   - PAPERLESS_SOCIALACCOUNT_PROVIDERS: |
