@@ -12,7 +12,7 @@ hostPaths:
 
 ports:
   - name: main
-    containerPort: 8000
+    containerPort: 8080
 
 health:
   path: /api/health
