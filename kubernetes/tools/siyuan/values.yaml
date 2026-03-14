@@ -1,6 +1,6 @@
 image:
   repository: "b3log/siyuan"
-  tag: "v3.6.0"
+  tag: "v3.6.0@sha256:79064edd0b819a95104dff4d8b488e2a3752d17af0e0f442c0d25f7798dde707"
 
 hostPaths:
   - name: data
