@@ -36,13 +36,21 @@ envs:
   - MAX_PDF_SIZE_MB: 256
   - MAX_OFFICE_DOCUMENT_SIZE_MB: 256
   - MEMORY_LIMIT_MB: 1024
+  # OIDC
+  - OIDC_ENABLED: true
+  - OIDC_CLIENT_ID: 36a92b6c-533d-403b-a9c9-4f6dba864b7b
+  - OIDC_ISSUER_URL: https://id.wagner.gg
+  - OIDC_REDIRECT_URI: https://readur.wagner.gg/api/auth/oidc/callback
+  - OIDC_AUTO_REGISTER: true
+  - ALLOW_LOCAL_AUTH: false
 
 secretEnvs:
   - JWT_SECRET: AgCZ6l/hw/pm7CmaX3QNV87frebB53m3fYQtyNLits1I/32cYA/clyc55rzSH99jcTMktMDyHbxfIE9wyxl9dl1+NSwD3LUz1XVt6o9S2FIZkIpeNJHAga0ngLZ4f6mTONcpY2GOMe7XWMsr165TAH0OV3NygclEzOzZSx2viV1tATH+hUq4jtrOE4d9oSdD2jfhthzvksTwzKHCSHNhS8ABMWiBVyW5xcxOarjalHXsViwMfs07DdFmNzEq7lORqaU1lQ4jkzPY613EwrVOEofsGzsG5wz9/7a010OZ0mbrgeS2/2afycbL592hEk3wHNwccbzZMWG5G7Me83ydSEefo3ZuFjStF5yzC/szinAHWFYZJPSJMHCSOG5QMnG0mx9raGdHFQDmrmMHJqTtEn2F73Mj6KO+aqrTQqq8BmX1MFOaVgNcoMQT5Sm/c3jED33VJXV5yuuIHfB1X4C8yzjl19OuoRTGagMVIzhuZRPcXtekrx+NDN+3KgAgc+8UfbQDYUV3gy1TsjNUaYVKoUQHHfY2rG8RmQNl0FPykZ6NLMcIEtGyER8suzuIkbdtBNGc0lUxWxU6JgKZcpbOfq4joorTXAnBuqscv3ODMSdTGTu/51SXHuHhPrW6lQceXhJDe0uj8U6E38mF9IoGCNEzkNJLCAJ5t6HPFncKEbQHy4vYxbJg64uiF+534mWPfgZN2pnRS3uvDXURFWzWsYsD5Y9oMaDnxn+D2VENwc9xK10uy191EMx8jpQfpXKwtvZpZgXpkmGyfUEsA9PM0Wnv
+  - OIDC_CLIENT_SECRET: AgCuWx7cv+kvPmjjf/9S4O3wIm5Byl1UYmRD6ykAsZK9SxYIJnnHGCljIv8N8/QAGwBACNykZOOMvEWn0PNUKN7sLnq0Urx5WdB+5/azMjWRPA3GV4/US5eDW1bGkcP20EX0C4Xg9lTqIp+5G30Wx3RHlBAHWntjQK5CBuwYDhNzxzuzebdBl4pBk7YTgZ9SENGaPcR8m9+4ij2wudKINMVLLd4h3DBwghpcr8yoq4jvkyl9yr/QSfmfuC2ur99fyeeRTUonfBJMtwPLgU0sa5wnN3h5ewzDGsgxT1fpnCsdMO/NQGffh6RpHRV322wvT1keQawORf4AaWn6nAn4vw91lbCZgkVrZjrg3ZQdB4mJhIZgJbnUspuVtfLnN7kzucaVpUWfVikmZEGm46m3wcWvXZzO2JB3x0JU88aaLVRAfAkTsfdIwllwD2L+pVqWp6MvCz5crbIF/PQdCTV5CM5EIjeYwVpNqsDiOut1x7cck007/UTU3S5hHLVnAdAvJKwMr/yrC/jgQ6XW42R/8dwiQijbSCPbbv3FH02wdoGM51iIEdTgvTgSD5hwUf8nb08Xlhj+gxgGpB5TOTKIyuRMmiRVWZOOazsLbctrcbwcKwl4swVcO8frnDXRtovzx6vstSRHLPiyZjdlwqCaH+nGwp9MzZ+SuHJ6biR7qK27F6DtF7s6UqOo98Z3RWa83kPq4Qoo/4k/PJEqgYgEi0mf8CYt+XiXyhj8ErKg4z2EaA==
 
 homepage:
   name: Readur
   group: Cloud
   description: Da war ich wirklich!
   icon: https://avatars.githubusercontent.com/u/216796041?s=200&v=4
-  weight: 70
+  weight: 80
