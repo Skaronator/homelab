@@ -1,0 +1,28 @@
+image:
+  repository: "b3log/siyuan"
+  tag: "v3.6.0"
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/siyuan
+    containerPath: /data
+
+health:
+  path: /
+
+envs:
+  - SIYUAN_WORKSPACE_PATH: /data
+
+ports:
+  - name: main
+    containerPort: 6806
+
+gateway:
+  host: siyuan.wagner.gg
+
+homepage:
+  name: SiYuan
+  group: Cloud
+  description: Note Taking
+  icon: siyuan.svg
+  weight: 12
