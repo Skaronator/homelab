@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/readur/readur"
-  tag: "2.7.7"
+  tag: "2.7.7@sha256:6d9d0ff5e3379dbafd598bb9de8d3e617c4a226b8c6d3ed77a7b1a833f6a0ec0"
 
 hostPaths:
   - name: uploads
