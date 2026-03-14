@@ -47,9 +47,28 @@ envs:
   - PAPERLESS_FILENAME_FORMAT: "{created_year}/{created_month}/{correspondent}/{title}"
   - USERMAP_UID: 5002
   - USERMAP_GID: 5000
+  - PAPERLESS_APPS: allauth.socialaccount.providers.openid_connect
+  - POCKET_ID_CLIENT_ID: a0b1a6be-9b5c-47af-8991-3fde21f60d79 
+  - PAPERLESS_SOCIALACCOUNT_PROVIDERS: |
+      {
+        "openid_connect": {
+          "SCOPE": ["openid", "profile", "email"],
+          "OAUTH_PKCE_ENABLED": true,
+          "APPS": [
+            {
+              "provider_id": "pocket-id",
+              "name": "Pocket ID",
+              "client_id": "$(POCKET_ID_CLIENT_ID)",
+              "secret": "$(POCKET_ID_CLIENT_SECRET)",
+              "settings": { "server_url": "https://id.wagner.gg" }
+            }
+          ]
+        }
+      }
 
 secretEnvs:
   - PAPERLESS_SECRET_KEY: AgCB5pmOJbkGTctx+KsiJ3QMoRqcfPnROl95xLAqBM552h8u02x0sb3vbQtGj8ls3/fl2U4IbOq9By3BXQUtUp989l+AMLDNuyECKmXVdtVBypt2foxzOPlLOdp5SjZ/IonLMylhP9Rwbg9z/cyNywocdCXqsXkvuh6BIheJhVARQglrU9j1GV+UKZ2o5dzc0OpDZ161bdwWF/KOkttNXcdNRPqqnZBsTWBo16Cm/FxYB9QUv99whFxNgn4DKKiU7rJjSy91fO4TYKMXUKRBZaXXlY0WcxhaRxQFK1dBIRH7lw1FOqUbejSF2VvwblevU/HiLDWwd/ZEF0vLFjs9bOPLFSekuBmeZFqD6Rfx72HMeZ9Uf6/7WOdR1R59HOpEgX0CKFANADi9Hm0KOtZaNnlH1vp9YISPdotTrS4c4Wfg3yPgkfs9vzHH9v3sLMFMLBXiuY+7l1v0gA/kq6gn6760rSadS2PHoTFS6qGUpBQN/G0w9yVAdmIgOtx+ubNB4W5dRm+4pS9rF5ZBTSCD4SuTf/F26gxgYeQOKk4jfhKy5ZDMF4DZ4oQz0qJvSp8mm5gmOM/rU1nLTEVmd2Sh7hI7PPtlEZ0cVywPNKAlR8abxn+s5Ckj+bCaqjnsBgopK672eT1lv/xh0qzicOhVkKpmPBzZIqcyTTAASQFfndUN+HWHW4bo4+Tdb+rLpPcd/eSrgzLcigI4Q1XPaha5Lyx5nmLc9B6oIUZiM6UG6FNTtCr5MOPvxU9KOR7uJxG6Yvx/7t40JlLaU23DhxiBhqo3
+  - POCKET_ID_CLIENT_SECRET: AgChROd6lzHGyxTDcTsxViknfcvnyObTBHIC91m0Di7+rddPsPchc/ceVeJhZRvF5+jSETmGoKkihuuHR37O8M2oUoA1QJWdgUJxGEdI2iVzpSSqMXeW/SJzrbqSx1+2zFz4RAyTYgQZKpfyhyclRwaLTJf0pNreQ6+iOEU38GKO3hbCK02pQBujtnH+ZlNK5sEnh6YaQrHWthu+UXm5V0SpnGAeWZwBiCEiokYXIU/m8CviItlHjmD6eF/uRYq0yErBKzJFlSZ1dhNfMI2jpwNNuCPzvH/TW2i7+FFP7fyASbTWeIGxNKBfprBNagEl3NsiJv6m/y7/Nv4UDb3dkKDFFnZcxcTHvOf7h2oSCvyfeS5gLeoO/Of9zGk4d8b3iW7zNVbpT5y2UYpau0piaQOz46EjcctSMEK271gQqVEMU6Dz/cthD9FCLUFOJs8dH+V1C9/76c8wCNII+nTEJHXh4bdxCnGvdEyT9MM7DaeG8kSKgXh7CQdWY0YmgFBYZnEtWuuU42M54bakxJRIGThYAOdMZRF9bF6OrHysDYvh2Bn+vsJmQ6jIejGNWfAHzf/JBlXKLlbOdEEeyuCx9bB8euKbFglx+D/V6pg+Cp+6FqBRkuy2TSzWbIkN9X1/a/5gUg7tohjpGmVZ8w+ZIdBRqcR3hMaNOUY0X50LbCqWqSDCu3wjCkhkko+5hW9gG5FiUu7s3lq6kdrGkkZf9LDHzteDSWDv+/ySe3Jc+hlO5Q==
 
 database:
   enabled: true
