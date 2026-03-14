@@ -48,6 +48,8 @@ envs:
   - USERMAP_UID: 5002
   - USERMAP_GID: 5000
   - PAPERLESS_APPS: allauth.socialaccount.providers.openid_connect
+  # OIDC
+  - PAPERLESS_DISABLE_REGULAR_LOGIN: true
   - POCKET_ID_CLIENT_ID: a0b1a6be-9b5c-47af-8991-3fde21f60d79 
   - PAPERLESS_SOCIALACCOUNT_PROVIDERS: |
       {
