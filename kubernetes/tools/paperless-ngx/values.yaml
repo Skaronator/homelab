@@ -44,7 +44,7 @@ envs:
   - PAPERLESS_CONSUMER_RECURSIVE: true
   - PAPERLESS_CONSUMER_SUBDIRS_AS_TAGS: true
   - PAPERLESS_TIME_ZONE: $(TZ)
-  - PAPERLESS_FILENAME_FORMAT: "{created_year}/{created_month}/{correspondent}/{title}"
+  - PAPERLESS_FILENAME_FORMAT: "{{created_year}}/{{created_month}}/{{correspondent}}/{{title}}"
   - USERMAP_UID: 5002
   - USERMAP_GID: 5000
   - PAPERLESS_APPS: allauth.socialaccount.providers.openid_connect
