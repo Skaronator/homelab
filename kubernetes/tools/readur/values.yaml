@@ -31,7 +31,7 @@ envs:
   - SERVER_ADDRESS: 0.0.0.0:8080
   - UPLOAD_PATH: /app/uploads
   - WATCH_FOLDER: /app/watch
-  - OCR_LANGUAGE: ger
+  - OCR_LANGUAGE: eng+deu
   - MAX_FILE_SIZE_MB: 256
   - MAX_PDF_SIZE_MB: 256
   - MAX_OFFICE_DOCUMENT_SIZE_MB: 256
