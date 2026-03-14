@@ -8,7 +8,7 @@ hostPaths:
     containerPath: /data
 
 health:
-  path: /
+  startupProbeSeconds: 60
 
 envs:
   - SIYUAN_WORKSPACE_PATH: /data
