@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/usememos/memos"
-  tag: "0.26.2"
+  tag: "0.26.2@sha256:3eefcc231141369accbd2f42bdc1a4c1e3b291fb6e288ff0deb60afa1b5d4727"
 
 hostPaths:
   - name: data
