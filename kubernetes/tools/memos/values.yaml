@@ -13,6 +13,7 @@ ports:
 
 gateway:
   host: memos.wagner.gg
+  public: true
 
 homepage:
   name: Memos
