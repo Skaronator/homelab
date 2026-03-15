@@ -1,0 +1,25 @@
+image:
+  repository: "couchdb"
+  tag: "3.5.1"
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/obsidian-livesync-data
+    containerPath: /opt/couchdb/data
+  - name: etc
+    hostPath: /srv/nvme/container-data/obsidian-livesync-etc
+    containerPath: /opt/couchdb/etc/local.d
+
+ports:
+  - name: main
+    containerPort: 5984
+
+health:
+  path: /_up
+
+secretEnvs:
+  - COUCHDB_USER: AgAJFScDsTLPT0s49Moq34iNt+rpDBCm3shugs2WsksqAIfAGx5JUXKOqrOdE+VFDA5AALVhERMpGcugkcmD9gaUBq9OZ05X45ACnGG3LhvD8mC7rPVcGaBxJiuin4XOQo16MIcxo91+9DAXyGjb2mbMspTb3z6RG19cFeGU6l9Uz4Owk9V/nbQizr4ZP5agMI2YAhpPluTs/EC3dP9gg7j1Dh0zNnOE0Obay+si98m171M8W3x8exZwi0UJmoSYKyPAdBYrPtMkSpcpBSKmBF3/b4Gnef7XY1VH/uucLXYvsMx11+pmZhBLLZpchn/9cdDGdCZScFu3GsOOq+EYZlNKSM17d0Tgu2plLVsuzxZJxKmttjU1J6Tqbt6nyL/2Fyx3E/uxX5AVhxcscvdkgCOhTUIkGjt2WRUaLB8ZM28uDYqZ1x0/GHJO+8DSXJFp9ptZyyyfVQuotbaP4QGAXwLrR7qhMx6L9gkmufbo0qtnPxjxoeYzF7fEMy73JB4jIP6pS5pvBW0YJgpJGA1BX20nAfQGfUU1V1FNhpPKkIWl3cZswY1X/XiyaOssacz4p1yZ86zV0bP2xZh4R8yr6cLjUnm0le4Yk5moUTWEXR8KpExi2HUNobQ9BviFfdVSGg+UDpo79RZi9KnVawMpxJAJ9YGi6mhhAP0lSmrjfi9k+coaKS+UVgs+BTcnV+rWF4tkwljWyPLG0Jl8y4dfSTZ38+NqhVRBmyh8y0rUxE7u9VewjUlKyrokm3M2P1o2yOctoow93EtpM0PRWhWYd8eq
+  - COUCHDB_PASSWORD: AgBVgVxA/cKsvd2CLM1tvFAARNRmD4zlrZvZHcWg35G7j8lBz5U7tHsx5CsaVSCffaS8PvF0dfrUXeAfOv2vP2D9vA95zXCXMoTdIeOcno4XTpmGQcQIJrZTpulIVKWNBf860QoOrmr0PNj3e7DpjxPN99/KE0R46udXOW6lYHb1n/HE+CtWMxCg3h0Sj5L9Pzb8iclBmv2tgUftzlgMdSSWDXc0KVCqo0b7yBbMcAw7LPCzfcrXRGM5qzp+1/nGDfFOjNZHFMRCjbz8QuljeEvYJahid+KqaTEylvicNSHeV/BCarhpaojjz5pWoGCkKpkNnrWIlJC1tfjNK9GtL+rvcXoYvtP6ld19trWalPe3dlBKHyey5EJL9aLqqONyCr8qHKkC0BY6a3qZb0XV98dLp8W8NC38H7liHTSu++dvJA58713oYuG+s8LtwAH5nS/u3ERjqMEMf4eZyYIENvl95byXYBf6ezQquCAfkkb+qZfpVP8DzfiSRm77JIsrHuwdoz8d7wHq1d4hhZjql06DZ8Abr/J53okwVxYQMBJQ94J+WGDA7W95/AfBY+dAQNnNBGP1L+HrUA7lSZ3orfOhgWZgB1RSpdj8YwPxpl0mRPNTjWlUbZTYcXYAJICVL9vYefzeD5QnXh/Nv5D4elbpwZRpiZO3jrJUWrWGIgeVAOCSWvk0QKANKmjjwYH7jznB/0LxXarEKwwUZAQjFOtie+yynfhh4Zdl4IzlVvhZmF+sCMArserkOK35foux1Oa0LfgqpRS7M4sJCIIPaYUs
+
+gateway:
+  host: obsidian.wagner.gg
