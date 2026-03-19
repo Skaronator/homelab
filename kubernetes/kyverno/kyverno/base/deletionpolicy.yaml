@@ -15,16 +15,11 @@ spec:
       matchLabels:
         environment: test
   conditions:
-    any:
-      - key: "{{ target.status.reason }}"
-        operator: Equals
-        value: UnexpectedAdmissionError
-      - key: "{{ target.status.initContainerStatuses[].state.terminated.reason }}"
-        operator: AnyIn
-        value:
-        - ContainerStatusUnknown
-    all:
-      # Only delete if the pod is older than 5 minutes to avoid race conditions
-      - key: "{{ target.metadata.creationTimestamp }}"
-        operator: Before
-        value: "{{ now | add_duration('5m') }}"
+    - name: stuck-pods
+      expression: >
+        object.status.reason == 'UnexpectedAdmissionError' ||
+        (object.status.?initContainerStatuses.orValue([]).exists(s, 
+          s.state.?terminated.reason == 'ContainerStatusUnknown'))
+    - name: minimum-age
+      expression: >
+        timestamp(object.metadata.creationTimestamp) < request.time - duration('10m')
