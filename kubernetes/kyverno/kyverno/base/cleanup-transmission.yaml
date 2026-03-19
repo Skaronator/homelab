@@ -1,0 +1,28 @@
+apiVersion: policies.kyverno.io/v1
+kind: DeletingPolicy
+metadata:
+  name: cleanup-transmission-crashloop
+spec:
+  schedule: "*/5 * * * *"
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        resources: ["pods"]
+        scope: "Namespaced"
+  conditions:
+    - name: is-transmission
+      expression: |
+        object.metadata.labels["app.kubernetes.io/name"] == "transmission"
+
+    - name: high-restart-count
+      expression: |
+        object.status.?containerStatuses.orValue([]).exists(c,
+          c.restartCount > 10
+        )
+
+    - name: crashloopbackoff
+      expression: |
+        object.status.?containerStatuses.orValue([]).exists(c,
+          c.state.?waiting.?reason.orValue("") == "CrashLoopBackOff"
+        )

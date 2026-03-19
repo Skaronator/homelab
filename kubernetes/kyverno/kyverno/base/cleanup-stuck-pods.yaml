@@ -3,13 +3,13 @@ kind: DeletingPolicy
 metadata:
   name: cleanup-stuck-pods
 spec:
-  schedule: '* * * * *'
+  schedule: "*/5 * * * *"
   matchConstraints:
     resourceRules:
-      - apiGroups: ['']
-        apiVersions: ['v1']
-        resources: ['pods']
-        scope: 'Namespaced'
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        resources: ["pods"]
+        scope: "Namespaced"
   conditions:
     - name: minimum-age
       expression: |
