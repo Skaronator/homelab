@@ -28,6 +28,8 @@ securityContext:
   capabilities:
     add:
       - NET_ADMIN
+      - NET_RAW
+      - MKNOD
 
 homepage:
   name: Transmission
@@ -48,7 +50,7 @@ envs:
   - TRANSMISSION_SPEED_LIMIT_UP: 1500
   - TRANSMISSION_SPEED_LIMIT_UP_ENABLED: true
   - TRANSMISSION_DOWNLOAD_QUEUE_SIZE: 100
-  - TRANSMISSION_WEB_UI: transmission-web-control
+  - TRANSMISSION_WEB_UI: transmissionic
   - TRANSMISSION_HOME: /config/transmission-home
   - TRANSMISSION_DOWNLOAD_DIR: /downloads/torrent/completed
   - TRANSMISSION_INCOMPLETE_DIR: /downloads/torrent/incomplete
