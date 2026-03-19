@@ -10,6 +10,8 @@ applicationsets:
     template:
       metadata:
         name: '{{path[1]}}-{{path.basenameNormalized}}'
+        annotations:
+          argocd.argoproj.io/compare-options: IncludeMutationWebhook=true
       spec:
         project: default
         source:
