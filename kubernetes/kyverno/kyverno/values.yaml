@@ -1,0 +1,7 @@
+cleanupController:
+  rbac:
+    clusterRole:
+      extraResources:
+        - apiGroups: [""]
+          resources: ["pods"]
+          verbs: ["get", "list", "delete"]

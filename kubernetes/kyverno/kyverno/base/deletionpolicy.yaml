@@ -8,18 +8,16 @@ spec:
     resourceRules:
       - apiGroups: ['']
         apiVersions: ['v1']
-        operations: ['*']
         resources: ['pods']
         scope: 'Namespaced'
-    namespaceSelector:
-      matchLabels:
-        environment: test
   conditions:
-    - name: stuck-pods
-      expression: >
-        object.status.reason == 'UnexpectedAdmissionError' ||
-        (object.status.?initContainerStatuses.orValue([]).exists(s, 
-          s.state.?terminated.reason == 'ContainerStatusUnknown'))
     - name: minimum-age
-      expression: >
-        timestamp(object.metadata.creationTimestamp) < request.time - duration('10m')
+      expression: |
+        time.now() - timestamp(object.metadata.creationTimestamp) > duration("15m")
+    - name: stuck-pods
+      expression: |
+        object.status.reason == 'UnexpectedAdmissionError' ||
+        object.status.?initContainerStatuses.orValue([]).exists(s, 
+          s.state.?terminated.?reason.orValue('') == 'ContainerStatusUnknown') ||
+        object.status.?containerStatuses.orValue([]).exists(s, 
+          s.state.?terminated.?reason.orValue('') == 'ContainerStatusUnknown')
