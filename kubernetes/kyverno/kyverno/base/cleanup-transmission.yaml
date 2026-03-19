@@ -18,11 +18,5 @@ spec:
     - name: high-restart-count
       expression: |
         object.status.?containerStatuses.orValue([]).exists(c,
-          c.restartCount > 10
-        )
-
-    - name: crashloopbackoff
-      expression: |
-        object.status.?containerStatuses.orValue([]).exists(c,
-          c.state.?waiting.?reason.orValue("") == "CrashLoopBackOff"
+          c.restartCount > 20
         )
