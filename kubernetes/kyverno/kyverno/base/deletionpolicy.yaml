@@ -1,0 +1,30 @@
+apiVersion: policies.kyverno.io/v1
+kind: DeletingPolicy
+metadata:
+  name: cleanup-stuck-pods
+spec:
+  schedule: '* * * * *'
+  matchConstraints:
+    resourceRules:
+      - apiGroups: ['']
+        apiVersions: ['v1']
+        operations: ['*']
+        resources: ['pods']
+        scope: 'Namespaced'
+    namespaceSelector:
+      matchLabels:
+        environment: test
+  conditions:
+    any:
+      - key: "{{ target.status.reason }}"
+        operator: Equals
+        value: UnexpectedAdmissionError
+      - key: "{{ target.status.initContainerStatuses[].state.terminated.reason }}"
+        operator: AnyIn
+        value:
+        - ContainerStatusUnknown
+    all:
+      # Only delete if the pod is older than 5 minutes to avoid race conditions
+      - key: "{{ target.metadata.creationTimestamp }}"
+        operator: Before
+        value: "{{ now | add_duration('5m') }}"
