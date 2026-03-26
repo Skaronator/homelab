@@ -77,8 +77,8 @@ spec:
                 value: 0.0.0.0/0
                 type: Distinct
           limit:
-            requests: 30
+            requests: 200
             unit: Second
   circuitBreaker:
-    maxPendingRequests: 20
-    maxParallelRequests: 40
+    maxPendingRequests: 100
+    maxParallelRequests: 250
