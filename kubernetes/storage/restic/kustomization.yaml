@@ -10,6 +10,10 @@ helmCharts:
     valuesFile: container-data.values.yaml
     namespace: storage
   - name: restic-backup
+    releaseName: restic-container-data-v2
+    valuesFile: container-data-v2.values.yaml
+    namespace: storage
+  - name: restic-backup
     releaseName: restic-pictures
     valuesFile: pictures.values.yaml
     namespace: storage
