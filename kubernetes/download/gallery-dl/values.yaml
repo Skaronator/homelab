@@ -3,7 +3,6 @@ image:
   tag: "1.31.10@sha256:f7e512cd4a907eb6b74b999993a6f050da35bcae93a7d6447dd2d2883a77c297"
 
 schedule: "0 2 * * *"
-suspend: true
 
 securityContext:
   runAsUser: 5000
