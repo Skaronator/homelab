@@ -123,7 +123,7 @@ database:
   postgresql:
     image:
       repository: postgres
-      tag: "17.9@sha256:b994732fcf33f73776c65d3a5bf1f80c00120ba5007e8ab90307b1a743c1fc16"
+      tag: "17.9@sha256:7ad98329d513dd497293b951c195ca354274a77f12ddbbbbf85e68a811823d72"
     backup:
       schedule: "0 4 * * *"
       image:
