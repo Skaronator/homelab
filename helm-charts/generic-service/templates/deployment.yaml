@@ -107,6 +107,37 @@ spec:
       {{- end }}
       {{- end }}
       containers:
+      {{- if .Values.vpn.enabled }}
+      - name: vpn
+        image: "{{ .Values.vpn.image.repository }}:{{ .Values.vpn.image.tag }}"
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN"]
+        env:
+          - name: VPN_TYPE
+            value: wireguard
+          - name: WIREGUARD_ADDRESSES
+            value: 10.130.7.37/32,fd7d:76ee:e68f:a993::1
+          - name: SERVER_COUNTRIES
+            value: germany
+          - name: HEALTH_SERVER_ADDRESS
+            value: 0.0.0.0:9999
+          - name: VPN_SERVICE_PROVIDER
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "generic-service.name" . }}-vpn
+                key: VPN_SERVICE_PROVIDER
+          - name: WIREGUARD_PRIVATE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "generic-service.name" . }}-vpn
+                key: WIREGUARD_PRIVATE_KEY
+          - name: WIREGUARD_PRESHARED_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "generic-service.name" . }}-vpn
+                key: WIREGUARD_PRESHARED_KEY
+      {{- end }}
       - name: {{ include "generic-service.name" . }}
         securityContext: {{- toYaml .Values.securityContext | nindent 10 }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

@@ -1,0 +1,11 @@
+image:
+  repository: "alpine"
+  tag: "23"
+
+health:
+  enabled: false
+
+command: ["/bin/sh", "-c", "while true; do sleep 30; done"]
+
+vpn:
+  enabled: true

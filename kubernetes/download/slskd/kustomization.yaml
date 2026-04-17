@@ -6,6 +6,6 @@ helmGlobals:
 
 helmCharts:
   - name: generic-service
-    releaseName: gluetun
+    releaseName: slskd
     valuesFile: values.yaml
-    namespace: vpn
+    namespace: download
