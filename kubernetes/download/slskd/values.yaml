@@ -7,15 +7,19 @@ vpn:
   secretEnvs:
     - API_KEY: AgB22JxbLHj/pHpjZ5agfio/Nr6Z74rYqb2Mkl9F9lPmIqkSV/3d4QvTo713sQQ9BuTSAZ/HqQgbLKoubWB9vqEB9iFWVxtrO8TVb9StM5ZapqIWR/fbpN/jt8q0QNEyc4AEvJ7UNJvuB7/hUy4ncKmhoJnNCKUqQF0mTnPmYLPe+nQZOAYOANr6xPd+/APB3qpHowk57pq/2kBQVVcFWMEpx2KvMzto/VbpeCXg/T9FydzZ12Biq5Axqt41T0VHYNoDzjc/gtf9lKwkOwLKzR3ch0I89qmHXEgma1Cgl4oe4aHQggA/LDPoYeGBrHbrN14R5cf31YwIWvLaPT4NyZTWNSPHGW2Lov8AJdfokKd4imQ0jJNi6QN37KUnx/ObSGEWx8P+ivMFpt72kdDQyqofgUlmDASdhsfUU+Q8iDQZ5KooeJQcoz9OeprkbxEfM/G8TOfkhd5IC/U5ftbUzX+ocHES1lA3v/pn46eLIifIhNc7HzGv10MbanMTmTNwuaHKeAoPXhjl04eS23BTcUu8U3SghgjAtamoKwRZI3gx+YklFfxNsibczLeQKDsy5HQrfwCjENM/T0VjhNoJE9foxY/goy0ElmbwmDFLTBVVOHdEU16A4VvhLCSijNkE0JEaf89VdD+DgY2w5C/hkk8bGjYHRvyr4Mi0XtcNvLK7FiBrCP/1Vt1r6HOB68z6cbk39SNDadRhCH83/Gj7q8/Ln18yrft/OKVyYlBk7YypO7he3aVgZQ4PUdJm/aPPcgW6AOD28Y3i8zegZcoN4qkP
   envs:
+    - VPN_PORT_FORWARDING: "on"
     - VPN_PORT_FORWARDING_UP_COMMAND: |
-        curl --location --request PATCH 'http://localhost:5030/api/v0/options' \
-        --header 'X-API-Key: $(API_KEY)' \
-        --header 'Content-Type: application/json' \
-        --data '{
-            "soulseek": {
-              "listenPort": {{PORT}}
-            }
-        }'
+        wget --method=PATCH \
+          --tries=10 \
+          --waitretry=5 \
+          --header='X-API-Key: $(API_KEY)' \
+          --header='Content-Type: application/json' \
+          --body-data='{
+              "soulseek": {
+                "listenPort": {{PORT}}
+              }
+          }' \
+          'http://localhost:5030/api/v0/options'
 
 ports:
   - name: main
