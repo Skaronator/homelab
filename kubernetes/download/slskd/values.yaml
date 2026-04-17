@@ -4,6 +4,18 @@ image:
 
 vpn:
   enabled: true
+  # secretEnvs:
+  #   - API_KEY: TODO
+  # envs:
+  #   - VPN_PORT_FORWARDING_UP_COMMAND: |
+  #       curl --location --request PATCH 'http://localhost:5030/api/v0/options' \
+  #       --header 'X-API-Key: <an API key with administrator role>' \
+  #       --header 'Content-Type: application/json' \
+  #       --data '{
+  #           "soulseek": {
+  #             "listenPort": {{PORT}}
+  #           }
+  #       }'
 
 ports:
   - name: main
