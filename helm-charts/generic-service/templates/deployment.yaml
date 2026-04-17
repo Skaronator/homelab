@@ -148,6 +148,21 @@ spec:
               secretKeyRef:
                 name: {{ include "generic-service.name" . }}-vpn
                 key: WIREGUARD_PRESHARED_KEY
+          {{- range $k, $v := .Values.vpn.secretEnvs }}
+          {{- range $kk, $vv := $v }}
+          - name: {{ $kk | quote }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "generic-service.name" . }}-vpn
+                key: {{ $kk | quote }}
+          {{- end }}
+          {{- end }}
+          {{- range $k, $v := .Values.vpn.envs }}
+          {{- range $kk, $vv := $v }}
+          - name: {{ $kk | quote }}
+            value: {{ $vv | quote }}
+          {{- end }}
+          {{- end }}
       {{- end }}
       {{- end }}
       containers:

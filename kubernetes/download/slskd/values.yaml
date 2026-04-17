@@ -36,5 +36,5 @@ homepage:
   icon: slskd.svg
   weight: 20
 
-env:
+envs:
   - SLSKD_REMOTE_CONFIGURATION: true
