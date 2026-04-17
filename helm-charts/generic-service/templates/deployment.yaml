@@ -153,7 +153,7 @@ spec:
           - name: {{ $kk | quote }}
             valueFrom:
               secretKeyRef:
-                name: {{ include "generic-service.name" . }}-vpn
+                name: {{ include "generic-service.name" $ }}-vpn
                 key: {{ $kk | quote }}
           {{- end }}
           {{- end }}
