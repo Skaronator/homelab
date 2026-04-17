@@ -26,7 +26,7 @@ hostPaths:
     hostPath: /srv/downloads/soulseek/incomplete
     containerPath: /downloads/soulseek/incomplete
   - name: music
-    hostPath: /srv/music
+    hostPath: /srv/nvme/music
     containerPath: /music
     readOnly: true
 
