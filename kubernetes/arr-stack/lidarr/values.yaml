@@ -23,6 +23,9 @@ hostPaths:
   - name: downloads-usenet
     hostPath: /srv/downloads/usenet
     containerPath: /downloads/usenet
+  - name: downloads-soulseek
+    hostPath: /srv/downloads/soulseek
+    containerPath: /downloads/soulseek
   - name: music
     hostPath: /srv/nvme/music
     containerPath: /music
