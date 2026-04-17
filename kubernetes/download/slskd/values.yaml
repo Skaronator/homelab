@@ -1,11 +1,25 @@
 image:
-  repository: "alpine"
-  tag: "3.23.4@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11"
-
-health:
-  enabled: false
-
-command: ["/bin/sh", "-c", "while true; do sleep 30; done"]
+  repository: "ghcr.io/slskd/slskd"
+  tag: "0.24.5"
 
 vpn:
   enabled: true
+
+ports:
+  - name: main
+    containerPort: 5030
+
+hostPaths:
+  - name: app
+    hostPath: /srv/nvme/container-data/slskd
+    containerPath: /app
+
+gateway:
+  host: slskd.wagner.gg
+
+homepage:
+  name: SLSKD
+  group: Downloader
+  description: Soulseek Client
+  icon: slskd.svg
+  weight: 20
