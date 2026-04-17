@@ -30,6 +30,10 @@ hostPaths:
     hostPath: /srv/hdd/multimedia
     containerPath: /srv/multimedia
     readOnly: true
+  - name: music
+    hostPath: /srv/nvme/music
+    containerPath: /srv/music
+    readOnly: true
 
 homepage:
   name: Jellyfin
