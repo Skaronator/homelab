@@ -8,4 +8,4 @@ helmCharts:
   - name: generic-service
     releaseName: gluetun
     valuesFile: values.yaml
-    namespace: tools
+    namespace: vpn
