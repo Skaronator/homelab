@@ -25,6 +25,10 @@ hostPaths:
   - name: downloads-incomplete
     hostPath: /srv/downloads/soulseek/incomplete
     containerPath: /downloads/soulseek/incomplete
+  - name: music
+    hostPath: /srv/music
+    containerPath: /music
+    readOnly: true
 
 homepage:
   name: SLSKD
@@ -36,6 +40,9 @@ homepage:
 envs:
   - PUID: 5000
   - PGID: 5000
+  - SLSKD_UPLOAD_SPEED_LIMIT: 20000
+  - SLSKD_DOWNLOAD_SPEED_LIMIT: 1000
+  - SLSKD_SHARED_DIR: /music
   - SLSKD_USERNAME: niklas
   - SLSKD_SLSK_LISTEN_PORT: 28767
   - SLSKD_DOWNLOADS_DIR: /downloads/soulseek/complete
