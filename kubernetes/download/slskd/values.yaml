@@ -34,6 +34,8 @@ homepage:
   weight: 20
 
 envs:
+  - PUID: 5000
+  - PGID: 5000
   - SLSKD_USERNAME: niklas
   - SLSKD_SLSK_LISTEN_PORT: 28767
   - SLSKD_DOWNLOADS_DIR: /downloads/soulseek/complete
