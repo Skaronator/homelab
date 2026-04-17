@@ -13,7 +13,7 @@ hostPaths:
   - name: config
     hostPath: /srv/nvme/container-data/soulsync-config
     containerPath: /app/config
-  - name: config
+  - name: data
     hostPath: /srv/nvme/container-data/soulsync-data
     containerPath: /app/data
   - name: downloads
@@ -24,8 +24,7 @@ hostPaths:
     containerPath: /app/Transfer
 
 homepage:
-  name: Sonarr
+  name: Soulsync
   group: Indexer
-  description: Serien Manager
-  icon: sonarr.svg
-  weight: 13
+  description: Musik Manager
+  weight: 18
