@@ -1,6 +1,6 @@
 image:
   repository: "boulderbadgedad/soulsync"
-  tag: "2.3"
+  tag: "2.3@sha256:0abec6a5d1af7980937e883df66a7a6fba2cbbc0f0530123abf68e5e4fccf8df"
 
 ports:
   - name: main
