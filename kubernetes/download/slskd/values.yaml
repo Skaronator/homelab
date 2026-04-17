@@ -56,7 +56,7 @@ envs:
   - SLSKD_REMOTE_FILE_MANAGEMENT: true
   # gluetun integeration
   - SLSKD_VPN: true
-  - SLSKD_VPN_PORT_FORWARDING: true
+  # - SLSKD_VPN_PORT_FORWARDING: true
   - SLSKD_VPN_POLLING_INTERVAL: 2500
   - SLSKD_VPN_GLUETUN_URL: http://localhost:8000
 
