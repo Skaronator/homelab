@@ -116,6 +116,8 @@ spec:
           - name: gluetun-health
             containerPort: 62471
         startupProbe:
+          periodSeconds: 1
+          failureThreshold: 60
           httpGet:
             port: gluetun-health
         livenessProbe:
