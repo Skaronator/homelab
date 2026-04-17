@@ -9,6 +9,12 @@ ports:
   - name: main
     containerPort: 5030
 
+health:
+  path: /health
+
+gateway:
+  host: slskd.wagner.gg
+
 hostPaths:
   - name: app
     hostPath: /srv/nvme/container-data/slskd
@@ -19,9 +25,6 @@ hostPaths:
   - name: downloads-incomplete
     hostPath: /srv/downloads/soulseek/incomplete
     containerPath: /downloads/incomplete
-
-gateway:
-  host: slskd.wagner.gg
 
 homepage:
   name: SLSKD
