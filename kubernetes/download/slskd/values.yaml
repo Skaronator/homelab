@@ -13,9 +13,12 @@ hostPaths:
   - name: app
     hostPath: /srv/nvme/container-data/slskd
     containerPath: /app
-  - name: downloads
-    hostPath: /srv/downloads/soulseek
-    containerPath: /downloads
+  - name: downloads-complete
+    hostPath: /srv/downloads/soulseek/complete
+    containerPath: /downloads/complete
+  - name: downloads-incomplete
+    hostPath: /srv/downloads/soulseek/incomplete
+    containerPath: /downloads/incomplete
 
 gateway:
   host: slskd.wagner.gg
