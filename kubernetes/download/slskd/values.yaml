@@ -13,6 +13,9 @@ hostPaths:
   - name: app
     hostPath: /srv/nvme/container-data/slskd
     containerPath: /app
+  - name: downloads
+    hostPath: /srv/downloads/soulseek
+    containerPath: /downloads
 
 gateway:
   host: slskd.wagner.gg
@@ -27,6 +30,8 @@ homepage:
 envs:
   - SLSKD_USERNAME: niklas
   - SLSKD_SLSK_LISTEN_PORT: 28767
+  - SLSKD_DOWNLOADS_DIR: /downloads/complete
+  - SLSKD_INCOMPLETE_DIR: /downloads/incomplete
 
 secretEnvs:
   - SLSKD_PASSWORD: AgBCur/aFp9bX0cfwAJA1wXIxedgjmZMd2EkDsiYV96D1g2b5vNswLK/E8yWCfRGKNSx9DB+1MT4+Bd4ReffZStTaeqOTp5AQOem8M2u2Dz47YUziNgjjMSqRl0YX2ucBmi84Tbk3f9DF99SGA1eTzOI1kblO/wDWlUKzPRqQBXL2iKM+Qx91HneA10iL+0qkKz4y/me2OyUz+OSRFsBU8qDK5NC2uGUZTXFX1erg9JJ6dYH90L4TBWc13j+TYl9NhV2vpMYHx+4P6lsuy+IjuyvFH6i4AbGOvHUys9G+/YZEMPg+rVLVL8Z1Sx+/hK8frksrpi0xF68riw5NL7du/WoCrc3RhWpN8pNc5nw6+mgHa6dysvmgHQgZX+FBEnlddsiGGvCJJmfZv+HTt8Ma1qqOLK/2Dnj96xIcsPvsGae70HYRAheJl2SIYeJdcomquE2n/C8WVRhIE7pYgn3JFC5BxEp2TbB0O+m84dfLUVASoc4YHGQa5+ePvut9VExIlf7R6bx5sBiq7SsSvi0nXOLFPXJ3w1qmJYb8sXurbdrv1ZxyVTwvk/3puDyKoCDqVO6CZ+OZTqz5skceoeJmfVQiER+d0twgD9bTikaM3g5cjjz/q1uz8Lk/Vyl+FHldN8tlh5fBt0J53vHBstSt2kUUFN643QdHtMZ4i5r09mSTcTZHW82A/U+6VQzibaz8LYBv/aGYou0o8czfDqNtxPhDy9e9wASJUTo1eBrwp6J5t6CAupsFVUbQwoL4mVlMc7C20WNChQvEzcimsG1mrF3
