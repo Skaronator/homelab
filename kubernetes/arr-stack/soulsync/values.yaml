@@ -1,0 +1,31 @@
+image:
+  repository: "boulderbadgedad/soulsync"
+  tag: "2.3"
+
+ports:
+  - name: main
+    containerPort: 8008
+
+gateway:
+  host: soulsync.wagner.gg
+
+hostPaths:
+  - name: config
+    hostPath: /srv/nvme/container-data/soulsync-config
+    containerPath: /app/config
+  - name: config
+    hostPath: /srv/nvme/container-data/soulsync-data
+    containerPath: /app/data
+  - name: downloads
+    hostPath: /srv/downloads/soulseek/complete
+    containerPath: /app/downloads
+  - name: music
+    hostPath: /srv/nvme/music
+    containerPath: /app/Transfer
+
+homepage:
+  name: Sonarr
+  group: Indexer
+  description: Serien Manager
+  icon: sonarr.svg
+  weight: 13
