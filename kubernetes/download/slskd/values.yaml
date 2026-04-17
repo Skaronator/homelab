@@ -23,3 +23,6 @@ homepage:
   description: Soulseek Client
   icon: slskd.svg
   weight: 20
+
+env:
+  - SLSKD_REMOTE_CONFIGURATION: true
