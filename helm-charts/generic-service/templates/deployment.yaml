@@ -48,7 +48,7 @@ spec:
         options:
         - name: ndots
           value: "1"
-    {{- if or .Values.hostPaths .Values.database.enabled .Values.envsubst.files .Values.initContainers }}
+    {{- if or .Values.hostPaths .Values.database.enabled .Values.envsubst.files .Values.vpn.enabled .Values.initContainers }}
       initContainers:
       {{- if .Values.initContainers }}
       {{ toYaml .Values.initContainers | nindent 6 }}
@@ -105,14 +105,25 @@ spec:
           subPath: {{ .subPath | quote }}
         {{- end }}
       {{- end }}
-      {{- end }}
-      containers:
       {{- if .Values.vpn.enabled }}
-      - name: vpn
+      - name: gluetun
         image: "{{ .Values.vpn.image.repository }}:{{ .Values.vpn.image.tag }}"
         securityContext:
           capabilities:
             add: ["NET_ADMIN"]
+        restartPolicy: Always
+        ports:
+          - name: gluetun-health
+            containerPort: 62471
+        startupProbe:
+          httpGet:
+            port: gluetun-health
+        livenessProbe:
+          httpGet:
+            port: gluetun-health
+        readinessProbe:
+          httpGet:
+            port: gluetun-health
         env:
           - name: VPN_TYPE
             value: wireguard
@@ -121,7 +132,7 @@ spec:
           - name: SERVER_COUNTRIES
             value: germany
           - name: HEALTH_SERVER_ADDRESS
-            value: 0.0.0.0:9999
+            value: 0.0.0.0:62471
           - name: VPN_SERVICE_PROVIDER
             valueFrom:
               secretKeyRef:
@@ -138,6 +149,8 @@ spec:
                 name: {{ include "generic-service.name" . }}-vpn
                 key: WIREGUARD_PRESHARED_KEY
       {{- end }}
+      {{- end }}
+      containers:
       - name: {{ include "generic-service.name" . }}
         securityContext: {{- toYaml .Values.securityContext | nindent 10 }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
