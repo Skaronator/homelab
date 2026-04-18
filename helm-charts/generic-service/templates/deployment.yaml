@@ -115,6 +115,8 @@ spec:
         ports:
           - name: gluetun-health
             containerPort: 62471
+          - name: gluetun-management
+            containerPort: 62472
         startupProbe:
           periodSeconds: 1
           failureThreshold: 60
@@ -135,6 +137,8 @@ spec:
             value: germany
           - name: HEALTH_SERVER_ADDRESS
             value: 0.0.0.0:62471
+          - name: HTTP_CONTROL_SERVER_ADDRESS
+            value: "127.0.0.1:62472"
           - name: VPN_SERVICE_PROVIDER
             valueFrom:
               secretKeyRef:
