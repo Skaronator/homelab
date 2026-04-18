@@ -115,7 +115,7 @@ spec:
         ports:
           - name: gluetun-health
             containerPort: 62471
-          - name: gluetun-management
+          - name: gluetun-mgnt
             containerPort: 62472
         startupProbe:
           periodSeconds: 1
