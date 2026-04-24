@@ -42,6 +42,9 @@ configMaps:
         - "map hidden = no"
         - "map system = no"
         - "map readonly = no"
+        # make sure inotify works
+        - "change notify = yes"
+        - "kernel change notify = yes"
       auth:
         - user: niklas
           group: samba
