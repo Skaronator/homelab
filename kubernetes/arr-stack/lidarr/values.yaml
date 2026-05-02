@@ -26,6 +26,9 @@ hostPaths:
   - name: downloads-soulseek
     hostPath: /srv/downloads/soulseek
     containerPath: /downloads/soulseek
+  - name: downloads-lucida
+    hostPath: /srv/downloads/lucida
+    containerPath: /downloads/lucida
   - name: music
     hostPath: /srv/nvme/music
     containerPath: /music
