@@ -28,7 +28,7 @@ database:
   postgresql:
     image:
       repository: "postgis/postgis"
-      tag: "17-3.5-alpine@sha256:4bb8f0bd9156c9c4dbe80056f9d8a1b9bd0cbf39465013bf5e60157ecee3c1f7"
+      tag: "17-3.5-alpine@sha256:755cc1b66e31e01a4b4db613e4975a022eb89fcba80cdb332766eb5e0d33531a"
 
 envs:
   # TODO: Switch to prod once dawarich support this
