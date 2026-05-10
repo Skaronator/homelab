@@ -1,0 +1,26 @@
+image:
+  repository: "ghcr.io/maintainerr/maintainerr"
+  tag: "3.10.2"
+
+ports:
+  - name: main
+    containerPort: 6246
+
+gateway:
+  host: maintainerr.wagner.gg
+
+envs:
+  - PUID: 5000
+  - PGID: 5000
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/maintainerr
+    containerPath: /opt/data
+
+homepage:
+  name: Maintainerr
+  group: Indexer
+  description: Media Maintainer
+  icon: maintainerr.svg
+  weight: 30
