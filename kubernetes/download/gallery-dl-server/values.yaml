@@ -44,7 +44,7 @@ command:
 
 args:
   - -c
-  - gallery-dl --config-yaml /config/config.yaml --server
+  - gallery-dl --config-yaml /config/config.yaml --server --verbose
 
 hostPaths:
   - name: downloads
