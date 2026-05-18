@@ -1,0 +1,48 @@
+image:
+  repository: "ghcr.io/skaronator/gallery-dl"
+  tag: "1.32.1@sha256:c8ec8b540040d4bce1f9b4e4d6135719f70dd7e8635d5cba03125599f1b2ed94"
+
+ports:
+  - name: main
+    containerPort: 8080
+
+gateway:
+  host: gallery-dl.wagner.gg
+
+securityContext:
+  runAsUser: 5000
+  runAsGroup: 5000
+
+configMaps:
+  - name: config
+    mountPath: /config
+    subPath: config.yaml
+    content:
+      extractor:
+        base-directory: /downloads
+        archive: /downloads/.gallery-dl/{username}_{service}.db
+        archive-event: ["file", "skip"]
+        user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+        retries: 9
+        sleep: 0
+        sleep-extractor: 0
+        sleep-429: 30
+        timeout: 60
+      downloader:
+        retries: 10
+        timeout: 60
+        rate: ["15M", "20M"]
+      output: {}
+      postprocessor: {}
+
+command:
+  - /bin/sh
+
+args:
+  - -c
+  - gallery-dl --config-yaml /config/config.yaml --server
+
+hostPaths:
+  - name: downloads
+    hostPath: /srv/downloads/gallery-dl
+    containerPath: /downloads
