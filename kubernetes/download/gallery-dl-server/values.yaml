@@ -34,13 +34,18 @@ configMaps:
         rate: ["15M", "20M"]
       output: {}
       postprocessor: {}
+      server:
+        enabled: true
+        host: 0.0.0.0
+        port: 8080
+        timeout: -1
 
 command:
   - /bin/sh
 
 args:
   - -c
-  - gallery-dl --config-yaml /config/config.yaml --server
+  - gallery-dl --config-yaml /config/config.yaml
 
 hostPaths:
   - name: downloads
