@@ -4,10 +4,10 @@ image:
 
 ports:
   - name: main
-    containerPort: 8080
+    containerPort: 64696
 
-gateway:
-  host: gallery-dl.wagner.gg
+health:
+  type: TCP
 
 securityContext:
   runAsUser: 5000
@@ -36,7 +36,7 @@ configMaps:
       postprocessor: {}
       server:
         host: 0.0.0.0
-        port: 8080
+        port: 64696
         timeout: -1
 
 command:
