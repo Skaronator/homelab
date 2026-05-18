@@ -35,7 +35,6 @@ configMaps:
       output: {}
       postprocessor: {}
       server:
-        enabled: true
         host: 0.0.0.0
         port: 8080
         timeout: -1
@@ -45,7 +44,7 @@ command:
 
 args:
   - -c
-  - gallery-dl --config-yaml /config/config.yaml
+  - gallery-dl --config-yaml /config/config.yaml --server
 
 hostPaths:
   - name: downloads
