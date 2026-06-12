@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/skaronator/lancache-dns-sync"
-  tag: "1.0.6@sha256:78c684bd96e81ec0a9cf97c3f41ae07d81d12a4cfa8192cb56e122d19c260d3e"
+  tag: "1.0.7@sha256:5781741eb08bd634c3aee849a7322ad5b7554bc1f6b8c9f2c0857628ce87ac67"
 
 schedule: "0 * * * *"
 
