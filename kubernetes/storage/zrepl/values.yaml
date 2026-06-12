@@ -20,12 +20,11 @@ configMaps:
             type: stdout
       jobs:
         - filesystems:
-            zroot<: true
-            # backup everything from hdd
             hdd<: true
-            # except root and backup
+            # except root, backup and multimedia
             hdd: false
             hdd/backup: false
+            hdd/multimedia: false
             # backup everything from nvme
             nvme<: true
             # except root and scrap-data
@@ -40,6 +39,23 @@ configMaps:
           snapshotting:
             cron: 0 * * * *
             prefix: longterm_
+            type: cron
+          type: snap
+        - filesystems:
+            # backup everything from zroot
+            zroot<: true
+            # except root and backup
+            zroot: false
+            hdd/multimedia: true
+          name: midterm
+          pruning:
+            keep:
+              - grid: 1x24h(keep=all) | 14x1d
+                regex: ^midterm_.*$
+                type: grid
+          snapshotting:
+            cron: 0 * * * *
+            prefix: midterm_
             type: cron
           type: snap
         - filesystems:
