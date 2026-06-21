@@ -6,7 +6,7 @@ ports:
   - name: main
     containerPort: 5006
 
-env:
+envs:
   - SONARR__ENABLED: true
   - SONARR__HOST: http://sonarr:8989
   - RADARR__ENABLED: true
