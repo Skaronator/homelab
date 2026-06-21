@@ -8,4 +8,4 @@ helmCharts:
   - name: generic-service
     releaseName: flaresolverr
     valuesFile: values.yaml
-    namespace: download
+    namespace: arr-stack
