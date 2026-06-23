@@ -1,6 +1,6 @@
 image:
   repository: "bitcoin/bitcoin"
-  tag: "30.2-alpine"
+  tag: "30.2-alpine@sha256:098e163aa9fd7958688a55bb9a2660d02c1b4f2701b827f4884a210569d25ba6"
 
 command:
   - "bitcoind"
