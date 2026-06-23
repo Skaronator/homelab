@@ -1,6 +1,6 @@
 image:
   repository: "kometateam/kometa"
-  tag: "v2.3.1@sha256:683c04827ef3fecf1cc5cb178f75f91f968aef6c6d89d34bc9c70966fd1d7259"
+  tag: "v2.4.2@sha256:c863bf51169ac9245273f8c1666670a35bcf3fa1df88e6e9af8722ae59f27613"
 
 schedule: "0 6 * * *"
 
