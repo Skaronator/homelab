@@ -32,9 +32,6 @@ ports:
 - name: zmqblock
   containerPort: 28333
 
-gateway:
-  host: btc.wagner.gg
-
 health:
   port: rpc
   type: TCP
