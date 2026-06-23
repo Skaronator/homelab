@@ -7,6 +7,7 @@ command:
 
 args:
   # basic
+  - "-datadir=/data"
   - "-server=1"
   - "-disablewallet=1"
   - "-txindex=1"
@@ -20,7 +21,7 @@ args:
 hostPaths:
   - name: data
     hostPath: /srv/nvme/scrap-data/bitcoin
-    containerPath: /home/bitcoin/.bitcoin
+    containerPath: /data
 
 ports: 
 - name: rpc
