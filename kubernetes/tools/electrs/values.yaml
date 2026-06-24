@@ -1,6 +1,6 @@
 image:
   repository: "mempool/electrs"
-  tag: "v3.3.0"
+  tag: "v3.3.0@sha256:de9dd2f5a328d5f464936dc4128d848f9b8bf72221ab3c9b8e2949df50899b74"
 
 args:
   - "--lightmode"
