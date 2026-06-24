@@ -1,0 +1,26 @@
+image:
+  repository: "mempool/electrs"
+  tag: "v3.3.0"
+
+args:
+  - "--lightmode"
+  - "--http-addr=0.0.0.0:3000"
+  - "--db-dir=/data"
+  - "--daemon-rpc-addr=bitcoin-node:8332"
+  - "--daemon-dir=/bitcoin"
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/scrap-data/electrs
+    containerPath: /data
+  - name: bitcoin
+    hostPath: /srv/nvme/scrap-data/bitcoin
+    containerPath: /bitcoin
+    readOnly: true
+
+ports: 
+- name: main
+  containerPort: 3000
+
+securityContext:
+  runAsUser: 5000
