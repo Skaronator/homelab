@@ -8,6 +8,7 @@ args:
   - "--db-dir=/data"
   - "--daemon-rpc-addr=bitcoin-node:8332"
   - "--daemon-dir=/bitcoin"
+  - "-v"
 
 hostPaths:
   - name: data
@@ -21,6 +22,9 @@ hostPaths:
 ports: 
 - name: main
   containerPort: 3000
+
+health:
+  type: TCP
 
 securityContext:
   runAsUser: 5000
