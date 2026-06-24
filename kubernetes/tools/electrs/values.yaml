@@ -8,7 +8,7 @@ args:
   - "--db-dir=/data"
   - "--daemon-rpc-addr=bitcoin-node:8332"
   - "--daemon-dir=/bitcoin"
-  - "-v"
+  - "-vvv"
 
 hostPaths:
   - name: data
