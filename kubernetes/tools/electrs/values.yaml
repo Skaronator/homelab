@@ -32,3 +32,4 @@ health:
 
 securityContext:
   runAsUser: 5000
+  fsGroup: 5000
