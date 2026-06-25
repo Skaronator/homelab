@@ -5,8 +5,10 @@ image:
 args:
   - "--lightmode"
   - "--http-addr=0.0.0.0:3000"
+  - "--monitoring-addr=0.0.0.0:4224"
   - "--db-dir=/data"
   - "--daemon-rpc-addr=bitcoin-node:8332"
+  - "--daemon-p2p-addr=bitcoin-node:8333"
   - "--daemon-dir=/bitcoin"
   - "-vvv"
 
@@ -22,9 +24,12 @@ hostPaths:
 ports: 
 - name: main
   containerPort: 3000
+- name: monitoring
+  containerPort: 4224
 
 health:
-  type: TCP
+  port: monitoring
+  path: /metrics
 
 securityContext:
   runAsUser: 5000
