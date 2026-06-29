@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/hotio/prowlarr"
-  tag: "release-2.4.0.5397@sha256:dbf998c023c0cc438096fcef9df6606a92e16577efd05da05f7145cc28c4850b"
+  tag: "release-2.4.0.5397@sha256:cda3abd9a35cf248f5cd8446f07d91936282e7a1be1a8a8e59b3ce34a64ba5ec"
 
 ports:
   - name: main
