@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/immich-app/immich-server"
-  tag: "v2.7.5@sha256:c15bff75068effb03f4355997d03dc7e0fc58720c2b54ad6f7f10d1bc57efaa5"
+  tag: "v3.0.2@sha256:14390f3dc9512dc3273b12ccee6363d9be16c388699abc3f3fe0498bb9829937"
 
 hostPaths:
   - name: data
