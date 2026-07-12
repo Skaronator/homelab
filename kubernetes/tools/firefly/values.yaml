@@ -22,7 +22,7 @@ homepage:
   group: Organization
   description: Personal Finance Manager
   icon: firefly
-  weight: 1
+  weight: 2
 
 envs:
   - APP_ENV: local
