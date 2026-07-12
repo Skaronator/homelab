@@ -1,0 +1,26 @@
+image:
+  repository: "fireflyiii/data-importer"
+  tag: "version-2.3.4"
+
+ports:
+  - name: main
+    containerPort: 8080
+
+gateway:
+  host: firefly-import.wagner.gg
+
+health:
+  path: /
+
+homepage:
+  name: Firefly III Importer
+  group: Organization
+  description: Data Importer for Firefly III
+  icon: firefly
+  weight: 2
+
+envs:
+  - TRUSTED_PROXIES: "**"
+  - FIREFLY_III_URL: https://firefly.wagner.gg
+  - VANITY_URL: https://firefly-import.wagner.gg
+  - FIREFLY_III_CLIENT_ID: 019f56a4-7aaf-73dc-ab14-a3b2bae5cfc4
