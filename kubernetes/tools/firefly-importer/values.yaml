@@ -10,7 +10,7 @@ gateway:
   host: firefly-import.wagner.gg
 
 health:
-  path: /
+  path: /health
 
 homepage:
   name: Firefly III Importer
