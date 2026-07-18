@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/maintainerr/maintainerr"
-  tag: "3.17.1@sha256:95e429451ea45380430d260450ab301eed9ce91fbcba5f94cf8507bd0bac0d08"
+  tag: "3.18.0@sha256:e241b40eac91efbee5fa7435ccb24d6e1b4d6c90b05c23c2fc17c62f3dcd8b3c"
 
 ports:
   - name: main
