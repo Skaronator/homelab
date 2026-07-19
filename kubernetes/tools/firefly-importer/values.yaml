@@ -23,4 +23,4 @@ envs:
   - TRUSTED_PROXIES: "**"
   - FIREFLY_III_URL: http://firefly:8080
   - VANITY_URL: https://firefly.wagner.gg
-  - FIREFLY_III_CLIENT_ID: 019f7479-172c-71f4-adcb-0e53a80575dc
+  - FIREFLY_III_CLIENT_ID: 019f7995-2373-72db-b416-127602dd8ddb
