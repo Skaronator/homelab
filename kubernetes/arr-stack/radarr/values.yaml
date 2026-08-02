@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/hotio/radarr"
-  tag: "release-6.3.0.10514@sha256:4b334f33ae74337668b7c8a4ce1ff6b3e1a8b1e298812c6113ee4ad7e19fbaee"
+  tag: "release-6.3.0.10514@sha256:37b499735d8e915f47548a1a7d1af7998892fd6749855b43086f05fb2f277801"
 
 ports:
   - name: main
