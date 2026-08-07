@@ -64,7 +64,7 @@ configMaps:
           - id: oidc
             strategy: openid_connect
             name: openid_connect
-            label: Sign in with Pocket ID
+            label: Sign in with Pocket ID2
             icon:  key
 
       development:
