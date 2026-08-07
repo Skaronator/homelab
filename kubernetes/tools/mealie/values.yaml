@@ -21,8 +21,7 @@ envs:
   - OIDC_CONFIGURATION_URL: https://id.wagner.gg/.well-known/openid-configuration
   - OIDC_CLIENT_ID: feb51284-6130-411d-a68d-99eb4f11260a
   - OIDC_PROVIDER_NAME: Pocket ID
-  - OIDC_ADMIN_GROUP: admin
-  - OIDC_USER_GROUP: mealie
+  - OIDC_ADMIN_GROUP: niklas
   - SMTP_HOST: smtp.migadu.com
   - SMTP_PORT: 587
   - SMTP_AUTH_STRATEGY: tls
