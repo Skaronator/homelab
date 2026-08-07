@@ -11,6 +11,9 @@ ports:
   - name: main
     containerPort: 3000
 
+health:
+  path: /up
+
 gateway:
   host: sure.wagner.gg
 
