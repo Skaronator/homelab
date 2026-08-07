@@ -46,3 +46,33 @@ homepage:
   description: Personal Finance Manager
   icon: sure
   weight: 4
+
+configMaps:
+  - name: auth
+    mountPath: /rails/config
+    subPath: auth.yml
+    content:
+      default: &default
+        local_login:
+          enabled: <%= ENV.fetch("AUTH_LOCAL_LOGIN_ENABLED", "true") == "true" %>
+          admin_override_enabled: <%= ENV.fetch("AUTH_LOCAL_ADMIN_OVERRIDE_ENABLED", "false") == "true" %>
+
+        jit:
+          mode: <%= ENV.fetch("AUTH_JIT_MODE", "create_and_link") %>
+          allowed_oidc_domains: <%= ENV.fetch("ALLOWED_OIDC_DOMAINS", "") %>
+
+        providers:
+          - id: "oidc"
+            strategy: "openid_connect"
+            name: "openid_connect"
+            label: <%= ENV.fetch("OIDC_BUTTON_LABEL", "") %>
+            icon:  <%= ENV.fetch("OIDC_BUTTON_ICON", "key") %>
+
+      development:
+        <<: *default
+
+      test:
+        <<: *default
+
+      production:
+        <<: *default
