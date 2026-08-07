@@ -1,0 +1,42 @@
+image:
+  repository: "ghcr.io/we-promise/sure"
+  tag: "0.7.4-alpha.2"
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/sure
+    containerPath: /rails/storage
+
+ports:
+  - name: main
+    containerPort: 3000
+
+gateway:
+  host: sure.wagner.gg
+
+database:
+  enabled: true
+  type: postgresql
+  hostPath: /srv/nvme/container-data/sure-db
+  rootPassword: AgA6RHUWFqAmPGlsuSbHuo07su+f5UNaqgiXn7/blzPRE8I0FUwioGa4JfkDCVhsv+tyO8RVnJ7RdnJFL2fWA9VoU1MVadkG0GSi3xu1+jrV3GaTRKPeac37heDinR8kcDbWaMyI/l3+ACUSXVqvxpjdjbsIMwnBYQQPoF1b/Qcj+3Rjk8fWNfg7LFQxoezfIIr5KkHUy3Yc48Z7RUz+LHlaxyLTNCczj67ToKQ5f/a3fLnPRA8SkDyDK+FB39lx1BGeo8zxPWPRsR6YWHwpCxUyb5goKDm/tWHM5dU/ojPsKGwmjw3xQRHYN1R2c/UzU1s3xzJiD+uoV+BNAnI/xCWgCB9pBr18qaqEMzKwt84a5cIOTlyWE+WZ/EBsc+cx5bSxQmKotmU6qXza0i53wo3SdFBVravQzv7YZhGHv08iI0HAC5xWPLWqtGNcXmLy/rceqDWauaZncGZnf91WCBqHg6p869TutHkrLCoqWW78ZswXsrBeiRsuW2zWPC2fgqyVLACbJOU1ePQX2tsvQQGZT6L/1IdohQAcNczD/OkJt7v2UiQ9cnaZgu5LkpgvwTiKfcTcniZAHmxU/W8Er5lQPqTJcLvL/LBoqCSchZm+H1YHz9TmconMow+cXDsvwh2S66lRa3LWZt+z0+hQQinlPfXUfYwKT27KwgBTihxwQgqzDsONKCavPsf6/wH1NzsPk8d/ztuC9iqBTGRND2KDN4a6/AAThMdBA05JMWF+73h8javPUiIqO1o8UytPHXq+tNzxjFwMhkY1grVD1DdN
+
+envs:
+  - REDIS_URL: redis://sure-redis:6379
+  - DB_HOST: $(TEMPLATE_DB_HOST)
+  - DB_PORT: $(TEMPLATE_DB_PORT)
+  - POSTGRES_USER: $(TEMPLATE_DB_USERNAME)
+  - POSTGRES_PASSWORD: $(TEMPLATE_DB_PASSWORD)
+  - POSTGRES_DB: $(TEMPLATE_DB_DATABASE)
+  - SELF_HOSTED: "true"
+  - RAILS_FORCE_SSL: "false"
+  - RAILS_ASSUME_SSL: "false"
+
+secretEnvs:
+  - SECRET_KEY_BASE: AgDETDFRFGld8qwlc0PdCWBUWwGTxlsdtHrs9QpoW3oNFG65m3DOlqNj/NC+lWjIZXlFZPWBE7Jt2FmE7dXDBVZZ53PgwcnKpaB78vJBUlRkcrQEdix52c1qfpddQHb9+cAzcPWlJNaaiDjq2WTPrjKAbPrHScKOUp/lLCAxbb7rRGmxnn4C5xo7seBgnTcfGO0vMepqMFM2sJMpqBmaK7M+s32JWyj5hF6dt7Xe5k+JYxMJvHUGLQgVBJquqz4jA3q5AMCFp9sEbvhoxqQibU/Xvh3aAGTzahqlooEflklya1BS8BECjKXVrU5b7Xz449/0WtKW3aFuA5+W3NlskShA3Dtso2G0Mtg36xIlar6ImUvFMUJ2NCP65Yk2x6KCA20CzlUlrvMN/6cejkDp+I8NOUvPTHSP6Zwizfy+CKy0COEttlFr5ZKUG9QXfRwiZQm7Uw7iJTND/W2CT22Kn7BAPCoBpQ4PMaaoY/yo320xldjP+lowSJovMA2nqr9CWZHkjy6aBbLaq+o6xUEbPdJmL+UJWdIwI199ymmGFgIdg5eZImlpdj7zNJXQbiWXvvZb2k2Mfuue9VaUqyOowlY/Ktgta48IO7eF5ou3QWQrLapOcCHOkN9a9Hj7M+F69M5MGcB+LMKQuHO+8AW005BF4htdVhRsN2xTtdPZQ49N95mgLaGkObczc1buqSfsILXnICarc919Vq+yTp2EumZej4zo/CAntFhBiuIA+zXmzlhB5GZsNIXIDRiUyIqYtrAwjJTModsJDN4BlGdjDg2C
+
+homepage:
+  name: Sure
+  group: Personal & Finance
+  description: Personal Finance Manager
+  icon: sure
+  weight: 4
