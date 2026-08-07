@@ -8,7 +8,18 @@ config:
     mode: cluster
     gateway: true
   services:
-    - "Smart Home":
+    - "Security & Identity":
+        - Unifi Gateway:
+            description: Firewall
+            href: https://192.168.0.1/network/default/dashboard
+            icon: unifi.svg
+            weight: 3
+        - AdGuard Home:
+            description: DNS Server
+            href: http://192.168.0.2
+            icon: adguard-home.svg
+            weight: 4
+    - "Home & Utilities":
         - "Home Assistant":
             description: Smart Home
             href: http://ha.wagner.gg
@@ -18,24 +29,7 @@ config:
             description: Robotic Vacuum
             href: http://192.168.0.11
             icon: valetudo.svg
-            weight: 5
-    - Network:
-        - Unifi Gateway:
-            description: Firewall
-            href: https://192.168.0.1/network/default/dashboard
-            icon: unifi.svg
-            weight: 1
-        - AdGuard Home:
-            description: DNS Server
-            href: http://192.168.0.2
-            icon: adguard-home.svg
             weight: 2
-    - Server:
-        - Portainer:
-            description: Pi Container Management
-            href: https://192.168.0.2:9443
-            icon: portainer.svg
-            weight: 30
     - Media:
         - Plex:
             app: plex
@@ -43,27 +37,33 @@ config:
             href: https://app.plex.tv/desktop
             icon: plex.svg
             namespace: media
-            weight: 5
+            weight: 1
+    - Infrastructure:
+        - Portainer:
+            description: Pi Container Management
+            href: https://192.168.0.2:9443
+            icon: portainer.svg
+            weight: 2
   settings:
     color: neutral
     hideVersion: true
     iconStyle: theme
     layout:
-      - Cloud:
-          icon: mdi-cloud
-      - Organization:
-          icon: mdi-file-document-multiple-outline
-      - Smart Home:
+      - Security & Identity:
+          icon: mdi-shield-lock-outline
+      - Personal & Finance:
+          icon: mdi-cash-multiple
+      - Home & Utilities:
           icon: mdi-home-outline
-      - Network:
-          icon: mdi-lan
+      - Files & Docs:
+          icon: mdi-folder-multiple-outline
       - Media:
           icon: mdi-filmstrip-box
-      - Indexer:
+      - Manager:
           icon: mdi-download-multiple
-      - Downloader:
+      - Downloads:
           icon: mdi-download-outline
-      - Server:
+      - Infrastructure:
           icon: mdi-server
     target: _self
     theme: dark

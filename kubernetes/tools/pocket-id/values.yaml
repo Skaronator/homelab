@@ -39,7 +39,7 @@ gateway:
 
 homepage:
   name: Pocket ID
-  group: Cloud
+  group: Security & Identity
   description: OIDC Provider
   icon: pocket-id.svg
-  weight: 15
+  weight: 2

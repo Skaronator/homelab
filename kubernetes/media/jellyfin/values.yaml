@@ -40,4 +40,4 @@ homepage:
   group: Media
   description: Media Center
   icon: jellyfin.svg
-  weight: 10
+  weight: 2

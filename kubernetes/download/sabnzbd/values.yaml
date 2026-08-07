@@ -23,7 +23,7 @@ hostPaths:
 
 homepage:
   name: SABnzbd
-  group: Downloader
+  group: Downloads
   description: Usenet Downloader
   icon: sabnzbd.svg
-  weight: 3
+  weight: 2

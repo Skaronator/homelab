@@ -20,7 +20,7 @@ hostPaths:
 
 homepage:
   name: Maintainerr
-  group: Indexer
+  group: Manager
   description: Media Maintainer
   icon: maintainerr.svg
-  weight: 30
+  weight: 5

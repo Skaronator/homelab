@@ -29,7 +29,7 @@ hostPaths:
 
 homepage:
   name: Sonarr
-  group: Indexer
+  group: Manager
   description: Serien Manager
   icon: sonarr.svg
-  weight: 13
+  weight: 2

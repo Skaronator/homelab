@@ -32,7 +32,7 @@ hostPaths:
 
 homepage:
   name: Radarr
-  group: Indexer
+  group: Manager
   description: Movie Manager
   icon: radarr.svg
-  weight: 12
+  weight: 3

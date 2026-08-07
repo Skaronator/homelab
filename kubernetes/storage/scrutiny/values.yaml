@@ -52,7 +52,7 @@ hostPaths:
 
 homepage:
   name: Scrutiny
-  group: Server
+  group: Infrastructure
   description: HDD and SSD Health Dashboard
   icon: scrutiny.svg
-  weight: 10
+  weight: 3

@@ -14,7 +14,7 @@ health:
 
 homepage:
   name: Firefly III Importer
-  group: Organization
+  group: Personal & Finance
   description: Data Importer for Firefly III
   icon: firefly
   weight: 3

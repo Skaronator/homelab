@@ -20,7 +20,7 @@ gateway:
 
 homepage:
   name: Radicale
-  group: Organization
+  group: Files & Docs
   description: Lightweight CalDAV+CardDAV server
   icon: radicale.png
-  weight: 30
+  weight: 3

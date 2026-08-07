@@ -35,7 +35,7 @@ secretEnvs:
 
 homepage:
   name: Mealie
-  group: Organization
+  group: Personal & Finance
   description: Rezept Manager
   icon: mealie.svg
-  weight: 35
+  weight: 5

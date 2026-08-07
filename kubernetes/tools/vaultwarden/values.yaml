@@ -24,7 +24,7 @@ gateway:
 
 homepage:
   name: Vaultwarden
-  group: Cloud
+  group: Security & Identity
   description: Password Manager
   icon: bitwarden.svg
   weight: 1

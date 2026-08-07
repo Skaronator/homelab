@@ -33,10 +33,10 @@ securityContext:
 
 homepage:
   name: Transmission
-  group: Downloader
+  group: Downloads
   description: Torrent Downloader
   icon: transmission.svg
-  weight: 2
+  weight: 1
 
 envs:
   - PUID: 5000

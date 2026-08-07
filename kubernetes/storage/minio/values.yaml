@@ -18,10 +18,10 @@ args:
 
 homepage:
   name: MinIO
-  group: Cloud
+  group: Infrastructure
   description: Object Storage
   icon: minio.svg
-  weight: 60
+  weight: 4
 
 envs:
   - MINIO_ROOT_USER: niklas

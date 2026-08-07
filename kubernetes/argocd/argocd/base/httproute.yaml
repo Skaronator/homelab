@@ -3,7 +3,7 @@ kind: HTTPRoute
 metadata:
   annotations:
     gethomepage.dev/enabled: "true"
-    gethomepage.dev/group: Server
+    gethomepage.dev/group: Infrastructure
     gethomepage.dev/name: ArgoCD
     gethomepage.dev/description: Kubernetes Deployments
     gethomepage.dev/icon: argo-cd.svg

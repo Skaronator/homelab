@@ -41,10 +41,10 @@ hostPaths:
 
 homepage:
   name: SLSKD
-  group: Downloader
+  group: Downloads
   description: Soulseek Client
   icon: slskd.svg
-  weight: 20
+  weight: 3
 
 envs:
   - SLSKD_UPLOAD_SPEED_LIMIT: 20000

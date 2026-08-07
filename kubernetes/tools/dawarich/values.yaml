@@ -63,7 +63,7 @@ args:
 
 homepage:
   name: Dawarich
-  group: Cloud
+  group: Home & Utilities
   description: Da war ich wirklich!
   icon: dawarich.svg
-  weight: 70
+  weight: 3

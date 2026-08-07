@@ -14,7 +14,7 @@ homepage:
   group: Media
   description: Plex Statistic Board
   icon: tautulli.svg
-  weight: 25
+  weight: 4
 
 hostPaths:
   - name: config

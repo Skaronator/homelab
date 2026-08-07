@@ -11,10 +11,10 @@ gateway:
 
 homepage:
   name: Speedtest
-  group: Cloud
+  group: Home & Utilities
   description: Local Speedtest
   icon: openspeedtest.png
-  weight: 55
+  weight: 4
 
 envs:
   - MODE: standalone

@@ -35,7 +35,7 @@ hostPaths:
 
 homepage:
   name: Lidarr
-  group: Indexer
+  group: Manager
   description: Music Manager
   icon: lidarr.svg
-  weight: 11
+  weight: 4

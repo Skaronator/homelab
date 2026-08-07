@@ -27,10 +27,10 @@ envs:
 
 homepage:
   name: Syncthing
-  group: Cloud
+  group: Files & Docs
   description: Syncing files
   icon: syncthing.svg
-  weight: 40
+  weight: 1
 
 hostPaths:
   - name: config
