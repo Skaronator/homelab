@@ -34,6 +34,7 @@ envs:
   - OIDC_ISSUER: https://id.wagner.gg
   - OIDC_CLIENT_ID: 39704c91-f38f-412a-a706-30a816876d7b
   - OIDC_REDIRECT_URI: https://sure.wagner.gg/auth/openid_connect/callback
+  - OIDC_BUTTON_LABEL: Sign in with Pocket ID
   - AUTH_PROVIDERS_SOURCE: yaml
 
 secretEnvs:
@@ -46,32 +47,3 @@ homepage:
   description: Personal Finance Manager
   icon: sure
   weight: 4
-
-configMaps:
-  - name: auth
-    mountPath: /rails/config
-    subPath: auth.yml
-    content:
-      default: &default
-        local_login:
-          enabled: false
-          admin_override_enabled: false
-
-        jit:
-          mode: create_and_link
-
-        providers:
-          - id: oidc
-            strategy: openid_connect
-            name: openid_connect
-            label: Sign in with Pocket ID2
-            icon:  key
-
-      development:
-        <<: *default
-
-      test:
-        <<: *default
-
-      production:
-        <<: *default
