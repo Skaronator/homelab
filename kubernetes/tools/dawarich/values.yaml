@@ -50,8 +50,8 @@ envs:
   - OIDC_REDIRECT_URI: https://dawarich.wagner.gg/users/auth/openid_connect/callback
   - OIDC_PROVIDER_NAME: Pocket ID
   - OIDC_PKCE_ENABLED: true
-  # - ALLOW_EMAIL_PASSWORD_REGISTRATION: false
-  # - ALLOW_EMAIL_PASSWORD_LOGIN: false
+  - ALLOW_EMAIL_PASSWORD_REGISTRATION: false
+  - ALLOW_EMAIL_PASSWORD_LOGIN: false
   - SMTP_SERVER: smtp.migadu.com
   - SMTP_PORT: 587
   - SMTP_DOMAIN: wagner.gg
