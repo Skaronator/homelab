@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/we-promise/sure"
-  tag: "0.7.4-alpha.2"
+  tag: "0.7.4-alpha.2@sha256:b9f12857933dda730165e737495b357e53bab78e59bdcc853e0d65d8954b7ea5"
 
 hostPaths:
   - name: data
