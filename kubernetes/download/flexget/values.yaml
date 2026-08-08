@@ -43,12 +43,12 @@ configMaps:
     mountPath: /tmp-config
     subPath: config.yml
     content:
-      schedules:
-        - interval:
-            jitter: 60
-            minutes: 10
-          tasks:
-            - rss
+      schedules: []
+        # - interval:
+        #     jitter: 60
+        #     minutes: 10
+        #   tasks:
+        #     - rss
       tasks:
         rss:
           accept_all: true
