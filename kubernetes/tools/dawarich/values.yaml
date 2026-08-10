@@ -28,7 +28,7 @@ database:
   postgresql:
     image:
       repository: "postgis/postgis"
-      tag: "17-3.5-alpine@sha256:978a2e6671c956d650d1f240dba7c73b8519a5f5af8685165fca616cc4ae3568"
+      tag: "17-3.5-alpine@sha256:61cb994f576480f5736974e5c9aff965d039d965301bcaec9c7ea72f94b61908"
 
 envs:
   - RAILS_ENV: production
