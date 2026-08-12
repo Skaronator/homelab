@@ -1,0 +1,40 @@
+image:
+  repository: "ghcr.io/skaronator/cmst-dl"
+  tag: "0.0.0-snapshot-dd77f39-amd64"
+
+securityContext:
+  runAsUser: 5000
+  runAsGroup: 5000
+  
+ports:
+  - name: main
+    containerPort: 8080
+
+health:
+  path: /health
+
+gateway:
+  host: cmst-dl.wagner.gg
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/cmst-dl
+    containerPath: /data
+  - name: downloads
+    hostPath: /srv/hdd/pp/cmst-dl
+    containerPath: /downloads
+
+homepage:
+  name: cmst-dl
+  group: Downloads
+  description: CMST Download Client
+  icon: synology-download-station.png
+  weight: 6
+
+envs:
+  - CMST_KINDS: video
+  - CMST_VIDEO_MIN_DURATION: 5m
+
+secretEnvs:
+  - CMST_USERNAME: AgBlqoPKyUHbGdRbNeaWUZrRW2rNhh/480k3sU315ObyB9y0k2W40XMyAZZh/c8i8hy+08VHycsGFKxQ+zErbvqmCSHmqbyeHQdz4TzMU+OB7QC+kBn0x4JJOTPpd3slQhgSEL6y1CKh5/b2EhD7pD8oO9bNx5n6AGchYx6PQ1H0XxgukWEB3op3bCGK9dfiJcrOWiVG/opRqahIZHPO/hZV9Tq3JbW26pPIoLD0MJrNb9hxflkntfBheXh28BQ9foeEgPlGveXKUm2HMM6wLo8+pfi/zoFtKQH84iFGOJmcxG9sihZPMUkxJEvuQT1FaYy3O+B3+9mFzhWLWYVsyFPsiZo9PYLRuxqV+gwUPMj7YPeyluOsLfBUbmNwWwJ3ujtWHogGSd6KS6AshCXz9SSeZlCCJZEd90ijPg+sTp7KUvzOiJ/ahFltAUHsYQCYOeuGpTHXJPyOnHwZ42Ya4aWL8x/No/9E8xLJl+j0IeWsMt6eVXDQ9zeez3cl3B82etTPSy1Yp5BAgwvu/yP0bw8yRurdXrb3XNOxMkMb0ySfUFrXvs1HnZdjeucwxeYyIbewD9aYFE/gZpPWMqk9o1RzOOAXV+LU0f46pXRiG/vSDZDb+Xs7q964z4VnPQgvT+B15e8SIhfJFKZeUagWtVpQhoEpiWChIFLIrgeSlhZ0QCIQYuqKhC9BIY5Myi9XsuM1a30lGAMwjOw=
+  - CMST_PASSWORD: AgATWduT+iceBhxozIxbuYGePnYPJHMFDyasiwgvQ33ziaFvKc9A6b92fqzGhj0GtSRDi6tgEboRje7wRcab4htn+wp4+nmcCD6AqRmXnBe6nfpBVRIJLvkOrrQGQBvWGNp0MoYnZunSz0AKLCtHN41GTtfXJ5FzJQgZDPENnK7NWx+eM4W97YuuKvI0gDAUoCNuByXUjbNzCsrOHmxw0nRK+GfeFB/3wnv2tl4wSgBH49TIbTOD5UfPtd9FZI3w0QE24x/pHUZwdnLOK34+eKlmaNSHZVpT+ctcyaHT5M5PYf3L4n+ZKBmlJQVNAmokt1VnkU+UY/preGdMj7D4u9rMLAxK9PPtgGGeH0CtXPT1Hs6Asa8LhUc7YMMC5kWY7V9YibQGad29MgJQewROVOs/OkM15SHiBMwyLo1zukb8MU3R/X4VQcB0KqOBfBVlHOceEMaB3CP+VPrxzjoCE9j4EuM7NNyPaniyGJ4yUAcWaIoXuA3HmDiZeM6zSF/hmPJKFFuao8DdtQvRI4mBaR91QBJALLmRcQGLu4wpdeZANpbsvIzYTnRinVRNHYHqI/6DjBpDtYrKIxXFxn1yStW4PWfi2MjVyEF5z3TT7H7GwtUrJEWGs/rYRGj7v820KsW8hiHZkU80xN6tlX5moJ8HGdr4SIEwNwX3jQoDD+h9jPGqDevr0VLxOfKf4ugdwy+AcgK/tk4VHh5o+wuO/9YHYyn3ry76VFb1tXwUIDPbc0nAMKK6CVWBJw+P1pH5SgEc2o0rmWL3Ka4zjZEPqUkr
