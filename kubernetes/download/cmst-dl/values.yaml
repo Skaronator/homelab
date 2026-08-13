@@ -5,7 +5,9 @@ image:
 securityContext:
   runAsUser: 5000
   runAsGroup: 5000
-  
+
+replicas: 0
+
 ports:
   - name: main
     containerPort: 8080
