@@ -1,12 +1,10 @@
 image:
   repository: "ghcr.io/skaronator/cmst-dl"
-  tag: "0.0.0-snapshot-dd77f39-amd64@sha256:ac7bd1166705bf828a46d00c9d136fab7405eb726b243745d685e8b9df3724e4"
+  tag: "1.0.0"
 
 securityContext:
   runAsUser: 5000
   runAsGroup: 5000
-
-replicas: 0
 
 ports:
   - name: main
