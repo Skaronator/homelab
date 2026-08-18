@@ -1,6 +1,6 @@
 image:
   repository: "freikin/dawarich"
-  tag: "1.12.2@sha256:41372c4084737133765b0a3067e648cff9fc4af23e2054717e4e01c4f0933609"
+  tag: "1.13.0@sha256:751afca44dcd312419cd1d385a4f6607a21ed281d95f88ceb8d7374a794c0d3f"
 
 hostPaths:
   - name: public
