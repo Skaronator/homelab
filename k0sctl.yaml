@@ -4,7 +4,7 @@ metadata:
   name: tardis
 spec:
   k0s:
-    version: v1.36.3+k0s.2
+    version: v1.36.4+k0s.0
     config:
       spec:
         network:
