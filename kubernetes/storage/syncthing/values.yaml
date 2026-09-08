@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/syncthing/syncthing"
-  tag: "2.1.3@sha256:8c8ff37ab6aa8be23b700648a90fa9412e214852e9fd6ea8477c8334792daec0"
+  tag: "2.1.4@sha256:87b076824ee335f1657ab276a94f282bc7ef9576a06524c4ffd9b430fd7d62cc"
 
 ports:
   - name: main
