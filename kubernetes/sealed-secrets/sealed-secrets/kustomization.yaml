@@ -3,7 +3,7 @@ kind: Kustomization
 
 helmCharts:
   - name: sealed-secrets
-    version: 2.19.3
+    version: 2.20.0
     releaseName: sealed-secrets
     repo: https://bitnami.github.io/sealed-secrets
     includeCRDs: true
