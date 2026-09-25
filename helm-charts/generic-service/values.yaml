@@ -138,7 +138,7 @@ helper:
 wait4x:
   image:
     repository: wait4x/wait4x
-    tag: "3.7.1@sha256:4168ec1328e4fa51b82f7d601c18813b5e4aa85d0eda237cf3501b4ddd70d2c5"
+    tag: "3.7.2@sha256:2337e64637e1aa9d5d638de6d877914806be6c5156a7221ea40f11911ea4071a"
 
 vpn:
   image:
