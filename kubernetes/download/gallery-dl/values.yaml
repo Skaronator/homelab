@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/skaronator/gallery-dl"
-  tag: "1.32.13@sha256:2d2e0cbae3742b946dc2156e25b2d9e87088be7a1e37a3a1575dfbecc26bd725"
+  tag: "1.32.15@sha256:4e6f0aff4cec99456a9ee0bc0d74dbefa678fd7efaf803a3480c5cacfa7f1548"
 
 schedule: "0 2 * * *"
 
