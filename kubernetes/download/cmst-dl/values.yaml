@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/skaronator/cmst-dl"
-  tag: "1.11.2@sha256:48a4f72046c25dfaec9eb86b33fc3a183a3fba1222bc260f4aca03f4510f6af2"
+  tag: "1.11.3@sha256:fea19b4cceff3fcdf9b8f967d46234d9c2682b121b84d7ff7e6961f491405a2a"
 
 securityContext:
   runAsUser: 5000
