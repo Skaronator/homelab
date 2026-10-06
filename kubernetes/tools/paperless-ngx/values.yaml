@@ -35,6 +35,7 @@ envs:
   - PAPERLESS_TIKA_ENABLED: 1
   - PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://paperless-gotenberg:3000
   - PAPERLESS_TIKA_ENDPOINT: http://paperless-tika:9998
+  - PAPERLESS_LOGLEVEL: DEBUG
   # config
   - PAPERLESS_URL: https://paperless.wagner.gg
   - PAPERLESS_PRE_CONSUME_SCRIPT: /scripts/ocr-decrypt.sh
