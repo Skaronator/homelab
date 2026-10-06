@@ -13,12 +13,14 @@ hostPaths:
     hostPath: /srv/nvme/scanner/paperless
     containerPath: /usr/src/paperless/consume
 
+securityContext:
+  runAsUser: 5002
+  runAsGroup: 5000
+  runAsNonRoot: true
+
 ports:
   - name: main
     containerPort: 8000
-
-health:
-  startupProbeFailureThreshold: 90
 
 gateway:
   host: paperless.wagner.gg
@@ -44,8 +46,6 @@ envs:
   - PAPERLESS_CONSUMER_SUBDIRS_AS_TAGS: true
   - PAPERLESS_TIME_ZONE: $(TZ)
   - PAPERLESS_FILENAME_FORMAT: "{{created_year}}/{{created_month}}/{{correspondent}}/{{title}}"
-  - USERMAP_UID: 5002
-  - USERMAP_GID: 5000
   # OCR
   - PAPERLESS_OCR_LANGUAGE: deu+eng
   - PAPERLESS_OCR_OUTPUT_TYPE: pdfa-3
