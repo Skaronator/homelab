@@ -9,8 +9,6 @@ ports:
 gateway:
   host: rr.wagner.gg
 
-replicas: 0
-
 envs:
   - PORT: 3000
   - APP_URL: https://rr.wagner.gg
