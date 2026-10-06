@@ -19,6 +19,7 @@ spec:
         {{- include "database.selectorLabels" . | nindent 8 }}
     spec:
       serviceAccountName: {{ include "database.name" . }}
+      enableServiceLinks: false
       terminationGracePeriodSeconds: 120
       dnsConfig:
         options:
