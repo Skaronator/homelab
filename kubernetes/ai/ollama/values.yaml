@@ -1,0 +1,15 @@
+image:
+  repository: "ollama/ollama"
+  tag: "0.40.2"
+
+ports:
+  - name: main
+    containerPort: 11434
+
+health:
+  path: /api/tags
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/ollama
+    containerPath: /root/.ollama
