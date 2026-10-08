@@ -4,10 +4,10 @@ image:
 
 ports:
   - name: main
-    containerPort: 3000
+    containerPort: 8080
 
 health:
-  path: /
+  path: /health
 
 gateway:
   host: chat.wagner.gg
