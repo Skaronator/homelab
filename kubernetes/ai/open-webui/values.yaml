@@ -16,3 +16,30 @@ hostPaths:
   - name: data
     hostPath: /srv/nvme/container-data/open-webui
     containerPath: /app/backend/data
+
+envs:
+  - ENABLE_OAUTH_SIGNUP: true
+  - OAUTH_CLIENT_ID: 4e54cd8f-f2f7-476c-9b01-8c53495eea10
+  - OAUTH_PROVIDER_NAME: Pocket ID
+  - OPENID_PROVIDER_URL: https://id.wagner.gg/.well-known/openid-configuration
+  - OAUTH_MERGE_ACCOUNTS_BY_EMAIL: true
+  - ENABLE_OAUTH_ROLE_MANAGEMENT: true
+  - ENABLE_OAUTH_GROUP_MANAGEMENT: true
+  - ENABLE_OAUTH_GROUP_CREATION: true
+  - OAUTH_ALLOWED_ROLES: niklas
+  - OAUTH_ADMIN_ROLES: niklas
+  - OAUTH_ROLES_CLAIM: groups
+  - OAUTH_SCOPES: openid email profile groups
+  - DEFAULT_USER_ROLE: user
+  - ENABLE_LOGIN_FORM: false
+  - OAUTH_UPDATE_PICTURE_ON_LOGIN: true
+
+secretEnvs:
+  - OAUTH_CLIENT_SECRET: AgAFUol2CJbv2y5llk6SShBgpJ4cZ39nHmt2jsHRT5c4NvSB2aCUuF88W9brN7FiVrsm7nQkbYicj75uw4hy53dM+d1nrgk6dLK3SveYu+EZ7/b9wuWBfINK9c7KjhaaXKKfiYR9gCE7Y36BYtPr8p67bupbsm2RP/WeIYSSWscqN7x3rMrrCyDXWL3IacE5gyICAGjhfFN1ksS4SNiLUGfO868uX4FsnNnW4k4pNLS8unc5PMRBIDulNC8bvqOEDDOIdd1/XPDKOiE6tnZ13vEUNS9BGb+OYkYOSvXgny4bWK8WjG/gB1JKAHBImb3OgVCVPz5f1swRIU8kr0te5iCf3gPEAPj2qYL9rnHnMVkwdF955Qc8muo2P69i4XH2jpsc/ZmfcA2Fxg7lUpKRtMZdPesJTJio2Vs8vdQ2Q8Hii1MGxcFJyx5jeoCaLQ9C3xl1hr2+XBKgDlr1YElcbbi4t1SPtzeMsPv99VuKsOJBsebP34CbKxAp3apYmmD8neMLEPMJjbDiWYfhzAVORV3m9TjA5kVMRFmEwwGcEx82bErTpTIofuCdMlel5Diz00fb+sLL+bfUmpX9YtynXThduxUKrgDyoxaxdr02U8WXol/O19HxKjMOxti1s10kL3fx/cPAGvvY4ufkg8jC0x3fco8klHSPexOPjZ34B/HkifN3sCMav9PxlcXwwqrDhQMghbRESWg8TDwYeLzlpgTo7GhW8V1nK0JWx3Hp9VUNmA==
+
+homepage:
+  name: Open WebUI
+  group: Home & Utilities
+  description: LLM Chat Interface
+  icon: open-webui.svg
+  weight: 1
