@@ -1,6 +1,6 @@
 image:
   repository: "tomsquest/docker-radicale"
-  tag: "3.8.1.1@sha256:e6d8c17bc4d75f3fd40e52b20421ba244c17ca08fb01cd7dc90d5d78ba51b58d"
+  tag: "3.8.2.0@sha256:7df4de0d7e82c51457402b37211c5560280965145e8e9b1d995727d810e46c16"
 
 hostPaths:
   - name: config
