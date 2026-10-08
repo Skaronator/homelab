@@ -9,6 +9,9 @@ ports:
 health:
   path: /api/tags
 
+envs:
+  - OLLAMA_NUM_CTX: 8192
+
 hostPaths:
   - name: data
     hostPath: /srv/nvme/container-data/ollama
