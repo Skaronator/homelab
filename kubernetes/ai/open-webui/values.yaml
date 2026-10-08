@@ -1,0 +1,18 @@
+image:
+  repository: "ghcr.io/open-webui/open-webui"
+  tag: "v0.11.4"
+
+ports:
+  - name: main
+    containerPort: 3000
+
+health:
+  path: /
+
+gateway:
+  host: chat.wagner.gg
+
+hostPaths:
+  - name: data
+    hostPath: /srv/nvme/container-data/open-webui
+    containerPath: /app/backend/data
