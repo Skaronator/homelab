@@ -18,6 +18,7 @@ hostPaths:
     containerPath: /app/backend/data
 
 envs:
+  - WEBUI_URL: https://chat.wagner.gg
   - ENABLE_OAUTH_SIGNUP: true
   - OAUTH_CLIENT_ID: 4e54cd8f-f2f7-476c-9b01-8c53495eea10
   - OAUTH_PROVIDER_NAME: Pocket ID
@@ -32,6 +33,7 @@ envs:
   - OAUTH_SCOPES: openid email profile groups
   - DEFAULT_USER_ROLE: user
   - ENABLE_LOGIN_FORM: false
+  - ENABLE_SIGNUP: false
   - OAUTH_UPDATE_PICTURE_ON_LOGIN: true
 
 secretEnvs:
