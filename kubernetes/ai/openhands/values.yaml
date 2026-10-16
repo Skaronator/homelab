@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/openhands/agent-canvas"
-  tag: "1.27.1"
+  tag: "1.27.1@sha256:91b7a217dcbefe8c10562523b043458ed1dfaf8ba770194b319fe754cee03f23"
 
 ports:
   - name: main
