@@ -3,27 +3,28 @@ schedule: "0 4 * * *"
 envs:
   - GRAPHQL_QUERY: >
       mutation {
-        metadataIdentify(
-          input: {
-            sources: [
-              { source: { stash_box_endpoint: \"https://stashdb.org/graphql\" } }
-              {
-                source: { scraper_id: \"builtin_autotag\" }
-                options: {
-                  setCoverImage: null
-                  setOrganized: false
-                  includeMalePerformers: null
-                  skipMultipleMatchTag: null
-                  skipSingleNamePerformerTag: null
-                }
-              }
+        metadataIdentify(input: {
+          sources: [
+            { source: { stash_box_endpoint: \"https://stashdb.org/graphql\" } }
+            { source: { stash_box_endpoint: \"https://theporndb.net/graphql\" } }
+            { source: { stash_box_endpoint: \"https://pmvstash.org/graphql\" } }
+            { source: { stash_box_endpoint: \"https://fansdb.cc/graphql\" } }
+          ]
+          options: {
+            fieldOptions: [
+              { field: \"title\", strategy: MERGE, createMissing: null }
+              { field: \"studio\", strategy: MERGE, createMissing: true }
+              { field: \"tags\", strategy: MERGE, createMissing: true }
+              { field: \"performers\", strategy: MERGE, createMissing: true }
             ]
-            options: {
-              setOrganized: false
-              skipMultipleMatches: true
-              skipMultipleMatchTag: null
-              skipSingleNamePerformerTag: null
-            }
+            setCoverImage: true
+            setOrganized: true
+            performerGenders: []
+            skipMultipleMatches: true
+            skipMultipleMatchTag: null
+            skipSingleNamePerformers: true
+            skipSingleNamePerformerTag: null
           }
-        )
+          paths: []
+        })
       }

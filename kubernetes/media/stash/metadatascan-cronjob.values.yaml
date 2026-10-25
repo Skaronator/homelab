@@ -25,4 +25,35 @@ envs:
           interactiveHeatmapsSpeeds: true,
           clipPreviews: false
         })
+        metadataIdentify(input: {
+          sources: [{
+            source: { scraper_id: \"cmst-dl\" }
+            options: {
+              fieldOptions: []
+              setCoverImage: null
+              setOrganized: null
+              performerGenders: []
+              skipMultipleMatches: false
+              skipMultipleMatchTag: null
+              skipSingleNamePerformers: null
+              skipSingleNamePerformerTag: null
+            }
+          }]
+          options: {
+            fieldOptions: [
+              { field: \"title\", strategy: MERGE, createMissing: null }
+              { field: \"studio\", strategy: MERGE, createMissing: true }
+              { field: \"tags\", strategy: MERGE, createMissing: true }
+              { field: \"performers\", strategy: MERGE, createMissing: true }
+            ]
+            setCoverImage: true
+            setOrganized: true
+            performerGenders: []
+            skipMultipleMatches: true
+            skipMultipleMatchTag: null
+            skipSingleNamePerformers: true
+            skipSingleNamePerformerTag: null
+          }
+          paths: []
+        })
       }
