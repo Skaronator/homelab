@@ -4,9 +4,7 @@ envs:
   - GRAPHQL_QUERY: >
       mutation {
         metadataScan(input: {
-          scanGenerateClipPreviews: false,
           scanGenerateCovers: true,
-          scanGenerateImagePreviews: false,
           scanGeneratePhashes: true,
           scanGeneratePreviews: true,
           scanGenerateSprites: true,
@@ -16,44 +14,21 @@ envs:
           covers: true,
           sprites: true,
           previews: true,
-          imagePreviews: false,
           markers: true,
-          markerImagePreviews: false,
-          markerScreenshots: false,
-          transcodes: false,
           phashes: true,
-          interactiveHeatmapsSpeeds: true,
-          clipPreviews: false
+          interactiveHeatmapsSpeeds: true
         })
         metadataIdentify(input: {
-          sources: [{
-            source: { scraper_id: \"cmst-dl\" }
-            options: {
-              fieldOptions: []
-              setCoverImage: null
-              setOrganized: null
-              performerGenders: []
-              skipMultipleMatches: false
-              skipMultipleMatchTag: null
-              skipSingleNamePerformers: null
-              skipSingleNamePerformerTag: null
-            }
-          }]
+          sources: [{ source: { scraper_id: \"cmst-dl\" } }]
           options: {
             fieldOptions: [
-              { field: \"title\", strategy: MERGE, createMissing: null }
               { field: \"studio\", strategy: MERGE, createMissing: true }
               { field: \"tags\", strategy: MERGE, createMissing: true }
               { field: \"performers\", strategy: MERGE, createMissing: true }
             ]
-            setCoverImage: true
             setOrganized: true
-            performerGenders: []
-            skipMultipleMatches: true
-            skipMultipleMatchTag: null
+            skipMultipleMatches: false
             skipSingleNamePerformers: true
-            skipSingleNamePerformerTag: null
           }
-          paths: []
         })
       }
