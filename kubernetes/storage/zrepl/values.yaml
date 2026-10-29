@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/tuxcrate/zrepl"
-  tag: "0.7.0-r15@sha256:8f6a4dafff27ea63d3c5fa14d9ed0cd0e5d7309775edce8cc8fa6222ab362a98"
+  tag: "0.7.0-r16@sha256:663fe134fc96f67b038b276f0779091535f1590a659af78f04b96144ad321643"
 
 securityContext:
   privileged: true
