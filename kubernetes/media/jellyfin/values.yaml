@@ -5,6 +5,9 @@ image:
 ports:
   - name: main
     containerPort: 8096
+  - name: discovery
+    containerPort: 7359
+    hostPort: 7359
 
 gateway:
   host: jellyfin.wagner.gg
