@@ -8,6 +8,7 @@ ports:
   - name: discovery
     containerPort: 7359
     hostPort: 7359
+    protocol: UDP
 
 gateway:
   host: jellyfin.wagner.gg
