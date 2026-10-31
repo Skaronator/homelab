@@ -1,0 +1,11 @@
+image:
+  repository: "ghcr.io/taxel/plextraktsync"
+  tag: "0.35.22"
+
+health:
+  enabled: false
+
+hostPaths:
+  - name: config
+    hostPath: /srv/nvme/container-data/plex-trakt-sync
+    containerPath: /app/config
