@@ -2,6 +2,10 @@ image:
   repository: "ghcr.io/taxel/plextraktsync"
   tag: "0.35.22"
 
+command:
+  - sleep
+  - 365d
+
 health:
   enabled: false
 
