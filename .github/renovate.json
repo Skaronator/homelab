@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["mergeConfidence:all-badges", "config:recommended", ":disableRateLimiting"],
+  "extends": ["mergeConfidence:all-badges", "config:recommended", ":disableRateLimiting", "github>tuxcrate/renovate-config:tuxcrate"],
   "timezone": "Europe/Berlin",
   "automergeSchedule": ["after 3am", "before 6am"],
   "rebaseWhen": "conflicted",
@@ -38,12 +38,6 @@
     {
       "matchPackageNames": ["plexinc/pms-docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)\\-(?<revision>\\w+)$"
-    },
-    {
-      "description": "Treat Tuxcrate image revisions as patch updates",
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["ghcr.io/tuxcrate/**"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-r(?<build>\\d+)$"
     },
     {
       "matchPackageNames": ["fireflyiii/**"],

@@ -1,6 +1,6 @@
 image:
-  repository: "ghcr.io/hotio/prowlarr"
-  tag: "release-2.7.0.5723@sha256:e10b98d596cefc8e95daeec1a0868c09acd07e31252e14f62f0dc70db0326812"
+  repository: "ghcr.io/tuxcrate/prowlarr"
+  tag: "2.7.0.5723-r3@sha256:46cc0e7fd999403d72878b8d4cd0242a1a6f5b246d3a1ae6fd7c4f12c2cf9748"
 
 ports:
   - name: main
@@ -9,9 +9,10 @@ ports:
 gateway:
   host: prowlarr.wagner.gg
 
-envs:
-  - PUID: 5000
-  - PGID: 5000
+securityContext:
+  runAsUser: 5000
+  runAsGroup: 5000
+  runAsNonRoot: true
 
 hostPaths:
   - name: config

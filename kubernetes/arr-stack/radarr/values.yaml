@@ -1,6 +1,6 @@
 image:
-  repository: "ghcr.io/hotio/radarr"
-  tag: "release-6.4.4.10685@sha256:4e13a3356643c03b2b879690d39a526b94d7a23fe63da4072427803d94180396"
+  repository: "ghcr.io/tuxcrate/radarr"
+  tag: "6.4.4.10685-r11@sha256:a22457695e0d67cbfe3c31056a13c64f50dca7aceff0ba338a50ee63b6c75575"
 
 ports:
   - name: main
@@ -9,9 +9,10 @@ ports:
 gateway:
   host: radarr.wagner.gg
 
-envs:
-  - PUID: 5000
-  - PGID: 5000
+securityContext:
+  runAsUser: 5000
+  runAsGroup: 5000
+  runAsNonRoot: true
 
 hostPaths:
   - name: config

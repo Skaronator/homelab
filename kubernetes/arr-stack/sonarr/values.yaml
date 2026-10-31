@@ -1,6 +1,6 @@
 image:
-  repository: "ghcr.io/hotio/sonarr"
-  tag: "release-4.0.20.3014@sha256:872afba91e419bf4b36673fb5afce838d9648ef6029551224e74a13911615521"
+  repository: "ghcr.io/tuxcrate/sonarr"
+  tag: "4.0.20.3014-r15@sha256:ac72586474e27fce807f86363f149bbd27c9693945174a9308055ea6389d1111"
 
 ports:
   - name: main
@@ -9,9 +9,10 @@ ports:
 gateway:
   host: sonarr.wagner.gg
 
-envs:
-  - PUID: 5000
-  - PGID: 5000
+securityContext:
+  runAsUser: 5000
+  runAsGroup: 5000
+  runAsNonRoot: true
 
 hostPaths:
   - name: config
