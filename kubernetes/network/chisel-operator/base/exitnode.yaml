@@ -22,4 +22,4 @@ spec:
   port: 9090
   default_route: true
   auth: vps-exit-node-auth
-  chisel_image: ghcr.io/skaronator/chisel:1.11.3-skn@sha256:f23a62a00d7d2f194acab4ba644eecfbabaf20a038049d8259554f5b99cd997c
+  chisel_image: ghcr.io/skaronator/chisel:1.12.0-skn@sha256:89f7b93dd6d3fa5ff7e2a448bf06ff65c47f1478352c6b6cd70e66c9af91c174
