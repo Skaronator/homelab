@@ -1,12 +1,23 @@
 image:
   repository: "ghcr.io/tuxcrate/zrepl"
-  tag: "0.7.0-r19@sha256:a81d625c7efc5e403481738324ada410ccd85c9952c8044de8e995430cf9f914"
+  tag: "pr-18-stable@sha256:4ea7429d44b07cc03e1977a4dffdeb2fdb2882398e8f684920d174165d46d9cc"
 
+# Delegate snapshot and destroy permissions to host UID 1000 for the selected datasets.
 securityContext:
-  privileged: true
+  runAsUser: 1000
+  runAsGroup: 1000
+  runAsNonRoot: true
+  privileged: false
+  allowPrivilegeEscalation: false
   capabilities:
-    add:
-      - SYS_ADMIN
+    drop:
+      - ALL
+
+hostPaths:
+  - name: zfs
+    hostPath: /dev/zfs
+    containerPath: /dev/zfs
+    type: CharDevice
 
 configMaps:
   - name: config
