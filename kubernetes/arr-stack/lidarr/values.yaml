@@ -1,6 +1,6 @@
 image:
-  repository: "ghcr.io/hotio/lidarr"
-  tag: "release-3.1.6.5079@sha256:b42de4fad70771133180518c34e80bd0372d7c763a2d369df4c32c309c4d14df"
+  repository: "ghcr.io/tuxcrate/lidarr"
+  tag: "3.1.6.5079-r0@sha256:cba3c50e7c595d690a4e27add42beda12a01fde218ed72d5e9c5a10c2fa035ed"
 
 ports:
   - name: main
@@ -9,9 +9,10 @@ ports:
 gateway:
   host: lidarr.wagner.gg
 
-envs:
-  - PUID: 5000
-  - PGID: 5000
+securityContext:
+  runAsUser: 5000
+  runAsGroup: 5000
+  runAsNonRoot: true
 
 hostPaths:
   - name: config
