@@ -28,7 +28,7 @@ envs:
             ]
             setOrganized: true
             skipMultipleMatches: false
-            skipSingleNamePerformers: true
+            skipSingleNamePerformers: false
           }
         })
       }
