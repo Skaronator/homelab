@@ -31,6 +31,29 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 {{- end }}
 
+{{- /* Copy the original routing rules, adding a header-presence match to each.
+     Keep custom public rules (including rules without backends) and their order. */ -}}
+{{- define "generic-service.apiKeyRules" -}}
+{{- $root := .root -}}
+{{- $rules := deepCopy (.rules | default list) -}}
+{{- $backend := dict "name" (include "generic-service.name" $root) "port" (include "generic-service.httpRoutePort" $root | int) -}}
+{{- $rules = append $rules (dict "backendRefs" (list $backend)) -}}
+{{- range $rule := $rules -}}
+  {{- $matches := $rule.matches | default (list (dict)) -}}
+  {{- range $match := $matches -}}
+    {{- $headers := $match.headers | default list -}}
+    {{- range $header := $headers -}}
+      {{- if eq (lower $header.name) "x-api-key" -}}
+        {{- fail "gateway.publicRules must not match X-API-Key when oidc.apiKey is configured" -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $_ := set $match "headers" (append $headers (dict "name" "X-API-Key" "type" "RegularExpression" "value" ".*")) -}}
+  {{- end -}}
+  {{- $_ := set $rule "matches" $matches -}}
+{{- end -}}
+{{- toYaml $rules -}}
+{{- end -}}
+
 {{- define "generic-service.podHealthCheck" -}}
 {{- with .Values.health }}
 {{- if or (eq .type "HTTP") (eq .type "HTTPS") }}

@@ -51,6 +51,9 @@ gateway:
 oidc:
   clientId: ""
   clientSecret: ""
+  # Optional cluster-wide SealedSecret ciphertext, never a plaintext API key.
+  # Requests with X-API-Key use API-key authentication instead of OIDC.
+  apiKey: ""
 
 replicas: 1
 strategyType: Recreate

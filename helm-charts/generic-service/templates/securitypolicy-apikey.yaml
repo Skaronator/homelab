@@ -1,0 +1,52 @@
+{{- if .Values.oidc.apiKey -}}
+{{- if not (and .Values.oidc.clientId .Values.oidc.clientSecret) -}}
+  {{- fail "oidc.apiKey requires oidc.clientId and oidc.clientSecret to protect requests without X-API-Key" -}}
+{{- end -}}
+{{- if not (and .Values.ports .Values.gateway.host) -}}
+  {{- fail "oidc.apiKey requires ports and gateway.host" -}}
+{{- end -}}
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: {{ include "generic-service.name" . }}-apikey
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "generic-service.labels" . | nindent 4 }}
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: {{ include "generic-service.name" . }}-apikey
+    {{- if .Values.gateway.public }}
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: {{ include "generic-service.name" . }}-apikey-public
+    {{- end }}
+  apiKeyAuth:
+    credentialRefs:
+      - group: ""
+        kind: Secret
+        name: {{ include "generic-service.name" . }}-apikey
+    extractFrom:
+      - headers:
+          - X-API-Key
+    sanitize: true
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: {{ include "generic-service.name" . }}-apikey
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+  labels:
+    {{- include "generic-service.labels" . | nindent 4 }}
+spec:
+  encryptedData:
+    api-key: {{ .Values.oidc.apiKey | quote }}
+  template:
+    type: Opaque
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
+{{- end }}

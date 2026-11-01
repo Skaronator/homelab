@@ -1,0 +1,29 @@
+{{- if and .Values.oidc.apiKey .Values.ports .Values.gateway.host -}}
+{{- $root := . -}}
+{{- range $gateway := list "private" "public" -}}
+{{- if or (eq $gateway "private") $root.Values.gateway.public }}
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ include "generic-service.name" $root }}-apikey{{ if eq $gateway "public" }}-public{{ end }}
+  namespace: {{ $root.Release.Namespace }}
+  labels:
+    {{- include "generic-service.labels" $root | nindent 4 }}
+spec:
+  parentRefs:
+    - name: {{ $gateway }}
+      namespace: network
+      kind: Gateway
+      sectionName: https
+  hostnames:
+    - {{ $root.Values.gateway.host }}
+  rules:
+    {{- $rules := list -}}
+    {{- if eq $gateway "public" -}}
+      {{- $rules = $root.Values.gateway.publicRules -}}
+    {{- end }}
+    {{- include "generic-service.apiKeyRules" (dict "root" $root "rules" $rules) | nindent 4 }}
+{{- end }}
+{{- end }}
+{{- end }}
