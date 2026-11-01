@@ -7,11 +7,7 @@ securityContext:
   runAsUser: 1000
   runAsGroup: 1000
   runAsNonRoot: true
-  privileged: false
-  allowPrivilegeEscalation: false
-  capabilities:
-    drop:
-      - ALL
+  privileged: true
 
 hostPaths:
   - name: zfs
