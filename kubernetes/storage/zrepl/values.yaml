@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/tuxcrate/zrepl"
-  tag: "0.7.0-r20@sha256:6010efc7eb54f3691f4547839c8fd5537d0986d5d94a2d2a41ecebd33afd28e1"
+  tag: "0.7.0-r21@sha256:983ba8fff28a17319d109a8fba008f9217d868843856e3ee64b30a341bbc8b24"
 
 # Delegate snapshot and destroy permissions to host UID 1000 for the selected datasets.
 securityContext:
