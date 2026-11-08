@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/tuxcrate/sonarr"
-  tag: "4.0.20.3014-r20@sha256:feeac2f96b37a5d53a50332bd021c029c51c7cd83d5862072611195d0d891dc2"
+  tag: "4.0.20.3014-r21@sha256:2c015111d06cb656aad162560a0c6be2dfc7edc6e693dcb546df5a6f0a100b86"
 
 ports:
   - name: main
