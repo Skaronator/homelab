@@ -11,3 +11,8 @@ hostPaths:
   - name: config
     hostPath: /srv/nvme/container-data/plex-trakt-sync
     containerPath: /app/config
+
+envs:
+  - PLEXAPI_HEADER_DEVICE_NAME: PlexTraktSync
+  - PLEXAPI_HEADER_IDENTIFIER: 6cd720b8-9baa-4242-a0b3-8b676be65c07
+ 
