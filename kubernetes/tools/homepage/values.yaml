@@ -13,7 +13,11 @@ health:
   path: /api/healthcheck
 
 envs:
-  - HOMEPAGE_ALLOWED_HOSTS: home.wagner.gg
+  - POD_IP:
+      valueFrom:
+        fieldRef:
+          fieldPath: status.podIP
+  - HOMEPAGE_ALLOWED_HOSTS: "$(POD_IP):3000,home.wagner.gg"
 
 configMaps:
   - name: bookmarks

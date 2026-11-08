@@ -82,6 +82,12 @@ command: []
 args: []
 
 envs: []
+# - PLAIN_VALUE: example
+# - POD_IP:
+#     valueFrom:
+#       fieldRef:
+#         fieldPath: status.podIP
+# Define referenced variables in earlier list entries for $(NAME) expansion.
 
 secretEnvs: []
 

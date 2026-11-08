@@ -115,7 +115,12 @@ tcpSocket:
 {{- range $k, $v := .Values.envs }}
 {{- range $kk, $vv := $v }}
 - name: {{ $kk | quote }}
+  {{- if kindIs "map" $vv }}
+  valueFrom:
+    {{- required "envs object values must contain valueFrom" $vv.valueFrom | toYaml | nindent 4 }}
+  {{- else }}
   value: {{ $vv | quote }}
+  {{- end }}
 {{- end }}
 {{- end }}
 {{- end }}
