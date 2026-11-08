@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/tuxcrate/radarr"
-  tag: "6.4.4.10685-r16@sha256:6787a6fa04e20d65bcad957562243d65b2f7b6c55b0f06a9c3155f0b71de17ef"
+  tag: "6.4.4.10685-r17@sha256:c40fe177af99cf7dcf643fe156e5eadb9ed3b6d3917b1f3b04d36f78c35ff3d0"
 
 ports:
   - name: main
