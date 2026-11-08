@@ -8,7 +8,7 @@ metadata:
     {{- include "generic-service.labels" . | nindent 4 }}
 data:
 {{- range .Values.configMaps }}
-  {{- if kindIs "map" .content }}
+  {{- if or (kindIs "map" .content) (kindIs "slice" .content) }}
   {{ .subPath | quote }}: |
     {{- toYaml .content | nindent 4 }}
   {{- else }}

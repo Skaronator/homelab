@@ -6,6 +6,13 @@ image:
 serviceAccount:
   annotations: {}
 
+# Rules are bound to the ServiceAccount created by this chart.
+rbac:
+  role:
+    rules: []
+  clusterRole:
+    rules: []
+
 podLabels: {}
 podAnnotations: {}
 

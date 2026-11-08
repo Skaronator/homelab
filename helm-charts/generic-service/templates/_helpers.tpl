@@ -2,6 +2,12 @@
 {{- .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
+{{- define "generic-service.clusterRbacName" -}}
+{{- $identity := printf "%s/%s" .Release.Namespace .Release.Name -}}
+{{- $prefix := printf "%s-%s" .Release.Namespace (include "generic-service.name" .) | trunc 54 | trimSuffix "-" -}}
+{{- printf "%s-%s" $prefix ($identity | sha256sum | trunc 8) -}}
+{{- end }}
+
 
 {{- define "extractLatest" -}}
 {{- $split := splitList ":" . -}}

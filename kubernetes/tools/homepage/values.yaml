@@ -2,92 +2,124 @@ image:
   repository: "ghcr.io/gethomepage/homepage"
   tag: "v2.7.0@sha256:19c5c09184458a41b7b5915e71463a39f36cd33540f41bdbed008791b8182d5f"
 
-config:
-  bookmarks: {}
-  kubernetes:
-    mode: cluster
-    gateway: true
-  services:
-    - "Security & Identity":
-        - Unifi Gateway:
-            description: Firewall
-            href: https://192.168.0.1/network/default/dashboard
-            icon: unifi.svg
-            weight: 3
-        - AdGuard Home:
-            description: DNS Server
-            href: http://192.168.0.2
-            icon: adguard-home.svg
-            weight: 4
-    - "Home & Utilities":
-        - "Home Assistant":
-            description: Smart Home
-            href: http://ha.wagner.gg
-            icon: home-assistant.svg
-            weight: 1
-        - Valetudo:
-            description: Robotic Vacuum
-            href: http://192.168.0.11
-            icon: valetudo.svg
-            weight: 2
-    - Media:
-        - Plex:
-            app: plex
-            description: Media Center
-            href: https://app.plex.tv/desktop
-            icon: plex.svg
-            namespace: media
-            weight: 1
-    - Infrastructure:
-        - Portainer:
-            description: Pi Container Management
-            href: https://192.168.0.2:9443
-            icon: portainer.svg
-            weight: 2
-  settings:
-    color: neutral
-    hideVersion: true
-    iconStyle: theme
-    layout:
-      - Security & Identity:
-          icon: mdi-shield-lock-outline
-      - Personal & Finance:
-          icon: mdi-cash-multiple
-      - Home & Utilities:
-          icon: mdi-home-outline
-      - Files & Docs:
-          icon: mdi-folder-multiple-outline
+ports:
+  - name: main
+    containerPort: 3000
+
+gateway:
+  host: home.wagner.gg
+
+envs:
+  - HOMEPAGE_ALLOWED_HOSTS: home.wagner.gg
+
+configMaps:
+  - name: bookmarks
+    mountPath: /app/config
+    subPath: bookmarks.yaml
+    content: ""
+  - name: docker
+    mountPath: /app/config
+    subPath: docker.yaml
+    content: ""
+  - name: kubernetes
+    mountPath: /app/config
+    subPath: kubernetes.yaml
+    content:
+      mode: cluster
+      gateway: true
+  - name: services
+    mountPath: /app/config
+    subPath: services.yaml
+    content:
+      - "Security & Identity":
+          - Unifi Gateway:
+              description: Firewall
+              href: https://192.168.0.1/network/default/dashboard
+              icon: unifi.svg
+              weight: 3
+          - AdGuard Home:
+              description: DNS Server
+              href: http://192.168.0.2
+              icon: adguard-home.svg
+              weight: 4
+      - "Home & Utilities":
+          - "Home Assistant":
+              description: Smart Home
+              href: http://ha.wagner.gg
+              icon: home-assistant.svg
+              weight: 1
+          - Valetudo:
+              description: Robotic Vacuum
+              href: http://192.168.0.11
+              icon: valetudo.svg
+              weight: 2
       - Media:
-          icon: mdi-filmstrip-box
-      - Manager:
-          icon: mdi-download-multiple
-      - Downloads:
-          icon: mdi-download-outline
+          - Plex:
+              app: plex
+              description: Media Center
+              href: https://app.plex.tv/desktop
+              icon: plex.svg
+              namespace: media
+              weight: 1
       - Infrastructure:
-          icon: mdi-server
-    target: _self
-    theme: dark
-    title: Homelab
-  widgets:
-    - search:
-        provider: google
-        target: _blank
+          - Portainer:
+              description: Pi Container Management
+              href: https://192.168.0.2:9443
+              icon: portainer.svg
+              weight: 2
+  - name: settings
+    mountPath: /app/config
+    subPath: settings.yaml
+    content:
+      color: neutral
+      hideVersion: true
+      iconStyle: theme
+      layout:
+        - Security & Identity:
+            icon: mdi-shield-lock-outline
+        - Personal & Finance:
+            icon: mdi-cash-multiple
+        - Home & Utilities:
+            icon: mdi-home-outline
+        - Files & Docs:
+            icon: mdi-folder-multiple-outline
+        - Media:
+            icon: mdi-filmstrip-box
+        - Manager:
+            icon: mdi-download-multiple
+        - Downloads:
+            icon: mdi-download-outline
+        - Infrastructure:
+            icon: mdi-server
+      target: _self
+      theme: dark
+      title: Homelab
+  - name: widgets
+    mountPath: /app/config
+    subPath: widgets.yaml
+    content:
+      - search:
+          provider: google
+          target: _blank
 
-enableRbac: true
-
-extraClusterRoles:
-  - apiGroups:
-      - gateway.networking.k8s.io
-    resources:
-      - httproutes
-      - gateways
-    verbs:
-      - get
-      - list
-
-serviceAccount:
-  create: true
-
-env:
-  - name: HOMEPAGE_ALLOWED_HOSTS
-    value: home.wagner.gg
+rbac:
+  clusterRole:
+    rules:
+      - apiGroups: [""]
+        resources: [namespaces, pods, nodes]
+        verbs: [get, list]
+      - apiGroups: [extensions, networking.k8s.io]
+        resources: [ingresses]
+        verbs: [get, list]
+      - apiGroups: [traefik.containo.us, traefik.io]
+        resources: [ingressroutes]
+        verbs: [get, list]
+      - apiGroups: [gateway.networking.k8s.io]
+        resources: [httproutes, gateways]
+        verbs: [get, list]
+      - apiGroups: [metrics.k8s.io]
+        resources: [nodes, pods]
+        verbs: [get, list]
+      - apiGroups: [apiextensions.k8s.io]
+        resources: [customresourcedefinitions/status]
+        verbs: [get]
