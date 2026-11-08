@@ -9,6 +9,9 @@ ports:
 gateway:
   host: home.wagner.gg
 
+health:
+  path: /api/healthcheck
+
 envs:
   - HOMEPAGE_ALLOWED_HOSTS: home.wagner.gg
 
