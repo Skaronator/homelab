@@ -20,6 +20,10 @@ envs:
   - HOMEPAGE_ALLOWED_HOSTS: "$(POD_IP):3000,home.wagner.gg"
 
 configMaps:
+  - name: bookmarks
+    mountPath: /app/config
+    subPath: bookmarks.yaml
+    content: ""
   - name: kubernetes
     mountPath: /app/config
     subPath: kubernetes.yaml
