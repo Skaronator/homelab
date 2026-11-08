@@ -1,5 +1,7 @@
 schedule: "0 * * * *"
 
+suspend: true
+
 envs:
   - GRAPHQL_QUERY: >
       mutation {
