@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/tuxcrate/lidarr"
-  tag: "3.1.6.5079-r1@sha256:92a86061cb5c772d64a97f2dea8b2371dcce5f7b17dc70981b9964f52931c7d7"
+  tag: "3.1.6.5079-r2@sha256:0075055b4f91e492a525a8a83de5b0ecc13dda227ddb18f60f15166eeba1aa47"
 
 ports:
   - name: main
