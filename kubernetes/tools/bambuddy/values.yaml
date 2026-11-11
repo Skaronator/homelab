@@ -14,3 +14,9 @@ ports:
 gateway:
   host: bambuddy.wagner.gg
 
+homepage:
+  name: Bambuddy
+  group: Files & Docs
+  description: 3D Printer Manager
+  icon: bambuddy.png
+  weight: 50
