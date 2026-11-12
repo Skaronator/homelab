@@ -10,3 +10,6 @@ hostPaths:
   - name: data
     hostPath: /srv/nvme/container-data/copilot-api
     containerPath: /data
+
+gateway:
+  host: copilot-api.wagner.gg
