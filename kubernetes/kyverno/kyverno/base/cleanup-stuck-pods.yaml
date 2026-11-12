@@ -16,7 +16,7 @@ spec:
         time.now() - timestamp(object.metadata.creationTimestamp) > duration("15m")
     - name: stuck-pods
       expression: |
-        object.status.reason == 'UnexpectedAdmissionError' ||
+        object.status.?reason.orValue('') == 'UnexpectedAdmissionError' ||
         object.status.?initContainerStatuses.orValue([]).exists(s, 
           s.state.?terminated.?reason.orValue('') == 'ContainerStatusUnknown') ||
         object.status.?containerStatuses.orValue([]).exists(s, 
