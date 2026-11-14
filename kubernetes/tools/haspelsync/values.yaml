@@ -14,9 +14,6 @@ ports:
 gateway:
   host: haspelsync.wagner.gg
 
-envs:
-  - ALLOWED_HOSTS: haspelsync.wagner.gg
-
 homepage:
   name: HaspelSync
   group: Files & Docs
