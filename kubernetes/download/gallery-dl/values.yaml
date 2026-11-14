@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/tuxcrate/gallery-dl"
-  tag: "1.32.19-r6@sha256:b38284c8ae7ddacb157fce17ea44827bd38c6d3b2a014907fcca13b873c59180"
+  tag: "1.32.20@sha256:b5f1ec638eff2c2df463ed5bfc9e5e3035dffa3e20086f0d8c7035407c69cec8"
 
 schedule: "0 2 * * *"
 
