@@ -1,7 +1,5 @@
 schedule: "0 * * * *"
 
-suspend: true
-
 envs:
   - GRAPHQL_QUERY: >
       mutation {
@@ -21,6 +19,7 @@ envs:
           interactiveHeatmapsSpeeds: true
         })
         metadataIdentify(input: {
+          paths: [\"/data/cmst-dl\"]
           sources: [{ source: { scraper_id: \"cmst-dl\" } }]
           options: {
             fieldOptions: [
