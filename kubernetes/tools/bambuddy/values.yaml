@@ -18,5 +18,5 @@ homepage:
   name: Bambuddy
   group: Files & Docs
   description: 3D Printer Manager
-  icon: bambuddy.png
+  icon: sh-bambuddy.png
   weight: 50
