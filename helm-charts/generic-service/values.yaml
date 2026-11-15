@@ -40,6 +40,25 @@ service:
   loadBalancerIP: ""
   loadBalancerClass: ""
 
+# Additional Services select the same pods without exposing these ports on the
+# main Service. Port ranges are inclusive and use the same port on the pod.
+additionalServices: []
+# - name: printer
+#   type: LoadBalancer
+#   loadBalancerClass: metallb
+#   loadBalancerIP: 192.168.0.251
+#   externalTrafficPolicy: Cluster
+#   ports:
+#     - name: mqtt
+#       port: 8883
+#       targetPort: 8883 # Optional; defaults to port.
+#       protocol: TCP # Optional; defaults to TCP.
+#   portRanges:
+#     - name: ftp # Prefix; <name>-<port> must fit in 15 characters.
+#       start: 50000
+#       end: 50100
+#       protocol: TCP # Optional; defaults to TCP.
+
 health:
   enabled: true
   startupProbeSeconds: 60

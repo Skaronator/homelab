@@ -11,6 +11,29 @@ ports:
   - name: main
     containerPort: 8000
 
+additionalServices:
+  - name: virtual-printer
+    type: LoadBalancer
+    loadBalancerClass: metallb
+    loadBalancerIP: 192.168.0.251
+    ports:
+      - { name: bind, port: 3000 }
+      - { name: bind-alt, port: 3002 }
+      # Unicast only; multicast SSDP discovery requires host networking.
+      - { name: ssdp, port: 2021, protocol: UDP }
+      - { name: mqtt, port: 8883 }
+      - { name: transfer, port: 6000 }
+      - { name: camera, port: 322 }
+      - { name: ftps, port: 990 }
+    portRanges:
+      # Proxy mode needs 50000-50100; server mode uses 10 ports per VP.
+      - { name: ftp, start: 50000, end: 50100 }
+
+# MetalLB forwards to the pod, so advertise the external address to slicers.
+envs:
+  - VIRTUAL_PRINTER_ADVERTISE_ADDRESS: 192.168.0.251
+  - VIRTUAL_PRINTER_PASV_ADDRESS: 192.168.0.251
+
 gateway:
   host: bambuddy.wagner.gg
 

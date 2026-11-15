@@ -1,0 +1,53 @@
+{{- $root := . -}}
+{{- range .Values.additionalServices }}
+{{- $service := . }}
+{{- if not (or .ports .portRanges) }}
+  {{- fail (printf "additional service %s must have ports or portRanges" .name) }}
+{{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "generic-service.name" $root }}-{{ required "additionalServices[].name is required" .name }}
+  namespace: {{ $root.Release.Namespace }}
+  labels:
+    {{- include "generic-service.labels" $root | nindent 4 }}
+spec:
+  type: {{ .type | default "ClusterIP" }}
+  {{- with .externalTrafficPolicy }}
+  externalTrafficPolicy: {{ . }}
+  {{- end }}
+  {{- with .loadBalancerIP }}
+  loadBalancerIP: {{ . }}
+  {{- end }}
+  {{- with .loadBalancerClass }}
+  loadBalancerClass: {{ . }}
+  {{- end }}
+  ports:
+  {{- range .ports }}
+    - name: {{ required "additionalServices[].ports[].name is required" .name }}
+      port: {{ required "additionalServices[].ports[].port is required" .port }}
+      targetPort: {{ .targetPort | default .port }}
+      protocol: {{ .protocol | default "TCP" }}
+  {{- end }}
+  {{- range .portRanges }}
+    {{- $name := required "additionalServices[].portRanges[].name is required" .name }}
+    {{- $start := int (required "additionalServices[].portRanges[].start is required" .start) }}
+    {{- $end := int (required "additionalServices[].portRanges[].end is required" .end) }}
+    {{- if or (lt $start 1) (gt $end 65535) (gt $start $end) }}
+      {{- fail (printf "invalid port range %d-%d in additional service %s" $start $end $service.name) }}
+    {{- end }}
+    {{- if gt (len (printf "%s-%d" $name $end)) 15 }}
+      {{- fail (printf "port range name %s is too long in additional service %s" $name $service.name) }}
+    {{- end }}
+    {{- $protocol := .protocol | default "TCP" }}
+    {{- range $port := untilStep $start (add1 $end | int) 1 }}
+    - name: {{ $name }}-{{ $port }}
+      port: {{ $port }}
+      targetPort: {{ $port }}
+      protocol: {{ $protocol }}
+    {{- end }}
+  {{- end }}
+  selector:
+    {{- include "generic-service.selectorLabels" $root | nindent 4 }}
+{{- end }}
