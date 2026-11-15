@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/maziggy/bambuddy"
-  tag: "daily"
+  tag: "daily@sha256:5b600ec3ea1e2b8b1d4a9178e1e10bf45126ee1a00229b7915b0685da03f0b83"
 
 hostPaths:
   - name: data
