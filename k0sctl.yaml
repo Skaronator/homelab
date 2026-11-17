@@ -7,7 +7,10 @@ spec:
     version: v1.37.2+k0s.1
     config:
       spec:
+        api:
+          address: 192.168.0.5
         network:
+          primaryAddressFamily: IPv4
           serviceCIDR: 10.96.0.0/12
           podCIDR: 10.244.0.0/16
         telemetry:
