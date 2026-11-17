@@ -14,6 +14,9 @@ metadata:
     {{- include "generic-service.labels" $root | nindent 4 }}
 spec:
   type: {{ .type | default "ClusterIP" }}
+  {{- if eq (.type | default "ClusterIP") "LoadBalancer" }}
+  allocateLoadBalancerNodePorts: false
+  {{- end }}
   {{- with .externalTrafficPolicy }}
   externalTrafficPolicy: {{ . }}
   {{- end }}
