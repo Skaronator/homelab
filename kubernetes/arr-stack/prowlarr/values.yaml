@@ -1,6 +1,6 @@
 image:
   repository: "ghcr.io/tuxcrate/prowlarr"
-  tag: "2.7.0.5723-r11@sha256:6a24bf22a42b5e10c51bc9a54f72dbe88824d43ed7637f54f96e923c08fa1451"
+  tag: "3.0.2.5780@sha256:fcc266c08878978112c96e419dacc90a2a02d6a5247afe12737a26e5bf6b3f0a"
 
 ports:
   - name: main
