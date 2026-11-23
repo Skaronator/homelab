@@ -1,6 +1,6 @@
 image:
   repository: "fireflyiii/data-importer"
-  tag: "version-2.3.5@sha256:59f2f26ddf6eb55e84ce0d571259c9aabd6ddfcc23dd4d3825ab01ad79e34930"
+  tag: "version-2.3.5@sha256:ed964a235ed215d3b7f314d73122e2bb9adb9577889face56b72c1f5ddbd67eb"
 
 ports:
   - name: main
