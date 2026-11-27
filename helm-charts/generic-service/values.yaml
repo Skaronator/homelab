@@ -65,6 +65,9 @@ health:
   port: main
   type: HTTP
   path: /
+  httpHeaders: []
+  # - name: Host
+  #   value: example.com
 
 gateway:
   host: ""

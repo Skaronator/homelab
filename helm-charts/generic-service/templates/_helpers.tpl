@@ -67,6 +67,10 @@ httpGet:
   path: {{ .path }}
   port: {{ .port }}
   scheme: {{ .type }}
+  {{- with .httpHeaders }}
+  httpHeaders:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 {{- end }}
 {{- if eq .type "TCP" }}
 tcpSocket:

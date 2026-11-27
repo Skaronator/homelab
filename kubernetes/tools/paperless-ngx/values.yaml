@@ -22,6 +22,11 @@ ports:
   - name: main
     containerPort: 8000
 
+health:
+  httpHeaders:
+    - name: Host
+      value: paperless.wagner.gg
+
 gateway:
   host: paperless.wagner.gg
 
